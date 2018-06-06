@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="Список" id="1">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокExtendedTooltip" id="32"/>
+			<SearchStringAddition name="СписокSearchString" id="33">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокSearchStringContextMenu" id="34"/>
+				<ExtendedTooltip name="СписокSearchStringExtendedTooltip" id="35"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокViewStatus" id="36">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокViewStatusContextMenu" id="37"/>
+				<ExtendedTooltip name="СписокViewStatusExtendedTooltip" id="38"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокSearchControl" id="39">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокSearchControlContextMenu" id="40"/>
+				<ExtendedTooltip name="СписокSearchControlExtendedTooltip" id="41"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="СерверВнешнейИБ" id="4">
+					<DataPath>Список.СерверВнешнейИБ</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="СерверВнешнейИБКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="СерверВнешнейИБExtendedTooltip" id="42"/>
+				</LabelField>
+				<LabelField name="ИмяВнешнейИБ" id="6">
+					<DataPath>Список.ИмяВнешнейИБ</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="ИмяВнешнейИБКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="ИмяВнешнейИБExtendedTooltip" id="43"/>
+				</LabelField>
+				<LabelField name="ПользовательВнешнейИБ" id="8">
+					<DataPath>Список.ПользовательВнешнейИБ</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="ПользовательВнешнейИБКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="ПользовательВнешнейИБExtendedTooltip" id="44"/>
+				</LabelField>
+				<LabelField name="ПарольВнешнейИБ" id="10">
+					<DataPath>Список.ПарольВнешнейИБ</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<PasswordMode>true</PasswordMode>
+					<ContextMenu name="ПарольВнешнейИБКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="ПарольВнешнейИБExtendedTooltip" id="45"/>
+				</LabelField>
+				<CheckBoxField name="ВестиИсториюИзменений" id="12">
+					<DataPath>Список.ВестиИсториюИзменений</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ВестиИсториюИзмененийКонтекстноеМеню" id="13"/>
+					<ExtendedTooltip name="ВестиИсториюИзмененийExtendedTooltip" id="46"/>
+				</CheckBoxField>
+				<LabelField name="ПараметрУникальностиИмяБазы" id="30">
+					<DataPath>Список.ПараметрУникальностиИмяБазы</DataPath>
+					<ContextMenu name="ПараметрУникальностиИмяБазыКонтекстноеМеню" id="31"/>
+					<ExtendedTooltip name="ПараметрУникальностиИмяБазыExtendedTooltip" id="47"/>
+				</LabelField>
+				<CheckBoxField name="ИспользоватьПараметрУникальностиИБ" id="26">
+					<DataPath>Список.ИспользоватьПараметрУникальностиИБ</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ИспользоватьПараметрУникальностиИБКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ИспользоватьПараметрУникальностиИБExtendedTooltip" id="48"/>
+				</CheckBoxField>
+				<CheckBoxField name="РегистрироватьВходыИВыходыПользователей" id="14">
+					<DataPath>Список.РегистрироватьВходыИВыходыПользователей</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РегистрироватьВходыИВыходыПользователейКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="РегистрироватьВходыИВыходыПользователейExtendedTooltip" id="49"/>
+				</CheckBoxField>
+				<LabelField name="ПараметрУникальностиСписокСерверов" id="28">
+					<DataPath>Список.ПараметрУникальностиСписокСерверов</DataPath>
+					<ContextMenu name="ПараметрУникальностиСписокСерверовКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="ПараметрУникальностиСписокСерверовExtendedTooltip" id="50"/>
+				</LabelField>
+				<LabelField name="НеРегистрируемыеОбъекты" id="18">
+					<DataPath>~Список.НеРегистрируемыеОбъекты</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="НеРегистрируемыеОбъектыКонтекстноеМеню" id="19"/>
+					<ExtendedTooltip name="НеРегистрируемыеОбъектыExtendedTooltip" id="51"/>
+				</LabelField>
+				<LabelField name="НеРегистрируемыеРеквизиты" id="20">
+					<DataPath>~Список.НеРегистрируемыеРеквизиты</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="НеРегистрируемыеРеквизитыКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="НеРегистрируемыеРеквизитыExtendedTooltip" id="52"/>
+				</LabelField>
+				<LabelField name="ДавностьПросмотраВЖурналеПоУмолчанию" id="22">
+					<DataPath>Список.ДавностьПросмотраВЖурналеПоУмолчанию</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="ДавностьПросмотраВЖурналеПоУмолчаниюКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="ДавностьПросмотраВЖурналеПоУмолчаниюExtendedTooltip" id="53"/>
+				</LabelField>
+				<LabelField name="Версия" id="24">
+					<DataPath>Список.Версия</DataPath>
+					<ContextMenu name="ВерсияКонтекстноеМеню" id="25"/>
+					<ExtendedTooltip name="ВерсияExtendedTooltip" id="54"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>InformationRegister.внНастройкиЖурналаРегистрации</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+</Form>

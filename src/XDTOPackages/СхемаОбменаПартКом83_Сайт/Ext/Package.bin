@@ -1,0 +1,552 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema">
+	<import namespace="http://v8.1c.ru/8.1/data/core"/>
+	<objectType name="Объекты" ordered="false">
+		<property name="Объект" type="xs:anyType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СообщениеОбмена" ordered="false">
+		<property name="ПланОбмена" type="xs:string"/>
+		<property name="Отправитель" type="xs:int"/>
+		<property name="Получатель" type="xs:int"/>
+		<property name="НомерСообщения" type="xs:int"/>
+		<property name="НомерПринятого" type="xs:int"/>
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="Объекты" type="d3p1:Объекты"/>
+	</objectType>
+	<objectType name="Ошибки">
+		<property name="Ошибка" type="xs:anyType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="УдалениеОбъекта" ordered="false">
+		<property name="ТипОбъекта" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+	</objectType>
+	<objectType name="Справочники.Изготовители" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="Код" type="xs:int"/>
+		<property name="Наименование" type="xs:string"/>
+	</objectType>
+	<objectType name="Справочники.Номенклатура" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="Наименование" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Изготовитель" type="d3p1:UUID"/>
+		<property name="Артикул" type="xs:string"/>
+	</objectType>
+	<objectType name="Справочники.Контрагенты">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="НаименованиеПолное" type="xs:string"/>
+		<property name="ИНН" type="xs:long"/>
+		<property name="Телефоны" type="xs:string"/>
+		<property name="АдресФактический" type="xs:string"/>
+		<property name="АдресЮридический" type="xs:string"/>
+		<property name="ЭлектроннаяПочта" type="xs:string"/>
+		<property name="Код" type="xs:string"/>
+		<property name="Банк" type="xs:int"/>
+		<property name="РасчетныйСчет" type="xs:string"/>
+		<property name="КодыПрайсов" type="xs:int"/>
+		<property name="МенеджерКод" type="xs:string"/>
+		<property name="МенеджерНаименование" type="xs:string"/>
+		<property name="ПроцентОтклоненияЦенПрихода" type="xs:double"/>
+		<property name="date_add" type="xs:dateTime"/>
+	</objectType>
+	<objectType name="Справочники.ДоговорыКонтрагентов">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="Код" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="ОрганизацияUUID" type="d3p1:UUID"/>
+		<property name="ОрганизацияКод" type="xs:string"/>
+		<property name="КонтрагентЛогин" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="КонтрагентUUID" type="d3p1:UUID"/>
+		<property name="НомерДоговора" type="xs:string"/>
+		<property name="ДатаДоговора" type="xs:dateTime"/>
+		<property name="Заблокирован" type="xs:boolean"/>
+		<property name="Подписан" type="xs:boolean"/>
+		<property name="НаличныйРасчет" type="xs:boolean"/>
+		<property name="Оферта" type="xs:boolean"/>
+		<property name="РасчетПоКалендарнымДням" type="xs:boolean"/>
+		<property name="СуммаКредита" type="xs:double"/>
+		<property name="ДнейКредита" type="xs:int"/>
+		<property name="КредитныйКоэффициент" type="xs:float"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="UUID77" type="d3p1:UUID"/>
+		<property name="СлужебныйДоговор" type="xs:boolean"/>
+	</objectType>
+	<objectType name="Справочники.Организации">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="Код" type="xs:string"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="НаименованиеПолное" type="xs:string"/>
+		<property name="ЮрФизЛицо" type="xs:int"/>
+		<property name="ИНН" type="xs:unsignedLong"/>
+		<property name="КПП" type="xs:unsignedLong"/>
+		<property name="ОГРН" type="xs:unsignedLong"/>
+		<property name="КодИМНС" type="xs:unsignedLong"/>
+		<property name="КодПоОКАТО" type="xs:unsignedLong"/>
+		<property name="КодПоОКТМО" type="xs:unsignedLong"/>
+		<property name="КодПоОКПО" type="xs:unsignedLong"/>
+		<property name="СвидетельствоДатаВыдачи" type="xs:dateTime"/>
+		<property name="СвидетельствоСерияНомер" type="xs:string"/>
+	</objectType>
+	<objectType name="Справочники.ТорговыеТочки" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="Код" type="xs:string"/>
+		<property name="Наименование" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Контрагент" type="d3p1:UUID"/>
+	</objectType>
+	<objectType name="Справочники.Склады" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="Код" type="xs:string"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="ПризнакVMI" type="xs:int"/>
+		<property name="ГородНаименование" type="xs:string"/>
+		<property name="КонтрагентПополненияСкладаЛогин" type="xs:string"/>
+		<property name="КодСайта" type="xs:string"/>
+	</objectType>
+	<objectType name="Справочники.ПрайсыПоставщиков" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="Код" type="xs:string"/>
+		<property name="Наименование" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Склад" type="d3p1:UUID"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Контрагент" type="d3p1:UUID"/>
+	</objectType>
+	<objectType name="ИсторияСтрокЗаявок" ordered="false">
+		<property name="IDSite" type="xs:string"/>
+		<property name="ВерсияДанных" type="xs:dateTime"/>
+		<property name="НомерЗаявки" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Склад" type="d3p1:UUID"/>
+		<property name="Артикул" type="xs:string"/>
+		<property name="Количество" type="xs:int"/>
+		<property name="Цена" type="xs:double"/>
+		<property name="ЗакупочнаяЦена" type="xs:double"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Состояние" type="d3p1:UUID"/>
+	</objectType>
+	<objectType name="Справочники.СостоянияСтрокДокументов" mixed="false" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="Код" type="xs:string"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="КодДляСайта" type="xs:int"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="ВидОтказа" type="d3p1:UUID"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="ВидСостояния" type="d3p1:UUID"/>
+		<property name="НаименованиеДляСайта" type="xs:string"/>
+	</objectType>
+	<objectType name="Справочники.ВидыОтказов" mixed="false" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="Код" type="xs:string"/>
+		<property name="Наименование" type="xs:string"/>
+	</objectType>
+	<objectType name="Справочники.ВидыСостоянийСтрокДокументов" mixed="false" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="Код" type="xs:string"/>
+		<property name="Наименование" type="xs:string"/>
+	</objectType>
+	<objectType name="Справочники.Водители" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="parent_code" type="xs:int"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="parent_uuid" type="d3p1:UUID"/>
+		<property name="driver_code" type="xs:int"/>
+		<property name="is_folder" type="xs:int"/>
+		<property name="name" type="xs:string" lowerBound="0"/>
+		<property name="phone_number" type="xs:string" lowerBound="0"/>
+		<property name="vehicle" type="xs:string" lowerBound="0"/>
+		<property name="vehicle_number" type="xs:string" lowerBound="0"/>
+		<property name="operation_type" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочники.Регионы" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="Код" type="xs:int"/>
+		<property name="Наименование" type="xs:string"/>
+	</objectType>
+	<objectType name="Справочники.Города" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Родитель" type="d3p1:UUID"/>
+		<property name="РодительКод" type="xs:int"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="ЭтоГруппа" type="xs:boolean"/>
+		<property name="Код" type="xs:int"/>
+		<property name="Наименование" type="xs:string"/>
+	</objectType>
+	<objectType name="Справочники.СегментыКонтрагентов" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="Код" type="xs:int"/>
+		<property name="Наименование" type="xs:string"/>
+	</objectType>
+	<objectType name="Справочники.МаршрутыДоставки" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="route_code" type="xs:int"/>
+		<property name="name" type="xs:string" lowerBound="0"/>
+		<property name="parent_code" type="xs:int"/>
+		<property name="is_folder" type="xs:int"/>
+		<property name="operation_type" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="Документы.ЗаказПоставщику" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="order_uuid" type="d3p1:UUID" nillable="true"/>
+		<property name="date_order" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="number" type="xs:string"/>
+		<property name="buyer" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="supplier_code" type="xs:string" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="supplier_uuid" type="d3p1:UUID" lowerBound="0" nillable="true"/>
+		<property name="closed" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="partkom_warehouse" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="single_invoice" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="auto_zeroing" type="xs:int" nillable="true"/>
+		<property name="buyer_inn" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="auto_reject" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="status" type="xs:string" lowerBound="0"/>
+		<property name="delivery_date" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="auction" type="xs:int" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="items" type="d3p1:Документы.ЗаказПоставщику.Товары" lowerBound="1" upperBound="1"/>
+	</objectType>
+	<objectType name="Документы.ЗаказПоставщику.Товары">
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="item" type="d3p1:Документы.ЗаказПоставщику.Товары.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Документы.ЗаказПоставщику.Товары.Строка" ordered="false">
+		<property name="id" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="order_number" type="xs:string"/>
+		<property name="order_no" type="xs:int"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="product_uuid" type="d3p1:UUID" lowerBound="0" nillable="true"/>
+		<property name="product_code" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="product_name" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="articul" type="xs:string"/>
+		<property name="supplier_articul" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="brand" type="xs:string"/>
+		<property name="supplier_brand" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="warehouse_code" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="minimum_party" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="amount" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="price" type="xs:double" lowerBound="0" nillable="true"/>
+		<property name="item_price" type="xs:double" nillable="true"/>
+		<property name="warehouse_name" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="shipped_amount" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="arrived_amount" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="scrapped_amount" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="missing_amount" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="client_reject_amount" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="date_guaranteed" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="item_id" type="xs:string"/>
+		<property name="warehouse_date" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="date_expected" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="replacement_articul" type="xs:string" nillable="true"/>
+		<property name="replacement_brand" type="xs:string" nillable="true"/>
+		<property name="item_price_response" type="xs:double" nillable="true"/>
+		<property name="expected_amount" type="xs:int" nillable="true"/>
+		<property name="shipping_amount" type="xs:int" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="Документы.ПоступлениеТоваровУслуг" ordered="false">
+		<property name="document_date" type="xs:dateTime"/>
+		<property name="buyer_inn" type="xs:string"/>
+		<property name="seller_inn" type="xs:string"/>
+		<property name="supplier_code" type="xs:string"/>
+		<property name="number" type="xs:string"/>
+		<property name="partkom_warehouse" type="xs:int"/>
+		<property name="invoice_id" type="xs:string"/>
+		<property name="export_invoice_id" type="xs:string"/>
+		<property name="order_number" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="order_uuid" type="d3p1:UUID" lowerBound="0" nillable="true"/>
+		<property name="auto_reject" type="xs:int"/>
+		<property name="status" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="doc_date" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="doc_time" type="xs:string" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="items" type="d3p1:Документы.ПоступлениеТоваровУслуг.Товары"/>
+	</objectType>
+	<objectType name="Документы.ПоступлениеТоваровУслуг.Товары.Строка">
+		<property name="invoice_number" type="xs:string"/>
+		<property name="articul" type="xs:string"/>
+		<property name="name" type="xs:string"/>
+		<property name="amount" type="xs:int"/>
+		<property name="tax_rate" type="xs:double"/>
+		<property name="country_code" type="xs:int"/>
+		<property name="country_name" type="xs:string"/>
+		<property name="declaration_number" type="xs:string"/>
+		<property name="cost_with_tax" type="xs:double"/>
+		<property name="order_no" type="xs:int"/>
+		<property name="src_articul" type="xs:string"/>
+		<property name="src_brand" type="xs:string"/>
+		<property name="invoice_id" type="xs:int"/>
+		<property name="export_invoice_id" type="xs:int"/>
+	</objectType>
+	<objectType name="Документы.ПоступлениеТоваровУслуг.Товары">
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="item" type="d3p1:Документы.ПоступлениеТоваровУслуг.Товары.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Документы.ПоступлениеТоваровУслуг_Ошибка">
+		<property name="invoice_id" type="xs:int"/>
+		<property name="doc_date" type="xs:string"/>
+		<property name="doc_time" type="xs:string"/>
+		<property name="error" type="xs:string"/>
+		<property name="number" type="xs:string"/>
+		<property name="status" type="xs:string"/>
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="items" type="d3p1:Документы.ПоступлениеТоваровУслуг_Ошибка_Строки"/>
+	</objectType>
+	<objectType name="Документы.ПоступлениеТоваровУслуг_Ошибка_Строки">
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="item" type="d3p1:Документы.ПоступлениеТоваровУслуг_Ошибка_Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Документы.ПоступлениеТоваровУслуг_Ошибка_Строка">
+		<property name="order_no" type="xs:int"/>
+		<property name="error" type="xs:string"/>
+		<property name="invoice_id" type="xs:int"/>
+		<property name="invoice_number" type="xs:string"/>
+	</objectType>
+	<objectType name="Документы.ЗаявкаПокупателя.Товары.Строка" ordered="false">
+		<property name="id" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="IDSite" type="xs:string" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Номенклатура" type="d3p1:UUID" lowerBound="0" nillable="true"/>
+		<property name="Номенклатура_АртикулПоставщика" type="xs:string" nillable="true"/>
+		<property name="Номенклатура_ИзготовительПоставщика" type="xs:string" nillable="true"/>
+		<property name="Количество" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="Цена" type="xs:double" lowerBound="0" nillable="true"/>
+		<property name="Сумма" type="xs:double" nillable="true"/>
+		<property name="ЦенаЗакупки" type="xs:double" nillable="true"/>
+		<property name="ПрайсПоставщика_Код" type="xs:string" nillable="true"/>
+		<property name="СрокГарантированный" type="xs:dateTime" lowerBound="0" nillable="true" fixed="false"/>
+		<property name="СрокГарантированныйЗаказа" type="xs:dateTime" lowerBound="0" nillable="true" fixed="false"/>
+		<property name="СрокОжидаемый" type="xs:dateTime" lowerBound="0" nillable="true" fixed="false"/>
+		<property name="СрокОжидаемыйЗаказа" type="xs:dateTime" lowerBound="0" nillable="true" fixed="false"/>
+		<property name="КомментарийИзСайта" type="xs:string" nillable="true"/>
+	</objectType>
+	<objectType name="Документы.ЗаявкаПокупателя.Товары">
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="item" type="d3p1:Документы.ЗаявкаПокупателя.Товары.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Документы.ЗаявкаПокупателя" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID" nillable="true"/>
+		<property name="Подтверждена" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="ДоговорКонтрагента" type="d3p1:UUID" nillable="true"/>
+		<property name="ТТ_Логин" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="СкладЦС" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="Самовывоз" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="АукционID" type="xs:int" lowerBound="0"/>
+		<property name="НомерТекущейЗаявкиАукциона" type="xs:int"/>
+		<property name="КоличествоЗаявокВАукционе" type="xs:int"/>
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="items" type="d3p1:Документы.ЗаявкаПокупателя.Товары" lowerBound="1" upperBound="1"/>
+	</objectType>
+	<objectType name="Документы.ЗаявкаПокупателя.Загрузка" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="Ошибка" type="xs:boolean"/>
+		<property name="ТекстОшибки" type="xs:string"/>
+	</objectType>
+	<objectType name="Документы.ЗаявкаПокупателяОтмена" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="IDSite" type="xs:string"/>
+	</objectType>
+	<objectType name="Документы.ЗаявкаПокупателяОтмена.Загрузка" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="IDSite" type="xs:string"/>
+		<property name="Ошибка" type="xs:boolean"/>
+		<property name="ТекстОшибки" type="xs:string"/>
+	</objectType>
+	<objectType name="РегистрыСведений.ТаблицаСостоянийИстория">
+		<property name="Период" type="xs:dateTime"/>
+		<property name="SiteID" type="xs:string"/>
+		<property name="Состояние" type="xs:int"/>
+		<property name="Количество" type="xs:int"/>
+	</objectType>
+	<objectType name="РегистрыНакопления.Взаиморасчеты">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Договор" type="d3p1:UUID"/>
+		<property name="ЭтоДоговор1С77" type="xs:boolean"/>
+		<property name="Сумма" type="xs:double"/>
+	</objectType>
+	<objectType name="РегистрыНакопления.ТоварныеОстатки">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Номенклатура" type="d3p1:UUID"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="ПрайсПоставщика" type="d3p1:UUID"/>
+		<property name="СвободныйОстатокКоличество" type="xs:int"/>
+		<property name="МинимальнаяПартияКоличество" type="xs:int"/>
+		<property name="Цена" type="xs:double"/>
+	</objectType>
+	<objectType name="ExpressDelivery.Init" ordered="false">
+		<property name="express_delivery_request_id" type="xs:string"/>
+		<property name="login" type="xs:string"/>
+		<property name="date_created" type="xs:dateTime"/>
+		<property name="delivery_date" type="xs:dateTime"/>
+		<property name="client_phone" type="xs:string"/>
+		<property name="delivery_address" type="xs:string"/>
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="items" type="d3p1:ExpressDelivery.Items"/>
+	</objectType>
+	<objectType name="ExpressDelivery.Add" ordered="false">
+		<property name="express_delivery_request_id" type="xs:string"/>
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="items" type="d3p1:ExpressDelivery.Items"/>
+	</objectType>
+	<objectType name="ExpressDelivery.DeletePart" ordered="false">
+		<property name="express_delivery_request_id" type="xs:string"/>
+		<property name="delivery_cost" type="xs:int" lowerBound="0"/>
+		<property name="source" type="xs:string"/>
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="items" type="d3p1:ExpressDelivery.Items"/>
+	</objectType>
+	<objectType name="ExpressDelivery.Cancel" ordered="false">
+		<property name="express_delivery_request_id" type="xs:string"/>
+		<property name="source" type="xs:string"/>
+	</objectType>
+	<objectType name="ExpressDelivery.LogistConfirm" ordered="false">
+		<property name="express_delivery_request_id" type="xs:string"/>
+		<property name="route_code" type="xs:int"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="driver_code" type="d3p1:UUID"/>
+		<property name="delivery_cost" type="xs:int"/>
+	</objectType>
+	<objectType name="ExpressDelivery.Items" ordered="false">
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="item" type="d3p1:ExpressDelivery.Item" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ExpressDelivery.Item" ordered="false">
+		<property name="motion_id" type="xs:string"/>
+		<property name="maker_id" type="xs:int" lowerBound="0"/>
+		<property name="number" type="xs:string" lowerBound="0"/>
+		<property name="quantity" type="xs:int" lowerBound="0"/>
+		<property name="price" type="xs:float" lowerBound="0"/>
+		<property name="store_placement" type="xs:int" lowerBound="0"/>
+	</objectType>
+	<objectType name="ExpressDelivery.Log" ordered="false">
+		<property name="express_delivery_request_id" type="xs:string"/>
+		<property name="operation_type" type="xs:string"/>
+		<property name="invoice_number" type="xs:string"/>
+		<property name="error" type="xs:int"/>
+		<property name="description" type="xs:string"/>
+		<property name="source" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="items" type="d3p1:ExpressDelivery.LogItems" lowerBound="0"/>
+	</objectType>
+	<objectType name="ExpressDelivery.LogItems" ordered="false">
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="item" type="d3p1:ExpressDelivery.LogItem" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ExpressDelivery.LogItem" ordered="false">
+		<property name="motion_id" type="xs:string"/>
+		<property name="quantity" type="xs:int" lowerBound="0"/>
+		<property name="quantity_site" type="xs:int" lowerBound="0"/>
+		<property name="error" type="xs:int"/>
+		<property name="description" type="xs:string"/>
+	</objectType>
+	<objectType name="Справочник.Покупатели" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="Логин" type="xs:string"/>
+		<property name="Пароль" type="xs:string"/>
+		<property name="Код" type="xs:string"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="НаименованиеПолное" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Менеджер" type="d3p1:UUID"/>
+		<property name="ЭлектроннаяПочта" type="xs:string"/>
+		<property name="АдресДоставки" type="xs:string"/>
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="КонтактныеЛица" type="d3p1:Справочник.Покупатели.КонтактныеЛица"/>
+		<property name="РегионКод" type="xs:int" lowerBound="0"/>
+		<property name="КоэффициентДоставки" type="xs:float" lowerBound="0"/>
+		<property name="Заблокирован" type="xs:boolean" lowerBound="0"/>
+		<property name="ГруппаКонтрагентаКод" type="xs:int" lowerBound="0"/>
+		<property name="ГруппаКонтрагентаЗаблокировано" type="xs:boolean" lowerBound="0"/>
+		<property name="ГруппаКонтрагентаЗаблокированоДо" type="xs:date"/>
+		<property name="ИНН" type="xs:string"/>
+		<property name="МаршрутДоставкиНаименование" type="xs:string"/>
+		<property name="МаршрутДоставкиКод" type="xs:string"/>
+		<property name="МаршрутДоставки2Код" type="xs:string"/>
+		<property name="ХолдингКод" type="xs:string"/>
+		<property name="ГородКод" type="xs:int"/>
+		<property name="ДатаСоздания" type="xs:date"/>
+		<property name="КлючевойКлиент" type="xs:boolean"/>
+		<property name="СегментКонтрагентаКод" type="xs:int"/>
+		<property name="БанкНаименование" type="xs:string"/>
+		<property name="БанкБИК" type="xs:string"/>
+		<property name="КоррСчет" type="xs:string" lowerBound="0"/>
+		<property name="БанковскийСчет" type="xs:string" lowerBound="0"/>
+		<property name="ДатаБлокировкиОтгрузок" type="xs:dateTime"/>
+		<property name="ДатаБлокировкиЗаказов" type="xs:dateTime"/>
+	</objectType>
+	<objectType name="Справочник.Покупатели.КонтактныеЛица" ordered="false">
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="КонтактноеЛицо" type="d3p1:Справочник.Покупатели.КонтактноеЛицо" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Справочник.Покупатели.КонтактноеЛицо" ordered="false">
+		<property name="ФИО" type="xs:string"/>
+		<property name="ТелефонСотовый" type="xs:string"/>
+		<property name="ТелефонЛичногоКабинета" type="xs:string"/>
+		<property name="Должность" type="xs:string"/>
+	</objectType>
+	<objectType name="Справочник.ГруппыКонтрагентов" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="Код" type="xs:int"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="Приоритет" type="xs:int"/>
+	</objectType>
+	<objectType name="Справочник.Менеджеры" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="Код" type="xs:string"/>
+		<property name="Код77" type="xs:string"/>
+		<property name="ЛогинЭЛМА" type="xs:string"/>
+	</objectType>
+	<objectType name="Справочник.Поставщики" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="Код" type="xs:string"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="НаименованиеПолное" type="xs:string"/>
+		<property name="ИНН" type="xs:string"/>
+		<property name="ЮридическийАдрес" type="xs:string"/>
+		<property name="ФактическийАдрес" type="xs:string"/>
+		<property name="ЭлектроннаяПочта" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="МенеджерСнабжения" type="d3p1:UUID"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="ЗамМенеджераСнабжения" type="d3p1:UUID"/>
+		<property name="ОтсрочкаПлатежа" type="xs:int" lowerBound="0"/>
+		<property name="ОплатаВЛюбойДень" type="xs:boolean" lowerBound="0"/>
+		<property name="БанкНаименование" type="xs:string"/>
+		<property name="БанкБИК" type="xs:string"/>
+		<property name="КоррСчет" type="xs:string" lowerBound="0"/>
+		<property name="БанковскийСчет" type="xs:string" lowerBound="0"/>
+		<property name="РаботаетСОкномПоставщика" type="xs:boolean" lowerBound="0"/>
+		<property name="ПроцентОтклоненияЦенПрихода" type="xs:float" lowerBound="0"/>
+		<property name="ПризнакОферты" type="xs:boolean" lowerBound="0"/>
+		<property name="VMI" type="xs:boolean" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="СкладVMI" type="d3p1:UUID" lowerBound="0"/>
+		<property name="ОтдельныйЗаказ" type="xs:boolean" lowerBound="0"/>
+		<property name="ЭлектроннаяПочтаДляРекламаций" type="xs:string"/>
+		<property name="ДатаСоздания" type="xs:date"/>
+		<property name="CROSS" type="xs:boolean" lowerBound="0"/>
+		<property name="STOCK" type="xs:boolean" lowerBound="0"/>
+		<property name="ГарантийноеПисьмо" type="xs:boolean" lowerBound="0"/>
+		<property name="Организация" type="xs:int" lowerBound="0"/>
+	</objectType>
+	<objectType name="Справочник.ПараметрыФормированияЗаказовПоставщикам" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="ПометкаУдаления" type="xs:boolean"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Поставщик" type="d3p1:UUID"/>
+		<property name="АвтоСозданиеЗаказов" type="xs:boolean"/>
+		<property name="ВремяЗапуска" type="xs:time"/>
+		<property name="ОтдельныйЗаказ" type="xs:boolean"/>
+		<property name="МинСуммаАвтоЗаказа" type="xs:float"/>
+		<property name="ДниНедели1" type="xs:boolean"/>
+		<property name="ДниНедели2" type="xs:boolean"/>
+		<property name="ДниНедели3" type="xs:boolean"/>
+		<property name="ДниНедели4" type="xs:boolean"/>
+		<property name="ДниНедели5" type="xs:boolean"/>
+		<property name="ДниНедели6" type="xs:boolean"/>
+		<property name="ДниНедели7" type="xs:boolean"/>
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="ПрайсыПоставщиков" type="d3p1:ПараметрыФормированияЗаказов.ПрайсыПоставщика"/>
+	</objectType>
+	<objectType name="ПараметрыФормированияЗаказов.ПрайсыПоставщика" ordered="false">
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="ПрайсПоставщикаСсылка" type="d3p1:ПараметрыФормированияЗаказов.ПрайсПоставщика" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ПараметрыФормированияЗаказов.ПрайсПоставщика" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID" lowerBound="1" upperBound="1"/>
+	</objectType>
+	<objectType name="ПрайсыПоставщикаVMI" ordered="false">
+		<property name="ID" type="xs:int" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Поставщик" type="d3p1:UUID"/>
+		<property name="ДатаЗагрузки" type="xs:dateTime" nillable="false"/>
+		<property name="ПрайсыПоставщика" type="xs:string"/>
+	</objectType>
+	<objectType name="ПрайсыПоставщикаVMIЗагрузка" ordered="false">
+		<property name="ID" type="xs:int" lowerBound="0"/>
+		<property name="Ошибка" type="xs:boolean"/>
+		<property name="ТекстОшибки" type="xs:string"/>
+	</objectType>
+	<objectType name="ОтчетПоПродажамVMI" ordered="false">
+		<property name="ID" type="xs:string"/>
+		<property name="ОтчетBase64" type="xs:string"/>
+		<property name="Ошибка" type="xs:boolean"/>
+		<property name="ТекстОшибки" type="xs:string"/>
+	</objectType>
+	<objectType name="ОтчетПоПродажамVMIЗапрос" ordered="false">
+		<property name="ID" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Поставщик" type="d3p1:UUID"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Склад" type="d3p1:UUID" lowerBound="0" nillable="true"/>
+		<property name="НачалоПериода" type="xs:date"/>
+		<property name="КонецПериода" type="xs:date"/>
+	</objectType>
+	<objectType name="ОтчетПоВзаиморасчетамЗапрос" ordered="false">
+		<property name="ID" type="xs:int"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Договор" type="d3p1:UUID"/>
+		<property name="EMail" type="xs:string"/>
+		<property name="НачалоПериода" type="xs:date"/>
+		<property name="КонецПериода" type="xs:date"/>
+	</objectType>
+	<objectType name="ОтчетПоВзаиморасчетам" ordered="false">
+		<property name="ID" type="xs:string"/>
+		<property name="ОтчетBase64" type="xs:string"/>
+		<property name="Ошибка" type="xs:boolean"/>
+		<property name="ТекстОшибки" type="xs:string"/>
+	</objectType>
+</package>

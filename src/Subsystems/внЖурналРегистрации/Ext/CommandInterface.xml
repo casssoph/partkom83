@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CommandInterface xmlns="http://v8.1c.ru/8.3/xcf/extrnprops" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<CommandsVisibility>
+		<Command name="InformationRegister.внНастройкиЖурналаРегистрации.StandardCommand.OpenList">
+			<Visibility>
+				<xr:Common>false</xr:Common>
+				<xr:Value name="Role.внПросмотрЖурналаРегистрации">false</xr:Value>
+				<xr:Value name="32ae740e-5621-405b-af7c-aec0830a7607">false</xr:Value>
+				<xr:Value name="Role.внАдминистраторЖурналаРегистрации">false</xr:Value>
+			</Visibility>
+		</Command>
+		<Command name="0:8e878f70-b848-4c8b-8993-81ab8238898b">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+				<xr:Value name="32ae740e-5621-405b-af7c-aec0830a7607">false</xr:Value>
+				<xr:Value name="Role.внАдминистраторЖурналаРегистрации">true</xr:Value>
+				<xr:Value name="Role.внПросмотрЖурналаРегистрации">true</xr:Value>
+			</Visibility>
+		</Command>
+		<Command name="InformationRegister.внНастройкиЖурналаРегистрации.StandardCommand.Create">
+			<Visibility>
+				<xr:Common>false</xr:Common>
+				<xr:Value name="Role.внПросмотрЖурналаРегистрации">false</xr:Value>
+				<xr:Value name="Role.внАдминистраторЖурналаРегистрации">false</xr:Value>
+				<xr:Value name="32ae740e-5621-405b-af7c-aec0830a7607">false</xr:Value>
+			</Visibility>
+		</Command>
+		<Command name="DataProcessor.внНастройкаЖурналаРегистрации.StandardCommand.Open">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+				<xr:Value name="Role.внПросмотрЖурналаРегистрации">false</xr:Value>
+				<xr:Value name="32ae740e-5621-405b-af7c-aec0830a7607">false</xr:Value>
+				<xr:Value name="Role.внАдминистраторЖурналаРегистрации">true</xr:Value>
+			</Visibility>
+		</Command>
+		<Command name="DataProcessor.внЖурналРегистрации.StandardCommand.Open">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+				<xr:Value name="Role.внПросмотрЖурналаРегистрации">true</xr:Value>
+				<xr:Value name="32ae740e-5621-405b-af7c-aec0830a7607">false</xr:Value>
+				<xr:Value name="Role.внАдминистраторЖурналаРегистрации">true</xr:Value>
+			</Visibility>
+		</Command>
+	</CommandsVisibility>
+	<CommandsOrder>
+		<Command name="InformationRegister.внНастройкиЖурналаРегистрации.StandardCommand.Create">
+			<CommandGroup>ActionsPanelCreate</CommandGroup>
+		</Command>
+		<Command name="1:8e878f70-b848-4c8b-8993-81ab8238898b">
+			<CommandGroup>ActionsPanelCreate</CommandGroup>
+		</Command>
+		<Command name="Report.внАктивностьРаботыПользователей.StandardCommand.Open">
+			<CommandGroup>ActionsPanelReports</CommandGroup>
+		</Command>
+		<Command name="Report.внИсторияИзмененийОбъектов.StandardCommand.Open">
+			<CommandGroup>ActionsPanelReports</CommandGroup>
+		</Command>
+		<Command name="DataProcessor.внНастройкаЖурналаРегистрации.StandardCommand.Open">
+			<CommandGroup>ActionsPanelTools</CommandGroup>
+		</Command>
+		<Command name="DataProcessor.внЖурналРегистрации.StandardCommand.Open">
+			<CommandGroup>ActionsPanelTools</CommandGroup>
+		</Command>
+	</CommandsOrder>
+	<GroupsOrder>
+		<Group>ActionsPanelCreate</Group>
+		<Group>ActionsPanelReports</Group>
+		<Group>ActionsPanelTools</Group>
+	</GroupsOrder>
+</CommandInterface>

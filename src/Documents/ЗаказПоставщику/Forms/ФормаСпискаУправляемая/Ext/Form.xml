@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа пользовательских настроек</v8:content>
+				</v8:item>
+			</Title>
+			<VerticalStretch>false</VerticalStretch>
+			<Group>Vertical</Group>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="2"/>
+		</UsualGroup>
+		<Table name="Список" id="3">
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
+				<ChildItems>
+					<Popup name="ГруппаНавигации" id="75">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Перейти</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа навигации</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ExtendedTooltip name="ГруппаНавигацииРасширеннаяПодсказка" id="76"/>
+						<ChildItems>
+							<Button name="СписокСтруктураПодчинености" id="77">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СтруктураПодчинености</CommandName>
+								<ExtendedTooltip name="СписокСтруктураПодчиненостиРасширеннаяПодсказка" id="78"/>
+							</Button>
+							<Button name="СписокИсторияДокумента" id="79">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ИсторияДокумента</CommandName>
+								<ExtendedTooltip name="СписокИсторияДокументаРасширеннаяПодсказка" id="80"/>
+							</Button>
+							<Button name="СписокДвиженияДокумента" id="81">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ДвиженияДокумента</CommandName>
+								<ExtendedTooltip name="СписокДвиженияДокументаРасширеннаяПодсказка" id="82"/>
+							</Button>
+						</ChildItems>
+					</Popup>
+					<Button name="Обновить" id="83">
+						<Type>CommandBarButton</Type>
+						<Representation>Picture</Representation>
+						<OnlyInAllActions>true</OnlyInAllActions>
+						<CommandName>Form.Item.Список.StandardCommand.Refresh</CommandName>
+						<ExtendedTooltip name="ОбновитьРасширеннаяПодсказка" id="84"/>
+					</Button>
+					<Button name="ПоискПоНомеру" id="87">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПоискПоНомеру</CommandName>
+						<ExtendedTooltip name="ПоискПоНомеруРасширеннаяПодсказка" id="88"/>
+					</Button>
+					<Button name="НастройкаСписка" id="85">
+						<Type>CommandBarButton</Type>
+						<Representation>Picture</Representation>
+						<OnlyInAllActions>true</OnlyInAllActions>
+						<CommandName>Form.Item.Список.StandardCommand.ListSettings</CommandName>
+						<ExtendedTooltip name="НастройкаСпискаРасширеннаяПодсказка" id="86"/>
+					</Button>
+					<Button name="СбросНастроек" id="89">
+						<Type>CommandBarButton</Type>
+						<Representation>Picture</Representation>
+						<OnlyInAllActions>true</OnlyInAllActions>
+						<CommandName>Form.Item.Список.StandardCommand.DynamicListStandardSettings</CommandName>
+						<Picture>
+							<xr:Ref>StdPicture.CancelSearch</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="СбросНастроекРасширеннаяПодсказка" id="90"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="6"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="7">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="8"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="9"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="10">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="11"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="12"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="13">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="14"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="15"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="СтандартнаяКартинка" id="70">
+					<DataPath>Список.DefaultPicture</DataPath>
+					<Visible>false</Visible>
+					<TitleLocation>None</TitleLocation>
+					<ContextMenu name="СтандартнаяКартинкаКонтекстноеМеню" id="71"/>
+					<ExtendedTooltip name="СтандартнаяКартинкаРасширеннаяПодсказка" id="72"/>
+				</LabelField>
+				<LabelField name="СтатусДокумента" id="97">
+					<DataPath>Список.СтатусДокумента</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статус</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="СтатусДокументаКонтекстноеМеню" id="98"/>
+					<ExtendedTooltip name="СтатусДокументаРасширеннаяПодсказка" id="99"/>
+				</LabelField>
+				<LabelField name="Дата" id="16">
+					<DataPath>Список.Дата</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="18"/>
+				</LabelField>
+				<LabelField name="Номер" id="19">
+					<DataPath>Список.Номер</DataPath>
+					<ContextMenu name="НомерКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="21"/>
+				</LabelField>
+				<ColumnGroup name="ГруппаДатаДатаКорректировки" id="109">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата и дата корректировки</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа дата дата корректировки</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<ExtendedTooltip name="ГруппаДатаДатаКорректировкиРасширеннаяПодсказка" id="110"/>
+					<ChildItems>
+						<LabelField name="ДатаКорректировки" id="106">
+							<DataPath>Список.ДатаКорректировки</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДатаКорректировки</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДатаКорректировкиКонтекстноеМеню" id="107"/>
+							<ExtendedTooltip name="ДатаКорректировкиРасширеннаяПодсказка" id="108"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<LabelField name="ВидДокумента" id="103">
+					<DataPath>Список.ВидДокумента</DataPath>
+					<ContextMenu name="ВидДокументаКонтекстноеМеню" id="104"/>
+					<ExtendedTooltip name="ВидДокументаРасширеннаяПодсказка" id="105"/>
+				</LabelField>
+				<LabelField name="Ссылка" id="22">
+					<DataPath>Список.Ref</DataPath>
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документ</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="СсылкаКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="24"/>
+				</LabelField>
+				<LabelField name="Контрагент" id="43">
+					<DataPath>Список.Контрагент</DataPath>
+					<ContextMenu name="КонтрагентКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="45"/>
+				</LabelField>
+				<LabelField name="ДоговорКонтрагента" id="34">
+					<DataPath>Список.ДоговорКонтрагента</DataPath>
+					<ContextMenu name="ДоговорКонтрагентаКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="ДоговорКонтрагентаРасширеннаяПодсказка" id="36"/>
+				</LabelField>
+				<LabelField name="СуммаДокумента" id="61">
+					<DataPath>Список.СуммаДокумента</DataPath>
+					<ContextMenu name="СуммаДокументаКонтекстноеМеню" id="62"/>
+					<ExtendedTooltip name="СуммаДокументаРасширеннаяПодсказка" id="63"/>
+				</LabelField>
+				<LabelField name="Организация" id="49">
+					<DataPath>Список.Организация</DataPath>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="50"/>
+					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="51"/>
+				</LabelField>
+				<LabelField name="Склад" id="55">
+					<DataPath>Список.Склад</DataPath>
+					<ContextMenu name="СкладКонтекстноеМеню" id="56"/>
+					<ExtendedTooltip name="СкладРасширеннаяПодсказка" id="57"/>
+				</LabelField>
+				<LabelField name="Почта" id="94">
+					<DataPath>~Список.Почта</DataPath>
+					<ContextMenu name="ПочтаКонтекстноеМеню" id="95"/>
+					<ExtendedTooltip name="ПочтаРасширеннаяПодсказка" id="96"/>
+				</LabelField>
+				<LabelField name="Менеджер" id="91">
+					<DataPath>Список.Менеджер</DataPath>
+					<ContextMenu name="МенеджерКонтекстноеМеню" id="92"/>
+					<ExtendedTooltip name="МенеджерРасширеннаяПодсказка" id="93"/>
+				</LabelField>
+				<LabelField name="Ответственный" id="52">
+					<DataPath>Список.Ответственный</DataPath>
+					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="53"/>
+					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="54"/>
+				</LabelField>
+				<LabelField name="Филиал" id="67">
+					<DataPath>Список.Филиал</DataPath>
+					<ContextMenu name="ФилиалКонтекстноеМеню" id="68"/>
+					<ExtendedTooltip name="ФилиалРасширеннаяПодсказка" id="69"/>
+				</LabelField>
+				<LabelField name="Аукцион" id="100">
+					<DataPath>Список.Аукцион</DataPath>
+					<ContextMenu name="АукционКонтекстноеМеню" id="101"/>
+					<ExtendedTooltip name="АукционРасширеннаяПодсказка" id="102"/>
+				</LabelField>
+				<LabelField name="Комментарий" id="40">
+					<DataPath>Список.Комментарий</DataPath>
+					<ContextMenu name="КомментарийКонтекстноеМеню" id="41"/>
+					<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="42"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДокументЗаказПоставщику.Ссылка,
+	ДокументЗаказПоставщику.Дата КАК Дата,
+	ДокументЗаказПоставщику.Номер КАК Номер,
+	ДокументЗаказПоставщику.СуммаДокумента КАК СуммаДокументаНачальная,
+	ЕСТЬNULL(ДокументыКорректировокСрезПоследних.ДокументКорректировки, ДокументЗаказПоставщику.Ссылка) КАК Документ,
+	ВЫБОР
+		КОГДА ДокументыКорректировокСрезПоследних.ДокументКорректировки ЕСТЬ NULL
+			ТОГДА "Заказ"
+		ИНАЧЕ "Корректировка"
+	КОНЕЦ КАК ВидДокумента,
+	ЕСТЬNULL(ВЫРАЗИТЬ(ДокументыКорректировокСрезПоследних.ДокументКорректировки КАК Документ.КорректировкаЗаказаПоставщику).Дата, ДокументЗаказПоставщику.Дата) КАК ДатаКорректировки,
+	ЕСТЬNULL(ВЫРАЗИТЬ(ДокументыКорректировокСрезПоследних.ДокументКорректировки КАК Документ.КорректировкаЗаказаПоставщику).Контрагент, ДокументЗаказПоставщику.Контрагент) КАК Контрагент,
+	ЕСТЬNULL(ВЫРАЗИТЬ(ДокументыКорректировокСрезПоследних.ДокументКорректировки КАК Документ.КорректировкаЗаказаПоставщику).ДоговорКонтрагента, ДокументЗаказПоставщику.ДоговорКонтрагента) КАК ДоговорКонтрагента,
+	ЕСТЬNULL(ВЫРАЗИТЬ(ДокументыКорректировокСрезПоследних.ДокументКорректировки КАК Документ.КорректировкаЗаказаПоставщику).Организация, ДокументЗаказПоставщику.Организация) КАК Организация,
+	ЕСТЬNULL(ВЫРАЗИТЬ(ДокументыКорректировокСрезПоследних.ДокументКорректировки КАК Документ.КорректировкаЗаказаПоставщику).Ответственный, ДокументЗаказПоставщику.Ответственный) КАК Ответственный,
+	ЕСТЬNULL(ВЫРАЗИТЬ(ДокументыКорректировокСрезПоследних.ДокументКорректировки КАК Документ.КорректировкаЗаказаПоставщику).Комментарий, ДокументЗаказПоставщику.Комментарий) КАК Комментарий,
+	ЕСТЬNULL(ВЫРАЗИТЬ(ДокументыКорректировокСрезПоследних.ДокументКорректировки КАК Документ.КорректировкаЗаказаПоставщику).СуммаДокумента, ДокументЗаказПоставщику.СуммаДокумента) КАК СуммаДокумента,
+	ЕСТЬNULL(ВЫРАЗИТЬ(ДокументыКорректировокСрезПоследних.ДокументКорректировки КАК Документ.КорректировкаЗаказаПоставщику).Склад, ДокументЗаказПоставщику.Склад) КАК Склад,
+	ЕСТЬNULL(ВЫРАЗИТЬ(ДокументыКорректировокСрезПоследних.ДокументКорректировки КАК Документ.КорректировкаЗаказаПоставщику).СтатусДокумента, ДокументЗаказПоставщику.СтатусДокумента) КАК СтатусДокумента,
+	ЕСТЬNULL(ВЫРАЗИТЬ(ДокументыКорректировокСрезПоследних.ДокументКорректировки КАК Документ.КорректировкаЗаказаПоставщику).Филиал, ДокументЗаказПоставщику.Филиал) КАК Филиал,
+	ЕСТЬNULL(ВЫРАЗИТЬ(ДокументыКорректировокСрезПоследних.ДокументКорректировки КАК Документ.КорректировкаЗаказаПоставщику).Менеджер, ДокументЗаказПоставщику.Менеджер) КАК Менеджер,
+	ЕСТЬNULL(ВЫРАЗИТЬ(ДокументыКорректировокСрезПоследних.ДокументКорректировки КАК Документ.КорректировкаЗаказаПоставщику).Аукцион, ДокументЗаказПоставщику.Аукцион) КАК Аукцион
+ИЗ
+	Документ.ЗаказПоставщику КАК ДокументЗаказПоставщику
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ДокументыКорректировок.СрезПоследних(, {(ВЫБОР
+				    КОГДА ВЫРАЗИТЬ(Документ КАК Документ.ЗаказПоставщику).Контрагент
+				        ТОГДА ВЫРАЗИТЬ(Документ КАК Документ.ЗаказПоставщику).Контрагент
+				    ИНАЧЕ ВЫРАЗИТЬ(ДокументКорректировки КАК Документ.КорректировкаЗаказаПоставщику).Контрагент
+				КОНЕЦ) КАК Контрагент, (ВЫБОР
+				    КОГДА ВЫРАЗИТЬ(Документ КАК Документ.ЗаказПоставщику).ДоговорКонтрагента
+				        ТОГДА ВЫРАЗИТЬ(Документ КАК Документ.ЗаказПоставщику).ДоговорКонтрагента
+				    ИНАЧЕ ВЫРАЗИТЬ(ДокументКорректировки КАК Документ.КорректировкаЗаказаПоставщику).ДоговорКонтрагента
+				КОНЕЦ) КАК ДоговорКонтрагента, (ВЫБОР
+				    КОГДА ВЫРАЗИТЬ(Документ КАК Документ.ЗаказПоставщику).Организация
+				        ТОГДА ВЫРАЗИТЬ(Документ КАК Документ.ЗаказПоставщику).Организация
+				    ИНАЧЕ ВЫРАЗИТЬ(ДокументКорректировки КАК Документ.КорректировкаЗаказаПоставщику).Организация
+				КОНЕЦ) КАК Организация, (ВЫБОР
+				    КОГДА ВЫРАЗИТЬ(Документ КАК Документ.ЗаказПоставщику).Склад
+				        ТОГДА ВЫРАЗИТЬ(Документ КАК Документ.ЗаказПоставщику).Склад
+				    ИНАЧЕ ВЫРАЗИТЬ(ДокументКорректировки КАК Документ.КорректировкаЗаказаПоставщику).Склад
+				КОНЕЦ) КАК Склад, (ВЫРАЗИТЬ(Документ КАК Документ.ЗаказПоставщику).Номер) КАК Номер}) КАК ДокументыКорректировокСрезПоследних
+		ПО ДокументЗаказПоставщику.Ссылка = ДокументыКорректировокСрезПоследних.Документ
+{ГДЕ
+	(ЕСТЬNULL(ВЫРАЗИТЬ(ДокументыКорректировокСрезПоследних.ДокументКорректировки КАК Документ.КорректировкаЗаказаПоставщику).Контрагент, ДокументЗаказПоставщику.Контрагент)) КАК Контрагент,
+	(ЕСТЬNULL(ВЫРАЗИТЬ(ДокументыКорректировокСрезПоследних.ДокументКорректировки КАК Документ.КорректировкаЗаказаПоставщику).Организация, ДокументЗаказПоставщику.Организация)) КАК Организация,
+	(ЕСТЬNULL(ВЫРАЗИТЬ(ДокументыКорректировокСрезПоследних.ДокументКорректировки КАК Документ.КорректировкаЗаказаПоставщику).Склад, ДокументЗаказПоставщику.Склад)) КАК Склад,
+	ДокументЗаказПоставщику.Номер КАК Номер,
+	(ЕСТЬNULL(ВЫРАЗИТЬ(ДокументыКорректировокСрезПоследних.ДокументКорректировки КАК Документ.КорректировкаЗаказаПоставщику).ДоговорКонтрагента, ДокументЗаказПоставщику.ДоговорКонтрагента)) КАК ДоговорКонтрагента}</QueryText>
+				<MainTable>Document.ЗаказПоставщику</MainTable>
+				<GetInvisibleFieldPresentations>false</GetInvisibleFieldPresentations>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Склад</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Номер</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:string"/>
+							<dcsset:userSettingID>beaf4dab-c2e1-4888-bb7d-f99ba209b377</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СтруктураПодчинености" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структура подчинености</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структура подчинености</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СтруктураПодчинености</Action>
+		</Command>
+		<Command name="ДвиженияДокумента" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Движения документа</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Движения документа</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ДвиженияДокумента</Action>
+		</Command>
+		<Command name="ИсторияДокумента" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>История документа</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>История документа</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ИсторияДокумента</Action>
+		</Command>
+		<Command name="ПоискПоНомеру" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поиск по номеру</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поиск по номеру</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.FindByNumber</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПоискПоНомеру</Action>
+		</Command>
+	</Commands>
+</Form>

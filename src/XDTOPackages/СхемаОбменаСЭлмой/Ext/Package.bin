@@ -1,0 +1,161 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="1c2Elma">
+	<objectType name="ELMA">
+		<property name="login" nillable="false" form="Element">
+			<typeDef xsi:type="ObjectType">
+				<property name="login" type="xs:string" nillable="false" form="Text"/>
+				<property name="Required" type="xs:boolean" nillable="false" form="Attribute"/>
+			</typeDef>
+		</property>
+		<property name="password">
+			<typeDef xsi:type="ObjectType">
+				<property name="password" type="xs:string" nillable="false" form="Text"/>
+				<property name="Required" type="xs:boolean" nillable="false" form="Attribute"/>
+			</typeDef>
+		</property>
+		<property name="CRM">
+			<typeDef xsi:type="ObjectType">
+				<property name="Company">
+					<typeDef xsi:type="ObjectType">
+						<property name="Action" type="xs:string" form="Attribute"/>
+						<property name="OID">
+							<typeDef xsi:type="ObjectType">
+								<property name="OID" type="xs:string" nillable="false" form="Text"/>
+								<property name="Required" type="xs:boolean" nillable="false" form="Attribute"/>
+							</typeDef>
+						</property>
+						<property name="Name">
+							<typeDef xsi:type="ObjectType">
+								<property name="Name" type="xs:string" nillable="false" form="Text"/>
+								<property name="Required" type="xs:boolean" nillable="false" form="Attribute"/>
+							</typeDef>
+						</property>
+						<property name="Industry">
+							<typeDef xsi:type="ObjectType">
+								<property name="ID" type="xs:string"/>
+								<property name="Name" type="xs:string"/>
+							</typeDef>
+						</property>
+						<property name="Region">
+							<typeDef xsi:type="ObjectType">
+								<property name="ID" type="xs:string"/>
+								<property name="Name" type="xs:string"/>
+							</typeDef>
+						</property>
+						<property name="CountEmployees" type="xs:int"/>
+						<property name="Type">
+							<typeDef xsi:type="ObjectType">
+								<property name="ID" type="xs:string"/>
+								<property name="Name" type="xs:string"/>
+							</typeDef>
+						</property>
+						<property name="AssignedTo">
+							<typeDef xsi:type="ObjectType">
+								<property name="Required" type="xs:boolean" nillable="false" form="Attribute"/>
+								<property name="ID" type="xs:string"/>
+								<property name="Login" type="xs:string"/>
+							</typeDef>
+						</property>
+						<property name="AnnualRevenue" type="xs:int"/>
+						<property name="Site" type="xs:string"/>
+						<property name="PhoneOffice" type="xs:string" lowerBound="0" nillable="true"/>
+						<property name="Fax" type="xs:string" lowerBound="0" nillable="true"/>
+						<property name="OtherPhone" type="xs:string"/>
+						<property name="Email" type="xs:string"/>
+						<property name="CompanyDay" type="xs:string"/>
+						<property name="Author">
+							<typeDef xsi:type="ObjectType">
+								<property name="Required" type="xs:boolean" nillable="false" form="Attribute"/>
+								<property name="ID" type="xs:string"/>
+								<property name="Login" type="xs:string"/>
+							</typeDef>
+						</property>
+						<property name="BAdress">
+							<typeDef xsi:type="ObjectType">
+								<property name="PostalAdress" type="xs:string"/>
+								<property name="Country" type="xs:string"/>
+								<property name="State" type="xs:string"/>
+								<property name="City" type="xs:string"/>
+								<property name="PostalCode" type="xs:string"/>
+							</typeDef>
+						</property>
+						<property name="PAdress">
+							<typeDef xsi:type="ObjectType">
+								<property name="PostalAdress" type="xs:string"/>
+								<property name="Country" type="xs:string"/>
+								<property name="State" type="xs:string"/>
+								<property name="City" type="xs:string"/>
+								<property name="PostalCode" type="xs:string"/>
+							</typeDef>
+						</property>
+						<property name="INN" type="xs:string"/>
+						<property name="KPP" type="xs:string" lowerBound="0"/>
+						<property name="Bank" type="xs:string" lowerBound="0"/>
+						<property name="BIK" type="xs:string" lowerBound="0"/>
+						<property name="RS" type="xs:string" lowerBound="0"/>
+						<property name="KS" type="xs:string" lowerBound="0"/>
+						<property name="Limit" type="xs:int"/>
+						<property name="DelayOfPayment" type="xs:int"/>
+						<property name="Registered" type="xs:boolean"/>
+						<property name="Description" type="xs:string" lowerBound="0"/>
+					</typeDef>
+				</property>
+				<property name="Contact">
+					<typeDef xsi:type="ObjectType">
+						<property name="Action" type="xs:string" form="Attribute"/>
+						<property name="OID" type="xs:string"/>
+						<property name="FirstName" type="xs:string"/>
+						<property name="LastName">
+							<typeDef xsi:type="ObjectType">
+								<property name="Required" type="xs:boolean" nillable="false" form="Attribute"/>
+								<property name="LastName" type="xs:string" form="Text"/>
+							</typeDef>
+						</property>
+						<property name="PatronymicName" type="xs:string"/>
+						<property name="Company">
+							<typeDef xsi:type="ObjectType">
+								<property name="OID" type="xs:string"/>
+								<property name="ID" type="xs:string"/>
+							</typeDef>
+						</property>
+						<property name="Department" type="xs:string"/>
+						<property name="Post" type="xs:string"/>
+						<property name="BirthdateYear" type="xs:string"/>
+						<property name="BirthdateMonth" type="xs:string"/>
+						<property name="BirthdateDay" type="xs:string"/>
+						<property name="Type">
+							<typeDef xsi:type="ObjectType">
+								<property name="ID" type="xs:string"/>
+								<property name="Name" type="xs:string"/>
+							</typeDef>
+						</property>
+						<property name="Priority" type="xs:int"/>
+						<property name="AssignedTo">
+							<typeDef xsi:type="ObjectType">
+								<property name="Required" type="xs:boolean" nillable="false" form="Attribute"/>
+								<property name="ID" type="xs:string"/>
+								<property name="Login" type="xs:string"/>
+							</typeDef>
+						</property>
+						<property name="Site" type="xs:string"/>
+						<property name="PhoneOffice" type="xs:string"/>
+						<property name="Fax" type="xs:string"/>
+						<property name="Email" type="xs:string"/>
+						<property name="ICQ" type="xs:string"/>
+						<property name="Skype" type="xs:string"/>
+						<property name="HomePhone" type="xs:string"/>
+						<property name="MobilePhone" type="xs:string"/>
+						<property name="Author">
+							<typeDef xsi:type="ObjectType">
+								<property name="Required" type="xs:boolean" nillable="false" form="Attribute"/>
+								<property name="ID" type="xs:string"/>
+								<property name="Login" type="xs:string"/>
+							</typeDef>
+						</property>
+						<property name="CreateDate" type="xs:string"/>
+						<property name="Description" type="xs:string"/>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+	</objectType>
+</package>

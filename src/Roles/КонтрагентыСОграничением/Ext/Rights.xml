@@ -1,0 +1,1027 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Rights xmlns="http://v8.1c.ru/8.2/roles" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Rights" version="2.4">
+	<setForNewObjects>false</setForNewObjects>
+	<setForAttributesByDefault>true</setForAttributesByDefault>
+	<independentRightsOfChildObjects>false</independentRightsOfChildObjects>
+	<object>
+		<name>InformationRegister.ИерархияМенеджеров.Dimension.Подчиненный</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>DataProcessor.ПоискОбъектовВСпискахДанных</name>
+		<right>
+			<name>Use</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.СохраненныеНастройки</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Update</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.МинимальныеНаценкиПоГруппамПользователям</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ИерархияМенеджеров.StandardAttribute.Active</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ИерархияМенеджеров.StandardAttribute.LineNumber</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ИерархияМенеджеров.StandardAttribute.Recorder</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ИерархияМенеджеров.StandardAttribute.Period</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.ТорговыеТочки</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ИЗ Справочник.ТорговыеТочки КАК Т
+	ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+	ПО Т.Владелец = Р.Контрагент
+ГДЕ Р.Пользователь = &amp;ТекущийПользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>Insert</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ИЗ Справочник.ТорговыеТочки КАК Т
+    ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+    ПО Т.Владелец = Р.Контрагент
+ГДЕ Р.Пользователь = &amp;ТекущийПользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>Update</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ИЗ Справочник.ТорговыеТочки КАК Т
+    ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+    ПО Т.Владелец = Р.Контрагент
+ГДЕ Р.Пользователь = &amp;ТекущийПользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InteractiveInsert</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InteractiveSetDeletionMark</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InteractiveClearDeletionMark</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InputByString</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.СтраныМира</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InputByString</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>SessionParameter.ГраницыЗапретаИзмененияДанных</name>
+		<right>
+			<name>Get</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>Constant.ИспользоватьВнешнююОбработкуПечатиДокументов</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ИерархияМенеджеров.Dimension.Начальник</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.КонтактныеЛицаКонтрагентов</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ИЗ Справочник.КонтактныеЛицаКонтрагентов КАК Т
+	ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+	ПО (Т.Владелец ССЫЛКА Справочник.Контрагенты И Т.Владелец = Р.Контрагент)
+	ИЛИ (Т.Владелец ССЫЛКА Справочник.ТорговыеТочки И Т.Владелец.Владелец = Р.Контрагент)
+ГДЕ Р.Пользователь = &amp;ТекущийПользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>Insert</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ИЗ Справочник.КонтактныеЛицаКонтрагентов КАК Т
+    ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+    ПО (Т.Владелец ССЫЛКА Справочник.Контрагенты И Т.Владелец = Р.Контрагент)
+    ИЛИ (Т.Владелец ССЫЛКА Справочник.ТорговыеТочки И Т.Владелец.Владелец = Р.Контрагент)
+ГДЕ Р.Пользователь = &amp;ТекущийПользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>Update</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ИЗ Справочник.КонтактныеЛицаКонтрагентов КАК Т
+    ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+    ПО (Т.Владелец ССЫЛКА Справочник.Контрагенты И Т.Владелец = Р.Контрагент)
+    ИЛИ (Т.Владелец ССЫЛКА Справочник.ТорговыеТочки И Т.Владелец.Владелец = Р.Контрагент)
+ГДЕ Р.Пользователь = &amp;ТекущийПользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InteractiveInsert</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InteractiveSetDeletionMark</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InteractiveClearDeletionMark</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InputByString</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ЗначенияСвойствОбъектов</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ИЗ РегистрСведений.ЗначенияСвойствОбъектов КАК Т
+	ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+	ПО (Т.Объект ССЫЛКА Справочник.Контрагенты И Т.Объект = Р.Контрагент)
+	ИЛИ (Т.Объект ССЫЛКА Справочник.ТорговыеТочки И Т.Объект.Владелец = Р.Контрагент)
+	ИЛИ (Т.Объект ССЫЛКА Справочник.ДоговорыКонтрагентов И Т.Объект.Владелец = Р.Контрагент)
+ГДЕ Р.Пользователь = &amp;ТекущийПользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>Update</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ИЗ РегистрСведений.ЗначенияСвойствОбъектов КАК Т
+    ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+    ПО (Т.Объект ССЫЛКА Справочник.Контрагенты И Т.Объект = Р.Контрагент)
+    ИЛИ (Т.Объект ССЫЛКА Справочник.ТорговыеТочки И Т.Объект.Владелец = Р.Контрагент)
+    ИЛИ (Т.Объект ССЫЛКА Справочник.ДоговорыКонтрагентов И Т.Объект.Владелец = Р.Контрагент)
+ГДЕ Р.Пользователь = &amp;ТекущийПользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>SessionParameter.ТекущийПользователь</name>
+		<right>
+			<name>Get</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Set</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Менеджеры</name>
+	</object>
+	<object>
+		<name>Catalog.Менеджеры.StandardAttribute.PredefinedDataName</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Менеджеры.StandardAttribute.Predefined</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Менеджеры.StandardAttribute.Ref</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Менеджеры.StandardAttribute.DeletionMark</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Менеджеры.StandardAttribute.IsFolder</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Менеджеры.StandardAttribute.Owner</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Менеджеры.StandardAttribute.Parent</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Менеджеры.StandardAttribute.Description</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Менеджеры.StandardAttribute.Code</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>SessionParameter.ДатаНачалаРаботыВзаиморасчеты</name>
+		<right>
+			<name>Get</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Set</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ФилиалыТорговыхТочек</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Update</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>Interface.Контрагенты</name>
+		<right>
+			<name>Use</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.УчетныеЗаписиСайта</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ИЗ Справочник.УчетныеЗаписиСайта КАК Т
+	ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+	ПО Т.Владелец.Владелец = Р.Контрагент
+ГДЕ Р.Пользователь = &amp;ТекущийПользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>Insert</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ИЗ Справочник.УчетныеЗаписиСайта КАК Т
+    ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+    ПО Т.Владелец.Владелец = Р.Контрагент
+ГДЕ Р.Пользователь = &amp;ТекущийПользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>Update</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ИЗ Справочник.УчетныеЗаписиСайта КАК Т
+    ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+    ПО Т.Владелец.Владелец = Р.Контрагент
+ГДЕ Р.Пользователь = &amp;ТекущийПользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InteractiveInsert</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InteractiveSetDeletionMark</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InteractiveClearDeletionMark</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InputByString</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>Interface.Организации</name>
+		<right>
+			<name>Use</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ИсторияКонтактныхЛицКонтрагентов</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ИЗ РегистрСведений.ИсторияКонтактныхЛицКонтрагентов КАК Т
+	ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+	ПО Т.КонтактноеЛицоКонтрагента.Владелец = Р.Контрагент
+ГДЕ Р.Пользователь = &amp;ТекущийПользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>Update</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ИЗ РегистрСведений.ИсторияКонтактныхЛицКонтрагентов КАК Т
+    ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+    ПО Т.КонтактноеЛицоКонтрагента.Владелец = Р.Контрагент
+ГДЕ Р.Пользователь = &amp;ТекущийПользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Контрагенты</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ГДЕ Т.Ссылка В
+			(ВЫБРАТЬ
+				Р.Контрагент
+			ИЗ
+				РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+			ГДЕ
+				Р.Пользователь = &amp;ТекущийПользователь)</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>Insert</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ГДЕ Т.Ссылка В
+            (ВЫБРАТЬ
+                Р.Контрагент
+            ИЗ
+                РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+            ГДЕ
+                Р.Пользователь = &amp;ТекущийПользователь)</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>Update</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ГДЕ Т.Ссылка В
+            (ВЫБРАТЬ
+                Р.Контрагент
+            ИЗ
+                РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+            ГДЕ
+                Р.Пользователь = &amp;ТекущийПользователь)</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InteractiveInsert</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InteractiveSetDeletionMark</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InteractiveClearDeletionMark</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InputByString</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ОписанияОшибокОбъектов</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>ОписанияОшибокОбъектов ГДЕ ОписанияОшибокОбъектов.Объект ССЫЛКА Справочник.Изготовители</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>Update</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>ОписанияОшибокОбъектов ГДЕ ОписанияОшибокОбъектов.Объект ССЫЛКА Справочник.Изготовители</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.МинимальныеНаценкиПоГруппамПользователям.Resource.Наценка</name>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Изготовители.StandardAttribute.PredefinedDataName</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Изготовители.StandardAttribute.Predefined</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Изготовители.StandardAttribute.Ref</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Изготовители.StandardAttribute.DeletionMark</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Изготовители.StandardAttribute.IsFolder</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Изготовители.StandardAttribute.Owner</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Изготовители.StandardAttribute.Parent</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Изготовители.StandardAttribute.Description</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Изготовители.StandardAttribute.Code</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.КатегорииОбъектов</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ИЗ РегистрСведений.КатегорииОбъектов КАК Т
+    ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+    ПО (Т.Объект ССЫЛКА Справочник.Контрагенты И Т.Объект = Р.Контрагент)
+    ИЛИ (Т.Объект ССЫЛКА Справочник.ТорговыеТочки И Т.Объект.Владелец = Р.Контрагент)
+    ИЛИ (Т.Объект ССЫЛКА Справочник.ДоговорыКонтрагентов И Т.Объект.Владелец = Р.Контрагент)
+ГДЕ Р.Пользователь = &amp;ТекущийПользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>Update</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ИЗ РегистрСведений.КатегорииОбъектов КАК Т
+    ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+    ПО (Т.Объект ССЫЛКА Справочник.Контрагенты И Т.Объект = Р.Контрагент)
+    ИЛИ (Т.Объект ССЫЛКА Справочник.ТорговыеТочки И Т.Объект.Владелец = Р.Контрагент)
+    ИЛИ (Т.Объект ССЫЛКА Справочник.ДоговорыКонтрагентов И Т.Объект.Владелец = Р.Контрагент)
+ГДЕ Р.Пользователь = &amp;ТекущийПользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.МенеджерыТорговыхТочек</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ИЗ РегистрСведений.МенеджерыТорговыхТочек КАК Т
+	ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+	ПО Т.ТорговаяТочка.Владелец = Р.Контрагент
+ГДЕ Р.Пользователь = &amp;ТекущийПользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ПаспортныеДанныеФизЛиц</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>ПаспортныеДанныеФизЛиц ГДЕ ПаспортныеДанныеФизЛиц.ФизЛицо В (ВЫБРАТЬ Т.КонтактноеЛицо Из РегистрСведений.ИсторияКонтактныхЛицКонтрагентов КАК Т ГДЕ Т.КонтактноеЛицоКонтрагента.Владелец В (ВЫБРАТЬ Р.Контрагент ИЗ РегистрСведений.КонтрагентыПОльзователейДляRLS КАК Р ГДЕ Р.Пользователь = &amp;ТекущийПользователь))</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>Update</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>ПаспортныеДанныеФизЛиц ГДЕ ПаспортныеДанныеФизЛиц.ФизЛицо В (ВЫБРАТЬ Т.КонтактноеЛицо Из РегистрСведений.ИсторияКонтактныхЛицКонтрагентов КАК Т ГДЕ Т.КонтактноеЛицоКонтрагента.Владелец В (ВЫБРАТЬ Р.Контрагент ИЗ РегистрСведений.КонтрагентыПОльзователейДляRLS КАК Р ГДЕ Р.Пользователь = &amp;ТекущийПользователь))</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>ExchangePlan.ОбменПартКом83_Сайт_остатки_на_складах</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Update</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.МинимальныеНаценкиПоГруппамПользователям.Dimension.ГруппаПользователей</name>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.БанковскиеСчета</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ИЗ Справочник.БанковскиеСчета КАК Т
+	ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+	ПО Т.Владелец = Р.Контрагент
+ГДЕ Р.Пользователь = &amp;ТекущийПользователь</condition>
+			</restrictionByCondition>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Изготовители.Attribute.СкладскойБренд</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.КонтактныеЛица</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>КонтактныеЛица ГДЕ КонтактныеЛица.Ссылка В (ВЫБРАТЬ Т.КонтактноеЛицо ИЗ РегистрСведений.ИсторияКонтактныхЛицКонтрагентов КАК Т ГДЕ Т.КонтактноеЛицоКонтрагента.Владелец В (ВЫБРАТЬ Р.Контрагент ИЗ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р ГДЕ Р.Пользователь = &amp;ТекущийПользователь))</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>Insert</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>КонтактныеЛица ГДЕ КонтактныеЛица.Ссылка В (ВЫБРАТЬ Т.КонтактноеЛицо ИЗ РегистрСведений.ИсторияКонтактныхЛицКонтрагентов КАК Т ГДЕ Т.КонтактноеЛицоКонтрагента.Владелец В (ВЫБРАТЬ Р.Контрагент ИЗ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р ГДЕ Р.Пользователь = &amp;ТекущийПользователь))</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>Update</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>КонтактныеЛица ГДЕ КонтактныеЛица.Ссылка В (ВЫБРАТЬ Т.КонтактноеЛицо ИЗ РегистрСведений.ИсторияКонтактныхЛицКонтрагентов КАК Т ГДЕ Т.КонтактноеЛицоКонтрагента.Владелец В (ВЫБРАТЬ Р.Контрагент ИЗ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р ГДЕ Р.Пользователь = &amp;ТекущийПользователь))</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InteractiveInsert</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InteractiveSetDeletionMark</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InteractiveClearDeletionMark</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InputByString</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>DataProcessor.ВводКонтактнойИнформации</name>
+		<right>
+			<name>Use</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.ДоговорыКонтрагентов</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ИЗ Справочник.ДоговорыКонтрагентов КАК Т
+	ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+	ПО Т.Владелец = Р.Контрагент
+ГДЕ Р.Пользователь = &amp;ТекущийПользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>Insert</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ИЗ Справочник.ДоговорыКонтрагентов КАК Т
+    ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+    ПО Т.Владелец = Р.Контрагент
+ГДЕ Р.Пользователь = &amp;ТекущийПользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>Update</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ИЗ Справочник.ДоговорыКонтрагентов КАК Т
+    ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+    ПО Т.Владелец = Р.Контрагент
+ГДЕ Р.Пользователь = &amp;ТекущийПользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InteractiveInsert</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InteractiveSetDeletionMark</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InteractiveClearDeletionMark</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>InputByString</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>Document.ЗаявкаПокупателя.TabularSection.Товары.Attribute.ЦенаЗакупки</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>SessionParameter.ДатаНачалаРаботыТовары</name>
+		<right>
+			<name>Get</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Set</name>
+			<value>true</value>
+		</right>
+	</object>
+	<object>
+		<name>Catalog.Менеджеры.Attribute.Пользователь</name>
+		<right>
+			<name>View</name>
+			<value>false</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>false</value>
+		</right>
+	</object>
+	<object>
+		<name>InformationRegister.ПоставляемыеБрендыКонтрагентов</name>
+		<right>
+			<name>Read</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ИЗ РегистрСведений.ПоставляемыеБрендыКонтрагентов КАК Т
+	ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+	ПО Т.Контрагент = Р.Контрагент
+ГДЕ Р.Пользователь = &amp;ТекущийПользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>Update</name>
+			<value>true</value>
+			<restrictionByCondition>
+				<condition>Т ИЗ РегистрСведений.ПоставляемыеБрендыКонтрагентов КАК Т
+    ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.КонтрагентыПользователейДляRLS КАК Р
+    ПО Т.Контрагент = Р.Контрагент
+ГДЕ Р.Пользователь = &amp;ТекущийПользователь</condition>
+			</restrictionByCondition>
+		</right>
+		<right>
+			<name>View</name>
+			<value>true</value>
+		</right>
+		<right>
+			<name>Edit</name>
+			<value>true</value>
+		</right>
+	</object>
+</Rights>

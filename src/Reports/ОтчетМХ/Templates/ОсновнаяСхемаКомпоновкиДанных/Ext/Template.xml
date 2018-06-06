@@ -1,0 +1,520 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтрокаПрихода</dataPath>
+			<field>СтрокаПрихода</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатусПартии</dataPath>
+			<field>СтатусПартии</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регистратор</dataPath>
+			<field>Регистратор</field>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Качество</dataPath>
+			<field>Качество</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номер</dataPath>
+			<field>Номер</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Дата</dataPath>
+			<field>Дата</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоговорКонтрагента</dataPath>
+			<field>ДоговорКонтрагента</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Приход</dataPath>
+			<field>Приход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Приход</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Расход</dataPath>
+			<field>Расход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расход</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НаименованиеДокумента</dataPath>
+			<field>НаименованиеДокумента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование документа</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтрокаЗаявки</dataPath>
+			<field>СтрокаЗаявки</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	РазмещенияСтрокЗаказовОбороты.Регистратор,
+	РазмещенияСтрокЗаказовОбороты.СтрокаПрихода,
+	РазмещенияСтрокЗаказовОбороты.КоличествоПриход
+ПОМЕСТИТЬ РазмещениеСтрокЗаказов
+ИЗ
+	РегистрНакопления.РазмещенияСтрокЗаказов.Обороты(
+			&amp;НачалоПериода,
+			&amp;КонецПериода,
+			Регистратор,
+			СтрокаПрихода.Приход.ВидОперацииПоступления = ЗНАЧЕНИЕ(Перечисление.ВидыПоступленияТоваров.ОтветХранение)
+				И (СтрокаПрихода.ДоговорКонтрагента = &amp;ДоговорКонтрагента
+					ИЛИ НЕ &amp;ОтборПоДоговоруКонтрагента)
+				И (СтрокаПрихода.ДоговорКонтрагента.Владелец = &amp;Контрагент
+					ИЛИ НЕ &amp;ОтборПоКонтрагенту)
+				И СтрокаПрихода.ДоговорКонтрагента.Организация = &amp;Организация) КАК РазмещенияСтрокЗаказовОбороты
+ГДЕ
+	РазмещенияСтрокЗаказовОбороты.Регистратор ССЫЛКА Документ.ПоступлениеТоваровУслуг
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ПартииТоваровОбороты.Регистратор,
+	ПартииТоваровОбороты.СтрокаПрихода,
+	ПартииТоваровОбороты.КоличествоПриход КАК Количество
+ПОМЕСТИТЬ МХ1
+ИЗ
+	РегистрНакопления.ПартииТоваров.Обороты(
+			&amp;НачалоПериода,
+			&amp;КонецПериода,
+			Регистратор,
+			Организация = &amp;Организация
+				И СтатусПартии = ЗНАЧЕНИЕ(Перечисление.СтатусыПартии.ПринятыйНаОтветХранение)
+				И (Склад = &amp;Склад
+					ИЛИ НЕ &amp;ОтборПоСкладу)
+				И (СтрокаПрихода.ДоговорКонтрагента = &amp;ДоговорКонтрагента
+					ИЛИ НЕ &amp;ОтборПоДоговоруКонтрагента)
+				И (СтрокаПрихода.ДоговорКонтрагента.Владелец = &amp;Контрагент
+					ИЛИ НЕ &amp;ОтборПоКонтрагенту)) КАК ПартииТоваровОбороты
+ГДЕ
+	(ПартииТоваровОбороты.Регистратор ССЫЛКА Документ.ПоступлениеТоваровУслуг
+			ИЛИ ПартииТоваровОбороты.Регистратор ССЫЛКА Документ.ВводНачальныхОстатковПоРегиструТоварыНаСкладах)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	РазмещениеСтрокЗаказов.Регистратор,
+	РазмещениеСтрокЗаказов.СтрокаПрихода,
+	РазмещениеСтрокЗаказов.КоличествоПриход КАК КоличествоМХ1,
+	РазмещениеСтрокЗаказов.КоличествоПриход - ЕСТЬNULL(МХ1.Количество, 0) КАК КоличествоТОРГ2
+ПОМЕСТИТЬ ТОРГ2
+ИЗ
+	РазмещениеСтрокЗаказов КАК РазмещениеСтрокЗаказов
+		ЛЕВОЕ СОЕДИНЕНИЕ МХ1 КАК МХ1
+		ПО РазмещениеСтрокЗаказов.Регистратор = МХ1.Регистратор
+			И РазмещениеСтрокЗаказов.СтрокаПрихода = МХ1.СтрокаПрихода
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ПартииТоваровVMIОбороты.Регистратор,
+	ПартииТоваровVMIОбороты.КоличествоРасход КАК Количество
+ПОМЕСТИТЬ МХ3
+ИЗ
+	РегистрНакопления.ПартииТоваровVMI.Обороты(
+			&amp;НачалоПериода,
+			&amp;КонецПериода,
+			Регистратор,
+			(ДоговорКонтрагента = &amp;ДоговорКонтрагента
+				ИЛИ НЕ &amp;ОтборПоДоговоруКонтрагента)
+				И (Склад = &amp;Склад
+					ИЛИ НЕ &amp;ОтборПоСкладу)
+				И (СтрокаПрихода.ДоговорКонтрагента.Владелец = &amp;Контрагент
+					ИЛИ НЕ &amp;ОтборПоКонтрагенту)
+				И СтрокаПрихода.ДоговорКонтрагента.Организация = &amp;Организация) КАК ПартииТоваровVMIОбороты
+ГДЕ
+	ПартииТоваровVMIОбороты.Регистратор ССЫЛКА Документ.ПоступлениеТоваровУслуг
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ПартииТоваровОбороты.Регистратор,
+	ПартииТоваровОбороты.КоличествоРасход
+ИЗ
+	РегистрНакопления.ПартииТоваров.Обороты(
+			&amp;НачалоПериода,
+			&amp;КонецПериода,
+			Регистратор,
+			Организация = &amp;Организация
+				И СтатусПартии = ЗНАЧЕНИЕ(Перечисление.СтатусыПартии.ПринятыйНаОтветХранение)
+				И (Склад = &amp;Склад
+					ИЛИ НЕ &amp;ОтборПоСкладу)
+				И (СтрокаПрихода.ДоговорКонтрагента = &amp;ДоговорКонтрагента
+					ИЛИ НЕ &amp;ОтборПоДоговоруКонтрагента)
+				И (СтрокаПрихода.ДоговорКонтрагента.Владелец = &amp;Контрагент
+					ИЛИ НЕ &amp;ОтборПоКонтрагенту)) КАК ПартииТоваровОбороты
+ГДЕ
+	ПартииТоваровОбороты.Регистратор ССЫЛКА Документ.ВозвратТоваровПоставщику
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТОРГ2.Регистратор.Дата КАК Дата,
+	"МХ-1" КАК НаименованиеДокумента,
+	ТОРГ2.Регистратор.Номер КАК Номер,
+	ТОРГ2.Регистратор,
+	ТОРГ2.КоличествоМХ1 КАК Приход,
+	0 КАК Расход
+ПОМЕСТИТЬ ДанныеПоДокументам
+ИЗ
+	ТОРГ2 КАК ТОРГ2
+ГДЕ
+	ТОРГ2.КоличествоМХ1 &lt;&gt; 0
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	МХ1.Регистратор.Дата,
+	"МХ-1",
+	МХ1.Регистратор.Номер,
+	МХ1.Регистратор,
+	МХ1.Количество,
+	0
+ИЗ
+	МХ1 КАК МХ1
+ГДЕ
+	МХ1.Регистратор ССЫЛКА Документ.ВводНачальныхОстатковПоРегиструТоварыНаСкладах
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	МХ3.Регистратор.Дата,
+	"МХ-3",
+	МХ3.Регистратор.Номер,
+	МХ3.Регистратор.Ссылка,
+	0,
+	МХ3.Количество
+ИЗ
+	МХ3 КАК МХ3
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ТОРГ2.Регистратор.Дата,
+	"ТОРГ2",
+	ТОРГ2.Регистратор.Номер,
+	ТОРГ2.Регистратор,
+	0,
+	ТОРГ2.КоличествоТОРГ2
+ИЗ
+	ТОРГ2 КАК ТОРГ2
+ГДЕ
+	ТОРГ2.КоличествоТОРГ2 &lt;&gt; 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ДанныеПоДокументам.Дата КАК Дата,
+	ДанныеПоДокументам.Номер,
+	ДанныеПоДокументам.НаименованиеДокумента,
+	ДанныеПоДокументам.Регистратор,
+	СУММА(ДанныеПоДокументам.Приход) КАК Приход,
+	СУММА(ДанныеПоДокументам.Расход) КАК Расход
+ИЗ
+	ДанныеПоДокументам КАК ДанныеПоДокументам
+
+СГРУППИРОВАТЬ ПО
+	ДанныеПоДокументам.Дата,
+	ДанныеПоДокументам.Номер,
+	ДанныеПоДокументам.НаименованиеДокумента,
+	ДанныеПоДокументам.Регистратор
+
+УПОРЯДОЧИТЬ ПО
+	Дата</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>Итог</dataPath>
+		<expression>ВычислитьВыражение("Сумма(Приход-Расход)", , ,"Первая" , "Текущая")</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Итог</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<totalField>
+		<dataPath>Приход</dataPath>
+		<expression>Сумма(Приход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Расход</dataPath>
+		<expression>Сумма(Расход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Итог</dataPath>
+		<expression>Сумма(Итог)</expression>
+		<group>Дата</group>
+		<group>Итог</group>
+		<group>НаименованиеДокумента</group>
+		<group>Номер</group>
+		<group>Приход</group>
+		<group>Расход</group>
+		<group>Регистратор</group>
+	</totalField>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Организация</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Организация</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДоговорКонтрагента</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Договор контрагента</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ДоговорыКонтрагентов</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Контрагент</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Контрагент</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Контрагенты</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ОтборПоДоговоруКонтрагента</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отбор по договору контрагента</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ОтборПоКонтрагенту</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отбор по контрагенту</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ОтборПоСкладу</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отбор по складу</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Склад</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Склад</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Склады</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Дата</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата документа</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номер</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер документа</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НаименованиеДокумента</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наименование документа</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Регистратор</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документ</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Приход</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Приход (шт.)</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Расход</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Расход (шт.)</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Итог</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>РасположениеИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">End</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

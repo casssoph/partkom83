@@ -1,0 +1,343 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://partkom83-TopLogExchangeScheme.ru">
+	<objectType name="Документы.ЗаказНаОтгрузку">
+		<property name="Ссылка" type="xs:string"/>
+		<property name="Номер" type="xs:string"/>
+		<property name="Дата" type="xs:dateTime"/>
+		<property name="ВидДокумента" type="xs:string"/>
+		<property name="СкладСсылка" type="xs:string"/>
+		<property name="КонтрагентСсылка" type="xs:string"/>
+		<property name="ОрганизацияСсылка" type="xs:string"/>
+		<property name="СуммаДокумента" type="xs:double"/>
+		<property name="ТипДоставки" type="xs:string"/>
+		<property name="ДатаОтгрузки" type="xs:dateTime"/>
+		<property name="МаршрутДоставкиКод" type="xs:string"/>
+		<property name="СкладПолучательСсылка" type="xs:string"/>
+		<property name="ФирмаНаименование" type="xs:string"/>
+		<property name="ФирмаИНН" type="xs:string"/>
+		<property name="ФирмаОКПО" type="xs:string"/>
+		<property name="ФирмаАдрес" type="xs:string"/>
+		<property name="ФирмаБанковскиеРеквизиты" type="xs:string"/>
+		<property name="ПлательщикТОРГ12" type="xs:string"/>
+		<property name="ГрузополучательТОРГ12" type="xs:string"/>
+		<property name="ОснованиеТОРГ12" type="xs:string"/>
+		<property name="ИнформацияВПодвалеТОРГ12" type="xs:string"/>
+		<property name="ФИОРуководителяТОРГ12" type="xs:string"/>
+		<property name="ФИОГлБухгалтераТОРГ12" type="xs:string"/>
+		<property name="ДолжностьРуководителяТОРГ12" type="xs:string"/>
+		<property name="ПродавецСФ" type="xs:string"/>
+		<property name="ГрузополучательСФ" type="xs:string"/>
+		<property name="АдресПокупателяСФ" type="xs:string"/>
+		<property name="ПокупательСФ" type="xs:string"/>
+		<property name="ИННПокупателяСФ" type="xs:string"/>
+		<property name="ПокупательСчетНаОплату" type="xs:string"/>
+		<property name="БанкПолучателяСчетНаОплату" type="xs:string"/>
+		<property name="НомерСчетаСчетНаОплату" type="xs:string"/>
+		<property name="БИКБанкаСчетНаОплату" type="xs:string"/>
+		<property name="КоррСчетСчетНаОплату" type="xs:string"/>
+		<property name="НомерДокументаТОРГ12" type="xs:string"/>
+		<property name="ШтрихкодТОРГ12" type="xs:string"/>
+		<property name="НомерДокументаСФ" type="xs:string"/>
+		<property name="ШтрихкодСФ" type="xs:string"/>
+		<property name="КонтрагентОКПО" type="xs:string"/>
+		<property name="УчитыватьНДС" type="xs:boolean"/>
+		<property name="ТранспортнаяКомпания" type="xs:string"/>
+		<property name="ВодительНаименование" type="xs:string"/>
+		<property name="ВодительТелефон" type="xs:string"/>
+		<property name="МаркаАвто" type="xs:string"/>
+		<property name="ГосНомерАвто" type="xs:string"/>
+		<property name="НомерСлужебногоЗадания" type="xs:string"/>
+		<property name="ДатаСлужебногоЗадания" type="xs:dateTime"/>
+		<property name="ДатаНачалаУпаковки" type="xs:dateTime"/>
+		<property name="ДатаОкончанияДовыписки" type="xs:dateTime"/>
+		<property name="ШтрихкодСЗ" type="xs:string"/>
+		<property name="ПечататьТЧ" type="xs:boolean"/>
+		<property name="ПечататьСчетНаОплату" type="xs:boolean"/>
+		<property name="ПечататьТОРГ12" type="xs:boolean"/>
+		<property name="ПечататьСФ" type="xs:boolean"/>
+		<property name="МаршрутДоставкиСЗ" type="xs:string"/>
+		<property name="МаршрутДоставкиСФ" type="xs:string"/>
+		<property name="ФирмаОплаты" type="xs:string"/>
+		<property name="ЦенаДоставки" type="xs:double"/>
+		<property name="КодВодителя" type="xs:string"/>
+		<property name="ЭкспрессДоставка" type="xs:boolean"/>
+		<property name="АдресЭкспрессДоставки" type="xs:string"/>
+		<property name="ИДВодителя" type="xs:string"/>
+		<property name="КоличествоДокументовСЗ" type="xs:int"/>
+		<property name="КомментарийСЗ" type="xs:string"/>
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Товары" type="d3p1:Документы.ЗаказНаОтгрузку.Товары"/>
+	</objectType>
+	<objectType name="Документы.ЗаказНаОтгрузку.Товары">
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="СтрокаТовары" type="d3p1:Документы.ЗаказНаОтгрузку.Товары.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Документы.ЗаказНаОтгрузку.Товары.Строка" ordered="false" sequenced="true">
+		<property name="НоменклатураСсылка" type="xs:string"/>
+		<property name="НоменклатураНаименование" type="xs:string"/>
+		<property name="НоменклатураАртикул" type="xs:string"/>
+		<property name="SSID" type="xs:string"/>
+		<property name="КроссСток" type="xs:boolean"/>
+		<property name="Количество" type="xs:int"/>
+		<property name="Цена" type="xs:double"/>
+		<property name="КлиентСсылка" type="xs:string"/>
+		<property name="КлиентНаименование" type="xs:string"/>
+		<property name="ЭтоЮридическоеЛицо" type="xs:boolean"/>
+		<property name="ГТД" type="xs:string"/>
+		<property name="СтранаКод" type="xs:string"/>
+		<property name="СтранаНаименование" type="xs:string"/>
+	</objectType>
+	<objectType name="Документы.ЗаказНаПриемку">
+		<property name="Ссылка" type="xs:string"/>
+		<property name="Номер" type="xs:string"/>
+		<property name="Дата" type="xs:dateTime"/>
+		<property name="ВидДокумента" type="xs:string"/>
+		<property name="СкладСсылка" type="xs:string"/>
+		<property name="КонтрагентСсылка" type="xs:string"/>
+		<property name="ОрганизацияСсылка" type="xs:string"/>
+		<property name="НомерВходящегоДокумента" type="xs:string"/>
+		<property name="ДатаВходящегоДокумента" type="xs:dateTime"/>
+		<property name="СуммаДокумента" type="xs:double"/>
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Товары" type="d3p1:Документы.ЗаказНаПриемку.Товары"/>
+		<property name="НомерВходящегоСФ" type="xs:string"/>
+		<property name="ДатаВходящегоСФ" type="xs:dateTime"/>
+	</objectType>
+	<objectType name="Документы.ЗаказНаПриемку.Товары">
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="СтрокаТовары" type="d3p1:Документы.ЗаказНаПриемку.Товары.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Документы.ЗаказНаПриемку.Товары.Строка" ordered="false" sequenced="true">
+		<property name="НоменклатураСсылка" type="xs:string"/>
+		<property name="НоменклатураНаименование" type="xs:string"/>
+		<property name="НоменклатураАртикул" type="xs:string"/>
+		<property name="SSID" type="xs:string"/>
+		<property name="Количество" type="xs:int"/>
+		<property name="Цена" type="xs:double"/>
+		<property name="ГТД" type="xs:string"/>
+		<property name="КлиентСсылка" type="xs:string"/>
+		<property name="ГородСсылка" type="xs:string"/>
+		<property name="СкладПолучательСсылка" type="xs:string"/>
+	</objectType>
+	<objectType name="Объекты">
+		<property name="Объект" type="xs:anyType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="РезультатПриемки">
+		<property name="ЗаказСсылка" type="xs:string"/>
+		<property name="ЗаказНомер" type="xs:string"/>
+		<property name="ЗаказНомерWMS" type="xs:string"/>
+		<property name="ЗаказВидДокумента" type="xs:string"/>
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Товары" type="d3p1:РезультатПриемки.Товары"/>
+	</objectType>
+	<objectType name="РезультатПриемки.Товары">
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="СтрокаТовары" type="d3p1:РезультатПриемки.Товары.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="РезультатПриемки.Товары.Строка" ordered="false" sequenced="true">
+		<property name="ДатаПриемки" type="xs:dateTime"/>
+		<property name="НоменклатураСсылка" type="xs:string"/>
+		<property name="НоменклатураНаименование" type="xs:string"/>
+		<property name="НоменклатураАртикул" type="xs:string"/>
+		<property name="НоменклатураШтрихкод" type="xs:string"/>
+		<property name="SSID" type="xs:string"/>
+		<property name="КоличествоПринято" type="xs:int"/>
+		<property name="КоличествоВозвращено" type="xs:int"/>
+		<property name="Качество" type="xs:string"/>
+		<property name="ЭтоБрак" type="xs:boolean"/>
+		<property name="Комментарий" type="xs:string"/>
+	</objectType>
+	<objectType name="РезультатРазмещения">
+		<property name="РазмещениеСсылка" type="xs:string"/>
+		<property name="РазмещениеНомерWMS" type="xs:string"/>
+		<property name="РазмещениеДатаWMS" type="xs:dateTime"/>
+		<property name="РазмещениеСкладСсылка" type="xs:string"/>
+		<property name="РазмещениеСкладНаименование" type="xs:string"/>
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Заказы" type="d3p1:РезультатРазмещения.Заказы"/>
+	</objectType>
+	<objectType name="РезультатРазмещения.Заказы">
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="СтрокаЗаказы" type="d3p1:РезультатРазмещения.Заказы.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="РезультатРазмещения.Заказы.Строка" ordered="false" sequenced="true">
+		<property name="ЗаказСсылка" type="xs:string"/>
+		<property name="ЗаказНомер" type="xs:string"/>
+		<property name="ЗаказНомерWMS" type="xs:string"/>
+		<property name="ЗаказВидДокумента" type="xs:string"/>
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Товары" type="d3p1:РезультатРазмещения.Заказы.Товары"/>
+	</objectType>
+	<objectType name="РезультатРазмещения.Заказы.Товары">
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="СтрокаТовары" type="d3p1:РезультатРазмещения.Заказы.Товары.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="РезультатРазмещения.Заказы.Товары.Строка" ordered="false" sequenced="true">
+		<property name="ДатаРазмещения" type="xs:dateTime"/>
+		<property name="НоменклатураСсылка" type="xs:string"/>
+		<property name="НоменклатураНаименование" type="xs:string"/>
+		<property name="НоменклатураАртикул" type="xs:string"/>
+		<property name="SSID" type="xs:string"/>
+		<property name="КоличествоРазмещено" type="xs:int"/>
+		<property name="Качество" type="xs:string"/>
+		<property name="Комментарий" type="xs:string"/>
+		<property name="РазмещениеЯчейкаСкладСсылка" type="xs:string"/>
+		<property name="РазмещениеЯчейкаСкладНаименование" type="xs:string"/>
+	</objectType>
+	<objectType name="РезультатСборки">
+		<property name="ЗаказСсылка" type="xs:string"/>
+		<property name="ЗаказНомер" type="xs:string"/>
+		<property name="ЗаказНомерWMS" type="xs:string"/>
+		<property name="ЗаказВидДокумента" type="xs:string"/>
+		<property name="ДатаОтгрузки" type="xs:dateTime" lowerBound="0"/>
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Товары" type="d3p1:РезультатСборки.Товары"/>
+	</objectType>
+	<objectType name="РезультатСборки.Товары">
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="СтрокаТовары" type="d3p1:РезультатСборки.Товары.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="РезультатСборки.Товары.Строка" ordered="false" sequenced="true">
+		<property name="НоменклатураСсылка" type="xs:string"/>
+		<property name="НоменклатураНаименование" type="xs:string"/>
+		<property name="НоменклатураАртикул" type="xs:string"/>
+		<property name="SSID" type="xs:string"/>
+		<property name="План" type="xs:int"/>
+		<property name="Факт" type="xs:int"/>
+		<property name="Недостача" type="xs:int"/>
+		<property name="Отказ" type="xs:int"/>
+	</objectType>
+	<objectType name="СменаВодителяСЗ" ordered="false" sequenced="true">
+		<property name="НомерСлужебногоЗадания" type="xs:string"/>
+		<property name="ДатаСлужебногоЗадания" type="xs:dateTime"/>
+		<property name="ИДВодителя" type="xs:string"/>
+		<property name="ВодительНаименование" type="xs:string"/>
+	</objectType>
+	<objectType name="СнятиеРезерва">
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="СтрокаТовары" type="d3p1:СнятиеРезерва.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СнятиеРезерва.Строка">
+		<property name="НоменклатураСсылка" type="xs:string"/>
+		<property name="НоменклатураНаименование" type="xs:string"/>
+		<property name="НоменклатураАртикул" type="xs:string"/>
+		<property name="SSID" type="xs:string"/>
+	</objectType>
+	<objectType name="СообщениеОбмена" ordered="false" sequenced="true">
+		<property name="ПланОбмена" type="xs:string"/>
+		<property name="Отправитель" type="xs:int"/>
+		<property name="Получатель" type="xs:int"/>
+		<property name="НомерСообщения" type="xs:int"/>
+		<property name="НомерПринятого" type="xs:int"/>
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Объекты" type="d3p1:Объекты"/>
+	</objectType>
+	<objectType name="Справочники.Водители" ordered="false" sequenced="true">
+		<property name="Ссылка" type="xs:string"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="ПометкаУдаления" type="xs:boolean"/>
+		<property name="ТранспортнаяКомпания" type="xs:string"/>
+		<property name="Телефон" type="xs:string"/>
+		<property name="ДатаУвольнения" type="xs:date"/>
+		<property name="Родитель" type="xs:string"/>
+		<property name="ID" type="xs:string"/>
+		<property name="ЭтоГруппа" type="xs:boolean"/>
+		<property name="Служебный" type="xs:boolean"/>
+		<property name="МаркаАвтомобиля" type="xs:string"/>
+		<property name="ГосНомер" type="xs:string"/>
+	</objectType>
+	<objectType name="Справочники.Города" ordered="false" sequenced="true">
+		<property name="Ссылка" type="xs:string"/>
+		<property name="РодительСсылка" type="xs:string"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="ПометкаУдаления" type="xs:boolean"/>
+		<property name="ЭтоГруппа" type="xs:boolean"/>
+	</objectType>
+	<objectType name="Справочники.Изготовители" ordered="false" sequenced="true">
+		<property name="Ссылка" type="xs:string"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="ПометкаУдаления" type="xs:boolean"/>
+		<property name="КодСайта" type="xs:int"/>
+	</objectType>
+	<objectType name="Справочники.МаршрутыДоставки" ordered="false" sequenced="true">
+		<property name="Ссылка" type="xs:string"/>
+		<property name="Код" type="xs:string"/>
+		<property name="РодительСсылка" type="xs:string"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="ПометкаУдаления" type="xs:boolean"/>
+		<property name="ЭтоГруппа" type="xs:boolean"/>
+	</objectType>
+	<objectType name="Справочники.Номенклатура" ordered="false" sequenced="true">
+		<property name="Ссылка" type="xs:string"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="ИзготовительСсылка" type="xs:string"/>
+		<property name="Артикул" type="xs:string"/>
+		<property name="НаименованиеПолное" type="xs:string"/>
+		<property name="ПометкаУдаления" type="xs:boolean"/>
+		<property name="ЭтоГруппа" type="xs:boolean"/>
+		<property name="РодительСсылка" type="xs:string"/>
+	</objectType>
+	<objectType name="Справочники.Организации" ordered="false" sequenced="true">
+		<property name="Ссылка" type="xs:string"/>
+		<property name="Код" type="xs:string"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="НаименованиеПолное" type="xs:string"/>
+		<property name="ИНН" type="xs:string"/>
+		<property name="КПП" type="xs:string"/>
+		<property name="Префикс" type="xs:string"/>
+		<property name="КодПоОКПО" type="xs:string"/>
+		<property name="ЮридическийАдрес" type="xs:string"/>
+		<property name="ФактическийАдрес" type="xs:string"/>
+		<property name="НомерСчета" type="xs:string"/>
+		<property name="Банк" type="xs:string"/>
+		<property name="БИКБанка" type="xs:string"/>
+		<property name="КоррСчет" type="xs:string"/>
+		<property name="Руководитель" type="xs:string"/>
+		<property name="ДолжностьРуководителя" type="xs:string"/>
+		<property name="ГлавныйБухгалтер" type="xs:string"/>
+		<property name="УчитыватьНДС" type="xs:boolean"/>
+		<property name="ПометкаУдаления" type="xs:boolean"/>
+		<property name="ЭтоЮридическоеЛицо" type="xs:boolean"/>
+		<property name="Телефон" type="xs:string"/>
+		<property name="НаименованиеПлательщикаПриПеречисленииНалогов" type="xs:string"/>
+		<property name="СвидетельствоСерияНомер" type="xs:string"/>
+		<property name="СвидетельствоДатаВыдачи" type="xs:dateTime"/>
+		<property name="КодИМНС" type="xs:string"/>
+	</objectType>
+	<objectType name="Справочники.Склады" ordered="false" sequenced="true">
+		<property name="Ссылка" type="xs:string"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="ПометкаУдаления" type="xs:boolean"/>
+		<property name="ЭтоГруппа" type="xs:boolean"/>
+	</objectType>
+	<objectType name="Справочники.ТорговыеТочки" ordered="false" sequenced="true">
+		<property name="Ссылка" type="xs:string"/>
+		<property name="Код" type="xs:string"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="ПометкаУдаления" type="xs:boolean"/>
+		<property name="ИНН" type="xs:string"/>
+		<property name="КПП" type="xs:string"/>
+		<property name="КодПоОКПО" type="xs:string"/>
+		<property name="ФактическийАдрес" type="xs:string"/>
+		<property name="Телефон" type="xs:string"/>
+		<property name="ЭтоЮридическоеЛицо" type="xs:boolean"/>
+		<property name="Регион" type="xs:string"/>
+		<property name="КассовыйЧек" type="xs:boolean"/>
+		<property name="КодГород" type="xs:string"/>
+		<property name="МаршрутДоставкиКод" type="xs:string"/>
+		<property name="Автовозврат" type="xs:boolean"/>
+		<property name="VIP" type="xs:boolean"/>
+		<property name="EmailДляОбменаДокументами" type="xs:string"/>
+		<property name="АвтоотправкаОтгрузочныхДокументов" type="xs:boolean"/>
+		<property name="АвтоотправкаОтгрузочныхДокументовСКомментариями" type="xs:boolean"/>
+		<property name="АвтоотправкаОтгрузочныхДокументовНеАрхивировать" type="xs:boolean"/>
+	</objectType>
+	<objectType name="ТранзитнаяОтгрузка">
+		<property name="ТранзитнаяОтгрузкаСсылка" type="xs:anyType"/>
+		<property name="ТранзитнаяОтгрузкаНомерWMS" type="xs:string"/>
+		<property name="ТранзитнаяОтгрузкаДатаWMS" type="xs:dateTime"/>
+		<property name="ТранзитнаяОтгрузкаСкладСсылка" type="xs:string"/>
+		<property name="ТранзитнаяОтгрузкаСкладНаименование" type="xs:string"/>
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Товары" type="d3p1:ТранзитнаяОтгрузка.Товары"/>
+	</objectType>
+	<objectType name="ТранзитнаяОтгрузка.Товары">
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="СтрокаТовары" type="d3p1:ТранзитнаяОтгрузка.Товары.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ТранзитнаяОтгрузка.Товары.Строка" ordered="false" sequenced="true">
+		<property name="НоменклатураСсылка" type="xs:string"/>
+		<property name="НоменклатураНаименование" type="xs:string"/>
+		<property name="НоменклатураАртикул" type="xs:string"/>
+		<property name="SSID" type="xs:string"/>
+		<property name="ОрганизацияСсылка" type="xs:string"/>
+		<property name="Количество" type="xs:int"/>
+	</objectType>
+	<objectType name="УдалениеОбъекта" ordered="false" sequenced="true">
+		<property name="ТипОбъекта" type="xs:string"/>
+		<property name="Ссылка" type="xs:string"/>
+	</objectType>
+</package>
