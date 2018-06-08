@@ -260,7 +260,7 @@
 		УстановитьЗначениеXDTO(ОбъектCompany, СвойствоCompany.Тип, "OID", Новый Структура("OID,Required", ДанныеКонтрагента.CRM_Company_OID, Истина));
 		УстановитьЗначениеXDTO(ОбъектCompany, СвойствоCompany.Тип, "Name", Новый Структура("Name,Required", ДанныеКонтрагента.CRM_Company_Name, Истина));
 		УстановитьЗначениеXDTO(ОбъектCompany, СвойствоCompany.Тип, "Industry", Новый Структура("Name,ID", ДанныеКонтрагента.CRM_Company_Industry_Name, ДанныеКонтрагента.CRM_Company_Industry_ID));
-		УстановитьЗначениеXDTO(ОбъектCompany, СвойствоCompany.Тип, "Region", Новый Структура("Name,ID", ДанныеКонтрагента.CRM_Company_Region_Name, ДанныеКонтрагента.CRM_Company_Region_ID));
+		УстановитьЗначениеXDTO(ОбъектCompany, СвойствоCompany.Тип, "Region", Новый Структура("Name,ID", ДанныеКонтрагента.CRM_Company_Region_Name, 0));
 		УстановитьЗначениеXDTO(ОбъектCompany, СвойствоCompany.Тип, "Type", Новый Структура("Name,ID", ДанныеКонтрагента.CRM_Company_Type_Name, ""));
 		УстановитьЗначениеXDTO(ОбъектCompany, СвойствоCompany.Тип, "AssignedTo", Новый Структура("Required,ID,Login", Истина, "", ЛогинELMAЗакрепленногоМенеджера));
 		УстановитьЗначениеXDTO(ОбъектCompany, СвойствоCompany.Тип, "Author", Новый Структура("Required,ID,Login", Истина, "", "admin"));
