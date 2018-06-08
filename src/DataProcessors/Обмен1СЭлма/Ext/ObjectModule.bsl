@@ -42,7 +42,7 @@
 	УстановитьМенеджера(Структура, CRM.Company.AssignedTo.ID);
 	УстановитьСегментКонтрагента(Структура, CRM.Company.CountEmployees);
 	Структура.Вставить("Наименование",CRM.company.name.name);
-	Структура.Вставить("НаименованиеПолное",CRM.company.Region.ID);
+	Структура.Вставить("НаименованиеПолное",CRM.Company.Industry.Name);
 	Структура.Вставить("Телефон", CRM.Company.OtherPhone);
 	Структура.Вставить("EMail", CRM.Company.Email);
 	Структура.Вставить("ЮридическийАдрес", CRM.Company.BAdress.PostalAdress);
