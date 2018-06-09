@@ -49,7 +49,7 @@
 	
 КонецФункции
 
-Функция GetDocumetntsForExchangeToplog(DataB, DataC)
+Функция GetDocumentsForExchangeToplog(DataB, DataC)
 	
 	Возврат DataExchangeModule.ПолучитьДокументыДляОбменаТоплог(DataB, DataC);
 	
