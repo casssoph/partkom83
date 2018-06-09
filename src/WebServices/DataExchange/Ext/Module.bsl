@@ -51,7 +51,7 @@
 
 Функция GetDocumetntsForExchangeToplog(DataB, DataC)
 	
-	Возврат ПолучитьДокументыДляОбменаТоплог(DataB, DataC);
+	Возврат DataExchangeModule.ПолучитьДокументыДляОбменаТоплог(DataB, DataC);
 	
 КонецФункции
  
