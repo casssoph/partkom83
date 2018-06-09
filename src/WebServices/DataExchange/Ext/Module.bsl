@@ -48,6 +48,12 @@
 	Возврат DataExchangeModule.GetDocForBit(Data,Number,Answer); 
 	
 КонецФункции
+
+Функция GetDocumetntsForExchangeToplog(DataB, DataC)
+	
+	Возврат ПолучитьДокументыДляОбменаТоплог(DataB, DataC);
+	
+КонецФункции
  
 //ДАННЫЙ МОДУЛЬ ИЗМЕНЯТЬ С ОСТОРОЖНОСТЬЮ, Т.К. ТУТ ОТКЛЮЧЕНА ПРОВЕРКА СИНТАКСИСА
 //ЗДЕСЬ ТОЛЬКО ПЕРЕХОДЫ В ОБЩИЙ МОДУЛЬ DataExchangeModule
