@@ -183,6 +183,9 @@
 					<v8:content>Поставщик</v8:content>
 				</v8:item>
 			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Контрагенты</v8:Type>
+			</valueType>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ПрайсПоставщика</dataPath>
@@ -219,16 +222,6 @@
 			<field>Качество</field>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>ПроизводительНаименование</dataPath>
-			<field>ПроизводительНаименование</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Производитель наименование</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>ПрайсПоставщикаКод</dataPath>
 			<field>ПрайсПоставщикаКод</field>
 			<title xsi:type="v8:LocalStringType">
@@ -239,42 +232,12 @@
 			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>ПокупательНаименование</dataPath>
-			<field>ПокупательНаименование</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Покупатель наименование</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>ПоставщикНаименование</dataPath>
-			<field>ПоставщикНаименование</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Поставщик наименование</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>ЗаказДата</dataPath>
 			<field>ЗаказДата</field>
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Заказ дата</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>МенеджерНаименование</dataPath>
-			<field>МенеджерНаименование</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Менеджер наименование</v8:content>
 				</v8:item>
 			</title>
 		</field>
@@ -664,21 +627,9 @@
 	РезультатЗапросаСтарый.Комментарий КАК Комментарий,
 	РезультатЗапросаСтарый.АктПриемки КАК АктПриемки,
 	ОстаткиТоваров.СвободныйОстаток КАК СвободныйОстаток,
-	ПРЕДСТАВЛЕНИЕССЫЛКИ(РезультатЗапросаСтарый.Заказ) КАК ЗаказПредставление,
 	РезультатЗапросаСтарый.Заказ.Дата КАК ЗаказДата,
-	ПРЕДСТАВЛЕНИЕССЫЛКИ(РезультатЗапросаСтарый.Заявка) КАК ЗаявкаПредставление,
 	РезультатЗапросаСтарый.Заявка.Дата КАК ЗаявкаДата,
-	ПРЕДСТАВЛЕНИЕССЫЛКИ(РезультатЗапросаСтарый.Менеджер) КАК МенеджерПредставление,
-	РезультатЗапросаСтарый.Менеджер.Наименование КАК МенеджерНаименование,
-	ПРЕДСТАВЛЕНИЕССЫЛКИ(РезультатЗапросаСтарый.Покупатель) КАК ПокупательПредставление,
-	РезультатЗапросаСтарый.Покупатель.Наименование КАК ПокупательНаименование,
-	ПРЕДСТАВЛЕНИЕССЫЛКИ(РезультатЗапросаСтарый.Поставщик) КАК ПоставщикПредставление,
-	РезультатЗапросаСтарый.Поставщик.Наименование КАК ПоставщикНаименование,
-	ПРЕДСТАВЛЕНИЕССЫЛКИ(РезультатЗапросаСтарый.Поступление) КАК ПоступлениеПредставление,
-	ПРЕДСТАВЛЕНИЕССЫЛКИ(РезультатЗапросаСтарый.ПрайсПоставщика) КАК ПрайсПоставщикаПредставление,
-	РезультатЗапросаСтарый.ПрайсПоставщика.Код КАК ПрайсПоставщикаКод,
-	ПРЕДСТАВЛЕНИЕССЫЛКИ(РезультатЗапросаСтарый.Производитель) КАК ПроизводительПредставление,
-	РезультатЗапросаСтарый.Производитель.Наименование КАК ПроизводительНаименование
+	РезультатЗапросаСтарый.ПрайсПоставщика.Код КАК ПрайсПоставщикаКод
 ИЗ
 	РезультатЗапросаСтарый КАК РезультатЗапросаСтарый
 		ЛЕВОЕ СОЕДИНЕНИЕ ОстаткиТоваров КАК ОстаткиТоваров
@@ -830,21 +781,19 @@
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">Поставщик</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
-					<dcsset:right xsi:type="xs:string">00000000-0000-0000-0000-000000000000</dcsset:right>
-					<dcsset:userSettingID>93fd52ab-2dc5-44c4-976d-02947e0088c6</dcsset:userSettingID>
+					<dcsset:userSettingID>a62a9896-1235-4ae1-9dee-3f63026227d4</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">Покупатель</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
-					<dcsset:right xsi:type="xs:string">00000000-0000-0000-0000-000000000000</dcsset:right>
+					<dcsset:userSettingID>35341522-c08c-4bf1-87c5-2c01ec1ab670</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">Склад</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
-					<dcsset:right xsi:type="xs:string">00000000-0000-0000-0000-000000000000</dcsset:right>
-					<dcsset:userSettingID>70639837-1c3b-47b2-9948-7a58fb1689c8</dcsset:userSettingID>
+					<dcsset:userSettingID>762acaf2-20db-4f28-b27a-a524e749ea90</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
@@ -1055,6 +1004,7 @@
 						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 					</dcsset:selection>
 					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:use>false</dcsset:use>
 						<dcsset:groupItems>
 							<dcsset:item xsi:type="dcsset:GroupItemField">
 								<dcsset:field>Заказ</dcsset:field>
