@@ -60,6 +60,14 @@
 	Возврат DataExchangeModule.ПроверитьДокументыДляОбменаТоплог(Query);
 	
 КонецФункции
+
+Функция IDSiteStatus(IDSite)
+	
+	Возврат DataExchangeModule.IDSiteStatus(IDSite);
+	
+КонецФункции
+
+
  
 //ДАННЫЙ МОДУЛЬ ИЗМЕНЯТЬ С ОСТОРОЖНОСТЬЮ, Т.К. ТУТ ОТКЛЮЧЕНА ПРОВЕРКА СИНТАКСИСА
 //ЗДЕСЬ ТОЛЬКО ПЕРЕХОДЫ В ОБЩИЙ МОДУЛЬ DataExchangeModule
