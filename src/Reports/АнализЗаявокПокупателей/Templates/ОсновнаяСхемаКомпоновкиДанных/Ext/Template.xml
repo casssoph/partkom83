@@ -92,16 +92,6 @@
 			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>Менеджер</dataPath>
-			<field>Менеджер</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Менеджер</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>Поставщик</dataPath>
 			<field>Поставщик</field>
 			<title xsi:type="v8:LocalStringType">
@@ -250,6 +240,26 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МенеджерЗаявки</dataPath>
+			<field>МенеджерЗаявки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Менеджер заявки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МенеджерЗаказа</dataPath>
+			<field>МенеджерЗаказа</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Менеджер заказа</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	ЗаявкиПокупателейОстатки.Склад,
@@ -263,7 +273,8 @@
 	ЗаявкиПокупателейОстатки.ДоговорКонтрагента.Владелец.* КАК Покупатель,
 	ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заказ.Контрагент.* КАК Поставщик,
 	ЗаявкиПокупателейОстатки.Склад.*,
-	ЗаявкиПокупателейОстатки.Номенклатура.*}
+	ЗаявкиПокупателейОстатки.Номенклатура.*,
+	ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заявка.Менеджер.* КАК МенеджерЗаявки}
 
 ИНДЕКСИРОВАТЬ ПО
 	СтрокаЗаявки
@@ -398,7 +409,7 @@
 		КОГДА ВТЗаказовПоставщику.Заказ ЕСТЬ NULL
 			ТОГДА ЗНАЧЕНИЕ(Справочник.Менеджеры.ПустаяСсылка)
 		ИНАЧЕ ВТЗаказовПоставщику.Заказ.Менеджер
-	КОНЕЦ КАК Менеджер,
+	КОНЕЦ КАК МенеджерЗаказа,
 	ВТОстаткиЗаявок.Номенклатура.Артикул КАК Артикул,
 	ВТОстаткиЗаявок.Номенклатура,
 	ПРЕДСТАВЛЕНИЕССЫЛКИ(ВТОстаткиЗаявок.Номенклатура.Изготовитель) КАК Изготовитель,
@@ -438,7 +449,13 @@
 	И ВЫБОР
 			КОГДА НЕ &amp;ПоказыватьОтказы
 				ТОГДА ВТОстаткиЗаявок.ОстатокПоЗаявке &gt; ЕСТЬNULL(ВТОтказов.КоличествоОтказано, 0)
-		КОНЕЦ</query>
+		КОНЕЦ
+{ГДЕ
+	(ВЫБОР
+			КОГДА ВТЗаказовПоставщику.Заказ ЕСТЬ NULL
+				ТОГДА ЗНАЧЕНИЕ(Справочник.Менеджеры.ПустаяСсылка)
+			ИНАЧЕ ВТЗаказовПоставщику.Заказ.Менеджер
+		КОНЕЦ).* КАК МенеджерЗаказа}</query>
 	</dataSet>
 	<totalField>
 		<dataPath>ОстатокПоЗаявке</dataPath>
@@ -515,11 +532,12 @@
 						<dcsset:field>Поставщик</dcsset:field>
 					</dcsset:item>
 					<dcsset:item xsi:type="dcsset:SelectedItemField">
-						<dcsset:field>Менеджер</dcsset:field>
+						<dcsset:field>МенеджерЗаказа</dcsset:field>
 					</dcsset:item>
-					<dcsset:placement>Auto</dcsset:placement>
+					<dcsset:placement>Vertically</dcsset:placement>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:title>Номенклатура</dcsset:title>
 					<dcsset:item xsi:type="dcsset:SelectedItemField">
 						<dcsset:field>Номенклатура</dcsset:field>
 					</dcsset:item>
@@ -535,38 +553,48 @@
 					<dcsset:placement>Vertically</dcsset:placement>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
-					<dcsset:item xsi:type="dcsset:SelectedItemField">
-						<dcsset:field>Заявка</dcsset:field>
+					<dcsset:title>Заявка, покупатель</dcsset:title>
+					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Заявка</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Покупатель</dcsset:field>
+						</dcsset:item>
+						<dcsset:placement>Together</dcsset:placement>
 					</dcsset:item>
 					<dcsset:item xsi:type="dcsset:SelectedItemField">
-						<dcsset:field>Покупатель</dcsset:field>
+						<dcsset:field>Поступление</dcsset:field>
 					</dcsset:item>
 					<dcsset:placement>Vertically</dcsset:placement>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
-					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
-						<dcsset:item xsi:type="dcsset:SelectedItemField">
-							<dcsset:field>ДатаНачалаЗаявки</dcsset:field>
-						</dcsset:item>
-						<dcsset:item xsi:type="dcsset:SelectedItemField">
-							<dcsset:field>СрокГарантированный</dcsset:field>
-						</dcsset:item>
-						<dcsset:item xsi:type="dcsset:SelectedItemField">
-							<dcsset:field>ПросрочкаКлиенту</dcsset:field>
-						</dcsset:item>
-						<dcsset:placement>Auto</dcsset:placement>
+					<dcsset:title>Нач. даты</dcsset:title>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ДатаНачалаЗаявки</dcsset:field>
 					</dcsset:item>
-					<dcsset:item xsi:type="dcsset:SelectedItemFolder">
-						<dcsset:item xsi:type="dcsset:SelectedItemField">
-							<dcsset:field>НачДатаЗаказа</dcsset:field>
-						</dcsset:item>
-						<dcsset:item xsi:type="dcsset:SelectedItemField">
-							<dcsset:field>СрокГарантированныйПоставщика</dcsset:field>
-						</dcsset:item>
-						<dcsset:item xsi:type="dcsset:SelectedItemField">
-							<dcsset:field>ПросрочкаПоставщика</dcsset:field>
-						</dcsset:item>
-						<dcsset:placement>Auto</dcsset:placement>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>НачДатаЗаказа</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Vertically</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:title>Гарант. Даты</dcsset:title>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СрокГарантированный</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СрокГарантированныйПоставщика</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Vertically</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:title>Просрочки</dcsset:title>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПросрочкаКлиенту</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПросрочкаПоставщика</dcsset:field>
 					</dcsset:item>
 					<dcsset:placement>Vertically</dcsset:placement>
 				</dcsset:item>
@@ -592,6 +620,25 @@
 					<dcsset:left xsi:type="dcscor:Field">Поставщик</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:userSettingID>6292d26e-66a2-4e4a-bf09-329b22dfc8e7</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">МенеджерЗаявки</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingPresentation xsi:type="xs:string">Менеджер заявки</dcsset:userSettingPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">МенеджерЗаказа</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>06ad6af1-1cd7-4631-85a8-a0da56cd0974</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ЕстьПоступлениеПоЗаявке</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:userSettingID>99ff8cd5-bd5a-4d0c-9f83-37ecbd4288a6</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
@@ -644,7 +691,7 @@
 					<dcsset:filter>
 						<dcsset:item xsi:type="dcsset:FilterItemComparison">
 							<dcsset:left xsi:type="dcscor:Field">ПросрочкаКлиенту</dcsset:left>
-							<dcsset:comparisonType>Less</dcsset:comparisonType>
+							<dcsset:comparisonType>Greater</dcsset:comparisonType>
 							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
 						</dcsset:item>
 					</dcsset:filter>
@@ -664,7 +711,7 @@
 					<dcsset:filter>
 						<dcsset:item xsi:type="dcsset:FilterItemComparison">
 							<dcsset:left xsi:type="dcscor:Field">ПросрочкаПоставщика</dcsset:left>
-							<dcsset:comparisonType>Less</dcsset:comparisonType>
+							<dcsset:comparisonType>Greater</dcsset:comparisonType>
 							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
 						</dcsset:item>
 					</dcsset:filter>
@@ -672,6 +719,25 @@
 						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 							<dcscor:parameter>ЦветФона</dcscor:parameter>
 							<dcscor:value xsi:type="v8ui:Color">web:LightCoral</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>Поступление</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Поступление</dcsset:left>
+							<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветФона</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">web:PaleGoldenrod</dcscor:value>
 						</dcscor:item>
 					</dcsset:appearance>
 				</dcsset:item>
