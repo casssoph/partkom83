@@ -312,16 +312,6 @@
 			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>Поставщик</dataPath>
-			<field>Поставщик</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Поставщик</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>Себестоимость</dataPath>
 			<field>Себестоимость</field>
 			<title xsi:type="v8:LocalStringType">
@@ -370,7 +360,6 @@
 	ТаблицаПродаж.ВидСписания,
 	ТаблицаПродаж.Организация,
 	ТаблицаПродаж.МенеджерПродажи,
-	ТаблицаПродаж.Поставщик,
 	ТаблицаПродаж.Себестоимость
 ИЗ
 	(ВЫБРАТЬ
@@ -394,7 +383,6 @@
 		НАЧАЛОПЕРИОДА(Продажи.ПериодГод, ГОД) КАК ПериодГод,
 		Продажи.Склад.Филиал КАК Филиал,
 		Продажи.ТорговаяТочка КАК ТорговаяТочка,
-		Продажи.СтрокаЗаявки.Поставщик КАК Поставщик,
 		Продажи.СтрокаЗаявки.Заявка КАК Заявка,
 		Продажи.СтрокаЗаявки.Заказ КАК Заказ,
 		Продажи.КоличествоВозвратОборот КАК КоличествоВозврат,
@@ -458,7 +446,6 @@
 	ТаблицаПродаж.Склад,
 	ТаблицаПродаж.Организация,
 	ТаблицаПродаж.МенеджерПродажи,
-	ТаблицаПродаж.Поставщик,
 	ТаблицаПродаж.Себестоимость</query>
 	</dataSet>
 	<dataSet xsi:type="DataSetQuery">
@@ -993,11 +980,6 @@
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:use>false</dcscor:use>
 					<dcscor:parameter>РазрешитьВсеФилиалы</dcscor:parameter>
-					<dcscor:value xsi:nil="true"/>
-				</dcscor:item>
-				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:use>false</dcscor:use>
-					<dcscor:parameter>ОсновнойФилиал</dcscor:parameter>
 					<dcscor:value xsi:nil="true"/>
 				</dcscor:item>
 			</dcsset:dataParameters>
