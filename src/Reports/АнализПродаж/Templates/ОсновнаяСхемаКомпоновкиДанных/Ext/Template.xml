@@ -311,6 +311,26 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Поставщик</dataPath>
+			<field>Поставщик</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поставщик</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Себестоимость</dataPath>
+			<field>Себестоимость</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Себестоимость</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ РАЗЛИЧНЫЕ
 	Контрагенты.Ссылка КАК КонтрагентПополнениеСклада
@@ -349,7 +369,9 @@
 	СУММА(ТаблицаПродаж.СуммаВозврат) КАК СуммаВозврат,
 	ТаблицаПродаж.ВидСписания,
 	ТаблицаПродаж.Организация,
-	ТаблицаПродаж.МенеджерПродажи
+	ТаблицаПродаж.МенеджерПродажи,
+	ТаблицаПродаж.Поставщик,
+	ТаблицаПродаж.Себестоимость
 ИЗ
 	(ВЫБРАТЬ
 		ВЫБОР
@@ -400,13 +422,19 @@
 			КОГДА Продажи.Регистратор ССЫЛКА Документ.ВозвратТоваровОтПокупателя
 				ТОГДА ВЫРАЗИТЬ(Продажи.Регистратор КАК Документ.ВозвратТоваровОтПокупателя).Менеджер
 			ИНАЧЕ ЗНАЧЕНИЕ(Справочник.Организации.ПустаяСсылка)
-		КОНЕЦ КАК МенеджерПродажи
+		КОНЕЦ КАК МенеджерПродажи,
+		Продажи.СебестоимостьРублиОборот КАК Себестоимость
 	ИЗ
 		РегистрНакопления.Продажи.Обороты({(&amp;НачалоПериода)}, {(&amp;ОкончаниеПериода)}, Авто, {(ЕСТЬNULL(ТорговаяТочка.Владелец, ЗНАЧЕНИЕ(Справочник.Контрагенты.ПустаяСсылка))).* КАК Покупатель, (ЕСТЬNULL(Склад.Филиал, ЗНАЧЕНИЕ(Справочник.Филиалы.ПустаяСсылка))).* КАК Филиал}) КАК Продажи
 	ГДЕ
 		ВЫБОР
 				КОГДА &amp;ТолькоВозвраты
 					ТОГДА Продажи.Регистратор ССЫЛКА Документ.ВозвратТоваровОтПокупателя
+				ИНАЧЕ ИСТИНА
+			КОНЕЦ
+		И ВЫБОР
+				КОГДА НЕ &amp;РазрешитьВсеФилиалы
+					ТОГДА Продажи.Склад.Филиал = &amp;ОсновнойФилиал
 				ИНАЧЕ ИСТИНА
 			КОНЕЦ) КАК ТаблицаПродаж
 
@@ -429,7 +457,9 @@
 	ТаблицаПродаж.Заявка,
 	ТаблицаПродаж.Склад,
 	ТаблицаПродаж.Организация,
-	ТаблицаПродаж.МенеджерПродажи</query>
+	ТаблицаПродаж.МенеджерПродажи,
+	ТаблицаПродаж.Поставщик,
+	ТаблицаПродаж.Себестоимость</query>
 	</dataSet>
 	<dataSet xsi:type="DataSetQuery">
 		<name>Партии</name>
@@ -444,14 +474,6 @@
 			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>Номенклатура</dataPath>
-			<field>Номенклатура</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Склад</dataPath>
-			<field>Склад</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>МенеджерСнабжения</dataPath>
 			<field>МенеджерСнабжения</field>
 			<title xsi:type="v8:LocalStringType">
@@ -460,6 +482,10 @@
 					<v8:content>Менеджер снабжения</v8:content>
 				</v8:item>
 			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ДокументДвижения</dataPath>
@@ -475,11 +501,13 @@
 				<dcscom:periodType>Main</dcscom:periodType>
 			</role>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ ПЕРВЫЕ 1
 	ПартииТоваров.СтрокаПрихода.ТорговаяТочка.Владелец КАК Поставщик,
-	ПартииТоваров.Номенклатура,
-	ПартииТоваров.Склад,
 	ВЫБОР
 		КОГДА ПартииТоваров.СтрокаПрихода.Приход ССЫЛКА Документ.ПоступлениеТоваровУслуг
 			ТОГДА ВЫРАЗИТЬ(ПартииТоваров.СтрокаПрихода.Приход КАК Документ.ПоступлениеТоваровУслуг).Менеджер
@@ -487,6 +515,8 @@
 			ТОГДА ВЫРАЗИТЬ(ПартииТоваров.СтрокаПрихода.Приход КАК Документ.ВозвратТоваровОтПокупателя).Менеджер
 		ИНАЧЕ ЗНАЧЕНИЕ(Справочник.Менеджеры.ПустаяСсылка)
 	КОНЕЦ КАК МенеджерСнабжения,
+	ПартииТоваров.Номенклатура,
+	ПартииТоваров.Склад,
 	ПартииТоваров.Регистратор КАК ДокументДвижения
 ИЗ
 	РегистрНакопления.ПартииТоваров КАК ПартииТоваров
@@ -520,12 +550,12 @@
 		<parameterListAllowed>false</parameterListAllowed>
 	</dataSetLink>
 	<calculatedField>
-		<dataPath>МПФ</dataPath>
-		<expression>Выбор когда Покупатель.Родитель = &amp;СобственныйКонтрагент тогда Истина иначе Ложь конец</expression>
+		<dataPath>Наценка</dataPath>
+		<expression>СуммаПродажи / Себестоимость*КоличествоПродажи</expression>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
-				<v8:content>МПФ</v8:content>
+				<v8:content>Наценка</v8:content>
 			</v8:item>
 		</title>
 	</calculatedField>
@@ -544,6 +574,14 @@
 	<totalField>
 		<dataPath>КоличествоПродажи</dataPath>
 		<expression>Сумма(КоличествоПродажи)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Себестоимость</dataPath>
+		<expression>Сумма(Себестоимость)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Наценка</dataPath>
+		<expression>Сумма(Наценка)</expression>
 	</totalField>
 	<parameter>
 		<name>Период</name>
@@ -713,6 +751,45 @@
 		<useRestriction>true</useRestriction>
 		<expression>Справочники.Контрагенты.НайтиПоКоду("00000005")</expression>
 	</parameter>
+	<parameter>
+		<name>РазрешитьВсеФилиалы</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Разрешить все филиалы</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">true</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ФилиалПоУмолчанию</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Филиал по умолчанию</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ОсновнойФилиал</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Основной филиал</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Филиалы</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
 	<settingsVariant>
 		<dcsset:name>Произвольный</dcsset:name>
 		<dcsset:presentation xsi:type="v8:LocalStringType">
@@ -743,6 +820,9 @@
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Номенклатура</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидСписания</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>МенеджерПродажи</dcsset:field>
@@ -788,6 +868,12 @@
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>СуммаПродажи</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Наценка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Себестоимость</dcsset:field>
 				</dcsset:item>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>6ba0428d-0c9e-407e-a96b-2e0900476257</dcsset:userSettingID>
@@ -888,7 +974,7 @@
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>Период</dcscor:parameter>
 					<dcscor:value xsi:type="v8:StandardPeriod">
-						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Today</v8:variant>
 					</dcscor:value>
 					<dcsset:userSettingID>a228acd9-89ce-46d3-a4aa-bcb2e15201b8</dcsset:userSettingID>
 				</dcscor:item>
@@ -903,6 +989,16 @@
 							<v8:content>Данные отчета</v8:content>
 						</v8:item>
 					</dcsset:userSettingPresentation>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>РазрешитьВсеФилиалы</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ОсновнойФилиал</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
 				</dcscor:item>
 			</dcsset:dataParameters>
 			<dcsset:order>
