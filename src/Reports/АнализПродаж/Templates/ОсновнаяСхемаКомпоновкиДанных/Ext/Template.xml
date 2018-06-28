@@ -321,6 +321,28 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Наценка</dataPath>
+			<field>Наценка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наценка</v8:content>
+				</v8:item>
+			</title>
+			<presentationExpression>"(" +Формат(Наценка,"ЧДЦ=2") +"%)"</presentationExpression>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧН=0</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ РАЗЛИЧНЫЕ
 	Контрагенты.Ссылка КАК КонтрагентПополнениеСклада
@@ -461,7 +483,12 @@
 	ТаблицаПродаж.МенеджерПродажи,
 	СУММА(ТаблицаПродаж.Себестоимость) КАК Себестоимость,
 	ТаблицаПродаж.МенеджерСнабжения,
-	ТаблицаПродаж.Поставщик
+	ТаблицаПродаж.Поставщик,
+	СРЕДНЕЕ(ВЫБОР
+			КОГДА НЕ ЕСТЬNULL(ТаблицаПродаж.Себестоимость, 0) = 0
+				ТОГДА ТаблицаПродаж.Себестоимость / ТаблицаПродаж.СуммаПродажи * 100
+			ИНАЧЕ 0
+		КОНЕЦ) КАК Наценка
 ИЗ
 	(ВЫБРАТЬ
 		ВТПродажи.ДокументДвижения КАК ДокументДвижения,
@@ -524,25 +551,32 @@
 	ТаблицаПродаж.Поставщик</query>
 	</dataSet>
 	<calculatedField>
-		<dataPath>Наценка</dataPath>
-		<expression>СуммаПродажи / Себестоимость*КоличествоПродажи</expression>
+		<dataPath>Сумма</dataPath>
+		<expression>ВЫБОР
+	КОГДА ЕСТЬNULL(СуммаПродажи, 0) = 0
+		ТОГДА -СуммаВозврат
+	ИНАЧЕ СуммаПродажи
+КОНЕЦ</expression>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
-				<v8:content>Наценка</v8:content>
+				<v8:content>Сумма</v8:content>
 			</v8:item>
 		</title>
-		<appearance>
-			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-				<dcscor:parameter>Формат</dcscor:parameter>
-				<dcscor:value xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>ЧДЦ=2</v8:content>
-					</v8:item>
-				</dcscor:value>
-			</dcscor:item>
-		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>Количество</dataPath>
+		<expression>ВЫБОР
+	КОГДА ЕСТЬNULL(КоличествоПродажи, 0) = 0
+		ТОГДА -КоличествоВозврат
+	ИНАЧЕ КоличествоПродажи
+КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Количество</v8:content>
+			</v8:item>
+		</title>
 	</calculatedField>
 	<totalField>
 		<dataPath>СуммаВозврат</dataPath>
@@ -567,6 +601,14 @@
 	<totalField>
 		<dataPath>Наценка</dataPath>
 		<expression>Сумма(Наценка)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Сумма</dataPath>
+		<expression>Сумма(Сумма)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Количество</dataPath>
+		<expression>Сумма(Количество)</expression>
 	</totalField>
 	<parameter>
 		<name>Период</name>
@@ -789,22 +831,19 @@
 					<dcsset:field>ДокументДвижения</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>КоличествоВозврат</dcsset:field>
+					<dcsset:field>Количество</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>КоличествоПродажи</dcsset:field>
+					<dcsset:field>Сумма</dcsset:field>
 				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>СуммаВозврат</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>СуммаПродажи</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>Наценка</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>Себестоимость</dcsset:field>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Себестоимость</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Наценка</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Together</dcsset:placement>
 				</dcsset:item>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>6ba0428d-0c9e-407e-a96b-2e0900476257</dcsset:userSettingID>
