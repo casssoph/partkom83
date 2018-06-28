@@ -572,7 +572,12 @@
 	</totalField>
 	<totalField>
 		<dataPath>Наценка</dataPath>
-		<expression>Сумма(Наценка)</expression>
+		<expression>ВЫБОР
+	КОГДА НЕ ЕСТЬNULL(Сумма(Себестоимость), 0) = 0
+		ТОГДА (Сумма(СуммаПродажи) / Сумма(Себестоимость) - 1) * 100
+	ИНАЧЕ 0
+КОНЕЦ</expression>
+		<group>ОбщийИтог</group>
 	</totalField>
 	<totalField>
 		<dataPath>Сумма</dataPath>
