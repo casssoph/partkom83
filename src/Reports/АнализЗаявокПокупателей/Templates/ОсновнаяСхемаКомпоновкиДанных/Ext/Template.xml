@@ -260,6 +260,10 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	ЗаявкиПокупателейОстатки.Склад,
@@ -357,6 +361,28 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 ВЫБРАТЬ
+	ТоварыКОтгрузкеОбороты.СтрокаЗаявки,
+	СУММА(ТоварыКОтгрузкеОбороты.КоличествоОборот) КАК КоличествоОборот
+ПОМЕСТИТЬ ВТТоварыКОтгрузке
+ИЗ
+	РегистрНакопления.ТоварыКОтгрузке.Обороты(
+			,
+			,
+			,
+			(СтрокаЗаявки, Номенклатура, Склад) В
+				(ВЫБРАТЬ
+					ВТОстаткиЗаявок.СтрокаЗаявки,
+					ВТОстаткиЗаявок.Номенклатура,
+					ВТОстаткиЗаявок.Склад
+				ИЗ
+					ВТОстаткиЗаявок)) КАК ТоварыКОтгрузкеОбороты
+
+СГРУППИРОВАТЬ ПО
+	ТоварыКОтгрузкеОбороты.СтрокаЗаявки
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
 	ЗаказыПоставщикам.СтрокаЗаявки,
 	МАКСИМУМ(ВЫБОР
 			КОГДА ЗаказыПоставщикам.Регистратор ССЫЛКА Документ.ПоступлениеТоваровУслуг
@@ -377,11 +403,11 @@
 					КОНЕЦ
 			ИНАЧЕ ЗаказыПоставщикам.СтрокаЗаявки.Заказ
 		КОНЕЦ) КАК Заказ,
-	ВЫБОР
-		КОГДА ЗаказыПоставщикам.Регистратор ССЫЛКА Документ.ПоступлениеТоваровУслуг
-			ТОГДА ВЫРАЗИТЬ(ЗаказыПоставщикам.Регистратор КАК Документ.ПоступлениеТоваровУслуг)
-		ИНАЧЕ ЗНАЧЕНИЕ(Документ.ПоступлениеТоваровУслуг.ПустаяСсылка)
-	КОНЕЦ КАК Поступление
+	МАКСИМУМ(ВЫБОР
+			КОГДА ЗаказыПоставщикам.Регистратор ССЫЛКА Документ.ПоступлениеТоваровУслуг
+				ТОГДА ВЫРАЗИТЬ(ЗаказыПоставщикам.Регистратор КАК Документ.ПоступлениеТоваровУслуг)
+			ИНАЧЕ ЗНАЧЕНИЕ(Документ.ПоступлениеТоваровУслуг.ПустаяСсылка)
+		КОНЕЦ) КАК Поступление
 ПОМЕСТИТЬ ВТЗаказовПоставщику
 ИЗ
 	РегистрНакопления.ЗаказыПоставщикам КАК ЗаказыПоставщикам
@@ -394,12 +420,7 @@
 	И ЗаказыПоставщикам.Период &lt;= &amp;Период
 
 СГРУППИРОВАТЬ ПО
-	ЗаказыПоставщикам.СтрокаЗаявки,
-	ВЫБОР
-		КОГДА ЗаказыПоставщикам.Регистратор ССЫЛКА Документ.ПоступлениеТоваровУслуг
-			ТОГДА ВЫРАЗИТЬ(ЗаказыПоставщикам.Регистратор КАК Документ.ПоступлениеТоваровУслуг)
-		ИНАЧЕ ЗНАЧЕНИЕ(Документ.ПоступлениеТоваровУслуг.ПустаяСсылка)
-	КОНЕЦ
+	ЗаказыПоставщикам.СтрокаЗаявки
 ;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -441,6 +462,8 @@
 			И ВТОстаткиЗаявок.Склад = ВТСвобоныйОстаток.Склад
 		ЛЕВОЕ СОЕДИНЕНИЕ ВТЗаказовПоставщику КАК ВТЗаказовПоставщику
 		ПО ВТОстаткиЗаявок.СтрокаЗаявки = ВТЗаказовПоставщику.СтрокаЗаявки
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТТоварыКОтгрузке КАК ВТТоварыКОтгрузке
+		ПО ВТОстаткиЗаявок.СтрокаЗаявки = ВТТоварыКОтгрузке.СтрокаЗаявки
 ГДЕ
 	ВЫБОР
 			КОГДА НЕ &amp;ПоказыватьРезервы
@@ -450,12 +473,7 @@
 			КОГДА НЕ &amp;ПоказыватьОтказы
 				ТОГДА ВТОстаткиЗаявок.ОстатокПоЗаявке &gt; ЕСТЬNULL(ВТОтказов.КоличествоОтказано, 0)
 		КОНЕЦ
-{ГДЕ
-	(ВЫБОР
-			КОГДА ВТЗаказовПоставщику.Заказ ЕСТЬ NULL
-				ТОГДА ЗНАЧЕНИЕ(Справочник.Менеджеры.ПустаяСсылка)
-			ИНАЧЕ ВТЗаказовПоставщику.Заказ.Менеджер
-		КОНЕЦ).* КАК МенеджерЗаказа}</query>
+	И ВТОстаткиЗаявок.ОстатокПоЗаявке &gt;= ЕСТЬNULL(ВТТоварыКОтгрузке.КоличествоОборот, 0)</query>
 	</dataSet>
 	<totalField>
 		<dataPath>ОстатокПоЗаявке</dataPath>
@@ -521,6 +539,40 @@
 		<value xsi:type="xs:boolean">false</value>
 		<useRestriction>false</useRestriction>
 		<expression>Ложь</expression>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
 	</parameter>
 	<settingsVariant>
 		<dcsset:name>Основной</dcsset:name>
@@ -660,6 +712,8 @@
 					<dcsset:left xsi:type="dcscor:Field">Заявка</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>62baeb22-93cc-4810-90c8-6438fb108f11</dcsset:userSettingID>
 			</dcsset:filter>
 			<dcsset:dataParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
@@ -681,6 +735,10 @@
 					<dcsset:userSettingID>9aa44880-4ace-4d32-a755-a9871a5ce555</dcsset:userSettingID>
 				</dcscor:item>
 			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>cf0e4e2e-7da0-4979-b1ca-7147150f0a69</dcsset:userSettingID>
+			</dcsset:order>
 			<dcsset:conditionalAppearance>
 				<dcsset:item>
 					<dcsset:selection>
@@ -741,6 +799,8 @@
 						</dcscor:item>
 					</dcsset:appearance>
 				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>6d1df018-cac3-42b3-a01a-5d9326ecaa0e</dcsset:userSettingID>
 			</dcsset:conditionalAppearance>
 			<dcsset:item xsi:type="dcsset:StructureItemGroup">
 				<dcsset:groupItems>
@@ -767,6 +827,8 @@
 					</dcsset:selection>
 				</dcsset:item>
 			</dcsset:item>
+			<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+			<dcsset:itemsUserSettingID>d62747d8-f12b-473e-ae80-0767f5d65d30</dcsset:itemsUserSettingID>
 		</dcsset:settings>
 	</settingsVariant>
 </DataCompositionSchema>
