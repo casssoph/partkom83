@@ -62,22 +62,44 @@
 				<CommandName>Form.Command.ПоискПоНомеру</CommandName>
 				<ExtendedTooltip name="ФормаПоискПоНомеруРасширеннаяПодсказка" id="103"/>
 			</Button>
-			<Button name="ФормаПоискПоSiteID" id="104">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ПоискПоSiteID</CommandName>
+			<Popup name="СтрокиЗаявок" id="108">
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
-						<v8:content>SiteID</v8:content>
+						<v8:content>Строки заявок</v8:content>
 					</v8:item>
 				</Title>
-				<ExtendedTooltip name="ФормаПоискПоSiteIDРасширеннаяПодсказка" id="105"/>
-			</Button>
-			<Button name="ФормаИсторияСтрокЗаявок" id="106">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ИсторияСтрокЗаявок</CommandName>
-				<ExtendedTooltip name="ФормаИсторияСтрокЗаявокРасширеннаяПодсказка" id="107"/>
-			</Button>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Строки заявок</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="СтрокиЗаявокРасширеннаяПодсказка" id="109"/>
+				<ChildItems>
+					<Button name="ФормаПоискПоSiteID" id="104">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПоискПоSiteID</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>SiteID</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ФормаПоискПоSiteIDРасширеннаяПодсказка" id="105"/>
+					</Button>
+					<Button name="ФормаИсторияСтрокЗаявок" id="106">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ИсторияСтрокЗаявок</CommandName>
+						<ExtendedTooltip name="ФормаИсторияСтрокЗаявокРасширеннаяПодсказка" id="107"/>
+					</Button>
+					<Button name="ФормаВыгрузитьИсториюСтрокЗаявок" id="110">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ВыгрузитьИсториюСтрокЗаявок</CommandName>
+						<ExtendedTooltip name="ФормаВыгрузитьИсториюСтрокЗаявокРасширеннаяПодсказка" id="111"/>
+					</Button>
+				</ChildItems>
+			</Popup>
 			<Button name="СбросНастроек" id="86">
 				<Type>CommandBarButton</Type>
 				<Representation>Picture</Representation>
@@ -582,6 +604,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ИсторияСтрокЗаявок</Action>
+		</Command>
+		<Command name="ВыгрузитьИсториюСтрокЗаявок" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузить историю строк заявок</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузить историю строк заявок</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыгрузитьИсториюСтрокЗаявок</Action>
 		</Command>
 	</Commands>
 	<CommandInterface>
