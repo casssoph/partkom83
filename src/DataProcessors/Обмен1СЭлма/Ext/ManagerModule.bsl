@@ -238,7 +238,7 @@
 		СтруктураCompany = Новый Структура();
 		СтруктураCompany.Вставить("Action", ?(ЭтоНовый, "NEW", "UPDATE"));
 		СтруктураCompany.Вставить("CountEmployees", ДанныеКонтрагента.CRM_Company_DelayOfPayment);
-		СтруктураCompany.Вставить("AnnualRevenue", ДанныеКонтрагента.CRM_Company_Limit);
+		СтруктураCompany.Вставить("AnnualRevenue", Окр(ДанныеКонтрагента.CRM_Company_Limit, 0));
 		СтруктураCompany.Вставить("Site", ДанныеКонтрагента.CRM_Company_Site);
 		СтруктураCompany.Вставить("PhoneOffice", ДанныеКонтрагента.CRM_Company_OtherPhone);
 		СтруктураCompany.Вставить("Fax", ДанныеКонтрагента.CRM_Company_OID);
