@@ -237,7 +237,7 @@
 		<property name="Наименование" type="xs:string"/>
 		<property name="ПометкаУдаления" type="xs:boolean"/>
 		<property name="ЭтоГруппа" type="xs:boolean"/>
-		<property name="Код" type="xs:string"/>
+		<property name="Код" type="xs:string" lowerBound="0"/>
 	</objectType>
 	<objectType name="Справочники.Изготовители" ordered="false" sequenced="true">
 		<property name="Ссылка" type="xs:string"/>
@@ -303,7 +303,7 @@
 		<property name="ПометкаУдаления" type="xs:boolean"/>
 		<property name="ИНН" type="xs:string"/>
 		<property name="КПП" type="xs:string"/>
-		<property name="Покупатель" type="xs:boolean"/>
+		<property name="Покупатель" type="xs:boolean" lowerBound="0"/>
 		<property name="Поставщик" type="xs:boolean" lowerBound="0"/>
 		<property name="КодПоОКПО" type="xs:string"/>
 		<property name="ФактическийАдрес" type="xs:string"/>
