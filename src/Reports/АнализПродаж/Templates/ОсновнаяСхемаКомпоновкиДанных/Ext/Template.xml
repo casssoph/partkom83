@@ -524,11 +524,8 @@
 	</dataSet>
 	<calculatedField>
 		<dataPath>Сумма</dataPath>
-		<expression>ВЫБОР
-	КОГДА ЕСТЬNULL(СуммаПродажи, 0) = 0
-		ТОГДА -СуммаВозврат
-	ИНАЧЕ СуммаПродажи
-КОНЕЦ</expression>
+		<expression>ЕСТЬNULL(СуммаПродажи, 0) -ЕСТЬNULL(СуммаВозврат,0)
+</expression>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
