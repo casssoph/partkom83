@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>Остатки</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВРезерве</dataPath>
+			<field>ВРезерве</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>В резерве</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОстатокНаСкладе</dataPath>
+			<field>ОстатокНаСкладе</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Остаток на складе</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтрокаПрихода</dataPath>
+			<field>СтрокаПрихода</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтрокаЗаявки</dataPath>
+			<field>СтрокаЗаявки</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Качество</dataPath>
+			<field>Качество</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ТоварыНаСкладахОстатки.Номенклатура КАК Номенклатура,
+	ТоварыНаСкладахОстатки.Склад КАК Склад,
+	ТоварыНаСкладахОстатки.КоличествоОстаток КАК ОстатокНаСкладе,
+	ТоварыНаСкладахОстатки.Качество
+ПОМЕСТИТЬ ВТОстаткиТоваров
+ИЗ
+	РегистрНакопления.ТоварыНаСкладах.Остатки({(&amp;ОкончаниеПериода)}, {(Номенклатура).* КАК Номенклатура, (Склад).* КАК Склад}) КАК ТоварыНаСкладахОстатки
+
+ИНДЕКСИРОВАТЬ ПО
+	Номенклатура,
+	Склад
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	РезервыТоваровОстатки.Номенклатура КАК Номенклатура,
+	РезервыТоваровОстатки.Склад КАК Склад,
+	СУММА(РезервыТоваровОстатки.КоличествоОстаток) КАК ВРезерве
+ПОМЕСТИТЬ ВТРезерв
+ИЗ
+	РегистрНакопления.РезервыТоваров.Остатки КАК РезервыТоваровОстатки
+
+СГРУППИРОВАТЬ ПО
+	РезервыТоваровОстатки.Номенклатура,
+	РезервыТоваровОстатки.Склад
+
+ИНДЕКСИРОВАТЬ ПО
+	Номенклатура,
+	Склад
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТОстаткиТоваров.Номенклатура,
+	ВТОстаткиТоваров.Склад,
+	ВТОстаткиТоваров.ОстатокНаСкладе,
+	ВТРезерв.ВРезерве
+ИЗ
+	ВТОстаткиТоваров КАК ВТОстаткиТоваров
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТРезерв КАК ВТРезерв
+		ПО ВТОстаткиТоваров.Номенклатура = ВТРезерв.Номенклатура
+			И ВТОстаткиТоваров.Склад = ВТРезерв.Склад</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>СвободныйОстаток</dataPath>
+		<expression>ОстатокНаСкладе - естьNull(ВРезерве,0)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Свободный остаток</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<totalField>
+		<dataPath>СвободныйОстаток</dataPath>
+		<expression>Сумма(СвободныйОстаток)</expression>
+	</totalField>
+	<parameter>
+		<name>ОкончаниеПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Окончание периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<expression>ТекущаяДата()</expression>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<nestedSchema>
+		<name>Движения</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Движения</v8:content>
+			</v8:item>
+		</title>
+		<schema>
+			<dataSource>
+				<name>ИсточникДанных1</name>
+				<dataSourceType>Local</dataSourceType>
+			</dataSource>
+			<dataSet xsi:type="DataSetQuery">
+				<name>НаборДанных1</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодКвартал</dataPath>
+					<field>ПериодКвартал</field>
+					<role>
+						<dcscom:periodNumber>10</dcscom:periodNumber>
+						<dcscom:periodType>Additional</dcscom:periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодСекунда</dataPath>
+					<field>ПериодСекунда</field>
+					<role>
+						<dcscom:periodNumber>3</dcscom:periodNumber>
+						<dcscom:periodType>Main</dcscom:periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>НомерСтроки</dataPath>
+					<field>НомерСтроки</field>
+					<role>
+						<dcscom:periodNumber>1</dcscom:periodNumber>
+						<dcscom:periodType>Main</dcscom:periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КоличествоПриход</dataPath>
+					<field>КоличествоПриход</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КоличествоРасход</dataPath>
+					<field>КоличествоРасход</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодМинута</dataPath>
+					<field>ПериодМинута</field>
+					<role>
+						<dcscom:periodNumber>4</dcscom:periodNumber>
+						<dcscom:periodType>Additional</dcscom:periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодПолугодие</dataPath>
+					<field>ПериодПолугодие</field>
+					<role>
+						<dcscom:periodNumber>11</dcscom:periodNumber>
+						<dcscom:periodType>Additional</dcscom:periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодМесяц</dataPath>
+					<field>ПериодМесяц</field>
+					<role>
+						<dcscom:periodNumber>9</dcscom:periodNumber>
+						<dcscom:periodType>Additional</dcscom:periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодЧас</dataPath>
+					<field>ПериодЧас</field>
+					<role>
+						<dcscom:periodNumber>5</dcscom:periodNumber>
+						<dcscom:periodType>Additional</dcscom:periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодГод</dataPath>
+					<field>ПериодГод</field>
+					<role>
+						<dcscom:periodNumber>12</dcscom:periodNumber>
+						<dcscom:periodType>Additional</dcscom:periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Регистратор</dataPath>
+					<field>Регистратор</field>
+					<role>
+						<dcscom:periodNumber>2</dcscom:periodNumber>
+						<dcscom:periodType>Main</dcscom:periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Качество</dataPath>
+					<field>Качество</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодДень</dataPath>
+					<field>ПериодДень</field>
+					<role>
+						<dcscom:periodNumber>6</dcscom:periodNumber>
+						<dcscom:periodType>Additional</dcscom:periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Склад</dataPath>
+					<field>Склад</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Номенклатура</dataPath>
+					<field>Номенклатура</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КоличествоОборот</dataPath>
+					<field>КоличествоОборот</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодНеделя</dataPath>
+					<field>ПериодНеделя</field>
+					<role>
+						<dcscom:periodNumber>7</dcscom:periodNumber>
+						<dcscom:periodType>Additional</dcscom:periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодДекада</dataPath>
+					<field>ПериодДекада</field>
+					<role>
+						<dcscom:periodNumber>8</dcscom:periodNumber>
+						<dcscom:periodType>Additional</dcscom:periodType>
+					</role>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	ТоварыНаСкладахОбороты.НомерСтроки,
+	ТоварыНаСкладахОбороты.Регистратор,
+	ТоварыНаСкладахОбороты.ПериодСекунда,
+	ТоварыНаСкладахОбороты.ПериодМинута,
+	ТоварыНаСкладахОбороты.ПериодЧас,
+	ТоварыНаСкладахОбороты.ПериодДень,
+	ТоварыНаСкладахОбороты.ПериодНеделя,
+	ТоварыНаСкладахОбороты.ПериодДекада,
+	ТоварыНаСкладахОбороты.ПериодМесяц,
+	ТоварыНаСкладахОбороты.ПериодКвартал,
+	ТоварыНаСкладахОбороты.ПериодПолугодие,
+	ТоварыНаСкладахОбороты.ПериодГод,
+	ТоварыНаСкладахОбороты.Номенклатура,
+	ТоварыНаСкладахОбороты.Склад,
+	ТоварыНаСкладахОбороты.Качество,
+	ТоварыНаСкладахОбороты.КоличествоОборот,
+	ТоварыНаСкладахОбороты.КоличествоПриход,
+	ТоварыНаСкладахОбороты.КоличествоРасход
+ИЗ
+	РегистрНакопления.ТоварыНаСкладах.Обороты(, , Авто, ) КАК ТоварыНаСкладахОбороты</query>
+			</dataSet>
+			<parameter>
+				<name>НачалоПериода</name>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Начало периода</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:dateTime</v8:Type>
+					<v8:DateQualifiers>
+						<v8:DateFractions>DateTime</v8:DateFractions>
+					</v8:DateQualifiers>
+				</valueType>
+				<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+				<useRestriction>false</useRestriction>
+			</parameter>
+			<parameter>
+				<name>КонецПериода</name>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Конец периода</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:dateTime</v8:Type>
+					<v8:DateQualifiers>
+						<v8:DateFractions>DateTime</v8:DateFractions>
+					</v8:DateQualifiers>
+				</valueType>
+				<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+				<useRestriction>false</useRestriction>
+			</parameter>
+			<settingsVariant>
+				<dcsset:name>Основной</dcsset:name>
+				<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+				<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						</dcsset:item>
+					</dcsset:filter>
+				</dcsset:settings>
+			</settingsVariant>
+		</schema>
+		<settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:Field">Номенклатура</dcsset:right>
+				</dcsset:item>
+			</dcsset:filter>
+		</settings>
+	</nestedSchema>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Склад</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номенклатура</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОстатокНаСкладе</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВРезерве</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СвободныйОстаток</dcsset:field>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>3857d446-0b02-4fce-a5d6-d7e30aacd185</dcsset:userSettingID>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>71eb6469-6435-4c76-9237-7e2bf59ae5d2</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:order>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>b3364749-d20b-4b75-bb7b-8057ef80af85</dcsset:userSettingID>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+			</dcsset:conditionalAppearance>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:filter>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+				</dcsset:filter>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+				</dcsset:selection>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+			</dcsset:item>
+			<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+			<dcsset:itemsUserSettingID>53f81ab9-f399-44da-b799-e553beace7b9</dcsset:itemsUserSettingID>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>
