@@ -567,7 +567,7 @@
 				И ВТПродажи.Номенклатура = ВТПартии.Номенклатура
 				И ВТПродажи.Склад = ВТПартии.Склад}
 			{ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.МенеджерыТорговыхТочек.СрезПоследних(
-					,
+					{(&amp;ОкончаниеПериода)},
 					ВидМенеджера = ЗНАЧЕНИЕ(Перечисление.ВидыМенеджеров.Продажи)
 						И ТорговаяТочка В
 							(ВЫБРАТЬ
@@ -672,24 +672,6 @@
 		<dataPath>Прибыль</dataPath>
 		<expression>Сумма(Прибыль)</expression>
 	</totalField>
-	<parameter>
-		<name>Период</name>
-		<title xsi:type="v8:LocalStringType">
-			<v8:item>
-				<v8:lang>ru</v8:lang>
-				<v8:content>Период</v8:content>
-			</v8:item>
-		</title>
-		<valueType>
-			<v8:Type>v8:StandardPeriod</v8:Type>
-		</valueType>
-		<value xsi:type="v8:StandardPeriod">
-			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
-			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
-			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
-		</value>
-		<useRestriction>false</useRestriction>
-	</parameter>
 	<parameter>
 		<name>НачалоПериода</name>
 		<title xsi:type="v8:LocalStringType">
@@ -988,13 +970,6 @@
 				<dcsset:userSettingID>d6311cdd-98c5-42ed-b2d1-b4e7ab11e3b5</dcsset:userSettingID>
 			</dcsset:filter>
 			<dcsset:dataParameters>
-				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:parameter>Период</dcscor:parameter>
-					<dcscor:value xsi:type="v8:StandardPeriod">
-						<v8:variant xsi:type="v8:StandardPeriodVariant">Today</v8:variant>
-					</dcscor:value>
-					<dcsset:userSettingID>a228acd9-89ce-46d3-a4aa-bcb2e15201b8</dcsset:userSettingID>
-				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:use>false</dcscor:use>
 					<dcscor:parameter>ТолькоВозвраты</dcscor:parameter>
