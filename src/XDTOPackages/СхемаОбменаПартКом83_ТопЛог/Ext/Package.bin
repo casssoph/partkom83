@@ -96,8 +96,8 @@
 		<property name="ДатаВходящегоДокумента" type="xs:dateTime"/>
 		<property name="СуммаДокумента" type="xs:double"/>
 		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Товары" type="d3p1:Документы.ЗаказНаПриемку.Товары"/>
-		<property name="НомерВходящегоСФ" type="xs:string"/>
-		<property name="ДатаВходящегоСФ" type="xs:dateTime"/>
+		<property name="НомерВходящегоСФ" type="xs:string" lowerBound="0"/>
+		<property name="ДатаВходящегоСФ" type="xs:dateTime" lowerBound="0"/>
 		<property name="ОтветХранение" type="xs:boolean" lowerBound="0"/>
 	</objectType>
 	<objectType name="Документы.ЗаказНаПриемку.Товары">
@@ -316,10 +316,10 @@
 		<property name="МаршрутДоставкиКод" type="xs:string"/>
 		<property name="Автовозврат" type="xs:boolean"/>
 		<property name="VIP" type="xs:boolean"/>
-		<property name="EmailДляОбменаДокументами" type="xs:string"/>
-		<property name="АвтоотправкаОтгрузочныхДокументов" type="xs:boolean"/>
-		<property name="АвтоотправкаОтгрузочныхДокументовСКомментариями" type="xs:boolean"/>
-		<property name="АвтоотправкаОтгрузочныхДокументовНеАрхивировать" type="xs:boolean"/>
+		<property name="EmailДляОбменаДокументами" type="xs:string" lowerBound="0"/>
+		<property name="АвтоотправкаОтгрузочныхДокументов" type="xs:boolean" lowerBound="0"/>
+		<property name="АвтоотправкаОтгрузочныхДокументовСКомментариями" type="xs:boolean" lowerBound="0"/>
+		<property name="АвтоотправкаОтгрузочныхДокументовНеАрхивировать" type="xs:boolean" lowerBound="0"/>
 	</objectType>
 	<objectType name="ТранзитнаяОтгрузка">
 		<property name="ТранзитнаяОтгрузкаСсылка" type="xs:anyType"/>
