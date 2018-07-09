@@ -72,7 +72,7 @@
 	ТоварыНаСкладахОстатки.Качество
 ПОМЕСТИТЬ ВТОстаткиТоваров
 ИЗ
-	РегистрНакопления.ТоварыНаСкладах.Остатки({(&amp;ОкончаниеПериода)}, {(Номенклатура).* КАК Номенклатура, (Склад).* КАК Склад}) КАК ТоварыНаСкладахОстатки
+	РегистрНакопления.ТоварыНаСкладах.Остатки({(&amp;Период)}, {(Номенклатура).* КАК Номенклатура, (Склад).* КАК Склад}) КАК ТоварыНаСкладахОстатки
 
 ИНДЕКСИРОВАТЬ ПО
 	Номенклатура,
@@ -124,24 +124,6 @@
 		<expression>Сумма(СвободныйОстаток)</expression>
 	</totalField>
 	<parameter>
-		<name>ОкончаниеПериода</name>
-		<title xsi:type="v8:LocalStringType">
-			<v8:item>
-				<v8:lang>ru</v8:lang>
-				<v8:content>Окончание периода</v8:content>
-			</v8:item>
-		</title>
-		<valueType>
-			<v8:Type>xs:dateTime</v8:Type>
-			<v8:DateQualifiers>
-				<v8:DateFractions>DateTime</v8:DateFractions>
-			</v8:DateQualifiers>
-		</valueType>
-		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
-		<useRestriction>false</useRestriction>
-		<expression>ТекущаяДата()</expression>
-	</parameter>
-	<parameter>
 		<name>Период</name>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
@@ -191,6 +173,14 @@
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>71eb6469-6435-4c76-9237-7e2bf59ae5d2</dcsset:userSettingID>
 			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>6bae83e8-1e3f-4907-b2b9-b2cddb277f66</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
 			<dcsset:order>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>b3364749-d20b-4b75-bb7b-8057ef80af85</dcsset:userSettingID>
