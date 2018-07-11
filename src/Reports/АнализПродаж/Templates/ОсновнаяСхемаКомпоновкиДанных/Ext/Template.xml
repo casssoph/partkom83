@@ -579,7 +579,7 @@
 				И ВТПродажи.Номенклатура = ВТПартии.Номенклатура
 				И ВТПродажи.Склад = ВТПартии.Склад}
 			{ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.МенеджерыТорговыхТочек.СрезПоследних(
-					{(&amp;ОкончаниеПериода)},
+					{(&amp;ТекущаяДата)},
 					ВидМенеджера = ЗНАЧЕНИЕ(Перечисление.ВидыМенеджеров.Продажи)
 						И ТорговаяТочка В
 							(ВЫБРАТЬ
@@ -808,6 +808,24 @@
 			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
 		</value>
 		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТекущаяДата</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Текущая дата</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>ТекущаяДата()</expression>
 	</parameter>
 	<settingsVariant>
 		<dcsset:name>Произвольный</dcsset:name>
