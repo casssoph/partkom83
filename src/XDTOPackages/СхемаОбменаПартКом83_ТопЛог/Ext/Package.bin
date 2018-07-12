@@ -54,7 +54,7 @@
 		<property name="ПечататьСчетНаОплату" type="xs:boolean"/>
 		<property name="ПечататьТОРГ12" type="xs:boolean"/>
 		<property name="ПечататьСФ" type="xs:boolean"/>
-		<property name="МаршрутДоставкиСЗ" type="xs:string" lowerBound="0"/>
+		<property name="МаршрутДоставкиСЗ" type="xs:string"/>
 		<property name="МаршрутДоставкиСФ" type="xs:string"/>
 		<property name="ФирмаОплаты" type="xs:string"/>
 		<property name="ЦенаДоставки" type="xs:double"/>
@@ -96,8 +96,8 @@
 		<property name="ДатаВходящегоДокумента" type="xs:dateTime"/>
 		<property name="СуммаДокумента" type="xs:double"/>
 		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Товары" type="d3p1:Документы.ЗаказНаПриемку.Товары"/>
-		<property name="НомерВходящегоСФ" type="xs:string" lowerBound="0"/>
-		<property name="ДатаВходящегоСФ" type="xs:dateTime" lowerBound="0"/>
+		<property name="НомерВходящегоСФ" type="xs:string"/>
+		<property name="ДатаВходящегоСФ" type="xs:dateTime"/>
 		<property name="ОтветХранение" type="xs:boolean" lowerBound="0"/>
 	</objectType>
 	<objectType name="Документы.ЗаказНаПриемку.Товары">
@@ -123,8 +123,8 @@
 		<property name="ЗаказНомер" type="xs:string"/>
 		<property name="ЗаказНомерWMS" type="xs:string"/>
 		<property name="ЗаказВидДокумента" type="xs:string"/>
-		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Товары" type="d3p1:РезультатПриемки.Товары"/>
 		<property name="СкладСсылка" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Товары" type="d3p1:РезультатПриемки.Товары"/>
 	</objectType>
 	<objectType name="РезультатПриемки.Товары">
 		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="СтрокаТовары" type="d3p1:РезультатПриемки.Товары.Строка" lowerBound="0" upperBound="-1"/>
@@ -234,11 +234,11 @@
 		<property name="ГосНомер" type="xs:string"/>
 	</objectType>
 	<objectType name="Справочники.Города" ordered="false" sequenced="true">
-		<property name="Ссылка" type="xs:string"/>
-		<property name="РодительСсылка" type="xs:string"/>
-		<property name="Наименование" type="xs:string"/>
-		<property name="ПометкаУдаления" type="xs:boolean"/>
-		<property name="ЭтоГруппа" type="xs:boolean"/>
+		<property name="Ссылка" type="xs:string" lowerBound="0"/>
+		<property name="РодительСсылка" type="xs:string" lowerBound="0"/>
+		<property name="Наименование" type="xs:string" lowerBound="0"/>
+		<property name="ПометкаУдаления" type="xs:boolean" lowerBound="0"/>
+		<property name="ЭтоГруппа" type="xs:boolean" lowerBound="0"/>
 		<property name="Код" type="xs:string" lowerBound="0"/>
 	</objectType>
 	<objectType name="Справочники.Изготовители" ordered="false" sequenced="true">
@@ -299,24 +299,24 @@
 		<property name="ЭтоГруппа" type="xs:boolean"/>
 	</objectType>
 	<objectType name="Справочники.ТорговыеТочки" ordered="false" sequenced="true">
-		<property name="Ссылка" type="xs:string"/>
-		<property name="Код" type="xs:string"/>
-		<property name="Наименование" type="xs:string"/>
-		<property name="ПометкаУдаления" type="xs:boolean"/>
-		<property name="ИНН" type="xs:string"/>
-		<property name="КПП" type="xs:string"/>
+		<property name="Ссылка" type="xs:string" lowerBound="0"/>
+		<property name="Код" type="xs:string" lowerBound="0"/>
+		<property name="Наименование" type="xs:string" lowerBound="0"/>
+		<property name="ПометкаУдаления" type="xs:boolean" lowerBound="0"/>
+		<property name="ИНН" type="xs:string" lowerBound="0"/>
+		<property name="КПП" type="xs:string" lowerBound="0"/>
 		<property name="Покупатель" type="xs:boolean" lowerBound="0"/>
 		<property name="Поставщик" type="xs:boolean" lowerBound="0"/>
-		<property name="КодПоОКПО" type="xs:string"/>
-		<property name="ФактическийАдрес" type="xs:string"/>
-		<property name="Телефон" type="xs:string"/>
-		<property name="ЭтоЮридическоеЛицо" type="xs:boolean"/>
-		<property name="Регион" type="xs:string"/>
-		<property name="КассовыйЧек" type="xs:boolean"/>
-		<property name="КодГород" type="xs:string"/>
-		<property name="МаршрутДоставкиКод" type="xs:string"/>
-		<property name="Автовозврат" type="xs:boolean"/>
-		<property name="VIP" type="xs:boolean"/>
+		<property name="КодПоОКПО" type="xs:string" lowerBound="0"/>
+		<property name="ФактическийАдрес" type="xs:string" lowerBound="0"/>
+		<property name="Телефон" type="xs:string" lowerBound="0"/>
+		<property name="ЭтоЮридическоеЛицо" type="xs:boolean" lowerBound="0"/>
+		<property name="Регион" type="xs:string" lowerBound="0"/>
+		<property name="КассовыйЧек" type="xs:boolean" lowerBound="0"/>
+		<property name="КодГород" type="xs:string" lowerBound="0"/>
+		<property name="МаршрутДоставкиКод" type="xs:string" lowerBound="0"/>
+		<property name="Автовозврат" type="xs:boolean" lowerBound="0"/>
+		<property name="VIP" type="xs:boolean" lowerBound="0"/>
 		<property name="EmailДляОбменаДокументами" type="xs:string" lowerBound="0"/>
 		<property name="АвтоотправкаОтгрузочныхДокументов" type="xs:boolean" lowerBound="0"/>
 		<property name="АвтоотправкаОтгрузочныхДокументовСКомментариями" type="xs:boolean" lowerBound="0"/>
