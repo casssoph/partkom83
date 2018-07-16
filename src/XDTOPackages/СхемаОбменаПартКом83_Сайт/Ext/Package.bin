@@ -560,4 +560,14 @@
 		<property name="Наименование" type="xs:string"/>
 		<property name="Код" type="xs:string"/>
 	</objectType>
+	<objectType name="СостояниеСтрокиЗаявки" ordered="false">
+		<property name="Дата" type="xs:dateTime"/>
+		<property name="IDSite" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Состояние" type="d3p1:UUID"/>
+		<property name="КоличествоВЗаявке" type="xs:double"/>
+		<property name="КоличествоЗаказано" type="xs:double"/>
+		<property name="КоличествоОтказано" type="xs:double"/>
+		<property name="КоличествоНаСкладе" type="xs:double"/>
+		<property name="КоличествоВыдано" type="xs:double"/>
+	</objectType>
 </package>
