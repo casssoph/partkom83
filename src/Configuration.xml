@@ -1392,11 +1392,11 @@
 			<Document>СчетФактураВыданный</Document>
 			<Document>СчетФактураПолученный</Document>
 			<Document>УстановкаДиапазоновБазовыхЦен</Document>
+			<Document>УстановкаСкидокПоставщиковVMI</Document>
 			<Document>УстановкаТиповЦенПоГруппамНоменклатурыДляПокупателей</Document>
 			<Document>УстановкаЦенНоменклатуры</Document>
 			<Document>УстановкаЦенНоменклатурыКонтрагентов</Document>
 			<Document>ЭлектронноеПисьмо</Document>
-			<Document>УстановкаСкидокПоставщиковVMI</Document>
 			<DocumentNumerator>НумераторЗаявокКорректировокЗаявок</DocumentNumerator>
 			<DocumentNumerator>НумераторЗаказовКорретировокЗаказов</DocumentNumerator>
 			<Sequence>ПартионныйУчет</Sequence>
@@ -1428,6 +1428,7 @@
 			<Enum>ВидыЛиквидности</Enum>
 			<Enum>ВидыМенеджеров</Enum>
 			<Enum>ВидыОбменов</Enum>
+			<Enum>ВидыОбъектовДоступа</Enum>
 			<Enum>ВидыОбъектовКонтактнойИнформации</Enum>
 			<Enum>ВидыОбъектовСобытия</Enum>
 			<Enum>ВидыОперацийВводНачальныхОстатковПоВзаиморасчетам</Enum>
@@ -1451,6 +1452,7 @@
 			<Enum>ВидыПоступленияТоваров</Enum>
 			<Enum>ВидыПравилДляОбменаДанными</Enum>
 			<Enum>ВидыРасчетаДней</Enum>
+			<Enum>ВидыСкидок</Enum>
 			<Enum>ВидыСкладов</Enum>
 			<Enum>ВидыСобытий</Enum>
 			<Enum>ВидыТекстовЭлектронныхПисем</Enum>
@@ -1500,6 +1502,7 @@
 			<Enum>СтатусыРеализацииЭкспрессДоставки</Enum>
 			<Enum>СтратегияРедактированияНомеровОбъектов</Enum>
 			<Enum>СтретегииСписанияПартийТоваровПоСтатусам</Enum>
+			<Enum>ТипПоставки</Enum>
 			<Enum>ТипыДанныхКэшаПрограммныхИнтерфейсов</Enum>
 			<Enum>ТипыДоговоров</Enum>
 			<Enum>ТипыДомов</Enum>
@@ -1521,10 +1524,10 @@
 			<Enum>ЧастиЖурналаУчетаСчетовФактур</Enum>
 			<Enum>ЭтапыВыполненияРеглЗаданияАвтоФормированияДок</Enum>
 			<Enum>ЮрФизЛицо</Enum>
-			<Enum>ВидыОбъектовДоступа</Enum>
-			<Enum>ВидыСкидок</Enum>
-			<Enum>ТипПоставки</Enum>
+			<Report>АктСверкиВзаиморасчетов</Report>
 			<Report>АнализЗаказовПоставщикам</Report>
+			<Report>АнализЗаявокПокупателей</Report>
+			<Report>АнализПродаж</Report>
 			<Report>АнализРезервов</Report>
 			<Report>ВедомостьВзаиморасчетыСКонтрагентами</Report>
 			<Report>ВедомостьВзаиморасчетыСПодотчетнымиЛицами</Report>
@@ -1539,14 +1542,19 @@
 			<Report>ДвиженияДокумента</Report>
 			<Report>ЗаказыПоставщикам4Срока</Report>
 			<Report>ЗаказыПоставщикамВРаботе</Report>
+			<Report>ИсторияВыгрузкиНаСайтИсторииСтрокЗаявок</Report>
 			<Report>не_использовать_АнализПродаж</Report>
-			<Report>ОСВБанкКасса</Report>
-			<Report>ОтчетМХ</Report>
 			<Report>НеИспользовать_ОтчетМХ3МХ1</Report>
+			<Report>ОСВБанкКасса</Report>
+			<Report>ОстаткиТоваров</Report>
+			<Report>ОтчетМХ</Report>
 			<Report>ОтчетПДЗБДЗ</Report>
+			<Report>ОтчетПоДвижениямДокумента</Report>
+			<Report>ОтчетПоПеремещениям</Report>
 			<Report>ОтчетПоПрайсамПоставщиковИРасписанию</Report>
 			<Report>ОтчетПоПродажамПомесячно</Report>
 			<Report>ОтчетПоРознице</Report>
+			<Report>ОтчетПоСписаниям</Report>
 			<Report>ОтчетРасхожденияМХ3</Report>
 			<Report>ОтчетСписокКроссТаблица</Report>
 			<Report>ПриходПоИзготовителям</Report>
@@ -1555,18 +1563,10 @@
 			<Report>РеестрБДЗ</Report>
 			<Report>РеестрПДЗБезДнейПросрочкиМодифицированный</Report>
 			<Report>РезервыТоваров</Report>
+			<Report>СкидкиПоставщиковVMI</Report>
 			<Report>ТоварыНаСкладах</Report>
 			<Report>УниверсальныйОтчет</Report>
 			<Report>УниверсальныйОтчетПартком</Report>
-			<Report>АктСверкиВзаиморасчетов</Report>
-			<Report>ОтчетПоДвижениямДокумента</Report>
-			<Report>СкидкиПоставщиковVMI</Report>
-			<Report>ОтчетПоПеремещениям</Report>
-			<Report>АнализЗаявокПокупателей</Report>
-			<Report>АнализПродаж</Report>
-			<Report>ИсторияВыгрузкиНаСайтИсторииСтрокЗаявок</Report>
-			<Report>ОстаткиТоваров</Report>
-			<Report>ОтчетПоСписаниям</Report>
 			<DataProcessor>_ОбработкаОбновления</DataProcessor>
 			<DataProcessor>АдреснаяКнига</DataProcessor>
 			<DataProcessor>БлокировкаКонтрагентов</DataProcessor>
@@ -1579,9 +1579,12 @@
 			<DataProcessor>ГрупповаяОбработкаСправочниковИДокументов</DataProcessor>
 			<DataProcessor>ДвиженияДокумента</DataProcessor>
 			<DataProcessor>ЖурналРегистрации</DataProcessor>
+			<DataProcessor>ЗагрузитьМХ3поДаннымПоставщика</DataProcessor>
 			<DataProcessor>ЗагрузкаАдресногоКлассификатора</DataProcessor>
 			<DataProcessor>ЗагрузкаБанков</DataProcessor>
 			<DataProcessor>ЗагрузкаНастроекОтчетов</DataProcessor>
+			<DataProcessor>ЗагрузкаПеремещенийИзИНВЕНТОРА</DataProcessor>
+			<DataProcessor>ЗагрузкаПеремещенийИзТаблчногоДокумента</DataProcessor>
 			<DataProcessor>ЗагрузкаПлатежныхПоручений</DataProcessor>
 			<DataProcessor>ЗначенияСвойствОбъекта</DataProcessor>
 			<DataProcessor>ИсторияДокумента</DataProcessor>
@@ -1591,18 +1594,18 @@
 			<DataProcessor>МониторОбменов</DataProcessor>
 			<DataProcessor>НайтиПоGUID</DataProcessor>
 			<DataProcessor>НастройкиПользователей</DataProcessor>
+			<DataProcessor>Обмен1СЭлма</DataProcessor>
 			<DataProcessor>ОбменFTP</DataProcessor>
+			<DataProcessor>ОбменДаннымиСайтом_Файлы</DataProcessor>
 			<DataProcessor>ОбменДаннымиСОкномПоставщика_Регламент</DataProcessor>
 			<DataProcessor>ОбменДаннымиСОкномПоставщикаVMI_Регламент</DataProcessor>
 			<DataProcessor>ОбменДаннымиССайтом_Регламент</DataProcessor>
 			<DataProcessor>ОбменДаннымиССайтом_Регламент_Заявки</DataProcessor>
 			<DataProcessor>ОбменДаннымиССайтом_Регламент_Заявки_Express</DataProcessor>
-			<DataProcessor>ОбменДаннымиСайтом_Файлы</DataProcessor>
-			<DataProcessor>Обмен1СЭлма</DataProcessor>
 			<DataProcessor>ОбновлениеИнформационнойБазы</DataProcessor>
 			<DataProcessor>ОбновлениеКонфигурации</DataProcessor>
 			<DataProcessor>ОбновлениеСостоянийЗаявокДляСайта</DataProcessor>
-			<DataProcessor>ПоискНоменклатуры</DataProcessor>
+			<DataProcessor>ОтложенноеСнятиеБлокировкиКонтрагентов</DataProcessor>
 			<DataProcessor>ОтправкаПочтыПоставщикам</DataProcessor>
 			<DataProcessor>ОчисткаЖурналаВыполненияРегламентныхЗаданий</DataProcessor>
 			<DataProcessor>ОчисткаИсторииОбменаССайтом_Регламент</DataProcessor>
@@ -1612,6 +1615,7 @@
 			<DataProcessor>ПодборНоменклатуры</DataProcessor>
 			<DataProcessor>ПодборНоменклатурыПоОтбору</DataProcessor>
 			<DataProcessor>ПодборПараметровРасшифровкиПлатежа</DataProcessor>
+			<DataProcessor>ПоискНоменклатуры</DataProcessor>
 			<DataProcessor>ПоискОбъектовВСпискахДанных</DataProcessor>
 			<DataProcessor>ПолучениеДанныхОтВебСервиса</DataProcessor>
 			<DataProcessor>ПолучениеФайловИзИнтернета</DataProcessor>
@@ -1632,19 +1636,17 @@
 			<DataProcessor>УстановитьПроверкуРеализаций</DataProcessor>
 			<DataProcessor>ФормированиеЗаказовПоставщику</DataProcessor>
 			<DataProcessor>ФормированиеИсторииЗаявок</DataProcessor>
-			<DataProcessor>ФормированиеОтчетовПоставщикамVMI</DataProcessor>
+			<DataProcessor>ФормированиеОтчетовПоставщикамТовараVMI</DataProcessor>
 			<DataProcessor>ФормированиеРеализаций</DataProcessor>
 			<DataProcessor>ФормированиеСлужебныхЗаданий</DataProcessor>
-			<DataProcessor>ФормированиеЦен</DataProcessor>
 			<DataProcessor>ФормированиеСлужебныхЗаданий_Новый</DataProcessor>
-			<DataProcessor>ЗагрузкаПеремещенийИзИНВЕНТОРА</DataProcessor>
-			<DataProcessor>ЗагрузкаПеремещенийИзТаблчногоДокумента</DataProcessor>
-			<DataProcessor>ОтложенноеСнятиеБлокировкиКонтрагентов</DataProcessor>
+			<DataProcessor>ФормированиеЦен</DataProcessor>
 			<InformationRegister>_ДляПереносаВзаиморасчеты</InformationRegister>
 			<InformationRegister>_ДляПереносаДанных</InformationRegister>
 			<InformationRegister>_ИсторияОбмена_1С7_1С8</InformationRegister>
 			<InformationRegister>_ИсторияОповещенийПользователей</InformationRegister>
 			<InformationRegister>_ИсторияСтрокЗаявок</InformationRegister>
+			<InformationRegister>Автоотказы_вОП</InformationRegister>
 			<InformationRegister>Адресация</InformationRegister>
 			<InformationRegister>АдресныеОбъекты</InformationRegister>
 			<InformationRegister>ВерсииПодсистем</InformationRegister>
@@ -1673,11 +1675,15 @@
 			<InformationRegister>ИсторияАдресныхОбъектов</InformationRegister>
 			<InformationRegister>ИсторияВыполненияРегламентныхЗаданий</InformationRegister>
 			<InformationRegister>ИсторияЗаявокДляПланаОбменаССайтом</InformationRegister>
+			<InformationRegister>ИсторияЗаявокПокупателя</InformationRegister>
 			<InformationRegister>ИсторияКонтактныхЛицКонтрагентов</InformationRegister>
+			<InformationRegister>ИсторияОбмена1с81с7</InformationRegister>
 			<InformationRegister>ИсторияОбмена1с8FTP</InformationRegister>
 			<InformationRegister>ИсторияОбменаССайтом</InformationRegister>
 			<InformationRegister>ИсторияОбменаССайтом_ЗаявкиПокупателей</InformationRegister>
 			<InformationRegister>ИсторияОбменаСТопЛог</InformationRegister>
+			<InformationRegister>ИсторияОбменаСТопЛогПоОбъектам</InformationRegister>
+			<InformationRegister>ИсторияОбменов</InformationRegister>
 			<InformationRegister>ИсторияОтправкиПисемПоставщикам</InformationRegister>
 			<InformationRegister>ИсторияФормированияСлужебныхЗаданий</InformationRegister>
 			<InformationRegister>ИсторияЦенИСкидок</InformationRegister>
@@ -1700,6 +1706,7 @@
 			<InformationRegister>НастройкиСинхронизацииСкладовСTopLog</InformationRegister>
 			<InformationRegister>НастройкиТранспортаОбмена</InformationRegister>
 			<InformationRegister>НеВыгружаемыеИзготовители</InformationRegister>
+			<InformationRegister>НеУдаленныеСлужебныеДоговоры</InformationRegister>
 			<InformationRegister>НомераОтчетовОбработок</InformationRegister>
 			<InformationRegister>ОбменФайламиСВнешнимиСистемами</InformationRegister>
 			<InformationRegister>ОбщиеНастройкиУзловИнформационныхБаз</InformationRegister>
@@ -1707,10 +1714,13 @@
 			<InformationRegister>ОписанияОшибокОбъектов</InformationRegister>
 			<InformationRegister>ОрганизацииКонтрагентыМФП</InformationRegister>
 			<InformationRegister>ОриентирыАдресныхОбъектов</InformationRegister>
+			<InformationRegister>ОсновныеДоговорыКонтрагентов</InformationRegister>
 			<InformationRegister>ОстаткиНоменклатурыДляПланаОбменаССайтом</InformationRegister>
 			<InformationRegister>ОтветственныеЛица</InformationRegister>
 			<InformationRegister>ОтветственныеЛицаОрганизации</InformationRegister>
 			<InformationRegister>ОтложеннаяОбработкаОбъектов</InformationRegister>
+			<InformationRegister>ОтложеннаяОбработкаОбъектовИсторияОбработки</InformationRegister>
+			<InformationRegister>ОтложенноеИзменениеОбъектовТопЛог</InformationRegister>
 			<InformationRegister>ОтложенноеПроведениеДокументовИзТопЛог</InformationRegister>
 			<InformationRegister>ОтложенноеПроведениеПоОборотнымРегистрам</InformationRegister>
 			<InformationRegister>ОтложенноеПроведениеПоРегистрамЗаявкиЗаказы</InformationRegister>
@@ -1718,6 +1728,7 @@
 			<InformationRegister>ОтложенноеПроведениеПоРегиструРезервы</InformationRegister>
 			<InformationRegister>ОтложенноеПроведениеПоРегиструТоварыКРезервированию</InformationRegister>
 			<InformationRegister>ОтложенноеПроведениеПоТоварнымРегистрам</InformationRegister>
+			<InformationRegister>ОтложенноеСнятиеБлокировкиКонтрагентов</InformationRegister>
 			<InformationRegister>ОшибкиЗагрузкиОП</InformationRegister>
 			<InformationRegister>ОшибкиПриОбменеСТопЛог</InformationRegister>
 			<InformationRegister>ПаспортныеДанныеФизЛиц</InformationRegister>
@@ -1729,10 +1740,14 @@
 			<InformationRegister>ПричиныИзмененияАдресныхСведений</InformationRegister>
 			<InformationRegister>ПроцентыПередач</InformationRegister>
 			<InformationRegister>РасписанияОтчетовПоставщикамVMI</InformationRegister>
+			<InformationRegister>РассылкаСообщенийОНеотгруженныхКлиентах</InformationRegister>
 			<InformationRegister>СведенияОПроверкеДокументов</InformationRegister>
+			<InformationRegister>СкидкиПоставщиковVMI</InformationRegister>
 			<InformationRegister>СлужебныеАдресныеСведения</InformationRegister>
+			<InformationRegister>СМСРассылка</InformationRegister>
 			<InformationRegister>СобытияКалендаряПользователя</InformationRegister>
 			<InformationRegister>СобытияКалендаряПользователяОбобщенные</InformationRegister>
+			<InformationRegister>СостояниеЗаявокПокупателя</InformationRegister>
 			<InformationRegister>СохраненныеНастройки</InformationRegister>
 			<InformationRegister>СохраненныеПользователямиОбъектыПоиска</InformationRegister>
 			<InformationRegister>СтратегииРедактированияНомеровОбъектов</InformationRegister>
@@ -1753,20 +1768,6 @@
 			<InformationRegister>ШапкиМФП</InformationRegister>
 			<InformationRegister>ШтрихКоды</InformationRegister>
 			<InformationRegister>ЭкспрессДоставкаОбмен</InformationRegister>
-			<InformationRegister>СМСРассылка</InformationRegister>
-			<InformationRegister>СкидкиПоставщиковVMI</InformationRegister>
-			<InformationRegister>ОтложенноеИзменениеОбъектовТопЛог</InformationRegister>
-			<InformationRegister>Автоотказы_вОП</InformationRegister>
-			<InformationRegister>НеУдаленныеСлужебныеДоговоры</InformationRegister>
-			<InformationRegister>ИсторияОбмена1с81с7</InformationRegister>
-			<InformationRegister>ИсторияОбменаСТопЛогПоОбъектам</InformationRegister>
-			<InformationRegister>ОтложенноеСнятиеБлокировкиКонтрагентов</InformationRegister>
-			<InformationRegister>ОсновныеДоговорыКонтрагентов</InformationRegister>
-			<InformationRegister>РассылкаСообщенийОНеотгруженныхКлиентах</InformationRegister>
-			<InformationRegister>ИсторияОбменов</InformationRegister>
-			<InformationRegister>ИсторияЗаявокПокупателя</InformationRegister>
-			<InformationRegister>СостояниеЗаявокПокупателя</InformationRegister>
-			<InformationRegister>ОтложеннаяОбработкаОбъектовИсторияОбработки</InformationRegister>
 			<AccumulationRegister>БюджетыЦФО</AccumulationRegister>
 			<AccumulationRegister>Взаиморасчеты</AccumulationRegister>
 			<AccumulationRegister>ВзаиморасчетыПриСборкеОтгрузки</AccumulationRegister>
