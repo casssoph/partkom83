@@ -324,28 +324,6 @@
 			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>Наценка</dataPath>
-			<field>Наценка</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Наценка</v8:content>
-				</v8:item>
-			</title>
-			<presentationExpression>Формат(Наценка,"ЧДЦ=2") +"%"</presentationExpression>
-			<appearance>
-				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:parameter>Формат</dcscor:parameter>
-					<dcscor:value xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ЧН=0</v8:content>
-						</v8:item>
-					</dcscor:value>
-				</dcscor:item>
-			</appearance>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>МенеджерКлиента</dataPath>
 			<field>МенеджерКлиента</field>
 			<title xsi:type="v8:LocalStringType">
@@ -503,11 +481,6 @@
 	СУММА(ТаблицаПродаж.Себестоимость) КАК Себестоимость,
 	ТаблицаПродаж.МенеджерСнабжения,
 	ТаблицаПродаж.Поставщик,
-	СРЕДНЕЕ(ВЫБОР
-			КОГДА НЕ ЕСТЬNULL(ТаблицаПродаж.Себестоимость, 0) = 0
-				ТОГДА (ТаблицаПродаж.СуммаПродажи / ТаблицаПродаж.Себестоимость - 1) * 100
-			ИНАЧЕ 0
-		КОНЕЦ) КАК Наценка,
 	ТаблицаПродаж.МенеджерКлиента
 ИЗ
 	(ВЫБРАТЬ
@@ -642,6 +615,16 @@
 			<v8:item>
 				<v8:lang>ru</v8:lang>
 				<v8:content>Прибыль</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>Наценка</dataPath>
+		<expression/>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Наценка</v8:content>
 			</v8:item>
 		</title>
 	</calculatedField>
@@ -1052,11 +1035,6 @@
 							</dcscor:value>
 						</dcscor:item>
 					</dcsset:appearance>
-					<dcsset:useInHierarchicalGroup>DontUse</dcsset:useInHierarchicalGroup>
-					<dcsset:useInFieldsHeader>DontUse</dcsset:useInFieldsHeader>
-					<dcsset:useInHeader>DontUse</dcsset:useInHeader>
-					<dcsset:useInParameters>DontUse</dcsset:useInParameters>
-					<dcsset:useInFilter>DontUse</dcsset:useInFilter>
 				</dcsset:item>
 			</dcsset:conditionalAppearance>
 			<dcsset:item xsi:type="dcsset:StructureItemGroup">
