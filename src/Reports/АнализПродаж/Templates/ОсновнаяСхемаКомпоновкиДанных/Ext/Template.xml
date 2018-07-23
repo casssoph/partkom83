@@ -610,7 +610,8 @@
 	</calculatedField>
 	<calculatedField>
 		<dataPath>Прибыль</dataPath>
-		<expression>СуммаПродажи - Себестоимость</expression>
+		<expression>ЕСТЬNULL(СуммаПродажи, 0) -ЕСТЬNULL(СуммаВозврат,0)
+ - Себестоимость</expression>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
@@ -620,7 +621,11 @@
 	</calculatedField>
 	<calculatedField>
 		<dataPath>Наценка</dataPath>
-		<expression/>
+		<expression>ВЫБОР
+	КОГДА НЕ ЕСТЬNULL(Себестоимость, 0) = 0
+		ТОГДА ((ЕСТЬNULL(СуммаПродажи, 0) -ЕСТЬNULL(СуммаВозврат,0)) / Себестоимость - 1) * 100
+	ИНАЧЕ 0
+КОНЕЦ</expression>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
@@ -649,14 +654,6 @@
 		<expression>Сумма(Себестоимость)</expression>
 	</totalField>
 	<totalField>
-		<dataPath>Наценка</dataPath>
-		<expression>ВЫБОР
-	КОГДА НЕ ЕСТЬNULL(Сумма(Себестоимость), 0) = 0
-		ТОГДА (Сумма(Сумма) / Сумма(Себестоимость) - 1) * 100
-	ИНАЧЕ 0
-КОНЕЦ</expression>
-	</totalField>
-	<totalField>
 		<dataPath>Сумма</dataPath>
 		<expression>Сумма(Сумма)</expression>
 	</totalField>
@@ -667,6 +664,14 @@
 	<totalField>
 		<dataPath>Прибыль</dataPath>
 		<expression>Сумма(Прибыль)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Наценка</dataPath>
+		<expression>ВЫБОР
+	КОГДА НЕ ЕСТЬNULL(Сумма(Себестоимость), 0) = 0
+		ТОГДА (Сумма(Сумма) / Сумма(Себестоимость) - 1) * 100
+	ИНАЧЕ 0
+КОНЕЦ</expression>
 	</totalField>
 	<parameter>
 		<name>НачалоПериода</name>
@@ -819,6 +824,21 @@
 			</v8:item>
 		</dcsset:presentation>
 		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:userFields>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле1</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Наценка2</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Сумма - Себестоимость</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Сумма - Себестоимость</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Сумма(Сумма) - Сумма(Себестоимость)</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Сумма(Сумма) - Сумма(Себестоимость)</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+			</dcsset:userFields>
 			<dcsset:selection>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Покупатель</dcsset:field>
