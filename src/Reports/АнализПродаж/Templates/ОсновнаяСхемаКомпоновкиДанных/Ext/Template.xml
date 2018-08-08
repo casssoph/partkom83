@@ -95,28 +95,6 @@
 					<v8:content>Вид списания</v8:content>
 				</v8:item>
 			</title>
-			<presentationExpression>Выбор когда ВидСписания Тогда "Сток" иначе "Крос" конец</presentationExpression>
-			<valueType>
-				<v8:Type>xs:boolean</v8:Type>
-			</valueType>
-			<availableValue>
-				<value xsi:type="xs:boolean">true</value>
-				<presentation xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Сток</v8:content>
-					</v8:item>
-				</presentation>
-			</availableValue>
-			<availableValue>
-				<value xsi:type="xs:boolean">false</value>
-				<presentation xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Крос</v8:content>
-					</v8:item>
-				</presentation>
-			</availableValue>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ПериодМесяц</dataPath>
@@ -359,12 +337,7 @@
 	Продажи.ТорговаяТочка КАК ТорговаяТочка,
 	Продажи.КоличествоВозвратОборот КАК КоличествоВозврат,
 	Продажи.СуммаУпрВозвратОборот КАК СуммаВозврат,
-	ВЫБОР
-		КОГДА НЕ Продажи.СтрокаЗаявки.ПрайсПоставщика.Склад = ЗНАЧЕНИЕ(Справочник.Склады.ПустаяСсылка)
-				ИЛИ Продажи.СтрокаЗаявки.ПрайсПоставщика = ЗНАЧЕНИЕ(Справочник.ПрайсыПоставщиков.ПустаяССылка)
-			ТОГДА ИСТИНА
-		ИНАЧЕ ЛОЖЬ
-	КОНЕЦ КАК ВидСписания,
+	Продажи.СтрокаЗаявки.ТипПоставки КАК ВидСписания,
 	ВЫБОР
 		КОГДА Продажи.Регистратор ССЫЛКА Документ.РеализацияТоваровУслуг
 			ТОГДА ВЫРАЗИТЬ(Продажи.Регистратор КАК Документ.РеализацияТоваровУслуг).Организация
