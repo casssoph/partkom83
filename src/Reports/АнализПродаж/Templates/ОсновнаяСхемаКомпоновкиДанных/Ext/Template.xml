@@ -389,7 +389,7 @@
 		КОНЕЦ
 	И ВЫБОР
 			КОГДА НЕ &amp;РазрешитьВсеФилиалы
-				ТОГДА Продажи.Филиал В (&amp;ФилиалПоУмолчанию)
+				ТОГДА ИСТИНА
 			ИНАЧЕ ИСТИНА
 		КОНЕЦ
 
@@ -742,17 +742,6 @@
 			<v8:Type>xs:boolean</v8:Type>
 		</valueType>
 		<value xsi:type="xs:boolean">true</value>
-		<useRestriction>true</useRestriction>
-	</parameter>
-	<parameter>
-		<name>ФилиалПоУмолчанию</name>
-		<title xsi:type="v8:LocalStringType">
-			<v8:item>
-				<v8:lang>ru</v8:lang>
-				<v8:content>Филиал по умолчанию</v8:content>
-			</v8:item>
-		</title>
-		<value xsi:nil="true"/>
 		<useRestriction>true</useRestriction>
 	</parameter>
 	<parameter>
