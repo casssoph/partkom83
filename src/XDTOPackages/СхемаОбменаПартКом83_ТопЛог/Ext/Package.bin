@@ -118,7 +118,7 @@
 	<objectType name="Объекты">
 		<property name="Объект" type="xs:anyType" lowerBound="0" upperBound="-1"/>
 	</objectType>
-	<objectType name="РезультатПриемки">
+	<objectType name="РезультатПриемки" ordered="false" sequenced="true">
 		<property name="ЗаказСсылка" type="xs:string"/>
 		<property name="ЗаказНомер" type="xs:string"/>
 		<property name="ЗаказНомерWMS" type="xs:string"/>
@@ -142,7 +142,7 @@
 		<property name="ЭтоБрак" type="xs:boolean"/>
 		<property name="Комментарий" type="xs:string"/>
 	</objectType>
-	<objectType name="РезультатРазмещения">
+	<objectType name="РезультатРазмещения" ordered="false" sequenced="true">
 		<property name="РазмещениеСсылка" type="xs:string"/>
 		<property name="РазмещениеНомерWMS" type="xs:string"/>
 		<property name="РазмещениеДатаWMS" type="xs:dateTime"/>
@@ -175,7 +175,7 @@
 		<property name="РазмещениеЯчейкаСкладСсылка" type="xs:string"/>
 		<property name="РазмещениеЯчейкаСкладНаименование" type="xs:string"/>
 	</objectType>
-	<objectType name="РезультатСборки">
+	<objectType name="РезультатСборки" ordered="false" sequenced="true">
 		<property name="ЗаказСсылка" type="xs:string"/>
 		<property name="ЗаказНомер" type="xs:string"/>
 		<property name="ЗаказНомерWMS" type="xs:string"/>
@@ -322,7 +322,7 @@
 		<property name="АвтоотправкаОтгрузочныхДокументовСКомментариями" type="xs:boolean" lowerBound="0"/>
 		<property name="АвтоотправкаОтгрузочныхДокументовНеАрхивировать" type="xs:boolean" lowerBound="0"/>
 	</objectType>
-	<objectType name="ТранзитнаяОтгрузка">
+	<objectType name="ТранзитнаяОтгрузка" ordered="false" sequenced="true">
 		<property name="ТранзитнаяОтгрузкаСсылка" type="xs:anyType"/>
 		<property name="ТранзитнаяОтгрузкаНомерWMS" type="xs:string"/>
 		<property name="ТранзитнаяОтгрузкаДатаWMS" type="xs:dateTime"/>
