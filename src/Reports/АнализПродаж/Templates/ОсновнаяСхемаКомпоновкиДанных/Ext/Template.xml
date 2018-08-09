@@ -235,6 +235,9 @@
 					<v8:content>Филиал</v8:content>
 				</v8:item>
 			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Организация</dataPath>
@@ -333,7 +336,7 @@
 	НАЧАЛОПЕРИОДА(Продажи.ПериодКвартал, КВАРТАЛ) КАК ПериодКвартал,
 	НАЧАЛОПЕРИОДА(Продажи.ПериодПолугодие, ПОЛУГОДИЕ) КАК ПериодПолугодие,
 	НАЧАЛОПЕРИОДА(Продажи.ПериодГод, ГОД) КАК ПериодГод,
-	Продажи.ТорговаяТочка.Регион.Филиал КАК Филиал,
+	Продажи.Филиал КАК Филиал,
 	Продажи.ТорговаяТочка КАК ТорговаяТочка,
 	Продажи.КоличествоВозвратОборот КАК КоличествоВозврат,
 	Продажи.СуммаУпрВозвратОборот КАК СуммаВозврат,
@@ -386,7 +389,7 @@
 		КОНЕЦ
 	И ВЫБОР
 			КОГДА НЕ &amp;РазрешитьВсеФилиалы
-				ТОГДА Продажи.ТорговаяТочка.Регион.Филиал В (&amp;ФилиалПоУмолчанию)
+				ТОГДА Продажи.Филиал В (&amp;ФилиалПоУмолчанию)
 			ИНАЧЕ ИСТИНА
 		КОНЕЦ
 
@@ -1069,6 +1072,7 @@
 		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
 			<dcsset:selection>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
 					<dcsset:field>Номенклатура</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
@@ -1096,6 +1100,9 @@
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>ПериодМесяц</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Филиал</dcsset:field>
 				</dcsset:item>
 			</dcsset:selection>
 			<dcsset:filter>
@@ -1178,6 +1185,7 @@
 					<dcsset:field>ДокументДвижения</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
 					<dcsset:field>Номенклатура.Артикул</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
@@ -1197,23 +1205,39 @@
 					<dcsset:field>Филиал</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
 					<dcsset:field>КоличествоВозврат</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
 					<dcsset:field>КоличествоПродажи</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
 					<dcsset:field>СуммаВозврат</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
 					<dcsset:field>СуммаПродажи</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МенеджерКлиента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Сумма</dcsset:field>
 				</dcsset:item>
 			</dcsset:selection>
 			<dcsset:filter>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">Филиал</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:userSettingID>8937484d-f263-45c0-8d4a-c0d645861057</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">МенеджерКлиента.Код77</dcsset:left>
+					<dcsset:comparisonType>NotBeginsWith</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:string">RDC</dcsset:right>
 				</dcsset:item>
 			</dcsset:filter>
 			<dcsset:dataParameters>
@@ -1258,7 +1282,7 @@
 				<dcsset:series>
 					<dcsset:groupItems>
 						<dcsset:item xsi:type="dcsset:GroupItemField">
-							<dcsset:field>МенеджерПродажи</dcsset:field>
+							<dcsset:field>МенеджерКлиента</dcsset:field>
 							<dcsset:groupType>Items</dcsset:groupType>
 							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
