@@ -75,7 +75,7 @@
 	</dataSet>
 	<calculatedField>
 		<dataPath>Остаток</dataPath>
-		<expression/>
+		<expression>КоличествоВЗаявке - ЕстьNull(КоличествоРазмещено,0)</expression>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
@@ -93,7 +93,7 @@
 	</totalField>
 	<totalField>
 		<dataPath>Остаток</dataPath>
-		<expression>Сумма(КоличествоВЗаявке) - Сумма(КоличествоРазмещено)</expression>
+		<expression>Сумма(Остаток)</expression>
 	</totalField>
 	<settingsVariant>
 		<dcsset:name>Основной</dcsset:name>
