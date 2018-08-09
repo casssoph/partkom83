@@ -349,6 +349,11 @@
 					<ContextMenu name="ФилиалКонтекстноеМеню" id="79"/>
 					<ExtendedTooltip name="ФилиалРасширеннаяПодсказка" id="80"/>
 				</LabelField>
+				<LabelField name="ИсточникЗаявки" id="112">
+					<DataPath>Список.ИсточникЗаявки</DataPath>
+					<ContextMenu name="ИсточникЗаявкиКонтекстноеМеню" id="113"/>
+					<ExtendedTooltip name="ИсточникЗаявкиРасширеннаяПодсказка" id="114"/>
+				</LabelField>
 				<LabelField name="Комментарий" id="45">
 					<DataPath>Список.Комментарий</DataPath>
 					<UserVisible>
@@ -374,6 +379,7 @@
 	ДокументЗаявкаПокупателя.Дата КАК Дата,
 	ДокументЗаявкаПокупателя.Номер КАК Номер,
 	ДокументЗаявкаПокупателя.СуммаДокумента КАК СуммаДокументаНачальная,
+	ДокументЗаявкаПокупателя.ИсточникЗаявки,
 	ЕСТЬNULL(ДокументыКорректировокСрезПоследних.ДокументКорректировки, ДокументЗаявкаПокупателя.Ссылка) КАК Документ,
 	ВЫБОР
 		КОГДА ДокументыКорректировокСрезПоследних.ДокументКорректировки ЕСТЬ NULL
@@ -475,6 +481,11 @@
 							<dcsset:left xsi:type="dcscor:Field">Номер</dcsset:left>
 							<dcsset:comparisonType>Equal</dcsset:comparisonType>
 							<dcsset:right xsi:type="xs:string"/>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">ИсточникЗаявки</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
 						</dcsset:item>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
 						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
