@@ -2,38 +2,43 @@
 <MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
 	<InformationRegister uuid="623c8ad5-7aef-48dc-8d40-3fb8412bffc7">
 		<InternalInfo>
-			<xr:GeneratedType name="InformationRegisterRecord.ОрганизацииКонтрагентыМФП" category="Record">
+			<xr:GeneratedType name="InformationRegisterRecord.НаценкаСПБ" category="Record">
 				<xr:TypeId>ef457796-7107-42b2-8122-768137c1a07f</xr:TypeId>
 				<xr:ValueId>a18cde5c-3573-40f9-8fb6-75b29238efa1</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="InformationRegisterManager.ОрганизацииКонтрагентыМФП" category="Manager">
+			<xr:GeneratedType name="InformationRegisterManager.НаценкаСПБ" category="Manager">
 				<xr:TypeId>3d1b609e-3b92-4578-b87a-d173df1d1161</xr:TypeId>
 				<xr:ValueId>d064c031-9348-4236-8b3e-e7d23efa28b6</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="InformationRegisterSelection.ОрганизацииКонтрагентыМФП" category="Selection">
+			<xr:GeneratedType name="InformationRegisterSelection.НаценкаСПБ" category="Selection">
 				<xr:TypeId>48934031-b165-445c-8ad9-93017111a46e</xr:TypeId>
 				<xr:ValueId>98ae994d-832c-4ea6-9bd3-13798fd4c81f</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="InformationRegisterList.ОрганизацииКонтрагентыМФП" category="List">
+			<xr:GeneratedType name="InformationRegisterList.НаценкаСПБ" category="List">
 				<xr:TypeId>e606f8bb-9c7b-4b47-aab4-42cea1c5c8b6</xr:TypeId>
 				<xr:ValueId>2c98c131-a87b-4929-961e-344f03ffc6db</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="InformationRegisterRecordSet.ОрганизацииКонтрагентыМФП" category="RecordSet">
+			<xr:GeneratedType name="InformationRegisterRecordSet.НаценкаСПБ" category="RecordSet">
 				<xr:TypeId>0c954718-bbde-4cbf-951c-e3d560e6847e</xr:TypeId>
 				<xr:ValueId>aa55c36a-fb66-4ad7-b819-ba1e0818f3e6</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="InformationRegisterRecordKey.ОрганизацииКонтрагентыМФП" category="RecordKey">
+			<xr:GeneratedType name="InformationRegisterRecordKey.НаценкаСПБ" category="RecordKey">
 				<xr:TypeId>2fd117c2-6f85-4117-ba7a-40a964fb7577</xr:TypeId>
 				<xr:ValueId>27967220-7a3e-4b6e-b8ac-cc0e25d3c13b</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="InformationRegisterRecordManager.ОрганизацииКонтрагентыМФП" category="RecordManager">
+			<xr:GeneratedType name="InformationRegisterRecordManager.НаценкаСПБ" category="RecordManager">
 				<xr:TypeId>3b31ff06-9690-44e9-9ac9-0cef9b99c6b0</xr:TypeId>
 				<xr:ValueId>8efe81a9-821f-46d4-b4be-994076013b66</xr:ValueId>
 			</xr:GeneratedType>
 		</InternalInfo>
 		<Properties>
-			<Name>ОрганизацииКонтрагентыМФП</Name>
-			<Synonym/>
+			<Name>НаценкаСПБ</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наценка СПБ</v8:content>
+				</v8:item>
+			</Synonym>
 			<Comment/>
 			<UseStandardCommands>false</UseStandardCommands>
 			<EditType>InDialog</EditType>
@@ -249,88 +254,6 @@
 						<v8:item>
 							<v8:lang>ru</v8:lang>
 							<v8:content>Контрагент (покупатель)</v8:content>
-						</v8:item>
-					</Synonym>
-					<Comment/>
-					<Type>
-						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
-					</Type>
-					<PasswordMode>false</PasswordMode>
-					<Format/>
-					<EditFormat/>
-					<ToolTip/>
-					<MarkNegatives>false</MarkNegatives>
-					<Mask/>
-					<MultiLine>false</MultiLine>
-					<ExtendedEdit>false</ExtendedEdit>
-					<MinValue xsi:nil="true"/>
-					<MaxValue xsi:nil="true"/>
-					<FillFromFillingValue>false</FillFromFillingValue>
-					<FillValue xsi:nil="true"/>
-					<FillChecking>DontCheck</FillChecking>
-					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-					<ChoiceParameterLinks/>
-					<ChoiceParameters/>
-					<QuickChoice>Auto</QuickChoice>
-					<CreateOnInput>Auto</CreateOnInput>
-					<ChoiceForm/>
-					<LinkByType/>
-					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
-					<Master>false</Master>
-					<MainFilter>true</MainFilter>
-					<DenyIncompleteValues>false</DenyIncompleteValues>
-					<Indexing>DontIndex</Indexing>
-					<FullTextSearch>DontUse</FullTextSearch>
-				</Properties>
-			</Dimension>
-			<Dimension uuid="f46c68ad-54fd-4dea-bfa1-a1a86505f337">
-				<Properties>
-					<Name>ОрганизацияПокупатель</Name>
-					<Synonym>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Организация (покупатель)</v8:content>
-						</v8:item>
-					</Synonym>
-					<Comment/>
-					<Type>
-						<v8:Type>cfg:CatalogRef.Организации</v8:Type>
-					</Type>
-					<PasswordMode>false</PasswordMode>
-					<Format/>
-					<EditFormat/>
-					<ToolTip/>
-					<MarkNegatives>false</MarkNegatives>
-					<Mask/>
-					<MultiLine>false</MultiLine>
-					<ExtendedEdit>false</ExtendedEdit>
-					<MinValue xsi:nil="true"/>
-					<MaxValue xsi:nil="true"/>
-					<FillFromFillingValue>false</FillFromFillingValue>
-					<FillValue xsi:nil="true"/>
-					<FillChecking>DontCheck</FillChecking>
-					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-					<ChoiceParameterLinks/>
-					<ChoiceParameters/>
-					<QuickChoice>Auto</QuickChoice>
-					<CreateOnInput>Auto</CreateOnInput>
-					<ChoiceForm/>
-					<LinkByType/>
-					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
-					<Master>false</Master>
-					<MainFilter>true</MainFilter>
-					<DenyIncompleteValues>false</DenyIncompleteValues>
-					<Indexing>DontIndex</Indexing>
-					<FullTextSearch>DontUse</FullTextSearch>
-				</Properties>
-			</Dimension>
-			<Dimension uuid="2b6de359-ddda-4667-8382-49f24e0c602b">
-				<Properties>
-					<Name>КонтрагентПродавец</Name>
-					<Synonym>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Контрагент (продавец)</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
