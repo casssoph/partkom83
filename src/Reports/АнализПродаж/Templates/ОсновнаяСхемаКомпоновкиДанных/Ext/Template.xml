@@ -823,6 +823,64 @@
 					<dcsset:totalExpression>Сумма(Сумма) - Сумма(Себестоимость)</dcsset:totalExpression>
 					<dcsset:totalExpressionPresentation>Сумма(Сумма) - Сумма(Себестоимость)</dcsset:totalExpressionPresentation>
 				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле2</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>СуммаСтокИVMI</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ВидСписания = Значение(Перечисление.ТипПоставки.VMI) Или ВидСписания = Значение(Перечисление.ТипПоставки.Сток)
+		Тогда Сумма
+	Иначе 0
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда [Вид списания] = Значение(Перечисление.ТипПоставки.VMI) Или [Вид списания] = Значение(Перечисление.ТипПоставки.Сток)
+		Тогда Сумма
+	Иначе 0
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Сумма(Выбор
+		Когда ВидСписания = Значение(Перечисление.ТипПоставки.VMI) Или ВидСписания = Значение(Перечисление.ТипПоставки.Сток)
+			Тогда Сумма
+		Иначе 0
+	Конец)</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Сумма(Выбор
+		Когда [Вид списания] = Значение(Перечисление.ТипПоставки.VMI) Или [Вид списания] = Значение(Перечисление.ТипПоставки.Сток)
+			Тогда Сумма
+		Иначе 0
+	Конец)</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле3</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>СуммаКросс</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ВидСписания = Значение(Перечисление.ТипПоставки.Кросс)
+		Тогда Сумма
+	Иначе 0
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда [Вид списания] = Значение(Перечисление.ТипПоставки.Кросс)
+		Тогда Сумма
+	Иначе 0
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Сумма(Выбор
+		Когда ВидСписания = Значение(Перечисление.ТипПоставки.Кросс)
+			Тогда Сумма
+		Иначе 0
+	Конец)</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Сумма(Выбор
+		Когда [Вид списания] = Значение(Перечисление.ТипПоставки.Кросс)
+			Тогда Сумма
+		Иначе 0
+	Конец)</dcsset:totalExpressionPresentation>
+				</dcsset:item>
 			</dcsset:userFields>
 			<dcsset:selection>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
