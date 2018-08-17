@@ -629,6 +629,38 @@
 			</v8:item>
 		</title>
 	</calculatedField>
+	<calculatedField>
+		<dataPath>СтокКросс</dataPath>
+		<expression>Выбор Когда ВидСписания  = Значение(Перечисление.ТипПоставки.Кросс) тогда Истина иначе Ложь Конец</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Сток кросс</v8:content>
+			</v8:item>
+		</title>
+		<presentationExpression>Выбор Когда ВидСписания  = Значение(Перечисление.ТипПоставки.Кросс) тогда "Кросс" иначе "Сток" конец</presentationExpression>
+		<availableValue>
+			<value xsi:nil="true"/>
+			<presentation xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сток</v8:content>
+				</v8:item>
+			</presentation>
+		</availableValue>
+		<availableValue>
+			<value xsi:type="xs:boolean">true</value>
+			<presentation xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Крос</v8:content>
+				</v8:item>
+			</presentation>
+		</availableValue>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+	</calculatedField>
 	<totalField>
 		<dataPath>СуммаВозврат</dataPath>
 		<expression>Сумма(СуммаВозврат)</expression>
