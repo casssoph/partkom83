@@ -405,7 +405,7 @@
 		КОНЕЦ
 	И ВЫБОР
 			КОГДА НЕ &amp;РазрешитьВсеФилиалы
-				ТОГДА ИСТИНА
+				ТОГДА Продажи.Филиал В (&amp;ФилиалПоУмолчанию)
 			ИНАЧЕ ИСТИНА
 		КОНЕЦ
 
@@ -497,7 +497,7 @@
 		ВТПродажи.ВидСписания КАК ВидСписания,
 		ВТПродажи.Организация КАК Организация,
 		ВТПродажи.МенеджерПродажи КАК МенеджерПродажи,
-		ВТПродажи.ИсточникДокументаПродажи,
+		ВТПродажи.ИсточникДокументаПродажи КАК ИсточникДокументаПродажи,
 		ВТПродажи.Себестоимость КАК Себестоимость,
 		ВЫБОР
 			КОГДА ВТПартии.СтрокаПрихода.Приход ССЫЛКА Документ.ПоступлениеТоваровУслуг
@@ -831,6 +831,20 @@
 		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
 		<useRestriction>true</useRestriction>
 		<expression>ТекущаяДата()</expression>
+	</parameter>
+	<parameter>
+		<name>ФилиалПоУмолчанию</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Филиал по умолчанию</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Филиалы</v8:Type>
+		</valueType>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
 	</parameter>
 	<settingsVariant>
 		<dcsset:name>Произвольный</dcsset:name>
