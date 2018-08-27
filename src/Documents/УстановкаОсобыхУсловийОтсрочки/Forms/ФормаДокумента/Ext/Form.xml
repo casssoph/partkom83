@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаДвиженияДокумента" id="58">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ДвиженияДокумента</CommandName>
+				<ExtendedTooltip name="ФормаДвиженияДокументаРасширеннаяПодсказка" id="59"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаШапка" id="53">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа шапка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="54"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаЛево" id="49">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа лево</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа лево</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаЛевоРасширеннаяПодсказка" id="50"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаНомерДата" id="47">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа номер дата</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа номер дата</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаНомерДатаРасширеннаяПодсказка" id="48"/>
+							<ChildItems>
+								<InputField name="Номер" id="1">
+									<DataPath>Объект.Number</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+									<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+								</InputField>
+								<InputField name="Дата" id="4">
+									<DataPath>Объект.Date</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+									<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+									<Events>
+										<Event name="OnChange">ДатаПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="ДоговорКонтрагента" id="7">
+							<DataPath>Объект.ДоговорКонтрагента</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДоговорКонтрагентаКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="ДоговорКонтрагентаРасширеннаяПодсказка" id="9"/>
+						</InputField>
+						<LabelField name="ДоговорКонтрагентаВладелец" id="55">
+							<DataPath>Объект.ДоговорКонтрагента.Owner</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Контрагент</v8:content>
+								</v8:item>
+							</Title>
+							<Hiperlink>true</Hiperlink>
+							<ContextMenu name="ДоговорКонтрагентаВладелецКонтекстноеМеню" id="56"/>
+							<ExtendedTooltip name="ДоговорКонтрагентаВладелецРасширеннаяПодсказка" id="57"/>
+						</LabelField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаПраво" id="51">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа право</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа право</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПравоРасширеннаяПодсказка" id="52"/>
+					<ChildItems>
+						<InputField name="ДатаОкончания" id="16">
+							<DataPath>Объект.ДатаОкончания</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДатаОкончанияКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ДатаОкончанияРасширеннаяПодсказка" id="18"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="ОсобыеУсловия" id="19">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.ОсобыеУсловия</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ОсобыеУсловияКонтекстноеМеню" id="20"/>
+			<AutoCommandBar name="ОсобыеУсловияКоманднаяПанель" id="21"/>
+			<ExtendedTooltip name="ОсобыеУсловияРасширеннаяПодсказка" id="22"/>
+			<SearchStringAddition name="ОсобыеУсловияСтрокаПоиска" id="23">
+				<AdditionSource>
+					<Item>ОсобыеУсловия</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ОсобыеУсловияСтрокаПоискаКонтекстноеМеню" id="24"/>
+				<ExtendedTooltip name="ОсобыеУсловияСтрокаПоискаРасширеннаяПодсказка" id="25"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ОсобыеУсловияСостояниеПросмотра" id="26">
+				<AdditionSource>
+					<Item>ОсобыеУсловия</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ОсобыеУсловияСостояниеПросмотраКонтекстноеМеню" id="27"/>
+				<ExtendedTooltip name="ОсобыеУсловияСостояниеПросмотраРасширеннаяПодсказка" id="28"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ОсобыеУсловияУправлениеПоиском" id="29">
+				<AdditionSource>
+					<Item>ОсобыеУсловия</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ОсобыеУсловияУправлениеПоискомКонтекстноеМеню" id="30"/>
+				<ExtendedTooltip name="ОсобыеУсловияУправлениеПоискомРасширеннаяПодсказка" id="31"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ОсобыеУсловияНомерСтроки" id="32">
+					<DataPath>Объект.ОсобыеУсловия.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОсобыеУсловияНомерСтрокиКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="ОсобыеУсловияНомерСтрокиРасширеннаяПодсказка" id="34"/>
+				</LabelField>
+				<InputField name="ОсобыеУсловияИзготовитель" id="35">
+					<DataPath>Объект.ОсобыеУсловия.Изготовитель</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОсобыеУсловияИзготовительКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="ОсобыеУсловияИзготовительРасширеннаяПодсказка" id="37"/>
+				</InputField>
+				<InputField name="ОсобыеУсловияТипПоставки" id="38">
+					<DataPath>Объект.ОсобыеУсловия.ТипПоставки</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОсобыеУсловияТипПоставкиКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="ОсобыеУсловияТипПоставкиРасширеннаяПодсказка" id="40"/>
+				</InputField>
+				<InputField name="ОсобыеУсловияДопустимоеЧислоДнейЗадолженности" id="41">
+					<DataPath>Объект.ОсобыеУсловия.ДопустимоеЧислоДнейЗадолженности</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОсобыеУсловияДопустимоеЧислоДнейЗадолженностиКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="ОсобыеУсловияДопустимоеЧислоДнейЗадолженностиРасширеннаяПодсказка" id="43"/>
+					<Events>
+						<Event name="OnChange">ОсобыеУсловияДопустимоеЧислоДнейЗадолженностиПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="ОсобыеУсловияВидРасчетаДней" id="44">
+					<DataPath>Объект.ОсобыеУсловия.ВидРасчетаДней</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОсобыеУсловияВидРасчетаДнейКонтекстноеМеню" id="45"/>
+					<ExtendedTooltip name="ОсобыеУсловияВидРасчетаДнейРасширеннаяПодсказка" id="46"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<InputField name="Комментарий" id="10">
+			<DataPath>Объект.Комментарий</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<InputField name="Ответственный" id="13">
+			<DataPath>Объект.Ответственный</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ОтветственныйКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="15"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.УстановкаОсобыхУсловийОтсрочки</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ДвиженияДокумента" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Движения документа</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Движения документа</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ДвиженияДокумента</Action>
+		</Command>
+	</Commands>
+</Form>
