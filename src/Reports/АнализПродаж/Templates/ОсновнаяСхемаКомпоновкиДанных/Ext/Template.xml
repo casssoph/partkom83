@@ -592,11 +592,7 @@
 	</calculatedField>
 	<calculatedField>
 		<dataPath>Количество</dataPath>
-		<expression>ВЫБОР
-	КОГДА ЕСТЬNULL(КоличествоПродажи, 0) = 0
-		ТОГДА -КоличествоВозврат
-	ИНАЧЕ КоличествоПродажи
-КОНЕЦ</expression>
+		<expression>ЕСТЬNULL(КоличествоПродажи, 0)  -ЕСТЬNULL(КоличествоВозврат,0)</expression>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
