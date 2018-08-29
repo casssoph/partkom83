@@ -7,18 +7,11 @@
 	<dataSet xsi:type="DataSetQuery">
 		<name>Заказы</name>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>Изготовитель</dataPath>
-			<field>Изготовитель</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Изготовитель</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>ДоговорКонтрагента</dataPath>
 			<field>ДоговорКонтрагента</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ДокументПоступление</dataPath>
@@ -37,6 +30,9 @@
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ТорговаяТочка</dataPath>
 			<field>ТорговаяТочка</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Склад</dataPath>
@@ -46,31 +42,11 @@
 			</role>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>ОстатокПоЗаказу</dataPath>
-			<field>ОстатокПоЗаказу</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Остаток по заказу</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>Номенклатура</dataPath>
 			<field>Номенклатура</field>
 			<role>
 				<dcscom:dimension>true</dcscom:dimension>
 			</role>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>НомерАктаПримемки</dataPath>
-			<field>НомерАктаПримемки</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Номер акта примемки</v8:content>
-				</v8:item>
-			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>СтрокаЗаявки</dataPath>
@@ -110,18 +86,11 @@
 			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>ОстатокПоЗаявке</dataPath>
-			<field>ОстатокПоЗаявке</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Остаток по заявке</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>Качество</dataPath>
 			<field>Качество</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Заявка</dataPath>
@@ -133,83 +102,79 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АктПримемки</dataPath>
+			<field>АктПримемки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Акт примемки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОстатокПоЗаявке</dataPath>
+			<field>ОстатокПоЗаявке</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Остаток по заявке</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОстатокПоЗаказу</dataPath>
+			<field>ОстатокПоЗаказу</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Остаток по заказу</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
-	ЗаказыПоставщикамОстатки.Номенклатура,
-	ЗаказыПоставщикамОстатки.ТорговаяТочка,
-	ЗаказыПоставщикамОстатки.СтрокаЗаявки,
-	ЗаказыПоставщикамОстатки.ДоговорКонтрагента,
-	ЗаказыПоставщикамОстатки.Склад,
-	ЗаказыПоставщикамОстатки.КоличествоОстаток КАК ОстатокПоЗаказу,
-	ЗаказыПоставщикамОстатки.ТорговаяТочка.Владелец КАК Поставщик,
-	ЗаказыПоставщикамОстатки.Номенклатура.Изготовитель КАК Изготовитель,
-	РазмещенияСтрокЗаказов.Регистратор КАК ДокументПоступление
-ПОМЕСТИТЬ ВТЗаказыРазмещение
-ИЗ
-	РегистрНакопления.ЗаказыПоставщикам.Остатки({(&amp;Период)}, {(ЕСТЬNULL(ТорговаяТочка.Владелец, ЗНАЧЕНИЕ(Справочник.Контрагенты.ПустаяСсылка))).* КАК Поставщик}) КАК ЗаказыПоставщикамОстатки
-		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.РазмещенияСтрокЗаказов КАК РазмещенияСтрокЗаказов
-		ПО ЗаказыПоставщикамОстатки.СтрокаЗаявки = РазмещенияСтрокЗаказов.СтрокаЗаявки
-			И (РазмещенияСтрокЗаказов.ВидДвижения = ЗНАЧЕНИЕ(ВИдДвиженияНакопления.Приход))
-			И (РазмещенияСтрокЗаказов.Регистратор ССЫЛКА Документ.ПоступлениеТоваровУслуг)
-;
-
-////////////////////////////////////////////////////////////////////////////////
-ВЫБРАТЬ
-	ВТЗаказыРазмещение.Номенклатура,
-	ВТЗаказыРазмещение.ТорговаяТочка,
-	ВТЗаказыРазмещение.СтрокаЗаявки,
-	ВТЗаказыРазмещение.ДоговорКонтрагента,
-	ВТЗаказыРазмещение.Склад,
-	ВТЗаказыРазмещение.ОстатокПоЗаказу,
-	ВТЗаказыРазмещение.Изготовитель,
-	ВТЗаказыРазмещение.ДокументПоступление,
-	ВЫБОР
-		КОГДА ПоступлениеТоваровУслугАктПриемки.Ссылка ЕСТЬ NULL
-			ТОГДА ""
-		ИНАЧЕ ВЫРАЗИТЬ(ВТЗаказыРазмещение.ДокументПоступление КАК Документ.ПоступлениеТоваровУслуг).Номер
-	КОНЕЦ КАК НомерАктаПримемки,
-	ВТЗаказыРазмещение.СтрокаЗаявки.Заказ КАК Заказ
-ПОМЕСТИТЬ ВТЗаказы
-ИЗ
-	ВТЗаказыРазмещение КАК ВТЗаказыРазмещение
-		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ПоступлениеТоваровУслуг.АктПриемки КАК ПоступлениеТоваровУслугАктПриемки
-		ПО ВТЗаказыРазмещение.Номенклатура = ПоступлениеТоваровУслугАктПриемки.Номенклатура
-			И ВТЗаказыРазмещение.ДокументПоступление = ПоступлениеТоваровУслугАктПриемки.Ссылка
-;
-
-////////////////////////////////////////////////////////////////////////////////
-ВЫБРАТЬ
-	ЕСТЬNULL(ЗаявкиПокупателейОстатки.Склад, ВТЗаказы.Склад) КАК Склад,
-	ЕСТЬNULL(ЗаявкиПокупателейОстатки.Номенклатура, ВТЗаказы.Номенклатура) КАК Номенклатура,
-	ЕСТЬNULL(ЗаявкиПокупателейОстатки.СтрокаЗаявки, ВТЗаказы.СтрокаЗаявки) КАК СтрокаЗаявки,
+	ЗаявкиПокупателейОстатки.Склад,
+	ЗаявкиПокупателейОстатки.Номенклатура,
+	ЗаявкиПокупателейОстатки.Качество,
+	ЗаявкиПокупателейОстатки.СтрокаЗаявки,
+	ЗаявкиПокупателейОстатки.ТорговаяТочка,
+	ЗаявкиПокупателейОстатки.ДоговорКонтрагента,
 	ЗаявкиПокупателейОстатки.КоличествоОстаток КАК ОстатокПоЗаявке,
-	ЗаявкиПокупателейОстатки.ТорговаяТочка.Владелец КАК Покупатель,
-	ЗаявкиПокупателейОстатки.Номенклатура.Изготовитель КАК Изготовитель,
-	ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заявка КАК Заявка,
-	ВТЗаказы.ОстатокПоЗаказу,
-	ВТЗаказы.НомерАктаПримемки,
-	ВТЗаказы.ДокументПоступление,
-	ВТЗаказы.Заказ
-{ВЫБРАТЬ
-	Склад.*,
-	Номенклатура.*,
-	СтрокаЗаявки.*,
-	ОстатокПоЗаявке,
-	Покупатель.*,
-	Изготовитель.*}
+	ЕСТЬNULL(ЗаказыПоставщикамОстатки.КоличествоОстаток, 0) КАК ОстатокПоЗаказу,
+	РазмещенияСтрокЗаказов.Регистратор КАК ДокументПоступление,
+	ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заказ КАК Заказ,
+	ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заявка КАК Заявка
+ПОМЕСТИТЬ ВТОстаткиЗаявок
 ИЗ
 	РегистрНакопления.ЗаявкиПокупателей.Остатки({(&amp;Период)}, {(ЕСТЬNULL(ТорговаяТочка.Владелец, ЗНАЧЕНИЕ(Справочник.Контрагенты.ПустаяСсылка))).* КАК Покупатель}) КАК ЗаявкиПокупателейОстатки
-		ЛЕВОЕ СОЕДИНЕНИЕ ВТЗаказы КАК ВТЗаказы
-		ПО (ЗаявкиПокупателейОстатки.СтрокаЗаявки = ВТЗаказы.СтрокаЗаявки)
-{ГДЕ
-	ЗаявкиПокупателейОстатки.Склад.*,
-	ЗаявкиПокупателейОстатки.Номенклатура.*,
-	ЗаявкиПокупателейОстатки.Качество.*,
-	ЗаявкиПокупателейОстатки.СтрокаЗаявки.*,
-	ЗаявкиПокупателейОстатки.ТорговаяТочка.*,
-	ЗаявкиПокупателейОстатки.ДоговорКонтрагента.*,
-	ЗаявкиПокупателейОстатки.КоличествоОстаток КАК ОстатокПоЗаявке,
-	ЗаявкиПокупателейОстатки.ТорговаяТочка.Владелец.* КАК Покупатель}</query>
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ЗаказыПоставщикам.Остатки({(&amp;Период)}, {(ЕСТЬNULL(ТорговаяТочка.Владелец, ЗНАЧЕНИЕ(Справочник.Контрагенты.ПустаяСсылка))).* КАК Поставщик}) КАК ЗаказыПоставщикамОстатки
+		ПО ЗаявкиПокупателейОстатки.СтрокаЗаявки = ЗаказыПоставщикамОстатки.СтрокаЗаявки
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.РазмещенияСтрокЗаказов КАК РазмещенияСтрокЗаказов
+		ПО ЗаявкиПокупателейОстатки.СтрокаЗаявки = РазмещенияСтрокЗаказов.СтрокаЗаявки
+			И (РазмещенияСтрокЗаказов.ВидДвижения = ЗНАЧЕНИЕ(ВИдДвиженияНакопления.Приход))
+			И (РазмещенияСтрокЗаказов.ВидДвижения = ЗНАЧЕНИЕ(ВИдДвиженияНакопления.Приход))
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТОстаткиЗаявок.Склад,
+	ВТОстаткиЗаявок.Номенклатура,
+	ВТОстаткиЗаявок.Качество,
+	ВТОстаткиЗаявок.СтрокаЗаявки,
+	ВТОстаткиЗаявок.ТорговаяТочка,
+	ВТОстаткиЗаявок.ДоговорКонтрагента,
+	ПоступлениеТоваровУслугАктПриемки.Ссылка КАК АктПримемки,
+	ВТОстаткиЗаявок.ДокументПоступление,
+	ВТОстаткиЗаявок.Заказ,
+	ВТОстаткиЗаявок.Заявка,
+	ВТОстаткиЗаявок.ОстатокПоЗаявке,
+	ВТОстаткиЗаявок.ОстатокПоЗаказу
+ИЗ
+	ВТОстаткиЗаявок КАК ВТОстаткиЗаявок
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ПоступлениеТоваровУслуг.АктПриемки КАК ПоступлениеТоваровУслугАктПриемки
+		ПО ВТОстаткиЗаявок.ДокументПоступление = ПоступлениеТоваровУслугАктПриемки.Ссылка
+			И ВТОстаткиЗаявок.Номенклатура = ПоступлениеТоваровУслугАктПриемки.Номенклатура</query>
 	</dataSet>
 	<parameter>
 		<name>Период</name>
@@ -277,12 +242,17 @@
 					<dcsset:field>ДокументПоступление</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>НомерАктаПримемки</dcsset:field>
+					<dcsset:field>АктПримемки</dcsset:field>
 				</dcsset:item>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>d4600e34-d696-4d84-941d-f3536dff11cc</dcsset:userSettingID>
 			</dcsset:selection>
 			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">ОстатокПоЗаявке</dcsset:left>
+					<dcsset:comparisonType>GreaterOrEqual</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+				</dcsset:item>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>2f4e5a59-481f-4377-a6da-37beb33e2f19</dcsset:userSettingID>
 			</dcsset:filter>
@@ -303,12 +273,28 @@
 				<dcsset:userSettingID>2d20bc75-2d98-4d36-baa7-0c331a518c0a</dcsset:userSettingID>
 			</dcsset:conditionalAppearance>
 			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:filter>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>a3615446-2c88-489a-8d97-9184df238d3b</dcsset:userSettingID>
+				</dcsset:filter>
 				<dcsset:order>
 					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>179cfc4f-214b-4ff8-9878-81e6a1fc3f54</dcsset:userSettingID>
 				</dcsset:order>
 				<dcsset:selection>
 					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>4ec9b932-b9fd-423f-ae61-5a10a7a48eb9</dcsset:userSettingID>
 				</dcsset:selection>
+				<dcsset:conditionalAppearance>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>d0ce5c62-d672-45f6-87c8-4fcc88521384</dcsset:userSettingID>
+				</dcsset:conditionalAppearance>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>d8f60ef5-0439-401d-b34b-44df62f4988f</dcsset:userSettingID>
+				<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+				<dcsset:itemsUserSettingID>5e0a0c19-2e8e-4d1d-b28b-de2c23dd284e</dcsset:itemsUserSettingID>
 			</dcsset:item>
 			<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
 			<dcsset:itemsUserSettingID>e2e2d7d2-6fcc-4eae-b809-452b199e0be9</dcsset:itemsUserSettingID>
