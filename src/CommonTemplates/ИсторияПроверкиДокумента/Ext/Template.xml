@@ -10,7 +10,7 @@
 		</languageInfo>
 	</languageSettings>
 	<columns>
-		<size>5</size>
+		<size>6</size>
 		<columnsItem>
 			<index>0</index>
 			<column>
@@ -37,6 +37,12 @@
 		</columnsItem>
 		<columnsItem>
 			<index>4</index>
+			<column>
+				<formatIndex>3</formatIndex>
+			</column>
+		</columnsItem>
+		<columnsItem>
+			<index>5</index>
 			<column>
 				<formatIndex>3</formatIndex>
 			</column>
@@ -101,6 +107,28 @@
 					</tl>
 				</c>
 			</c>
+			<c>
+				<c>
+					<f>6</f>
+					<tl>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Причина отмены</v8:content>
+						</v8:item>
+					</tl>
+				</c>
+			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>1</index>
+		<row>
+			<c>
+				<i>5</i>
+				<c>
+					<f>3</f>
+				</c>
+			</c>
 		</row>
 	</rowsItem>
 	<rowsItem>
@@ -119,26 +147,42 @@
 			</c>
 			<c>
 				<c>
-					<f>6</f>
+					<f>7</f>
 					<parameter>ДатаПроверки</parameter>
 				</c>
 			</c>
 			<c>
 				<c>
-					<f>7</f>
+					<f>8</f>
 					<parameter>КтоПроверил</parameter>
 				</c>
 			</c>
 			<c>
 				<c>
-					<f>6</f>
+					<f>7</f>
 					<parameter>ДатаОтмены</parameter>
 				</c>
 			</c>
 			<c>
 				<c>
-					<f>7</f>
+					<f>8</f>
 					<parameter>КтоОтменил</parameter>
+				</c>
+			</c>
+			<c>
+				<c>
+					<f>9</f>
+				</c>
+			</c>
+		</row>
+	</rowsItem>
+	<rowsItem>
+		<index>3</index>
+		<row>
+			<c>
+				<i>5</i>
+				<c>
+					<f>3</f>
 				</c>
 			</c>
 		</row>
@@ -153,32 +197,38 @@
 			</c>
 			<c>
 				<c>
-					<f>6</f>
+					<f>7</f>
 					<parameter>ДатаПроверки</parameter>
 				</c>
 			</c>
 			<c>
 				<c>
-					<f>7</f>
+					<f>8</f>
 					<parameter>КтоПроверил</parameter>
 				</c>
 			</c>
 			<c>
 				<c>
-					<f>6</f>
+					<f>7</f>
 					<parameter>ДатаОтмены</parameter>
 				</c>
 			</c>
 			<c>
 				<c>
-					<f>7</f>
+					<f>8</f>
 					<parameter>КтоОтменил</parameter>
+				</c>
+			</c>
+			<c>
+				<c>
+					<f>9</f>
+					<parameter>ПричинаОтмены</parameter>
 				</c>
 			</c>
 		</row>
 	</rowsItem>
 	<templateMode>true</templateMode>
-	<defaultFormatIndex>8</defaultFormatIndex>
+	<defaultFormatIndex>10</defaultFormatIndex>
 	<height>5</height>
 	<vgRows>5</vgRows>
 	<namedItem xsi:type="NamedItemCells">
@@ -230,6 +280,11 @@
 		<horizontalAlignment>Center</horizontalAlignment>
 	</format>
 	<format>
+		<font>1</font>
+		<width>240</width>
+		<horizontalAlignment>Center</horizontalAlignment>
+	</format>
+	<format>
 		<fillType>Parameter</fillType>
 		<format>
 			<v8:item>
@@ -239,6 +294,10 @@
 		</format>
 	</format>
 	<format>
+		<fillType>Parameter</fillType>
+	</format>
+	<format>
+		<width>240</width>
 		<fillType>Parameter</fillType>
 	</format>
 	<format>
