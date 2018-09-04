@@ -132,12 +132,80 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаНачалаЗаказа</dataPath>
+			<field>ДатаНачалаЗаказа</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата начала заказа</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>2</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаКонцаЗаказа</dataPath>
+			<field>ДатаКонцаЗаказа</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата конца заказа</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>3</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДниВРаботеЗаказа</dataPath>
+			<field>ДниВРаботеЗаказа</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дни в работе заказа</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Изготовитель</dataPath>
+			<field>Изготовитель</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изготовитель</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МенеджерЗаказа</dataPath>
+			<field>МенеджерЗаказа</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Менеджер заказа</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МенеджерЗаявки</dataPath>
+			<field>МенеджерЗаявки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Менеджер заявки</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	ЗаявкиПокупателейОстатки.Склад,
 	ЗаявкиПокупателейОстатки.Номенклатура,
 	ЗаявкиПокупателейОстатки.Качество,
-	ЗаявкиПокупателейОстатки.СтрокаЗаявки,
+	ЗаявкиПокупателейОстатки.СтрокаЗаявки КАК СтрокаЗаявки,
 	ЗаявкиПокупателейОстатки.ТорговаяТочка,
 	ЗаявкиПокупателейОстатки.ДоговорКонтрагента,
 	ЗаявкиПокупателейОстатки.КоличествоОстаток КАК ОстатокПоЗаявке,
@@ -154,6 +222,30 @@
 		ПО ЗаявкиПокупателейОстатки.СтрокаЗаявки = РазмещенияСтрокЗаказов.СтрокаЗаявки
 			И (РазмещенияСтрокЗаказов.ВидДвижения = ЗНАЧЕНИЕ(ВИдДвиженияНакопления.Приход))
 			И (РазмещенияСтрокЗаказов.ВидДвижения = ЗНАЧЕНИЕ(ВИдДвиженияНакопления.Приход))
+{ГДЕ
+	ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заказ.Менеджер.* КАК МенеджерЗаказа,
+	ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заявка.Менеджер.* КАК МенеджерЗаявки,
+	ЗаказыПоставщикамОстатки.СтрокаЗаявки.Поставщик.* КАК Поставщик,
+	ЗаказыПоставщикамОстатки.Номенклатура.Изготовитель.* КАК Изготовитель,
+	ЗаявкиПокупателейОстатки.ТорговаяТочка.Владелец.* КАК Покупатель}
+
+ИНДЕКСИРОВАТЬ ПО
+	СтрокаЗаявки
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЗаказыПоставщикам.СтрокаЗаявки,
+	МИНИМУМ(НАЧАЛОПЕРИОДА(ЗаказыПоставщикам.Период, ДЕНЬ)) КАК ДатаНачалаЗаказа,
+	МАКСИМУМ(НАЧАЛОПЕРИОДА(ЗаказыПоставщикам.Период, ДЕНЬ)) КАК ДатаКонцаЗаказа
+ПОМЕСТИТЬ ДатыЗаказов
+ИЗ
+	РегистрНакопления.ЗаказыПоставщикам КАК ЗаказыПоставщикам
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТОстаткиЗаявок КАК ВТОстаткиЗаявок
+		ПО ЗаказыПоставщикам.СтрокаЗаявки = ВТОстаткиЗаявок.СтрокаЗаявки
+
+СГРУППИРОВАТЬ ПО
+	ЗаказыПоставщикам.СтрокаЗаявки
 ;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -169,12 +261,23 @@
 	ВТОстаткиЗаявок.Заказ,
 	ВТОстаткиЗаявок.Заявка,
 	ВТОстаткиЗаявок.ОстатокПоЗаявке,
-	ВТОстаткиЗаявок.ОстатокПоЗаказу
+	ВТОстаткиЗаявок.ОстатокПоЗаказу,
+	ДатыЗаказов.ДатаНачалаЗаказа КАК ДатаНачалаЗаказа,
+	ДатыЗаказов.ДатаКонцаЗаказа,
+	РАЗНОСТЬДАТ(ДОБАВИТЬКДАТЕ(ДатыЗаказов.ДатаКонцаЗаказа, ДЕНЬ, 1), ДатыЗаказов.ДатаНачалаЗаказа, ДЕНЬ) КАК ДниВРаботеЗаказа
 ИЗ
 	ВТОстаткиЗаявок КАК ВТОстаткиЗаявок
 		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ПоступлениеТоваровУслуг.АктПриемки КАК ПоступлениеТоваровУслугАктПриемки
 		ПО ВТОстаткиЗаявок.ДокументПоступление = ПоступлениеТоваровУслугАктПриемки.Ссылка
-			И ВТОстаткиЗаявок.Номенклатура = ПоступлениеТоваровУслугАктПриемки.Номенклатура</query>
+			И ВТОстаткиЗаявок.Номенклатура = ПоступлениеТоваровУслугАктПриемки.Номенклатура
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ДатыЗаказов КАК ДатыЗаказов
+		ПО ВТОстаткиЗаявок.СтрокаЗаявки = ДатыЗаказов.СтрокаЗаявки
+{ГДЕ
+	ВТОстаткиЗаявок.Заказ.Менеджер.* КАК МенеджерЗаказа,
+	ВТОстаткиЗаявок.Заявка.Менеджер.* КАК МенеджерЗаявки,
+	ВТОстаткиЗаявок.Заказ.Контрагент.* КАК Поставщик,
+	ВТОстаткиЗаявок.Номенклатура.Изготовитель.* КАК Изготовитель,
+	ВТОстаткиЗаявок.Заявка.Контрагент.* КАК Покупатель}</query>
 	</dataSet>
 	<parameter>
 		<name>Период</name>
@@ -244,14 +347,40 @@
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>АктПримемки</dcsset:field>
 				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Заказ.Комментарий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДниВРаботеЗаказа</dcsset:field>
+				</dcsset:item>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>d4600e34-d696-4d84-941d-f3536dff11cc</dcsset:userSettingID>
 			</dcsset:selection>
 			<dcsset:filter>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
-					<dcsset:left xsi:type="dcscor:Field">ОстатокПоЗаявке</dcsset:left>
-					<dcsset:comparisonType>GreaterOrEqual</dcsset:comparisonType>
-					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">МенеджерЗаказа</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">МенеджерЗаявки</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Изготовитель</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Покупатель</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Поставщик</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 				</dcsset:item>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>2f4e5a59-481f-4377-a6da-37beb33e2f19</dcsset:userSettingID>
