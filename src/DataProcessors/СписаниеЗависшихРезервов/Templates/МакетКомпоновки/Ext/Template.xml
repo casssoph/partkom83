@@ -1,0 +1,540 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтрокаПрихода</dataPath>
+			<field>СтрокаПрихода</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтрокаЗаявки</dataPath>
+			<field>СтрокаЗаявки</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Качество</dataPath>
+			<field>Качество</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отгружено</dataPath>
+			<field>Отгружено</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отгружено</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДнейРезерва</dataPath>
+			<field>ДнейРезерва</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дней резерва</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Additional</dcscom:periodType>
+			</role>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВСборке</dataPath>
+			<field>ВСборке</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>В сборке</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Менеджер</dataPath>
+			<field>Менеджер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регион</dataPath>
+			<field>Регион</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регион</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Филиал</dataPath>
+			<field>Филиал</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Филиал</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипПоставки</dataPath>
+			<field>ТипПоставки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип поставки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>IDSite</dataPath>
+			<field>IDSite</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>IDSite</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидЛиквидности</dataPath>
+			<field>ВидЛиквидности</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид ликвидности</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВРезерве</dataPath>
+			<field>ВРезерве</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>В резерве</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заявка</dataPath>
+			<field>Заявка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заявка</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>БлокировкаКонтрагента</dataPath>
+			<field>БлокировкаКонтрагента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Блокировка контрагента</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	РезервыТоваровОстатки.Номенклатура,
+	РезервыТоваровОстатки.Склад,
+	РезервыТоваровОстатки.Качество,
+	РезервыТоваровОстатки.СтрокаЗаявки,
+	РезервыТоваровОстатки.КоличествоОстаток КАК Остаток
+ПОМЕСТИТЬ ОстаткиРезервов
+ИЗ
+	РегистрНакопления.РезервыТоваров.Остатки({(ДОБАВИТЬКДАТЕ(&amp;КонецПериода, ДЕНЬ, 1))}, ) КАК РезервыТоваровОстатки
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	РезервыТоваровОбороты.Номенклатура,
+	РезервыТоваровОбороты.Склад,
+	РезервыТоваровОбороты.Качество,
+	РезервыТоваровОбороты.СтрокаЗаявки,
+	СУММА(ВЫБОР
+			КОГДА ВЫРАЗИТЬ(РезервыТоваровОбороты.Регистратор КАК Документ.РеализацияТоваровУслуг).СтатусДокумента = ЗНАЧЕНИЕ(Справочник.СтатусыДокументов.РеализацияТоваровУслугСборка)
+				ТОГДА РезервыТоваровОбороты.КоличествоРасход
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ВСборке,
+	СУММА(ВЫБОР
+			КОГДА ВЫРАЗИТЬ(РезервыТоваровОбороты.Регистратор КАК Документ.РеализацияТоваровУслуг).СтатусДокумента = ЗНАЧЕНИЕ(Справочник.СтатусыДокументов.РеализацияТоваровУслугОтгружен)
+				ТОГДА РезервыТоваровОбороты.КоличествоРасход
+			ИНАЧЕ 0
+		КОНЕЦ) КАК Отгружено
+ПОМЕСТИТЬ ОборотыРезервов
+ИЗ
+	РегистрНакопления.РезервыТоваров.Обороты({(&amp;НачалоПериода)}, {(КОНЕЦПЕРИОДА(&amp;КонецПериода, ДЕНЬ))}, Авто, ) КАК РезервыТоваровОбороты
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ОстаткиРезервов КАК ОстаткиРезервов
+		ПО (ОстаткиРезервов.Номенклатура = РезервыТоваровОбороты.Номенклатура)
+			И (ОстаткиРезервов.Склад = РезервыТоваровОбороты.Склад)
+			И (ОстаткиРезервов.Качество = РезервыТоваровОбороты.Качество)
+			И (ОстаткиРезервов.СтрокаЗаявки = РезервыТоваровОбороты.СтрокаЗаявки)
+ГДЕ
+	РезервыТоваровОбороты.Регистратор ССЫЛКА Документ.РеализацияТоваровУслуг
+
+СГРУППИРОВАТЬ ПО
+	РезервыТоваровОбороты.Номенклатура,
+	РезервыТоваровОбороты.Склад,
+	РезервыТоваровОбороты.Качество,
+	РезервыТоваровОбороты.СтрокаЗаявки
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	РезервыТоваровОбороты.Номенклатура,
+	РезервыТоваровОбороты.Склад,
+	РезервыТоваровОбороты.Качество,
+	РезервыТоваровОбороты.СтрокаЗаявки,
+	МАКСИМУМ(РАЗНОСТЬДАТ(РезервыТоваровОбороты.ПериодДень, НАЧАЛОПЕРИОДА(&amp;КонецПериода, ДЕНЬ), ДЕНЬ)) КАК КоличествоДней
+ПОМЕСТИТЬ ДниРезерва
+ИЗ
+	РегистрНакопления.РезервыТоваров.Обороты({(&amp;НачалоПериода)}, {(КОНЕЦПЕРИОДА(&amp;КонецПериода, ДЕНЬ))}, Авто, ) КАК РезервыТоваровОбороты
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ОстаткиРезервов КАК ОстаткиРезервов
+		ПО (ОстаткиРезервов.Номенклатура = РезервыТоваровОбороты.Номенклатура)
+			И (ОстаткиРезервов.Склад = РезервыТоваровОбороты.Склад)
+			И (ОстаткиРезервов.Качество = РезервыТоваровОбороты.Качество)
+			И (ОстаткиРезервов.СтрокаЗаявки = РезервыТоваровОбороты.СтрокаЗаявки)
+ГДЕ
+	РезервыТоваровОбороты.КоличествоПриход &gt; 0
+
+СГРУППИРОВАТЬ ПО
+	РезервыТоваровОбороты.Номенклатура,
+	РезервыТоваровОбороты.Склад,
+	РезервыТоваровОбороты.Качество,
+	РезервыТоваровОбороты.СтрокаЗаявки
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЕСТЬNULL(МенеджерыТорговыхТочекСрезПоследних.Менеджер, ЗНАЧЕНИЕ(Справочник.Менеджеры.ПустаяСсылка)) КАК Менеджер,
+	ОстаткиРезервов.Номенклатура,
+	ОстаткиРезервов.Склад,
+	ОстаткиРезервов.Качество,
+	ОстаткиРезервов.СтрокаЗаявки,
+	ОстаткиРезервов.СтрокаЗаявки.Заявка КАК Заявка,
+	ОстаткиРезервов.СтрокаЗаявки.Заявка.Организация КАК Организация,
+	ОстаткиРезервов.СтрокаЗаявки.Заявка.Контрагент КАК Контрагент,
+	ОстаткиРезервов.Номенклатура.ВидЛиквидности КАК ВидЛиквидности,
+	ОстаткиРезервов.СтрокаЗаявки.ТипПоставки КАК ТипПоставки,
+	ОстаткиРезервов.СтрокаЗаявки.IDSite КАК IDSite,
+	ОстаткиРезервов.СтрокаЗаявки.Заявка.Контрагент.ОсновнаяТорговаяТочка.Регион КАК Регион,
+	ОстаткиРезервов.СтрокаЗаявки.Заявка.Контрагент.ОсновнаяТорговаяТочка.Регион.Филиал КАК Филиал,
+	ОстаткиРезервов.СтрокаЗаявки.Заявка.Контрагент.Блокировка КАК БлокировкаКонтрагента,
+	ЕСТЬNULL(ДниРезерва.КоличествоДней, 0) КАК ДнейРезерва,
+	ЕСТЬNULL(ОборотыРезервов.ВСборке, 0) КАК ВСборке,
+	ЕСТЬNULL(ОборотыРезервов.Отгружено, 0) КАК Отгружено,
+	ОстаткиРезервов.Остаток КАК ВРезерве
+ИЗ
+	ОстаткиРезервов КАК ОстаткиРезервов
+		ЛЕВОЕ СОЕДИНЕНИЕ ДниРезерва КАК ДниРезерва
+		ПО ОстаткиРезервов.Номенклатура = ДниРезерва.Номенклатура
+			И ОстаткиРезервов.Склад = ДниРезерва.Склад
+			И ОстаткиРезервов.Качество = ДниРезерва.Качество
+			И ОстаткиРезервов.СтрокаЗаявки = ДниРезерва.СтрокаЗаявки
+		ЛЕВОЕ СОЕДИНЕНИЕ ОборотыРезервов КАК ОборотыРезервов
+		ПО ОстаткиРезервов.Номенклатура = ОборотыРезервов.Номенклатура
+			И ОстаткиРезервов.Склад = ОборотыРезервов.Склад
+			И ОстаткиРезервов.Качество = ОборотыРезервов.Качество
+			И ОстаткиРезервов.СтрокаЗаявки = ОборотыРезервов.СтрокаЗаявки
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.МенеджерыТорговыхТочек.СрезПоследних({(КОНЕЦПЕРИОДА(&amp;КонецПериода, ДЕНЬ))}, ) КАК МенеджерыТорговыхТочекСрезПоследних
+		ПО ОстаткиРезервов.СтрокаЗаявки.Заявка.Контрагент.ОсновнаяТорговаяТочка = МенеджерыТорговыхТочекСрезПоследних.ТорговаяТочка
+			И (МенеджерыТорговыхТочекСрезПоследних.ВидМенеджера = ЗНАЧЕНИЕ(Перечисление.ВидыМенеджеров.Продажи))
+ГДЕ
+	ЕСТЬNULL(ОборотыРезервов.Отгружено, 0) = 0</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>СтрокаЗаявкиIDSite</dataPath>
+		<expression>СтрокаЗаявки</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Строка заявки (IDSite)</v8:content>
+			</v8:item>
+		</title>
+		<presentationExpression>СтрокаЗаявки.IDSite</presentationExpression>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ИдентификаторыСтрокЗаявок</v8:Type>
+		</valueType>
+	</calculatedField>
+	<totalField>
+		<dataPath>ВСборке</dataPath>
+		<expression>Сумма(ВСборке)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Отгружено</dataPath>
+		<expression>Сумма(Отгружено)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДнейРезерва</dataPath>
+		<expression>Среднее(ДнейРезерва)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВРезерве</dataPath>
+		<expression>Сумма(ВРезерве)</expression>
+	</totalField>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">2000-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Склад</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Организация</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Контрагент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>БлокировкаКонтрагента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номенклатура</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидЛиквидности</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипПоставки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтрокаЗаявки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>IDSite</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Заявка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Регион</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Филиал</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Менеджер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВРезерве</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВСборке</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Отгружено</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДнейРезерва</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Склад</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Склады.ПустаяСсылка</dcsset:right>
+					<dcsset:userSettingID>6b705ce1-2ed1-4c38-aba5-3dac28181572</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Менеджер</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>b89ab63a-3d67-4534-8fcc-8aab21a96df4</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ДнейРезерва</dcsset:left>
+					<dcsset:comparisonType>GreaterOrEqual</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					<dcsset:userSettingID>f587f0d0-8c22-45f0-955c-c054b00be2d0</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ДнейРезерва</dcsset:left>
+					<dcsset:comparisonType>LessOrEqual</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					<dcsset:userSettingID>167656cf-ea9d-4a7a-8f9e-79d85a50afaf</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ДнейРезерва</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					<dcsset:userSettingID>20b3c922-5f7f-4d07-aaf5-556a3928cc69</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">IDSite</dcsset:left>
+					<dcsset:comparisonType>Contains</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:string"/>
+					<dcsset:userSettingID>be01fddf-1b8a-49c9-957b-d0d38bb8bd80</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТипПоставки</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>6f0ae29c-4522-43f5-8a35-e7e80b9d40e8</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>21fb8274-227a-44ee-882d-05fddc45f155</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>4b133686-d8e2-49f6-af08-e293f3dd0f7a</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Регион</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>797f43b5-506a-4fe6-b33e-2ed586312084</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Филиал</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>00b226ea-0f80-49a7-b653-9925987dc690</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СтрокаЗаявки</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>502dc8b9-f492-431d-a2fb-8eabff759848</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">БлокировкаКонтрагента</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:userSettingID>7ca491f6-ad33-4b78-842a-8795e604173a</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>6757afbb-2c78-4a47-a9ae-bca8154afcc2</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+						<v8:date>2000-02-01T00:00:00</v8:date>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:userSettingID>7213567b-850f-4309-9161-24ac012be000</dcsset:userSettingID>
+			</dcsset:order>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Separately</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>
