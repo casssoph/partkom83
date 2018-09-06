@@ -1760,7 +1760,7 @@
 					|		 ,f1._vers as  current_vers
 					|		 ,latest_step as latest_step_current_vers
 					|		 ,'' as  latest_version
-					|		 ,null as  latest_version_dt
+					|		 ,0 as  latest_version_dt
 					|		 ,0 as fl
 					|	from
 					|		(
@@ -1873,7 +1873,7 @@
 				
 			//	ЗакрытьСеансПодключенияКSQL_2();
 			Исключение
-			//	Сообщить("Ошибка запроса "+ Символы.ПС +СокрЛП(CommandText) + Символы.ПС + ОписаниеОшибки());
+				Сообщить("Ошибка запроса "+ Символы.ПС +СокрЛП(CommandText) + Символы.ПС + ОписаниеОшибки());
 			КонецПопытки;
 	
 	Возврат _Игнорировать;	
