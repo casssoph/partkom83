@@ -187,6 +187,24 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоговорКонтрагента</dataPath>
+			<field>ДоговорКонтрагента</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТорговаяТочка</dataPath>
+			<field>ТорговаяТочка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаРезерва</dataPath>
+			<field>СуммаРезерва</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма резерва</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	РезервыТоваровОстатки.Номенклатура,
@@ -197,6 +215,28 @@
 ПОМЕСТИТЬ ОстаткиРезервов
 ИЗ
 	РегистрНакопления.РезервыТоваров.Остатки({(ДОБАВИТЬКДАТЕ(&amp;КонецПериода, ДЕНЬ, 1))}, ) КАК РезервыТоваровОстатки
+ГДЕ
+	(НЕ РезервыТоваровОстатки.СтрокаЗаявки.Заявка = ЗНАЧЕНИЕ(Документ.ЗаявкаПокупателя.ПустаяСсылка)
+				И РезервыТоваровОстатки.СтрокаЗаявки.ТипПоставки = ЗНАЧЕНИЕ(Перечисление.ТипПоставки.Сток)
+			ИЛИ РезервыТоваровОстатки.СтрокаЗаявки.ТипПоставки = ЗНАЧЕНИЕ(Перечисление.ТипПоставки.VMI)
+			ИЛИ РезервыТоваровОстатки.СтрокаЗаявки.ТипПоставки = ЗНАЧЕНИЕ(Перечисление.ТипПоставки.Кросс)
+				И РезервыТоваровОстатки.Номенклатура.ВидЛиквидности = ЗНАЧЕНИЕ(Перечисление.ВидыЛиквидности.Необходимый))
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЗаявкиПокупателейОстатки.Номенклатура,
+	ЗаявкиПокупателейОстатки.Склад,
+	ЗаявкиПокупателейОстатки.Качество,
+	ЗаявкиПокупателейОстатки.СтрокаЗаявки,
+	ВЫБОР
+		КОГДА ЗаявкиПокупателейОстатки.КоличествоОстаток = 0
+			ТОГДА 0
+		ИНАЧЕ ЗаявкиПокупателейОстатки.СуммаРеглОстаток / ЗаявкиПокупателейОстатки.КоличествоОстаток
+	КОНЕЦ КАК Цена
+ПОМЕСТИТЬ ЗаявкиПокупателейОстатки
+ИЗ
+	РегистрНакопления.ЗаявкиПокупателей.Остатки({(ДОБАВИТЬКДАТЕ(&amp;КонецПериода, ДЕНЬ, 1))}, ) КАК ЗаявкиПокупателейОстатки
 ;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -277,7 +317,8 @@
 	ЕСТЬNULL(ДниРезерва.КоличествоДней, 0) КАК ДнейРезерва,
 	ЕСТЬNULL(ОборотыРезервов.ВСборке, 0) КАК ВСборке,
 	ЕСТЬNULL(ОборотыРезервов.Отгружено, 0) КАК Отгружено,
-	ОстаткиРезервов.Остаток КАК ВРезерве
+	ОстаткиРезервов.Остаток КАК ВРезерве,
+	ВЫРАЗИТЬ(ОстаткиРезервов.Остаток * ЗаявкиПокупателейОстатки.Цена КАК ЧИСЛО(15, 2)) КАК СуммаРезерва
 ИЗ
 	ОстаткиРезервов КАК ОстаткиРезервов
 		ЛЕВОЕ СОЕДИНЕНИЕ ДниРезерва КАК ДниРезерва
@@ -290,11 +331,16 @@
 			И ОстаткиРезервов.Склад = ОборотыРезервов.Склад
 			И ОстаткиРезервов.Качество = ОборотыРезервов.Качество
 			И ОстаткиРезервов.СтрокаЗаявки = ОборотыРезервов.СтрокаЗаявки
+		ЛЕВОЕ СОЕДИНЕНИЕ ЗаявкиПокупателейОстатки КАК ЗаявкиПокупателейОстатки
+		ПО ОстаткиРезервов.Номенклатура = ЗаявкиПокупателейОстатки.Номенклатура
+			И ОстаткиРезервов.Склад = ЗаявкиПокупателейОстатки.Склад
+			И ОстаткиРезервов.Качество = ЗаявкиПокупателейОстатки.Качество
+			И ОстаткиРезервов.СтрокаЗаявки = ЗаявкиПокупателейОстатки.СтрокаЗаявки
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.МенеджерыТорговыхТочек.СрезПоследних({(КОНЕЦПЕРИОДА(&amp;КонецПериода, ДЕНЬ))}, ) КАК МенеджерыТорговыхТочекСрезПоследних
 		ПО ОстаткиРезервов.СтрокаЗаявки.Заявка.Контрагент.ОсновнаяТорговаяТочка = МенеджерыТорговыхТочекСрезПоследних.ТорговаяТочка
 			И (МенеджерыТорговыхТочекСрезПоследних.ВидМенеджера = ЗНАЧЕНИЕ(Перечисление.ВидыМенеджеров.Продажи))
 ГДЕ
-	ЕСТЬNULL(ОборотыРезервов.Отгружено, 0) = 0</query>
+	ЕСТЬNULL(ОборотыРезервов.ВСборке, 0) = 0</query>
 	</dataSet>
 	<calculatedField>
 		<dataPath>СтрокаЗаявкиIDSite</dataPath>
@@ -325,6 +371,10 @@
 	<totalField>
 		<dataPath>ВРезерве</dataPath>
 		<expression>Сумма(ВРезерве)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаРезерва</dataPath>
+		<expression>Сумма(СуммаРезерва)</expression>
 	</totalField>
 	<parameter>
 		<name>КонецПериода</name>
@@ -369,13 +419,16 @@
 					<dcsset:field>Склад</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>Организация</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Контрагент</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>БлокировкаКонтрагента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номенклатура.Артикул</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номенклатура.Изготовитель</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Номенклатура</dcsset:field>
@@ -387,13 +440,13 @@
 					<dcsset:field>ТипПоставки</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>СтрокаЗаявки</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>IDSite</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Заявка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтрокаЗаявки</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Регион</dcsset:field>
@@ -405,16 +458,22 @@
 					<dcsset:field>Менеджер</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Организация</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДнейРезерва</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>ВРезерве</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаРезерва</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>ВСборке</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Отгружено</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>ДнейРезерва</dcsset:field>
 				</dcsset:item>
 			</dcsset:selection>
 			<dcsset:filter>
@@ -432,9 +491,20 @@
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>414b1ba9-d66c-45a0-b49c-1d68b36cb2c2</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:left xsi:type="dcscor:Field">ДнейРезерва</dcsset:left>
 					<dcsset:comparisonType>GreaterOrEqual</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					<dcsset:presentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>5</v8:content>
+						</v8:item>
+					</dcsset:presentation>
 					<dcsset:userSettingID>f587f0d0-8c22-45f0-955c-c054b00be2d0</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
@@ -450,6 +520,20 @@
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
 					<dcsset:userSettingID>20b3c922-5f7f-4d07-aaf5-556a3928cc69</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СуммаРезерва</dcsset:left>
+					<dcsset:comparisonType>GreaterOrEqual</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					<dcsset:userSettingID>39ffb352-9800-4f64-b726-002683d3b6b5</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Отгружено</dcsset:left>
+					<dcsset:comparisonType>GreaterOrEqual</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					<dcsset:userSettingID>ab91315b-4aec-4a2d-9947-ec3ac2b1a598</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
@@ -525,6 +609,14 @@
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
 					<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Separately</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
 				</dcscor:item>
 			</dcsset:outputParameters>
 			<dcsset:item xsi:type="dcsset:StructureItemGroup">

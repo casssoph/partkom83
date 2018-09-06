@@ -111,8 +111,25 @@
 					</Button>
 					<Button name="РезервыЗакрытьЗаявку" id="91">
 						<Type>CommandBarButton</Type>
+						<Visible>false</Visible>
 						<CommandName>Form.Command.ЗакрытьЗаявку</CommandName>
 						<ExtendedTooltip name="РезервыЗакрытьЗаявкуРасширеннаяПодсказка" id="92"/>
+					</Button>
+					<Button name="РезервыОтправитьПоЭлектроннойПочте" id="102">
+						<Type>CommandBarButton</Type>
+						<Representation>PictureAndText</Representation>
+						<CommandName>Form.Command.ОтправитьПоЭлектроннойПочте</CommandName>
+						<Picture>
+							<xr:Ref>CommonPicture.ПиктограммаФайла_MSG</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>E-mail</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="РезервыОтправитьПоЭлектроннойПочтеРасширеннаяПодсказка" id="103"/>
 					</Button>
 				</ChildItems>
 			</AutoCommandBar>
@@ -242,12 +259,18 @@
 					<ContextMenu name="РезервыВРезервеКонтекстноеМеню" id="51"/>
 					<ExtendedTooltip name="РезервыВРезервеРасширеннаяПодсказка" id="52"/>
 				</InputField>
-				<InputField name="РезервыВСборке" id="53">
-					<DataPath>Объект.Резервы.ВСборке</DataPath>
+				<InputField name="РезервыСуммаРезерва" id="96">
+					<DataPath>Объект.Резервы.СуммаРезерва</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="РезервыСуммаРезерваКонтекстноеМеню" id="97"/>
+					<ExtendedTooltip name="РезервыСуммаРезерваРасширеннаяПодсказка" id="98"/>
+				</InputField>
+				<InputField name="РезервыОтгружено" id="99">
+					<DataPath>Объект.Резервы.Отгружено</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="РезервыВСборкеКонтекстноеМеню" id="54"/>
-					<ExtendedTooltip name="РезервыВСборкеРасширеннаяПодсказка" id="55"/>
+					<ContextMenu name="РезервыОтгруженоКонтекстноеМеню" id="100"/>
+					<ExtendedTooltip name="РезервыОтгруженоРасширеннаяПодсказка" id="101"/>
 				</InputField>
 				<InputField name="РезервыОрганизация" id="20">
 					<DataPath>Объект.Резервы.Организация</DataPath>
@@ -386,6 +409,7 @@
 					<v8:content>Списать резерв</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Action>СписатьРезерв</Action>
 		</Command>
 		<Command name="ЗакрытьЗаявку" id="5">
 			<Title>
@@ -400,6 +424,22 @@
 					<v8:content>Закрыть заявку</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Action>ЗакрытьЗаявку</Action>
+		</Command>
+		<Command name="ОтправитьПоЭлектроннойПочте" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить по электронной почте</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить по электронной почте</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтправитьПоЭлектроннойПочте</Action>
 		</Command>
 	</Commands>
 </Form>
