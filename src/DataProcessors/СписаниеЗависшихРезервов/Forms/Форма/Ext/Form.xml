@@ -172,15 +172,6 @@
 					<ContextMenu name="РезервыВыбратьКонтекстноеМеню" id="18"/>
 					<ExtendedTooltip name="РезервыВыбратьРасширеннаяПодсказка" id="19"/>
 				</CheckBoxField>
-				<InputField name="РезервыКонтрагент" id="23">
-					<DataPath>Объект.Резервы.Контрагент</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<ChoiceButton>false</ChoiceButton>
-					<OpenButton>true</OpenButton>
-					<TextEdit>false</TextEdit>
-					<ContextMenu name="РезервыКонтрагентКонтекстноеМеню" id="24"/>
-					<ExtendedTooltip name="РезервыКонтрагентРасширеннаяПодсказка" id="25"/>
-				</InputField>
 				<CheckBoxField name="РезервыБлокировкаКонтрагента" id="82">
 					<DataPath>Объект.Резервы.БлокировкаКонтрагента</DataPath>
 					<UserVisible>
@@ -222,6 +213,15 @@
 					<ContextMenu name="РезервыМенеджерКонтекстноеМеню" id="33"/>
 					<ExtendedTooltip name="РезервыМенеджерРасширеннаяПодсказка" id="34"/>
 				</InputField>
+				<InputField name="РезервыФилиал" id="35">
+					<DataPath>Объект.Резервы.Филиал</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ChoiceButton>false</ChoiceButton>
+					<OpenButton>true</OpenButton>
+					<TextEdit>false</TextEdit>
+					<ContextMenu name="РезервыФилиалКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="РезервыФилиалРасширеннаяПодсказка" id="37"/>
+				</InputField>
 				<InputField name="РезервыЗаявка" id="38">
 					<DataPath>Объект.Резервы.Заявка</DataPath>
 					<EditMode>EnterOnInput</EditMode>
@@ -231,26 +231,32 @@
 					<ContextMenu name="РезервыЗаявкаКонтекстноеМеню" id="39"/>
 					<ExtendedTooltip name="РезервыЗаявкаРасширеннаяПодсказка" id="40"/>
 				</InputField>
-				<InputField name="РезервыIDSite" id="44">
-					<DataPath>Объект.Резервы.IDSite</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="РезервыIDSiteКонтекстноеМеню" id="45"/>
-					<ExtendedTooltip name="РезервыIDSiteРасширеннаяПодсказка" id="46"/>
-				</InputField>
-				<InputField name="РезервыТипПоставки" id="47">
-					<DataPath>Объект.Резервы.ТипПоставки</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="РезервыТипПоставкиКонтекстноеМеню" id="48"/>
-					<ExtendedTooltip name="РезервыТипПоставкиРасширеннаяПодсказка" id="49"/>
-				</InputField>
 				<InputField name="РезервыДнейРезерва" id="79">
 					<DataPath>Объект.Резервы.ДнейРезерва</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<ContextMenu name="РезервыДнейРезерваКонтекстноеМеню" id="80"/>
 					<ExtendedTooltip name="РезервыДнейРезерваРасширеннаяПодсказка" id="81"/>
+				</InputField>
+				<InputField name="РезервыЛиквидность" id="41">
+					<DataPath>Объект.Резервы.ВидЛиквидности</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="РезервыЛиквидностьКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="РезервыЛиквидностьРасширеннаяПодсказка" id="43"/>
+				</InputField>
+				<InputField name="РезервыСуммаРезерва" id="96">
+					<DataPath>Объект.Резервы.СуммаРезерва</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="РезервыСуммаРезерваКонтекстноеМеню" id="97"/>
+					<ExtendedTooltip name="РезервыСуммаРезерваРасширеннаяПодсказка" id="98"/>
+				</InputField>
+				<InputField name="РезервыIDSite" id="44">
+					<DataPath>Объект.Резервы.IDSite</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="РезервыIDSiteКонтекстноеМеню" id="45"/>
+					<ExtendedTooltip name="РезервыIDSiteРасширеннаяПодсказка" id="46"/>
 				</InputField>
 				<InputField name="РезервыВРезерве" id="50">
 					<DataPath>Объект.Резервы.ВРезерве</DataPath>
@@ -259,18 +265,28 @@
 					<ContextMenu name="РезервыВРезервеКонтекстноеМеню" id="51"/>
 					<ExtendedTooltip name="РезервыВРезервеРасширеннаяПодсказка" id="52"/>
 				</InputField>
-				<InputField name="РезервыСуммаРезерва" id="96">
-					<DataPath>Объект.Резервы.СуммаРезерва</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="РезервыСуммаРезерваКонтекстноеМеню" id="97"/>
-					<ExtendedTooltip name="РезервыСуммаРезерваРасширеннаяПодсказка" id="98"/>
-				</InputField>
 				<InputField name="РезервыОтгружено" id="99">
 					<DataPath>Объект.Резервы.Отгружено</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<ContextMenu name="РезервыОтгруженоКонтекстноеМеню" id="100"/>
 					<ExtendedTooltip name="РезервыОтгруженоРасширеннаяПодсказка" id="101"/>
+				</InputField>
+				<InputField name="РезервыТипПоставки" id="47">
+					<DataPath>Объект.Резервы.ТипПоставки</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="РезервыТипПоставкиКонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="РезервыТипПоставкиРасширеннаяПодсказка" id="49"/>
+				</InputField>
+				<InputField name="РезервыКонтрагент" id="23">
+					<DataPath>Объект.Резервы.Контрагент</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ChoiceButton>false</ChoiceButton>
+					<OpenButton>true</OpenButton>
+					<TextEdit>false</TextEdit>
+					<ContextMenu name="РезервыКонтрагентКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="РезервыКонтрагентРасширеннаяПодсказка" id="25"/>
 				</InputField>
 				<InputField name="РезервыОрганизация" id="20">
 					<DataPath>Объект.Резервы.Организация</DataPath>
@@ -289,22 +305,6 @@
 					<TextEdit>false</TextEdit>
 					<ContextMenu name="РезервыСтрокаЗаявкиКонтекстноеМеню" id="30"/>
 					<ExtendedTooltip name="РезервыСтрокаЗаявкиРасширеннаяПодсказка" id="31"/>
-				</InputField>
-				<InputField name="РезервыЛиквидность" id="41">
-					<DataPath>Объект.Резервы.ВидЛиквидности</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="РезервыЛиквидностьКонтекстноеМеню" id="42"/>
-					<ExtendedTooltip name="РезервыЛиквидностьРасширеннаяПодсказка" id="43"/>
-				</InputField>
-				<InputField name="РезервыФилиал" id="35">
-					<DataPath>Объект.Резервы.Филиал</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<ChoiceButton>false</ChoiceButton>
-					<OpenButton>true</OpenButton>
-					<TextEdit>false</TextEdit>
-					<ContextMenu name="РезервыФилиалКонтекстноеМеню" id="36"/>
-					<ExtendedTooltip name="РезервыФилиалРасширеннаяПодсказка" id="37"/>
 				</InputField>
 				<InputField name="РезервыРегион" id="93">
 					<DataPath>Объект.Резервы.Регион</DataPath>
