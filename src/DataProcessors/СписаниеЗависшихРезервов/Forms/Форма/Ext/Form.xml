@@ -64,257 +64,373 @@
 				</Table>
 			</ChildItems>
 		</UsualGroup>
-		<Table name="Резервы" id="1">
-			<Representation>List</Representation>
-			<ChangeRowSet>false</ChangeRowSet>
-			<ChangeRowOrder>false</ChangeRowOrder>
-			<AutoInsertNewRow>true</AutoInsertNewRow>
-			<DataPath>Объект.Резервы</DataPath>
-			<RowFilter xsi:nil="true"/>
-			<ContextMenu name="РезервыКонтекстноеМеню" id="2"/>
-			<AutoCommandBar name="РезервыКоманднаяПанель" id="3">
-				<Autofill>false</Autofill>
-				<ChildItems>
-					<Button name="ФормаОбновить" id="69">
-						<Type>CommandBarButton</Type>
-						<Representation>PictureAndText</Representation>
-						<DefaultButton>true</DefaultButton>
-						<CommandName>Form.Command.Обновить</CommandName>
-						<Picture>
-							<xr:Ref>CommonPicture.СинхронизацияДанных</xr:Ref>
-							<xr:LoadTransparent>true</xr:LoadTransparent>
-						</Picture>
-						<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="70"/>
-					</Button>
-					<Button name="РезервыСнятьФлажки" id="85">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.СнятьФлажки</CommandName>
-						<Picture>
-							<xr:Ref>CommonPicture.СнятаПометка</xr:Ref>
-							<xr:LoadTransparent>true</xr:LoadTransparent>
-						</Picture>
-						<ExtendedTooltip name="РезервыСнятьФлажкиРасширеннаяПодсказка" id="86"/>
-					</Button>
-					<Button name="РезервыУстановитьФлажки" id="87">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.УстановитьФлажки</CommandName>
-						<Picture>
-							<xr:Ref>CommonPicture.УстановленаПометка</xr:Ref>
-							<xr:LoadTransparent>true</xr:LoadTransparent>
-						</Picture>
-						<ExtendedTooltip name="РезервыУстановитьФлажкиРасширеннаяПодсказка" id="88"/>
-					</Button>
-					<Button name="РезервыСписатьРезерв" id="89">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.СписатьРезерв</CommandName>
-						<ExtendedTooltip name="РезервыСписатьРезервРасширеннаяПодсказка" id="90"/>
-					</Button>
-					<Button name="РезервыЗакрытьЗаявку" id="91">
-						<Type>CommandBarButton</Type>
-						<Visible>false</Visible>
-						<CommandName>Form.Command.ЗакрытьЗаявку</CommandName>
-						<ExtendedTooltip name="РезервыЗакрытьЗаявкуРасширеннаяПодсказка" id="92"/>
-					</Button>
-					<Button name="РезервыОтправитьПоЭлектроннойПочте" id="102">
-						<Type>CommandBarButton</Type>
-						<Representation>PictureAndText</Representation>
-						<CommandName>Form.Command.ОтправитьПоЭлектроннойПочте</CommandName>
-						<Picture>
-							<xr:Ref>CommonPicture.ПиктограммаФайла_MSG</xr:Ref>
-							<xr:LoadTransparent>true</xr:LoadTransparent>
-						</Picture>
-						<Title>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>E-mail</v8:content>
-							</v8:item>
-						</Title>
-						<ExtendedTooltip name="РезервыОтправитьПоЭлектроннойПочтеРасширеннаяПодсказка" id="103"/>
-					</Button>
-				</ChildItems>
-			</AutoCommandBar>
-			<ExtendedTooltip name="РезервыРасширеннаяПодсказка" id="4"/>
-			<SearchStringAddition name="РезервыСтрокаПоиска" id="5">
-				<AdditionSource>
-					<Item>Резервы</Item>
-					<Type>SearchStringRepresentation</Type>
-				</AdditionSource>
-				<ContextMenu name="РезервыСтрокаПоискаКонтекстноеМеню" id="6"/>
-				<ExtendedTooltip name="РезервыСтрокаПоискаРасширеннаяПодсказка" id="7"/>
-			</SearchStringAddition>
-			<ViewStatusAddition name="РезервыСостояниеПросмотра" id="8">
-				<AdditionSource>
-					<Item>Резервы</Item>
-					<Type>ViewStatusRepresentation</Type>
-				</AdditionSource>
-				<ContextMenu name="РезервыСостояниеПросмотраКонтекстноеМеню" id="9"/>
-				<ExtendedTooltip name="РезервыСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
-			</ViewStatusAddition>
-			<SearchControlAddition name="РезервыУправлениеПоиском" id="11">
-				<AdditionSource>
-					<Item>Резервы</Item>
-					<Type>SearchControl</Type>
-				</AdditionSource>
-				<ContextMenu name="РезервыУправлениеПоискомКонтекстноеМеню" id="12"/>
-				<ExtendedTooltip name="РезервыУправлениеПоискомРасширеннаяПодсказка" id="13"/>
-			</SearchControlAddition>
+		<UsualGroup name="ГруппаРезервы" id="104">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа резервы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа резервы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРезервыРасширеннаяПодсказка" id="105"/>
 			<ChildItems>
-				<LabelField name="РезервыНомерСтроки" id="14">
-					<DataPath>Объект.Резервы.LineNumber</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="РезервыНомерСтрокиКонтекстноеМеню" id="15"/>
-					<ExtendedTooltip name="РезервыНомерСтрокиРасширеннаяПодсказка" id="16"/>
-				</LabelField>
-				<CheckBoxField name="РезервыВыбрать" id="17">
-					<DataPath>Объект.Резервы.Выбрать</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<CheckBoxType>Auto</CheckBoxType>
-					<ContextMenu name="РезервыВыбратьКонтекстноеМеню" id="18"/>
-					<ExtendedTooltip name="РезервыВыбратьРасширеннаяПодсказка" id="19"/>
-				</CheckBoxField>
-				<CheckBoxField name="РезервыБлокировкаКонтрагента" id="82">
-					<DataPath>Объект.Резервы.БлокировкаКонтрагента</DataPath>
-					<UserVisible>
-						<xr:Common>false</xr:Common>
-					</UserVisible>
-					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<CheckBoxType>Auto</CheckBoxType>
-					<ContextMenu name="РезервыБлокировкаКонтрагентаКонтекстноеМеню" id="83"/>
-					<ExtendedTooltip name="РезервыБлокировкаКонтрагентаРасширеннаяПодсказка" id="84"/>
-				</CheckBoxField>
-				<LabelField name="РезервыНоменклатураАртикул" id="73">
-					<DataPath>Объект.Резервы.Номенклатура.Артикул</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="РезервыНоменклатураАртикулКонтекстноеМеню" id="74"/>
-					<ExtendedTooltip name="РезервыНоменклатураАртикулРасширеннаяПодсказка" id="75"/>
-				</LabelField>
-				<LabelField name="РезервыНоменклатураИзготовитель" id="76">
-					<DataPath>Объект.Резервы.Номенклатура.Изготовитель</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="РезервыНоменклатураИзготовительКонтекстноеМеню" id="77"/>
-					<ExtendedTooltip name="РезервыНоменклатураИзготовительРасширеннаяПодсказка" id="78"/>
-				</LabelField>
-				<InputField name="РезервыНоменклатура" id="26">
-					<DataPath>Объект.Резервы.Номенклатура</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<ChoiceButton>false</ChoiceButton>
-					<OpenButton>true</OpenButton>
-					<TextEdit>false</TextEdit>
-					<ContextMenu name="РезервыНоменклатураКонтекстноеМеню" id="27"/>
-					<ExtendedTooltip name="РезервыНоменклатураРасширеннаяПодсказка" id="28"/>
-				</InputField>
-				<InputField name="РезервыМенеджер" id="32">
-					<DataPath>Объект.Резервы.Менеджер</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<ChoiceButton>false</ChoiceButton>
-					<OpenButton>true</OpenButton>
-					<TextEdit>false</TextEdit>
-					<ContextMenu name="РезервыМенеджерКонтекстноеМеню" id="33"/>
-					<ExtendedTooltip name="РезервыМенеджерРасширеннаяПодсказка" id="34"/>
-				</InputField>
-				<InputField name="РезервыФилиал" id="35">
-					<DataPath>Объект.Резервы.Филиал</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<ChoiceButton>false</ChoiceButton>
-					<OpenButton>true</OpenButton>
-					<TextEdit>false</TextEdit>
-					<ContextMenu name="РезервыФилиалКонтекстноеМеню" id="36"/>
-					<ExtendedTooltip name="РезервыФилиалРасширеннаяПодсказка" id="37"/>
-				</InputField>
-				<InputField name="РезервыЗаявка" id="38">
-					<DataPath>Объект.Резервы.Заявка</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<ChoiceButton>false</ChoiceButton>
-					<OpenButton>true</OpenButton>
-					<TextEdit>false</TextEdit>
-					<ContextMenu name="РезервыЗаявкаКонтекстноеМеню" id="39"/>
-					<ExtendedTooltip name="РезервыЗаявкаРасширеннаяПодсказка" id="40"/>
-				</InputField>
-				<InputField name="РезервыДнейРезерва" id="79">
-					<DataPath>Объект.Резервы.ДнейРезерва</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="РезервыДнейРезерваКонтекстноеМеню" id="80"/>
-					<ExtendedTooltip name="РезервыДнейРезерваРасширеннаяПодсказка" id="81"/>
-				</InputField>
-				<InputField name="РезервыЛиквидность" id="41">
-					<DataPath>Объект.Резервы.ВидЛиквидности</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="РезервыЛиквидностьКонтекстноеМеню" id="42"/>
-					<ExtendedTooltip name="РезервыЛиквидностьРасширеннаяПодсказка" id="43"/>
-				</InputField>
-				<InputField name="РезервыСуммаРезерва" id="96">
-					<DataPath>Объект.Резервы.СуммаРезерва</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="РезервыСуммаРезерваКонтекстноеМеню" id="97"/>
-					<ExtendedTooltip name="РезервыСуммаРезерваРасширеннаяПодсказка" id="98"/>
-				</InputField>
-				<InputField name="РезервыIDSite" id="44">
-					<DataPath>Объект.Резервы.IDSite</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="РезервыIDSiteКонтекстноеМеню" id="45"/>
-					<ExtendedTooltip name="РезервыIDSiteРасширеннаяПодсказка" id="46"/>
-				</InputField>
-				<InputField name="РезервыВРезерве" id="50">
-					<DataPath>Объект.Резервы.ВРезерве</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="РезервыВРезервеКонтекстноеМеню" id="51"/>
-					<ExtendedTooltip name="РезервыВРезервеРасширеннаяПодсказка" id="52"/>
-				</InputField>
-				<InputField name="РезервыОтгружено" id="99">
-					<DataPath>Объект.Резервы.Отгружено</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="РезервыОтгруженоКонтекстноеМеню" id="100"/>
-					<ExtendedTooltip name="РезервыОтгруженоРасширеннаяПодсказка" id="101"/>
-				</InputField>
-				<InputField name="РезервыТипПоставки" id="47">
-					<DataPath>Объект.Резервы.ТипПоставки</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="РезервыТипПоставкиКонтекстноеМеню" id="48"/>
-					<ExtendedTooltip name="РезервыТипПоставкиРасширеннаяПодсказка" id="49"/>
-				</InputField>
-				<InputField name="РезервыКонтрагент" id="23">
-					<DataPath>Объект.Резервы.Контрагент</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<ChoiceButton>false</ChoiceButton>
-					<OpenButton>true</OpenButton>
-					<TextEdit>false</TextEdit>
-					<ContextMenu name="РезервыКонтрагентКонтекстноеМеню" id="24"/>
-					<ExtendedTooltip name="РезервыКонтрагентРасширеннаяПодсказка" id="25"/>
-				</InputField>
-				<InputField name="РезервыОрганизация" id="20">
-					<DataPath>Объект.Резервы.Организация</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<ChoiceButton>false</ChoiceButton>
-					<OpenButton>true</OpenButton>
-					<TextEdit>false</TextEdit>
-					<ContextMenu name="РезервыОрганизацияКонтекстноеМеню" id="21"/>
-					<ExtendedTooltip name="РезервыОрганизацияРасширеннаяПодсказка" id="22"/>
-				</InputField>
-				<InputField name="РезервыСтрокаЗаявки" id="29">
-					<DataPath>Объект.Резервы.СтрокаЗаявки</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<ChoiceButton>false</ChoiceButton>
-					<OpenButton>true</OpenButton>
-					<TextEdit>false</TextEdit>
-					<ContextMenu name="РезервыСтрокаЗаявкиКонтекстноеМеню" id="30"/>
-					<ExtendedTooltip name="РезервыСтрокаЗаявкиРасширеннаяПодсказка" id="31"/>
-				</InputField>
-				<InputField name="РезервыРегион" id="93">
-					<DataPath>Объект.Резервы.Регион</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="РезервыРегионКонтекстноеМеню" id="94"/>
-					<ExtendedTooltip name="РезервыРегионРасширеннаяПодсказка" id="95"/>
-				</InputField>
+				<Table name="Резервы" id="1">
+					<Representation>List</Representation>
+					<ChangeRowSet>false</ChangeRowSet>
+					<ChangeRowOrder>false</ChangeRowOrder>
+					<Footer>true</Footer>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<DataPath>Объект.Резервы</DataPath>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="РезервыКонтекстноеМеню" id="2"/>
+					<AutoCommandBar name="РезервыКоманднаяПанель" id="3">
+						<Autofill>false</Autofill>
+						<ChildItems>
+							<Button name="ФормаОбновить" id="69">
+								<Type>CommandBarButton</Type>
+								<Representation>PictureAndText</Representation>
+								<DefaultButton>true</DefaultButton>
+								<CommandName>Form.Command.Обновить</CommandName>
+								<Picture>
+									<xr:Ref>CommonPicture.СинхронизацияДанных</xr:Ref>
+									<xr:LoadTransparent>true</xr:LoadTransparent>
+								</Picture>
+								<ExtendedTooltip name="ФормаОбновитьРасширеннаяПодсказка" id="70"/>
+							</Button>
+							<Button name="РезервыСнятьФлажки" id="85">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СнятьФлажки</CommandName>
+								<Picture>
+									<xr:Ref>CommonPicture.СнятаПометка</xr:Ref>
+									<xr:LoadTransparent>true</xr:LoadTransparent>
+								</Picture>
+								<ExtendedTooltip name="РезервыСнятьФлажкиРасширеннаяПодсказка" id="86"/>
+							</Button>
+							<Button name="РезервыУстановитьФлажки" id="87">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.УстановитьФлажки</CommandName>
+								<Picture>
+									<xr:Ref>CommonPicture.УстановленаПометка</xr:Ref>
+									<xr:LoadTransparent>true</xr:LoadTransparent>
+								</Picture>
+								<ExtendedTooltip name="РезервыУстановитьФлажкиРасширеннаяПодсказка" id="88"/>
+							</Button>
+							<Button name="РезервыСписатьРезерв" id="89">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.СписатьРезерв</CommandName>
+								<ExtendedTooltip name="РезервыСписатьРезервРасширеннаяПодсказка" id="90"/>
+							</Button>
+							<Button name="РезервыЗакрытьЗаявку" id="91">
+								<Type>CommandBarButton</Type>
+								<Visible>false</Visible>
+								<CommandName>Form.Command.ЗакрытьЗаявку</CommandName>
+								<ExtendedTooltip name="РезервыЗакрытьЗаявкуРасширеннаяПодсказка" id="92"/>
+							</Button>
+							<Button name="РезервыОтправитьПоЭлектроннойПочте" id="102">
+								<Type>CommandBarButton</Type>
+								<Representation>PictureAndText</Representation>
+								<CommandName>Form.Command.ОтправитьПоЭлектроннойПочте</CommandName>
+								<Picture>
+									<xr:Ref>CommonPicture.ПиктограммаФайла_MSG</xr:Ref>
+									<xr:LoadTransparent>true</xr:LoadTransparent>
+								</Picture>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>E-mail</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="РезервыОтправитьПоЭлектроннойПочтеРасширеннаяПодсказка" id="103"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="РезервыРасширеннаяПодсказка" id="4"/>
+					<SearchStringAddition name="РезервыСтрокаПоиска" id="5">
+						<AdditionSource>
+							<Item>Резервы</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="РезервыСтрокаПоискаКонтекстноеМеню" id="6"/>
+						<ExtendedTooltip name="РезервыСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="РезервыСостояниеПросмотра" id="8">
+						<AdditionSource>
+							<Item>Резервы</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="РезервыСостояниеПросмотраКонтекстноеМеню" id="9"/>
+						<ExtendedTooltip name="РезервыСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="РезервыУправлениеПоиском" id="11">
+						<AdditionSource>
+							<Item>Резервы</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="РезервыУправлениеПоискомКонтекстноеМеню" id="12"/>
+						<ExtendedTooltip name="РезервыУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="OnActivateRow">РезервыПриАктивизацииСтроки</Event>
+					</Events>
+					<ChildItems>
+						<LabelField name="РезервыНомерСтроки" id="14">
+							<DataPath>Объект.Резервы.LineNumber</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<FooterDataPath>Объект.Резервы.RowsCount</FooterDataPath>
+							<ContextMenu name="РезервыНомерСтрокиКонтекстноеМеню" id="15"/>
+							<ExtendedTooltip name="РезервыНомерСтрокиРасширеннаяПодсказка" id="16"/>
+						</LabelField>
+						<CheckBoxField name="РезервыВыбрать" id="17">
+							<DataPath>Объект.Резервы.Выбрать</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="РезервыВыбратьКонтекстноеМеню" id="18"/>
+							<ExtendedTooltip name="РезервыВыбратьРасширеннаяПодсказка" id="19"/>
+						</CheckBoxField>
+						<CheckBoxField name="РезервыБлокировкаКонтрагента" id="82">
+							<DataPath>Объект.Резервы.БлокировкаКонтрагента</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="РезервыБлокировкаКонтрагентаКонтекстноеМеню" id="83"/>
+							<ExtendedTooltip name="РезервыБлокировкаКонтрагентаРасширеннаяПодсказка" id="84"/>
+						</CheckBoxField>
+						<LabelField name="РезервыНоменклатураАртикул" id="73">
+							<DataPath>Объект.Резервы.Номенклатура.Артикул</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="РезервыНоменклатураАртикулКонтекстноеМеню" id="74"/>
+							<ExtendedTooltip name="РезервыНоменклатураАртикулРасширеннаяПодсказка" id="75"/>
+						</LabelField>
+						<LabelField name="РезервыНоменклатураИзготовитель" id="76">
+							<DataPath>Объект.Резервы.Номенклатура.Изготовитель</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="РезервыНоменклатураИзготовительКонтекстноеМеню" id="77"/>
+							<ExtendedTooltip name="РезервыНоменклатураИзготовительРасширеннаяПодсказка" id="78"/>
+						</LabelField>
+						<InputField name="РезервыНоменклатура" id="26">
+							<DataPath>Объект.Резервы.Номенклатура</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ChoiceButton>false</ChoiceButton>
+							<OpenButton>true</OpenButton>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="РезервыНоменклатураКонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="РезервыНоменклатураРасширеннаяПодсказка" id="28"/>
+						</InputField>
+						<InputField name="РезервыМенеджер" id="32">
+							<DataPath>Объект.Резервы.Менеджер</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ChoiceButton>false</ChoiceButton>
+							<OpenButton>true</OpenButton>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="РезервыМенеджерКонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="РезервыМенеджерРасширеннаяПодсказка" id="34"/>
+						</InputField>
+						<InputField name="РезервыФилиал" id="35">
+							<DataPath>Объект.Резервы.Филиал</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ChoiceButton>false</ChoiceButton>
+							<OpenButton>true</OpenButton>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="РезервыФилиалКонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="РезервыФилиалРасширеннаяПодсказка" id="37"/>
+						</InputField>
+						<InputField name="РезервыЗаявка" id="38">
+							<DataPath>Объект.Резервы.Заявка</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ChoiceButton>false</ChoiceButton>
+							<OpenButton>true</OpenButton>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="РезервыЗаявкаКонтекстноеМеню" id="39"/>
+							<ExtendedTooltip name="РезервыЗаявкаРасширеннаяПодсказка" id="40"/>
+						</InputField>
+						<InputField name="РезервыДнейРезерва" id="79">
+							<DataPath>Объект.Резервы.ДнейРезерва</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<FooterDataPath>Объект.Резервы.TotalДнейРезерва</FooterDataPath>
+							<ContextMenu name="РезервыДнейРезерваКонтекстноеМеню" id="80"/>
+							<ExtendedTooltip name="РезервыДнейРезерваРасширеннаяПодсказка" id="81"/>
+						</InputField>
+						<InputField name="РезервыЛиквидность" id="41">
+							<DataPath>Объект.Резервы.ВидЛиквидности</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="РезервыЛиквидностьКонтекстноеМеню" id="42"/>
+							<ExtendedTooltip name="РезервыЛиквидностьРасширеннаяПодсказка" id="43"/>
+						</InputField>
+						<InputField name="РезервыСуммаРезерва" id="96">
+							<DataPath>Объект.Резервы.СуммаРезерва</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<FooterDataPath>Объект.Резервы.TotalСуммаРезерва</FooterDataPath>
+							<ContextMenu name="РезервыСуммаРезерваКонтекстноеМеню" id="97"/>
+							<ExtendedTooltip name="РезервыСуммаРезерваРасширеннаяПодсказка" id="98"/>
+						</InputField>
+						<InputField name="РезервыIDSite" id="44">
+							<DataPath>Объект.Резервы.IDSite</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="РезервыIDSiteКонтекстноеМеню" id="45"/>
+							<ExtendedTooltip name="РезервыIDSiteРасширеннаяПодсказка" id="46"/>
+						</InputField>
+						<InputField name="РезервыВРезерве" id="50">
+							<DataPath>Объект.Резервы.ВРезерве</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<FooterDataPath>Объект.Резервы.TotalВРезерве</FooterDataPath>
+							<ContextMenu name="РезервыВРезервеКонтекстноеМеню" id="51"/>
+							<ExtendedTooltip name="РезервыВРезервеРасширеннаяПодсказка" id="52"/>
+						</InputField>
+						<InputField name="РезервыОтгружено" id="99">
+							<DataPath>Объект.Резервы.Отгружено</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<FooterDataPath>Объект.Резервы.TotalОтгружено</FooterDataPath>
+							<ContextMenu name="РезервыОтгруженоКонтекстноеМеню" id="100"/>
+							<ExtendedTooltip name="РезервыОтгруженоРасширеннаяПодсказка" id="101"/>
+						</InputField>
+						<InputField name="РезервыТипПоставки" id="47">
+							<DataPath>Объект.Резервы.ТипПоставки</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="РезервыТипПоставкиКонтекстноеМеню" id="48"/>
+							<ExtendedTooltip name="РезервыТипПоставкиРасширеннаяПодсказка" id="49"/>
+						</InputField>
+						<InputField name="РезервыКонтрагент" id="23">
+							<DataPath>Объект.Резервы.Контрагент</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ChoiceButton>false</ChoiceButton>
+							<OpenButton>true</OpenButton>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="РезервыКонтрагентКонтекстноеМеню" id="24"/>
+							<ExtendedTooltip name="РезервыКонтрагентРасширеннаяПодсказка" id="25"/>
+						</InputField>
+						<InputField name="РезервыОрганизация" id="20">
+							<DataPath>Объект.Резервы.Организация</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ChoiceButton>false</ChoiceButton>
+							<OpenButton>true</OpenButton>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="РезервыОрганизацияКонтекстноеМеню" id="21"/>
+							<ExtendedTooltip name="РезервыОрганизацияРасширеннаяПодсказка" id="22"/>
+						</InputField>
+						<InputField name="РезервыСтрокаЗаявки" id="29">
+							<DataPath>Объект.Резервы.СтрокаЗаявки</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ChoiceButton>false</ChoiceButton>
+							<OpenButton>true</OpenButton>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="РезервыСтрокаЗаявкиКонтекстноеМеню" id="30"/>
+							<ExtendedTooltip name="РезервыСтрокаЗаявкиРасширеннаяПодсказка" id="31"/>
+						</InputField>
+						<InputField name="РезервыРегион" id="93">
+							<DataPath>Объект.Резервы.Регион</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="РезервыРегионКонтекстноеМеню" id="94"/>
+							<ExtendedTooltip name="РезервыРегионРасширеннаяПодсказка" id="95"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+				<UsualGroup name="ГруппаДвижениеРезервов" id="146">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Движение резервов</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Движение резервов</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Behavior>Collapsible</Behavior>
+					<Collapsed>true</Collapsed>
+					<Representation>None</Representation>
+					<ExtendedTooltip name="ГруппаДвижениеРезервовРасширеннаяПодсказка" id="147"/>
+					<ChildItems>
+						<Table name="ДвижениеРезервов" id="106">
+							<ReadOnly>true</ReadOnly>
+							<Height>4</Height>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>ДвижениеРезервов</DataPath>
+							<RowPictureDataPath>ДвижениеРезервов.DefaultPicture</RowPictureDataPath>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<ContextMenu name="ДвижениеРезервовКонтекстноеМеню" id="107"/>
+							<AutoCommandBar name="ДвижениеРезервовКоманднаяПанель" id="108">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ДвижениеРезервовРасширеннаяПодсказка" id="109"/>
+							<SearchStringAddition name="ДвижениеРезервовСтрокаПоиска" id="110">
+								<AdditionSource>
+									<Item>ДвижениеРезервов</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДвижениеРезервовСтрокаПоискаКонтекстноеМеню" id="111"/>
+								<ExtendedTooltip name="ДвижениеРезервовСтрокаПоискаРасширеннаяПодсказка" id="112"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ДвижениеРезервовСостояниеПросмотра" id="113">
+								<AdditionSource>
+									<Item>ДвижениеРезервов</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ДвижениеРезервовСостояниеПросмотраКонтекстноеМеню" id="114"/>
+								<ExtendedTooltip name="ДвижениеРезервовСостояниеПросмотраРасширеннаяПодсказка" id="115"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ДвижениеРезервовУправлениеПоиском" id="116">
+								<AdditionSource>
+									<Item>ДвижениеРезервов</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ДвижениеРезервовУправлениеПоискомКонтекстноеМеню" id="117"/>
+								<ExtendedTooltip name="ДвижениеРезервовУправлениеПоискомРасширеннаяПодсказка" id="118"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ДвижениеРезервовПериод" id="119">
+									<DataPath>ДвижениеРезервов.Period</DataPath>
+									<ContextMenu name="ДвижениеРезервовПериодКонтекстноеМеню" id="120"/>
+									<ExtendedTooltip name="ДвижениеРезервовПериодРасширеннаяПодсказка" id="121"/>
+								</LabelField>
+								<LabelField name="ДвижениеРезервовРегистратор" id="122">
+									<DataPath>ДвижениеРезервов.Recorder</DataPath>
+									<ContextMenu name="ДвижениеРезервовРегистраторКонтекстноеМеню" id="123"/>
+									<ExtendedTooltip name="ДвижениеРезервовРегистраторРасширеннаяПодсказка" id="124"/>
+								</LabelField>
+								<LabelField name="ДвижениеРезервовКоличество" id="143">
+									<DataPath>ДвижениеРезервов.Количество</DataPath>
+									<ContextMenu name="ДвижениеРезервовКоличествоКонтекстноеМеню" id="144"/>
+									<ExtendedTooltip name="ДвижениеРезервовКоличествоРасширеннаяПодсказка" id="145"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
 			</ChildItems>
-		</Table>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -348,6 +464,52 @@
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
 			</Type>
+		</Attribute>
+		<Attribute name="ДвижениеРезервов" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Движение резервов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	РегистрНакопленияРезервыТоваров.Период,
+	РегистрНакопленияРезервыТоваров.Регистратор,
+	РегистрНакопленияРезервыТоваров.СтрокаЗаявки,
+	РегистрНакопленияРезервыТоваров.Количество
+ИЗ
+	РегистрНакопления.РезервыТоваров КАК РегистрНакопленияРезервыТоваров
+ГДЕ
+	РегистрНакопленияРезервыТоваров.СтрокаЗаявки = &amp;СтрокаЗаявки
+</QueryText>
+				<MainTable>AccumulationRegister.РезервыТоваров</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Период</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
 		</Attribute>
 	</Attributes>
 	<Commands>

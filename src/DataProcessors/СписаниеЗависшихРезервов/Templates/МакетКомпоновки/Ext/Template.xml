@@ -205,6 +205,16 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЮрФизЛицо</dataPath>
+			<field>ЮрФизЛицо</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Юр/физ лицо</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	РезервыТоваровОстатки.Номенклатура,
@@ -312,6 +322,7 @@
 	ОстаткиРезервов.Номенклатура.ВидЛиквидности КАК ВидЛиквидности,
 	ОстаткиРезервов.СтрокаЗаявки.ТипПоставки КАК ТипПоставки,
 	ОстаткиРезервов.СтрокаЗаявки.IDSite КАК IDSite,
+	ОстаткиРезервов.СтрокаЗаявки.Заявка.Контрагент.ЮрФизЛицо КАК ЮрФизЛицо,
 	ОстаткиРезервов.СтрокаЗаявки.Заявка.Контрагент.ОсновнаяТорговаяТочка.Регион КАК Регион,
 	ОстаткиРезервов.СтрокаЗаявки.Заявка.Контрагент.ОсновнаяТорговаяТочка.Регион.Филиал КАК Филиал,
 	ОстаткиРезервов.СтрокаЗаявки.Заявка.Контрагент.Блокировка КАК БлокировкаКонтрагента,
@@ -549,6 +560,12 @@
 					<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:userSettingID>21fb8274-227a-44ee-882d-05fddc45f155</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ЮрФизЛицо</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>5a2c35a2-832c-44fe-8017-1ae04b6db8e8</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
