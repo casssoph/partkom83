@@ -340,6 +340,22 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПроцентКРезерву</dataPath>
+			<field>ПроцентКРезерву</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Можно зарезервировать, %</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	ЗаявкиПокупателейОстатки.Склад,
@@ -432,6 +448,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 ВЫБРАТЬ
 	ОстаткиСтрокЗаявок.Заявка,
+	ОстаткиСтрокЗаявок.Склад,
 	ОстаткиСтрокЗаявок.Номенклатура,
 	СУММА(ОстаткиСтрокЗаявок.Количество) КАК Количество,
 	СУММА(ОстаткиСтрокЗаявок.Сумма) КАК Сумма,
@@ -442,7 +459,70 @@
 
 СГРУППИРОВАТЬ ПО
 	ОстаткиСтрокЗаявок.Заявка,
+	ОстаткиСтрокЗаявок.Склад,
 	ОстаткиСтрокЗаявок.Номенклатура
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ОстаткиНоменклатурыБезЗаявок.Склад КАК Склад,
+	ОстаткиНоменклатурыБезЗаявок.Номенклатура КАК Номенклатура,
+	СУММА(ОстаткиНоменклатурыБезЗаявок.КоличествоВРезерве) КАК КоличествоВРезерве
+ПОМЕСТИТЬ ОстаткиНоменклатурыБезЗаявок
+ИЗ
+	ОстаткиНоменклатурыЗаявок КАК ОстаткиНоменклатурыБезЗаявок
+
+СГРУППИРОВАТЬ ПО
+	ОстаткиНоменклатурыБезЗаявок.Склад,
+	ОстаткиНоменклатурыБезЗаявок.Номенклатура
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТоварыНаСкладахОстатки.Склад,
+	ТоварыНаСкладахОстатки.Номенклатура,
+	СУММА(ТоварыНаСкладахОстатки.КоличествоОстаток - ЕСТЬNULL(ОстаткиНоменклатурыБезЗаявок.КоличествоВРезерве, 0)) КАК Количество
+ПОМЕСТИТЬ СвободныеОстатки
+ИЗ
+	РегистрНакопления.ТоварыНаСкладах.Остатки(
+			,
+			(Склад, Номенклатура) В
+				(ВЫБРАТЬ
+					ОстаткиНоменклатурыЗаявок.Склад,
+					ОстаткиНоменклатурыЗаявок.Номенклатура
+				ИЗ
+					ОстаткиНоменклатурыЗаявок)) КАК ТоварыНаСкладахОстатки
+		ЛЕВОЕ СОЕДИНЕНИЕ ОстаткиНоменклатурыБезЗаявок КАК ОстаткиНоменклатурыБезЗаявок
+		ПО (ОстаткиНоменклатурыБезЗаявок.Склад = ТоварыНаСкладахОстатки.Склад)
+			И (ОстаткиНоменклатурыБезЗаявок.Номенклатура = ТоварыНаСкладахОстатки.Номенклатура)
+
+СГРУППИРОВАТЬ ПО
+	ТоварыНаСкладахОстатки.Склад,
+	ТоварыНаСкладахОстатки.Номенклатура
+
+ИМЕЮЩИЕ
+	СУММА(ТоварыНаСкладахОстатки.КоличествоОстаток - ЕСТЬNULL(ОстаткиНоменклатурыБезЗаявок.КоличествоВРезерве, 0)) &gt; 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ОстаткиСтрокЗаявокСРезервами.Заявка,
+	ОстаткиСтрокЗаявокСРезервами.Склад,
+	СУММА(ОстаткиСтрокЗаявокСРезервами.Количество) КАК КоличествоОстаток,
+	СУММА(ОстаткиСтрокЗаявокСРезервами.Сумма) КАК СуммаОстаток,
+	СУММА(ОстаткиСтрокЗаявокСРезервами.КоличествоВРезерве) КАК КоличествоВРезерве,
+	СУММА(ЕСТЬNULL(СвободныеОстатки.Количество, 0)) КАК СвободныйОстаток,
+	СУММА(ОстаткиСтрокЗаявокСРезервами.Сумма) / СУММА(ОстаткиСтрокЗаявокСРезервами.Количество) * СУММА(ЕСТЬNULL(СвободныеОстатки.Количество, 0)) КАК СуммаСвободныйОстаток
+ПОМЕСТИТЬ КРезерву
+ИЗ
+	ОстаткиСтрокЗаявокСРезервами КАК ОстаткиСтрокЗаявокСРезервами
+		ЛЕВОЕ СОЕДИНЕНИЕ СвободныеОстатки КАК СвободныеОстатки
+		ПО (СвободныеОстатки.Склад = ОстаткиСтрокЗаявокСРезервами.Склад)
+			И (СвободныеОстатки.Номенклатура = ОстаткиСтрокЗаявокСРезервами.Номенклатура)
+
+СГРУППИРОВАТЬ ПО
+	ОстаткиСтрокЗаявокСРезервами.Заявка,
+	ОстаткиСтрокЗаявокСРезервами.Склад
 ;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -507,7 +587,16 @@
 		КОГДА ЕСТЬNULL(ОстаткиЗаявок.Заявка.СуммаДокумента, 0) = 0
 			ТОГДА 100
 		ИНАЧЕ ВЫРАЗИТЬ(100 * ОтказыПоЗаявкам.Сумма / ОстаткиЗаявок.Заявка.СуммаДокумента КАК ЧИСЛО(10, 0))
-	КОНЕЦ КАК ПроцентОтказов
+	КОНЕЦ КАК ПроцентОтказов,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ОстаткиЗаявок.ПоследняяКорректировка.СуммаДокумента, 0) = 0
+			ТОГДА 100
+		ИНАЧЕ ВЫБОР
+				КОГДА (ВЫРАЗИТЬ(100 * КРезерву.СуммаСвободныйОстаток / ОстаткиЗаявок.ПоследняяКорректировка.СуммаДокумента КАК ЧИСЛО(10, 0))) &gt; 100
+					ТОГДА 100
+				ИНАЧЕ ВЫРАЗИТЬ(100 * КРезерву.СуммаСвободныйОстаток / ОстаткиЗаявок.ПоследняяКорректировка.СуммаДокумента КАК ЧИСЛО(10, 0))
+			КОНЕЦ
+	КОНЕЦ КАК ПроцентКРезерву
 ИЗ
 	ОстаткиЗаявок КАК ОстаткиЗаявок
 		ЛЕВОЕ СОЕДИНЕНИЕ ВзаиморасчетыОстатки КАК ВзаиморасчетыОстатки
@@ -516,7 +605,9 @@
 		ПО ОстаткиЗаявок.Заявка = СуммыРезерва.Заявка
 		ЛЕВОЕ СОЕДИНЕНИЕ ОтказыПоЗаявкам КАК ОтказыПоЗаявкам
 		ПО ОстаткиЗаявок.Заявка = ОтказыПоЗаявкам.Заявка
-</query>
+		ЛЕВОЕ СОЕДИНЕНИЕ КРезерву КАК КРезерву
+		ПО ОстаткиЗаявок.Склад = КРезерву.Склад
+			И ОстаткиЗаявок.Заявка = КРезерву.Заявка</query>
 	</dataSet>
 	<parameter>
 		<name>Период</name>
@@ -628,6 +719,9 @@
 					<dcsset:field>ПроцентКомплектации</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПроцентКРезерву</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>ПроцентОтказов</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
@@ -724,6 +818,13 @@
 					<dcsset:comparisonType>LessOrEqual</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
 					<dcsset:userSettingID>ee68be5e-62e7-47fe-8237-05f7e32f4fc3</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ПроцентКРезерву</dcsset:left>
+					<dcsset:comparisonType>GreaterOrEqual</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					<dcsset:userSettingID>bf0e19a5-a98a-4595-bcf2-0d9a3d02cd55</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
@@ -826,6 +927,36 @@
 					</dcsset:filter>
 					<dcsset:appearance>
 						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветФона</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">web:Salmon</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>ЦветТекста</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">style:NegativeTextColor</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ПроцентКРезерву</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПроцентКРезерву</dcsset:left>
+							<dcsset:comparisonType>Greater</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветФона</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">web:MediumGreen</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
 							<dcscor:parameter>ЦветТекста</dcscor:parameter>
 							<dcscor:value xsi:type="v8ui:Color">style:NegativeTextColor</dcscor:value>
 						</dcscor:item>
