@@ -614,6 +614,70 @@
 					</Parameter>
 				</ChildObjects>
 			</Operation>
+			<Operation uuid="20402a24-7a11-48d3-b0ac-8a5143752dc7">
+				<Properties>
+					<Name>DocumentCompare</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Document compare</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<XDTOReturningValueType>v8:ValueStorage</XDTOReturningValueType>
+					<Nillable>false</Nillable>
+					<Transactioned>false</Transactioned>
+					<ProcedureName>DocumentCompare</ProcedureName>
+					<DataLockControlMode>Automatic</DataLockControlMode>
+				</Properties>
+				<ChildObjects>
+					<Parameter uuid="1ded7c8d-abf1-4b2d-9fbb-6c29440349c0">
+						<Properties>
+							<Name>StartDate</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Start date</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<XDTOValueType>xs:dateTime</XDTOValueType>
+							<Nillable>false</Nillable>
+							<TransferDirection>In</TransferDirection>
+						</Properties>
+					</Parameter>
+					<Parameter uuid="f14cbfda-43ce-4cd6-8093-180d2167fb41">
+						<Properties>
+							<Name>FinalDate</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Final date</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<XDTOValueType>xs:dateTime</XDTOValueType>
+							<Nillable>false</Nillable>
+							<TransferDirection>In</TransferDirection>
+						</Properties>
+					</Parameter>
+					<Parameter uuid="a8e208a9-425d-4b05-bd1f-054e2b880b92">
+						<Properties>
+							<Name>DocumentTable</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Document table</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<XDTOValueType>v8:ValueStorage</XDTOValueType>
+							<Nillable>false</Nillable>
+							<TransferDirection>In</TransferDirection>
+						</Properties>
+					</Parameter>
+				</ChildObjects>
+			</Operation>
 		</ChildObjects>
 	</WebService>
 </MetaDataObject>

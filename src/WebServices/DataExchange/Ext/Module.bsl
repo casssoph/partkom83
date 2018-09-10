@@ -78,6 +78,12 @@
 	Возврат DataExchangeModule.RegisterToExchange(ObjectType, ObjectKey);
 	
 КонецФункции
+
+Функция DocumentCompare(StartDate, FinalDate, DocumentTable)
+	
+	Возврат DataExchangeModule.СравнитьДокументы(StartDate, FinalDate, DocumentTable);
+	
+КонецФункции
  
 //ДАННЫЙ МОДУЛЬ ИЗМЕНЯТЬ С ОСТОРОЖНОСТЬЮ, Т.К. ТУТ ОТКЛЮЧЕНА ПРОВЕРКА СИНТАКСИСА
 //ЗДЕСЬ ТОЛЬКО ПЕРЕХОДЫ В ОБЩИЙ МОДУЛЬ DataExchangeModule
