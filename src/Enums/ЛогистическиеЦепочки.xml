@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<Enum uuid="4d3860ba-f090-46a5-9274-858ebe9c4c87">
+		<InternalInfo>
+			<xr:GeneratedType name="EnumRef.ЛогистическиеЦепочки" category="Ref">
+				<xr:TypeId>40c45040-42e6-48fc-9cc3-30b01dcfac88</xr:TypeId>
+				<xr:ValueId>3f8b0fc1-883b-432b-9559-3ef5e47002df</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="EnumManager.ЛогистическиеЦепочки" category="Manager">
+				<xr:TypeId>69ef4196-77b2-4de5-a39b-ce979c8e1b5b</xr:TypeId>
+				<xr:ValueId>006bdd59-1291-4367-944c-b46b299fd1cb</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="EnumList.ЛогистическиеЦепочки" category="List">
+				<xr:TypeId>d54de9fe-24bf-43d9-b69f-6e0199e56d61</xr:TypeId>
+				<xr:ValueId>8117d75b-6882-4a91-89c6-cde44049b8a2</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>ЛогистическиеЦепочки</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Логистические цепочки</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<UseStandardCommands>false</UseStandardCommands>
+			<Characteristics/>
+			<QuickChoice>true</QuickChoice>
+			<ChoiceMode>BothWays</ChoiceMode>
+			<DefaultListForm/>
+			<DefaultChoiceForm/>
+			<AuxiliaryListForm/>
+			<AuxiliaryChoiceForm/>
+			<ListPresentation/>
+			<ExtendedListPresentation/>
+			<Explanation/>
+			<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+		</Properties>
+		<ChildObjects>
+			<EnumValue uuid="4a6d128c-c9ba-4266-9351-313f6bed4205">
+				<Properties>
+					<Name>Этап1</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заявка=Заказ</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>срок, в течении которого должен быть создан Заказ на данную заявку</Comment>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="2142002c-e110-40b1-91b5-8875ef31f3f5">
+				<Properties>
+					<Name>Этап2</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заказ=Подтверждение</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>срок, когда заказ получил статус "Обработан поставщиком"</Comment>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="d4a7189e-a1c8-41d7-87a2-2cdd6545cbaa">
+				<Properties>
+					<Name>Этап3</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подтверждение=Инвойс</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>срок, когда заказ залился в размещение ПТУ</Comment>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="7055084a-e628-46dc-a9a4-75cd56d8e057">
+				<Properties>
+					<Name>Этап4</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Инвойс=Доставка поставщиком</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>срок, когда в ПТУ появилась отметка о наличии оригинала документов "Д-т проверен"</Comment>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="794b7481-1be7-4b11-9c46-0c7791c39fcc">
+				<Properties>
+					<Name>Этап5</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Доставка поставщиком=Приемка</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>срок, с момента Доставки поставщиком до момента перевода ПТУ в состаяние Принят на складе</Comment>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="7f8f3d92-1fdf-498d-916b-ee43cd01aab5">
+				<Properties>
+					<Name>Этап6</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Приемка=Размещение</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>срок, с момента перевода ПТУ из состояния Принят на складе в состояние Размещен</Comment>
+				</Properties>
+			</EnumValue>
+		</ChildObjects>
+	</Enum>
+</MetaDataObject>
