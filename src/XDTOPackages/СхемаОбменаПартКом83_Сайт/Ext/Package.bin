@@ -598,16 +598,18 @@
 		<property name="user_comment" type="xs:string" lowerBound="0" nillable="true"/>
 		<property name="phone" type="xs:string" lowerBound="0" nillable="true"/>
 		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="shop_uuid" type="d3p1:UUID"/>
-		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="items" type="d3p1:retail_order.items"/>
-	</objectType>
-	<objectType name="retail_order.items" ordered="false">
-		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="item" type="d3p1:retail_order.item" lowerBound="0" upperBound="-1"/>
-	</objectType>
-	<objectType name="retail_order.item" ordered="false">
-		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="part_uuid" type="d3p1:UUID"/>
-		<property name="site_id" type="xs:string" lowerBound="0" nillable="true"/>
-		<property name="price" type="xs:float" lowerBound="0"/>
-		<property name="quantity" type="xs:int" lowerBound="0"/>
-		<property name="description" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="items" lowerBound="1" upperBound="1">
+			<typeDef xsi:type="ObjectType" ordered="false">
+				<property name="item" lowerBound="0" upperBound="-1">
+					<typeDef xsi:type="ObjectType" ordered="false">
+						<property xmlns:d7p1="http://v8.1c.ru/8.1/data/core" name="part_uuid" type="d7p1:UUID"/>
+						<property name="site_id" type="xs:string" lowerBound="0" nillable="true"/>
+						<property name="price" type="xs:float" lowerBound="0"/>
+						<property name="quantity" type="xs:int" lowerBound="0"/>
+						<property name="description" type="xs:string" lowerBound="0" nillable="true"/>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
 	</objectType>
 </package>
