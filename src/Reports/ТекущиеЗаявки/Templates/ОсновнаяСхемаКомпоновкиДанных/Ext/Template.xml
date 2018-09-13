@@ -30,6 +30,12 @@
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Склад</dataPath>
 			<field>Склад</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
 			<role>
 				<dcscom:dimension>true</dcscom:dimension>
 			</role>
@@ -356,6 +362,16 @@
 				</dcscor:item>
 			</appearance>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СкладОтбор</dataPath>
+			<field>СкладОтбор</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Склад</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	ЗаявкиПокупателейОстатки.Склад,
@@ -367,7 +383,7 @@
 	ЗаявкиПокупателейОстатки.СуммаРеглОстаток КАК Сумма
 ПОМЕСТИТЬ ОстаткиСтрокЗаявок
 ИЗ
-	РегистрНакопления.ЗаявкиПокупателей.Остатки(, ) КАК ЗаявкиПокупателейОстатки
+	РегистрНакопления.ЗаявкиПокупателей.Остатки(, {(Склад).* КАК СкладОтбор}) КАК ЗаявкиПокупателейОстатки
 ГДЕ
 	ЗаявкиПокупателейОстатки.КоличествоОстаток &gt; 0
 ;
@@ -413,6 +429,9 @@
 	ОстаткиСтрокЗаявок КАК ОстаткиСтрокЗаявок
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.РезервыТоваров.Остатки КАК РезервыТоваровОстатки
 		ПО ОстаткиСтрокЗаявок.СтрокаЗаявки = РезервыТоваровОстатки.СтрокаЗаявки
+{ГДЕ
+	ОстаткиСтрокЗаявок.СтрокаЗаявки.*,
+	ОстаткиСтрокЗаявок.Номенклатура.*}
 ;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -580,7 +599,7 @@
 	ЕСТЬNULL(СуммыРезерва.СуммаРезерва, 0) КАК СуммаРезерва,
 	ВЫБОР
 		КОГДА ЕСТЬNULL(ОстаткиЗаявок.ПоследняяКорректировка.СуммаДокумента, 0) = 0
-			ТОГДА 100
+			ТОГДА 0
 		ИНАЧЕ ВЫРАЗИТЬ(100 * СуммыРезерва.СуммаРезерва / ОстаткиЗаявок.ПоследняяКорректировка.СуммаДокумента КАК ЧИСЛО(10, 0))
 	КОНЕЦ КАК ПроцентКомплектации,
 	ВЫБОР
@@ -590,7 +609,7 @@
 	КОНЕЦ КАК ПроцентОтказов,
 	ВЫБОР
 		КОГДА ЕСТЬNULL(ОстаткиЗаявок.ПоследняяКорректировка.СуммаДокумента, 0) = 0
-			ТОГДА 100
+			ТОГДА 0
 		ИНАЧЕ ВЫБОР
 				КОГДА (ВЫРАЗИТЬ(100 * КРезерву.СуммаСвободныйОстаток / ОстаткиЗаявок.ПоследняяКорректировка.СуммаДокумента КАК ЧИСЛО(10, 0))) &gt; 100
 					ТОГДА 100
@@ -745,10 +764,11 @@
 			</dcsset:selection>
 			<dcsset:filter>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
-					<dcsset:left xsi:type="dcscor:Field">Склад</dcsset:left>
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СкладОтбор</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Склады.ПустаяСсылка</dcsset:right>
-					<dcsset:userSettingID>8f255a94-907d-4e57-b397-80dc5f3d3457</dcsset:userSettingID>
+					<dcsset:userSettingID>628c3441-7f59-42a0-989c-fd2667c266fa</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
@@ -810,6 +830,7 @@
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">Ответственный</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>fa8653f3-9d39-4ae1-be24-560c8dc39d88</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
