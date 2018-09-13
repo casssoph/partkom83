@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<Table name="Список" id="1">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="36"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="37">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="38"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="39"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="40">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="41"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="42"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="43">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="44"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="45"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<CheckBoxField name="APDEX_ОтключитьЗамер" id="4">
+					<DataPath>Список.APDEX_ОтключитьЗамер</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="APDEX_ОтключитьЗамерКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="APDEX_ОтключитьЗамерРасширеннаяПодсказка" id="46"/>
+				</CheckBoxField>
+				<LabelField name="APDEX_МинимальноеВремяЗамера" id="6">
+					<DataPath>Список.APDEX_МинимальноеВремяЗамера</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="APDEX_МинимальноеВремяЗамераКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="APDEX_МинимальноеВремяЗамераРасширеннаяПодсказка" id="47"/>
+				</LabelField>
+				<LabelField name="APDEX_ДатаПоследнейВыгрузкиЗамеров" id="8">
+					<DataPath>~Список.APDEX_ДатаПоследнейВыгрузкиЗамеров</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="APDEX_ДатаПоследнейВыгрузкиЗамеровКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="APDEX_ДатаПоследнейВыгрузкиЗамеровРасширеннаяПодсказка" id="48"/>
+				</LabelField>
+				<LabelField name="APDEX_ИдентификаторБазыAPDEX" id="10">
+					<DataPath>~Список.APDEX_ИдентификаторБазыAPDEX</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="APDEX_ИдентификаторБазыAPDEXКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="APDEX_ИдентификаторБазыAPDEXРасширеннаяПодсказка" id="49"/>
+				</LabelField>
+				<LabelField name="APDEX_ИмяВебСервиса" id="12">
+					<DataPath>~Список.APDEX_ИмяВебСервиса</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="APDEX_ИмяВебСервисаКонтекстноеМеню" id="13"/>
+					<ExtendedTooltip name="APDEX_ИмяВебСервисаРасширеннаяПодсказка" id="50"/>
+				</LabelField>
+				<LabelField name="APDEX_ИмяВебСервисаРезерв" id="32">
+					<DataPath>~Список.APDEX_ИмяВебСервисаРезерв</DataPath>
+					<ContextMenu name="APDEX_ИмяВебСервисаРезервКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="APDEX_ИмяВебСервисаРезервРасширеннаяПодсказка" id="51"/>
+				</LabelField>
+				<LabelField name="APDEX_ПользовательВебСервиса" id="14">
+					<DataPath>~Список.APDEX_ПользовательВебСервиса</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="APDEX_ПользовательВебСервисаКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="APDEX_ПользовательВебСервисаРасширеннаяПодсказка" id="52"/>
+				</LabelField>
+				<LabelField name="APDEX_ПарольВебСервиса" id="16">
+					<DataPath>~Список.APDEX_ПарольВебСервиса</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="APDEX_ПарольВебСервисаКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="APDEX_ПарольВебСервисаРасширеннаяПодсказка" id="53"/>
+				</LabelField>
+				<LabelField name="APDEX_СпособЗаписиЗамеров" id="28">
+					<DataPath>Список.APDEX_СпособЗаписиЗамеров</DataPath>
+					<ContextMenu name="APDEX_СпособЗаписиЗамеровКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="APDEX_СпособЗаписиЗамеровРасширеннаяПодсказка" id="54"/>
+				</LabelField>
+				<CheckBoxField name="APDEX_ИспользуетсяОфлайнМониторинг" id="30">
+					<DataPath>~Список.APDEX_ИспользуетсяОфлайнМониторинг</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="APDEX_ИспользуетсяОфлайнМониторингКонтекстноеМеню" id="31"/>
+					<ExtendedTooltip name="APDEX_ИспользуетсяОфлайнМониторингРасширеннаяПодсказка" id="55"/>
+				</CheckBoxField>
+				<CheckBoxField name="APDEX_ФормироватьПочтовыеФайлы" id="20">
+					<DataPath>~Список.APDEX_ФормироватьПочтовыеФайлы</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="APDEX_ФормироватьПочтовыеФайлыКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="APDEX_ФормироватьПочтовыеФайлыРасширеннаяПодсказка" id="56"/>
+				</CheckBoxField>
+				<LabelField name="APDEX_ПутьКФайламПочтовыхВложений" id="22">
+					<DataPath>~Список.APDEX_ПутьКФайламПочтовыхВложений</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="APDEX_ПутьКФайламПочтовыхВложенийКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="APDEX_ПутьКФайламПочтовыхВложенийРасширеннаяПодсказка" id="57"/>
+				</LabelField>
+				<LabelField name="APDEX_ЭлектроннаяПочтаСервиса" id="24">
+					<DataPath>~Список.APDEX_ЭлектроннаяПочтаСервиса</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="APDEX_ЭлектроннаяПочтаСервисаКонтекстноеМеню" id="25"/>
+					<ExtendedTooltip name="APDEX_ЭлектроннаяПочтаСервисаРасширеннаяПодсказка" id="58"/>
+				</LabelField>
+				<LabelField name="APDEX_СистемнаяУчетнаяЗаписьПочтыСервиса" id="26">
+					<DataPath>~Список.APDEX_СистемнаяУчетнаяЗаписьПочтыСервиса</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="APDEX_СистемнаяУчетнаяЗаписьПочтыСервисаКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="APDEX_СистемнаяУчетнаяЗаписьПочтыСервисаРасширеннаяПодсказка" id="59"/>
+				</LabelField>
+				<LabelField name="APDEX_ПорогДляСтарыхДанных" id="34">
+					<DataPath>Список.APDEX_ПорогДляСтарыхДанных</DataPath>
+					<ContextMenu name="APDEX_ПорогДляСтарыхДанныхКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="APDEX_ПорогДляСтарыхДанныхРасширеннаяПодсказка" id="60"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>InformationRegister.APDEX_Настройки</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+</Form>

@@ -130,6 +130,7 @@
 			<Subsystem>УниверсальныеМеханизмы</Subsystem>
 			<Subsystem>внЖурналРегистрации</Subsystem>
 			<Subsystem>СправочнаяСистема</Subsystem>
+			<Subsystem>APDEX</Subsystem>
 			<StyleItem>ЗаблокированныйРеквизитЦвет</StyleItem>
 			<StyleItem>НедоступныеДанныеЦвет</StyleItem>
 			<StyleItem>НепринятаяВерсия</StyleItem>
@@ -785,6 +786,8 @@
 			<SessionParameter>СтратегияСписанияПартий</SessionParameter>
 			<SessionParameter>ТекущийВнешнийПользователь</SessionParameter>
 			<SessionParameter>ТекущийПользователь</SessionParameter>
+			<SessionParameter>APDEX_ТекущийЗамерВремени</SessionParameter>
+			<SessionParameter>APDEX_НастройкиЗамеров</SessionParameter>
 			<Role>внАдминистраторЖурналаРегистрации</Role>
 			<Role>внНеФиксироватьСобытияЖурналаРегистарции</Role>
 			<Role>внПросмотрЖурналаРегистрации</Role>
@@ -1022,6 +1025,9 @@
 			<CommonModule>РаботаСоСтатусамиДокументовСервер</CommonModule>
 			<CommonModule>РаботаСSQL</CommonModule>
 			<CommonModule>РаботаСоСтатусамиДокументовПовтИсп</CommonModule>
+			<CommonModule>APDEX_ОценкаПроизводительностиКлиентГлобальный</CommonModule>
+			<CommonModule>APDEX_ОценкаПроизводительностиКлиентСервер</CommonModule>
+			<CommonModule>APDEX_ОценкаПроизводительностиСерверВызовСервера</CommonModule>
 			<ExchangePlan>ОбменПартКом77_83</ExchangePlan>
 			<ExchangePlan>ОбменПартКом83_77</ExchangePlan>
 			<ExchangePlan>ОбменПартКом83_CRM</ExchangePlan>
@@ -1084,6 +1090,7 @@
 			<ScheduledJob>РегламентныйЗапускОбработки</ScheduledJob>
 			<ScheduledJob>внПереносКэшаЖурналаРегистрации</ScheduledJob>
 			<ScheduledJob>ОбменCRM</ScheduledJob>
+			<ScheduledJob>APDEX_УдалениеСтарыхДанных</ScheduledJob>
 			<SettingsStorage>ХранилищеВариантовОтчетов</SettingsStorage>
 			<FunctionalOption>ИспользоватьСинхронизациюДанных</FunctionalOption>
 			<CommonCommand>внИсторияПоЖурналуРегистрации</CommonCommand>
@@ -1349,6 +1356,7 @@
 			<Catalog>ЦеновыеГруппы</Catalog>
 			<Catalog>ЦФОДляБюджета</Catalog>
 			<Catalog>ШаблоныТекстовПисем</Catalog>
+			<Catalog>APDEX_КлючевыеОперации</Catalog>
 			<Document>АвансовыйОтчет</Document>
 			<Document>АктРассмотренияВозврата</Document>
 			<Document>ВводНачальныхДанныхПоПродажам</Document>
@@ -1806,6 +1814,8 @@
 			<InformationRegister>НомераСчетовФактур</InformationRegister>
 			<InformationRegister>ЭталонныеСрокиЛогистическойЦепочки</InformationRegister>
 			<InformationRegister>ВремяЭкспрессДоставкиФилиалов</InformationRegister>
+			<InformationRegister>APDEX_ЗамерыВремени</InformationRegister>
+			<InformationRegister>APDEX_Настройки</InformationRegister>
 			<AccumulationRegister>БюджетыЦФО</AccumulationRegister>
 			<AccumulationRegister>Взаиморасчеты</AccumulationRegister>
 			<AccumulationRegister>ВзаиморасчетыПриСборкеОтгрузки</AccumulationRegister>

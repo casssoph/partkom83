@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<CheckBoxField name="APDEX_ОтключитьЗамер" id="1">
+			<DataPath>Запись.APDEX_ОтключитьЗамер</DataPath>
+			<TitleLocation>Right</TitleLocation>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="APDEX_ОтключитьЗамерКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="APDEX_ОтключитьЗамерРасширеннаяПодсказка" id="58"/>
+		</CheckBoxField>
+		<InputField name="APDEX_МинимальноеВремяЗамера" id="3">
+			<DataPath>Запись.APDEX_МинимальноеВремяЗамера</DataPath>
+			<ContextMenu name="APDEX_МинимальноеВремяЗамераКонтекстноеМеню" id="4"/>
+			<ExtendedTooltip name="APDEX_МинимальноеВремяЗамераРасширеннаяПодсказка" id="59"/>
+		</InputField>
+		<UsualGroup name="ГруппаСпособаЗаписиЗамеров" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Способ записи замеров</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа способа записи замеров</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ГруппаСпособаЗаписиЗамеровРасширеннаяПодсказка" id="68"/>
+			<ChildItems>
+				<RadioButtonField name="APDEX_СпособЗаписиЗамеров" id="26">
+					<DataPath>Запись.APDEX_СпособЗаписиЗамеров</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<RadioButtonType>Auto</RadioButtonType>
+					<ColumnsCount>1</ColumnsCount>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Запись замеров в журнал регистрации</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">0</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Запись замеров сразу в регистр</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">1</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Запись замеров фоновыми заданиями</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">2</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="APDEX_СпособЗаписиЗамеровКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="APDEX_СпособЗаписиЗамеровРасширеннаяПодсказка" id="69"/>
+				</RadioButtonField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="APDEX_ПорогДляСтарыхДанных" id="56">
+			<DataPath>Запись.APDEX_ПорогДляСтарыхДанных</DataPath>
+			<ChoiceButton>true</ChoiceButton>
+			<ClearButton>true</ClearButton>
+			<ContextMenu name="APDEX_ПорогДляСтарыхДанныхКонтекстноеМеню" id="57"/>
+			<ExtendedTooltip name="APDEX_ПорогДляСтарыхДанныхРасширеннаяПодсказка" id="70"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.APDEX_Настройки</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>
