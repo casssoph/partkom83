@@ -184,13 +184,6 @@
 					<ContextMenu name="ИсторияСсылкаКонтекстноеМеню" id="48"/>
 					<ExtendedTooltip name="ИсторияСсылкаРасширеннаяПодсказка" id="49"/>
 				</InputField>
-				<CheckBoxField name="ИсторияЕстьДанныеЗапроса" id="50">
-					<DataPath>История.ЕстьДанныеЗапроса</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<CheckBoxType>Auto</CheckBoxType>
-					<ContextMenu name="ИсторияЕстьДанныеЗапросаКонтекстноеМеню" id="51"/>
-					<ExtendedTooltip name="ИсторияЕстьДанныеЗапросаРасширеннаяПодсказка" id="52"/>
-				</CheckBoxField>
 			</ChildItems>
 		</Table>
 	</ChildItems>
@@ -209,11 +202,7 @@
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>xs:string</v8:Type>
-				<v8:StringQualifiers>
-					<v8:Length>0</v8:Length>
-					<v8:AllowedLength>Variable</v8:AllowedLength>
-				</v8:StringQualifiers>
+				<v8:Type>cfg:CatalogRef.APDEX_КлючевыеОперации</v8:Type>
 			</Type>
 		</Attribute>
 		<Attribute name="ДатаНачала" id="3">
@@ -356,13 +345,14 @@
 					</Title>
 					<Type>
 						<v8:TypeSet>cfg:DocumentRef</v8:TypeSet>
+						<v8:TypeSet>cfg:CatalogRef</v8:TypeSet>
 					</Type>
 				</Column>
-				<Column name="Комментарий" id="5">
+				<Column name="Информация" id="5">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Комментарий</v8:content>
+							<v8:content>Информация</v8:content>
 						</v8:item>
 					</Title>
 					<Type>
@@ -371,32 +361,6 @@
 							<v8:Length>200</v8:Length>
 							<v8:AllowedLength>Variable</v8:AllowedLength>
 						</v8:StringQualifiers>
-					</Type>
-				</Column>
-				<Column name="Исполнитель" id="6">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Исполнитель</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:string</v8:Type>
-						<v8:StringQualifiers>
-							<v8:Length>0</v8:Length>
-							<v8:AllowedLength>Variable</v8:AllowedLength>
-						</v8:StringQualifiers>
-					</Type>
-				</Column>
-				<Column name="ЕстьДанныеЗапроса" id="7">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Есть данные запроса</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:boolean</v8:Type>
 					</Type>
 				</Column>
 			</Columns>
