@@ -118,11 +118,28 @@
 		</InputField>
 		<Table name="История" id="16">
 			<Representation>List</Representation>
-			<ReadOnly>true</ReadOnly>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
 			<EnableStartDrag>true</EnableStartDrag>
 			<EnableDrag>true</EnableDrag>
 			<DataPath>История</DataPath>
+			<CommandSet>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>SortListAsc</ExcludedCommand>
+				<ExcludedCommand>MoveUp</ExcludedCommand>
+				<ExcludedCommand>CancelSearch</ExcludedCommand>
+				<ExcludedCommand>OutputList</ExcludedCommand>
+				<ExcludedCommand>SelectAll</ExcludedCommand>
+				<ExcludedCommand>SortListDesc</ExcludedCommand>
+				<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+				<ExcludedCommand>ShowRowRearrangement</ExcludedCommand>
+				<ExcludedCommand>Delete</ExcludedCommand>
+				<ExcludedCommand>EndEdit</ExcludedCommand>
+				<ExcludedCommand>Add</ExcludedCommand>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>Find</ExcludedCommand>
+				<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+				<ExcludedCommand>MoveDown</ExcludedCommand>
+			</CommandSet>
 			<SearchStringLocation>None</SearchStringLocation>
 			<ViewStatusLocation>None</ViewStatusLocation>
 			<SearchControlLocation>None</SearchControlLocation>
@@ -159,6 +176,19 @@
 				<ExtendedTooltip name="ИсторияУправлениеПоискомРасширеннаяПодсказка" id="43"/>
 			</SearchControlAddition>
 			<ChildItems>
+				<InputField name="ИсторияИнформация" id="50">
+					<DataPath>История.Информация</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<Width>17</Width>
+					<ContextMenu name="ИсторияИнформацияКонтекстноеМеню" id="51"/>
+					<ExtendedTooltip name="ИсторияИнформацияРасширеннаяПодсказка" id="52"/>
+				</InputField>
+				<InputField name="ИсторияСсылка" id="47">
+					<DataPath>История.Ссылка</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ИсторияСсылкаКонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="ИсторияСсылкаРасширеннаяПодсказка" id="49"/>
+				</InputField>
 				<InputField name="ИсторияДлительность" id="21">
 					<DataPath>История.Длительность</DataPath>
 					<EditMode>EnterOnInput</EditMode>
@@ -177,12 +207,6 @@
 					<Width>20</Width>
 					<ContextMenu name="ИсторияПользовательКонтекстноеМеню" id="20"/>
 					<ExtendedTooltip name="ИсторияПользовательРасширеннаяПодсказка" id="46"/>
-				</InputField>
-				<InputField name="ИсторияСсылка" id="47">
-					<DataPath>История.Ссылка</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="ИсторияСсылкаКонтекстноеМеню" id="48"/>
-					<ExtendedTooltip name="ИсторияСсылкаРасширеннаяПодсказка" id="49"/>
 				</InputField>
 			</ChildItems>
 		</Table>
