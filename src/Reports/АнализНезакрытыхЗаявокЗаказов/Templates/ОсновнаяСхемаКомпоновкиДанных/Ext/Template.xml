@@ -285,7 +285,7 @@
 		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ПоступлениеТоваровУслуг.АктПриемки КАК ПоступлениеТоваровУслугАктПриемки
 		ПО ВТОстаткиЗаявок.ДокументПоступление = ПоступлениеТоваровУслугАктПриемки.Ссылка
 			И ВТОстаткиЗаявок.Номенклатура = ПоступлениеТоваровУслугАктПриемки.Номенклатура
-		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ДатыЗаказов КАК ДатыЗаказов
+		ЛЕВОЕ СОЕДИНЕНИЕ ДатыЗаказов КАК ДатыЗаказов
 		ПО ВТОстаткиЗаявок.СтрокаЗаявки = ДатыЗаказов.СтрокаЗаявки
 {ГДЕ
 	ВТОстаткиЗаявок.Заказ.Менеджер.* КАК МенеджерЗаказа,
@@ -366,6 +366,8 @@
 ПОМЕСТИТЬ СтрокиЗаказов
 ИЗ
 	РегистрНакопления.ЗаказыПоставщикам.Остатки({(&amp;Период)}, {(ЕСТЬNULL(ТорговаяТочка.Владелец, ЗНАЧЕНИЕ(Справочник.Контрагенты.ПустаяСсылка))).* КАК Поставщик}) КАК ЗаказыПоставщикамОстатки
+ГДЕ
+	ЗаказыПоставщикамОстатки.СтрокаЗаявки = &amp;СтрокаЗаявки
 ;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -420,6 +422,8 @@
 		<destinationDataSet>КомментарииСтрокЗаказов</destinationDataSet>
 		<sourceExpression>СтрокаЗаявки</sourceExpression>
 		<destinationExpression>СтрокаЗаявки</destinationExpression>
+		<parameter>СтрокаЗаявки</parameter>
+		<parameterListAllowed>false</parameterListAllowed>
 	</dataSetLink>
 	<parameter>
 		<name>Период</name>
@@ -438,6 +442,20 @@
 		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
 		<useRestriction>false</useRestriction>
 		<expression>ТекущаяДата()</expression>
+	</parameter>
+	<parameter>
+		<name>СтрокаЗаявки</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Строка заявки</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ИдентификаторыСтрокЗаявок</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
 	</parameter>
 	<settingsVariant>
 		<dcsset:name>Основной</dcsset:name>
