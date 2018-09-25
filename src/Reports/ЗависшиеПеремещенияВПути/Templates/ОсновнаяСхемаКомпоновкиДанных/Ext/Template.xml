@@ -1,0 +1,1141 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументПрихода</dataPath>
+			<field>ДокументПрихода</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ прихода</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Приход</dataPath>
+			<field>Приход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Приход</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РасходПоРегистру</dataPath>
+			<field>РасходПоРегистру</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расход по регистру</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Расход</dataPath>
+			<field>Расход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расход</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПриходПоРегистру</dataPath>
+			<field>ПриходПоРегистру</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Приход по регистру</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Склад</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПриходМинусРасход</dataPath>
+			<field>ПриходМинусРасход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Приход - расход</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РасходМинусРасходПоРегистру</dataPath>
+			<field>РасходМинусРасходПоРегистру</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расход - расход по регистру</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПриходМинусПриходПоРегистру</dataPath>
+			<field>ПриходМинусПриходПоРегистру</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Приход - приход по регистру</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПриходПоРегиструМинусРасходПоРегистру</dataPath>
+			<field>ПриходПоРегиструМинусРасходПоРегистру</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Приход по регистру - расход по регистру</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>БылаВыгрузкаВТопЛог</dataPath>
+			<field>БылаВыгрузкаВТопЛог</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Была выгрузка в топ лог</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ПеремещениеТоваровТовары.Ссылка КАК ДокументПрихода,
+	ПеремещениеТоваровТовары.Ссылка.СкладПолучатель КАК Склад,
+	ПеремещениеТоваровТовары.Номенклатура,
+	СУММА(ПеремещениеТоваровТовары.Количество) КАК Приход
+ПОМЕСТИТЬ ТаблицаПоДокументамПрихода
+ИЗ
+	Документ.ПеремещениеТоваров.Товары КАК ПеремещениеТоваровТовары
+ГДЕ
+	ПеремещениеТоваровТовары.Ссылка.СкладПолучатель.ТоварыВПути
+	И ПеремещениеТоваровТовары.Ссылка.Дата МЕЖДУ &amp;ДатаНачала И КОНЕЦПЕРИОДА(&amp;ДатаОкончания, ДЕНЬ)
+	И НЕ ПеремещениеТоваровТовары.Ссылка.ПометкаУдаления
+
+СГРУППИРОВАТЬ ПО
+	ПеремещениеТоваровТовары.Ссылка,
+	ПеремещениеТоваровТовары.Ссылка.СкладПолучатель,
+	ПеремещениеТоваровТовары.Номенклатура
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ПеремещениеТоваровТовары.ДокументПрихода,
+	ПеремещениеТоваровТовары.Склад,
+	ПеремещениеТоваровТовары.Номенклатура,
+	ПеремещениеТоваровТовары.Приход,
+	ЕСТЬNULL(ТоварыНаСкладахОбороты.КоличествоПриход, 0) КАК ПриходПоРегистру
+ПОМЕСТИТЬ ТаблицаПрихода
+ИЗ
+	ТаблицаПоДокументамПрихода КАК ПеремещениеТоваровТовары
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ТоварыНаСкладах.Обороты({(&amp;ДатаНачала)}, {(КОНЕЦПЕРИОДА(&amp;ДатаОкончания, ДЕНЬ))}, авто, Склад.ТоварыВПути) КАК ТоварыНаСкладахОбороты
+		ПО ПеремещениеТоваровТовары.ДокументПрихода = ТоварыНаСкладахОбороты.Регистратор
+			И ПеремещениеТоваровТовары.Номенклатура = ТоварыНаСкладахОбороты.Номенклатура
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	ТаблицаПрихода.ДокументПрихода,
+	ЕСТЬNULL(ИсторияОбменаСТопЛогПоОбъектам.Исходящее, ЛОЖЬ) КАК БылаВыгрузкаВТопЛог
+ПОМЕСТИТЬ ДокументыПрихода
+ИЗ
+	ТаблицаПрихода КАК ТаблицаПрихода
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ИсторияОбменаСТопЛогПоОбъектам КАК ИсторияОбменаСТопЛогПоОбъектам
+		ПО ТаблицаПрихода.ДокументПрихода = ИсторияОбменаСТопЛогПоОбъектам.Объект
+			И (ИсторияОбменаСТопЛогПоОбъектам.Исходящее)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВЫРАЗИТЬ(ПеремещениеТоваровТовары.Ссылка.ДокументОснование КАК Документ.ПеремещениеТоваров) КАК ДокументПрихода,
+	ПеремещениеТоваровТовары.Ссылка.СкладОтправитель КАК Склад,
+	ПеремещениеТоваровТовары.Ссылка,
+	ПеремещениеТоваровТовары.Номенклатура,
+	СУММА(ПеремещениеТоваровТовары.Количество) КАК Расход
+ПОМЕСТИТЬ ТаблицаПоДокументамРасхода
+ИЗ
+	Документ.ПеремещениеТоваров.Товары КАК ПеремещениеТоваровТовары
+ГДЕ
+	ПеремещениеТоваровТовары.Ссылка.СкладОтправитель.ТоварыВПути
+	И ПеремещениеТоваровТовары.Ссылка.Дата &gt;= &amp;ДатаНачала
+	И НЕ ПеремещениеТоваровТовары.Ссылка.ПометкаУдаления
+
+СГРУППИРОВАТЬ ПО
+	ПеремещениеТоваровТовары.Ссылка,
+	ПеремещениеТоваровТовары.Номенклатура,
+	ПеремещениеТоваровТовары.Ссылка.СкладОтправитель,
+	ВЫРАЗИТЬ(ПеремещениеТоваровТовары.Ссылка.ДокументОснование КАК Документ.ПеремещениеТоваров)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ПеремещениеТоваровТовары.ДокументПрихода,
+	ПеремещениеТоваровТовары.Склад,
+	ПеремещениеТоваровТовары.Номенклатура,
+	0 КАК Приход,
+	0 КАК ПриходПоРегистру,
+	ПеремещениеТоваровТовары.Расход,
+	ЕСТЬNULL(ТоварыНаСкладахОбороты.КоличествоРасход, 0) КАК РасходПоРегистру
+ПОМЕСТИТЬ ИтоговаяТаблица
+ИЗ
+	ТаблицаПоДокументамРасхода КАК ПеремещениеТоваровТовары
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ТоварыНаСкладах.Обороты({(&amp;ДатаНачала)}, {(&amp;ТекущаяДата)}, авто, Склад.ТоварыВПути) КАК ТоварыНаСкладахОбороты
+		ПО ПеремещениеТоваровТовары.Ссылка = ТоварыНаСкладахОбороты.Регистратор
+			И ПеремещениеТоваровТовары.Номенклатура = ТоварыНаСкладахОбороты.Номенклатура
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ДокументыПрихода КАК ДокументыПрихода
+		ПО ((ВЫРАЗИТЬ(ПеремещениеТоваровТовары.Ссылка.ДокументОснование КАК Документ.ПеремещениеТоваров)) = ДокументыПрихода.ДокументПрихода)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ТаблицаПрихода.ДокументПрихода,
+	ТаблицаПрихода.Склад,
+	ТаблицаПрихода.Номенклатура,
+	ТаблицаПрихода.Приход,
+	ТаблицаПрихода.ПриходПоРегистру,
+	0,
+	0
+ИЗ
+	ТаблицаПрихода КАК ТаблицаПрихода
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ИтоговаяТаблица.ДокументПрихода КАК ДокументПрихода,
+	ДокументыПрихода.БылаВыгрузкаВТопЛог КАК БылаВыгрузкаВТопЛог,
+	ИтоговаяТаблица.Склад КАК Склад,
+	ИтоговаяТаблица.Номенклатура КАК Номенклатура,
+	СУММА(ИтоговаяТаблица.Приход) КАК Приход,
+	СУММА(ИтоговаяТаблица.ПриходПоРегистру) КАК ПриходПоРегистру,
+	СУММА(ИтоговаяТаблица.Расход) КАК Расход,
+	СУММА(ИтоговаяТаблица.РасходПоРегистру) КАК РасходПоРегистру,
+	СУММА(ИтоговаяТаблица.Приход) - СУММА(ИтоговаяТаблица.Расход) КАК ПриходМинусРасход,
+	СУММА(ИтоговаяТаблица.ПриходПоРегистру) - СУММА(ИтоговаяТаблица.РасходПоРегистру) КАК ПриходПоРегиструМинусРасходПоРегистру,
+	СУММА(ИтоговаяТаблица.Приход) - СУММА(ИтоговаяТаблица.ПриходПоРегистру) КАК ПриходМинусПриходПоРегистру,
+	СУММА(ИтоговаяТаблица.Расход) - СУММА(ИтоговаяТаблица.РасходПоРегистру) КАК РасходМинусРасходПоРегистру
+{ВЫБРАТЬ
+	ДокументПрихода.*,
+	Номенклатура.*,
+	Приход,
+	ПриходПоРегистру,
+	Расход,
+	РасходПоРегистру,
+	ПриходМинусРасход,
+	ПриходПоРегиструМинусРасходПоРегистру,
+	ПриходМинусПриходПоРегистру,
+	РасходМинусРасходПоРегистру,
+	Склад.*,
+	БылаВыгрузкаВТопЛог}
+ИЗ
+	ИтоговаяТаблица КАК ИтоговаяТаблица
+		ЛЕВОЕ СОЕДИНЕНИЕ ДокументыПрихода КАК ДокументыПрихода
+		ПО ИтоговаяТаблица.ДокументПрихода = ДокументыПрихода.ДокументПрихода
+{ГДЕ
+	ИтоговаяТаблица.ДокументПрихода.*,
+	ИтоговаяТаблица.Склад.*,
+	ИтоговаяТаблица.Номенклатура.*,
+	ИтоговаяТаблица.Приход,
+	ИтоговаяТаблица.ПриходПоРегистру,
+	ИтоговаяТаблица.Расход,
+	ИтоговаяТаблица.РасходПоРегистру,
+	(СУММА(ИтоговаяТаблица.Приход) - СУММА(ИтоговаяТаблица.Расход)) КАК ПриходМинусРасход,
+	(СУММА(ИтоговаяТаблица.ПриходПоРегистру) - СУММА(ИтоговаяТаблица.РасходПоРегистру)) КАК ПриходПоРегиструМинусРасходПоРегистру,
+	(СУММА(ИтоговаяТаблица.Приход) - СУММА(ИтоговаяТаблица.ПриходПоРегистру)) КАК ПриходМинусПриходПоРегистру,
+	(СУММА(ИтоговаяТаблица.Расход) - СУММА(ИтоговаяТаблица.РасходПоРегистру)) КАК РасходМинусРасходПоРегистру,
+	ДокументыПрихода.БылаВыгрузкаВТопЛог}
+
+СГРУППИРОВАТЬ ПО
+	ИтоговаяТаблица.ДокументПрихода,
+	ДокументыПрихода.БылаВыгрузкаВТопЛог,
+	ИтоговаяТаблица.Склад,
+	ИтоговаяТаблица.Номенклатура</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<totalField>
+		<dataPath>Приход</dataPath>
+		<expression>Сумма(Приход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Расход</dataPath>
+		<expression>Сумма(Расход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПриходПоРегистру</dataPath>
+		<expression>Сумма(ПриходПоРегистру)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РасходПоРегистру</dataPath>
+		<expression>Сумма(РасходПоРегистру)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РасходМинусРасходПоРегистру</dataPath>
+		<expression>Сумма(РасходМинусРасходПоРегистру)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПриходМинусПриходПоРегистру</dataPath>
+		<expression>Сумма(ПриходМинусПриходПоРегистру)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПриходМинусРасход</dataPath>
+		<expression>Сумма(ПриходМинусРасход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПриходПоРегиструМинусРасходПоРегистру</dataPath>
+		<expression>Сумма(ПриходПоРегиструМинусРасходПоРегистру)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала (приход)</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания (приход)</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТекущаяДата</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Текущая дата</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>ТекущаяДата()</expression>
+	</parameter>
+	<nestedSchema>
+		<name>ДокументыДвижения</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Документы движения</v8:content>
+			</v8:item>
+		</title>
+		<schema>
+			<dataSource>
+				<name>ИсточникДанных1</name>
+				<dataSourceType>Local</dataSourceType>
+			</dataSource>
+			<dataSet xsi:type="DataSetQuery">
+				<name>НаборДанных1</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Номенклатура</dataPath>
+					<field>Номенклатура</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Склад</dataPath>
+					<field>Склад</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Качество</dataPath>
+					<field>Качество</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ДокументПрихода</dataPath>
+					<field>ДокументПрихода</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документ прихода</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Приход</dataPath>
+					<field>Приход</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Приход</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>РасходПоРегистру</dataPath>
+					<field>РасходПоРегистру</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Расход по регистру</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Расход</dataPath>
+					<field>Расход</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Расход</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПриходПоРегистру</dataPath>
+					<field>ПриходПоРегистру</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Приход по регистру</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ДокументДвижения</dataPath>
+					<field>ДокументДвижения</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документ движения</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	ПеремещениеТоваровТовары.Ссылка КАК ДокументПрихода,
+	ПеремещениеТоваровТовары.Ссылка.СкладПолучатель КАК Склад,
+	ПеремещениеТоваровТовары.Номенклатура,
+	СУММА(ПеремещениеТоваровТовары.Количество) КАК Приход
+ПОМЕСТИТЬ ТаблицаПоДокументамПрихода
+ИЗ
+	Документ.ПеремещениеТоваров.Товары КАК ПеремещениеТоваровТовары
+ГДЕ
+	ПеремещениеТоваровТовары.Ссылка.СкладПолучатель.ТоварыВПути
+	И ПеремещениеТоваровТовары.Ссылка.Дата МЕЖДУ &amp;ДатаНачала И КОНЕЦПЕРИОДА(&amp;ДатаОкончания, ДЕНЬ)
+	И НЕ ПеремещениеТоваровТовары.Ссылка.ПометкаУдаления
+
+СГРУППИРОВАТЬ ПО
+	ПеремещениеТоваровТовары.Ссылка,
+	ПеремещениеТоваровТовары.Ссылка.СкладПолучатель,
+	ПеремещениеТоваровТовары.Номенклатура
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ПеремещениеТоваровТовары.ДокументПрихода,
+	ПеремещениеТоваровТовары.Склад,
+	ПеремещениеТоваровТовары.Номенклатура,
+	ПеремещениеТоваровТовары.Приход,
+	ЕСТЬNULL(ТоварыНаСкладахОбороты.КоличествоПриход, 0) КАК ПриходПоРегистру
+ПОМЕСТИТЬ ТаблицаПрихода
+ИЗ
+	ТаблицаПоДокументамПрихода КАК ПеремещениеТоваровТовары
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ТоварыНаСкладах.Обороты({(&amp;ДатаНачала)}, {(КОНЕЦПЕРИОДА(&amp;ДатаОкончания, ДЕНЬ))}, авто, Склад.ТоварыВПути) КАК ТоварыНаСкладахОбороты
+		ПО ПеремещениеТоваровТовары.ДокументПрихода = ТоварыНаСкладахОбороты.Регистратор
+			И ПеремещениеТоваровТовары.Номенклатура = ТоварыНаСкладахОбороты.Номенклатура
+;
+
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	ТаблицаПрихода.ДокументПрихода
+ПОМЕСТИТЬ ДокументыПрихода
+ИЗ
+	ТаблицаПрихода КАК ТаблицаПрихода
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВЫРАЗИТЬ(ПеремещениеТоваровТовары.Ссылка.ДокументОснование КАК Документ.ПеремещениеТоваров) КАК ДокументПрихода,
+	ПеремещениеТоваровТовары.Ссылка КАК ДокументДвижения,
+	ПеремещениеТоваровТовары.Ссылка.СкладОтправитель КАК Склад,
+	ПеремещениеТоваровТовары.Номенклатура,
+	0 КАК Приход,
+	0 КАК ПриходПоРегистру,
+	ПеремещениеТоваровТовары.Количество КАК Расход,
+	ТоварыНаСкладахОбороты.КоличествоРасход КАК РасходПоРегистру
+ПОМЕСТИТЬ ИтоговаяТаблица
+ИЗ
+	Документ.ПеремещениеТоваров.Товары КАК ПеремещениеТоваровТовары
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ТоварыНаСкладах.Обороты({(&amp;ДатаНачала)}, {(&amp;ТекущаяДата)}, авто, Склад.ТоварыВПути) КАК ТоварыНаСкладахОбороты
+		ПО ПеремещениеТоваровТовары.Ссылка = ТоварыНаСкладахОбороты.Регистратор
+			И ПеремещениеТоваровТовары.Номенклатура = ТоварыНаСкладахОбороты.Номенклатура
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ДокументыПрихода КАК ДокументыПрихода
+		ПО ((ВЫРАЗИТЬ(ПеремещениеТоваровТовары.Ссылка.ДокументОснование КАК Документ.ПеремещениеТоваров)) = ДокументыПрихода.ДокументПрихода)
+ГДЕ
+	ПеремещениеТоваровТовары.Ссылка.СкладОтправитель.ТоварыВПути
+	И ПеремещениеТоваровТовары.Ссылка.Дата &gt;= &amp;ДатаНачала
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ТаблицаПрихода.ДокументПрихода,
+	ТаблицаПрихода.ДокументПрихода,
+	ТаблицаПрихода.Склад,
+	ТаблицаПрихода.Номенклатура,
+	ТаблицаПрихода.Приход,
+	ТаблицаПрихода.ПриходПоРегистру,
+	0,
+	0
+ИЗ
+	ТаблицаПрихода КАК ТаблицаПрихода
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ИтоговаяТаблица.ДокументПрихода КАК ДокументПрихода,
+	ИтоговаяТаблица.ДокументДвижения КАК ДокументДвижения,
+	ИтоговаяТаблица.Склад,
+	ИтоговаяТаблица.Номенклатура КАК Номенклатура,
+	СУММА(ИтоговаяТаблица.Приход) КАК Приход,
+	СУММА(ИтоговаяТаблица.ПриходПоРегистру) КАК ПриходПоРегистру,
+	СУММА(ИтоговаяТаблица.Расход) КАК Расход,
+	СУММА(ИтоговаяТаблица.РасходПоРегистру) КАК РасходПоРегистру
+{ВЫБРАТЬ
+	ДокументПрихода.*,
+	ДокументДвижения.*,
+	Номенклатура.*,
+	Приход,
+	ПриходПоРегистру,
+	Расход,
+	РасходПоРегистру}
+ИЗ
+	ИтоговаяТаблица КАК ИтоговаяТаблица
+{ГДЕ
+	ИтоговаяТаблица.ДокументПрихода.*,
+	ИтоговаяТаблица.ДокументДвижения.*,
+	ИтоговаяТаблица.Номенклатура.*,
+	ИтоговаяТаблица.Приход,
+	ИтоговаяТаблица.ПриходПоРегистру,
+	ИтоговаяТаблица.Расход,
+	ИтоговаяТаблица.РасходПоРегистру}
+
+СГРУППИРОВАТЬ ПО
+	ИтоговаяТаблица.ДокументПрихода,
+	ИтоговаяТаблица.ДокументДвижения,
+	ИтоговаяТаблица.Склад,
+	ИтоговаяТаблица.Номенклатура</query>
+			</dataSet>
+			<calculatedField>
+				<dataPath>ПриходМинусРасход</dataPath>
+				<expression>Приход - Расход</expression>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Приход - Расход</v8:content>
+					</v8:item>
+				</title>
+			</calculatedField>
+			<calculatedField>
+				<dataPath>ПриходМинусПриходПоРегистру</dataPath>
+				<expression>Приход - ПриходПоРегистру</expression>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Приход -  приход по регистру</v8:content>
+					</v8:item>
+				</title>
+			</calculatedField>
+			<calculatedField>
+				<dataPath>РасходМинусРасходПоРегистру</dataPath>
+				<expression>Расход - РасходПоРегистру</expression>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Расход -  расход по регистру</v8:content>
+					</v8:item>
+				</title>
+			</calculatedField>
+			<calculatedField>
+				<dataPath>ПриходПоРегиструМинусРасходПоРегистру</dataPath>
+				<expression>приходПоРегистру - РасходПоРегистру</expression>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Приход по регистру - расход по регистру</v8:content>
+					</v8:item>
+				</title>
+			</calculatedField>
+			<totalField>
+				<dataPath>Приход</dataPath>
+				<expression>Сумма(Приход)</expression>
+			</totalField>
+			<totalField>
+				<dataPath>Расход</dataPath>
+				<expression>Сумма(Расход)</expression>
+			</totalField>
+			<totalField>
+				<dataPath>ПриходПоРегистру</dataPath>
+				<expression>Сумма(ПриходПоРегистру)</expression>
+			</totalField>
+			<totalField>
+				<dataPath>РасходПоРегистру</dataPath>
+				<expression>Сумма(РасходПоРегистру)</expression>
+			</totalField>
+			<totalField>
+				<dataPath>ПриходМинусРасход</dataPath>
+				<expression>Сумма(ПриходМинусРасход)</expression>
+			</totalField>
+			<totalField>
+				<dataPath>РасходМинусРасходПоРегистру</dataPath>
+				<expression>Сумма(РасходМинусРасходПоРегистру)</expression>
+			</totalField>
+			<totalField>
+				<dataPath>ПриходМинусПриходПоРегистру</dataPath>
+				<expression>Сумма(ПриходМинусПриходПоРегистру)</expression>
+			</totalField>
+			<totalField>
+				<dataPath>ПриходПоРегиструМинусРасходПоРегистру</dataPath>
+				<expression>Сумма(ПриходПоРегиструМинусРасходПоРегистру)</expression>
+			</totalField>
+			<parameter>
+				<name>ДатаНачала</name>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Дата начала</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:dateTime</v8:Type>
+					<v8:DateQualifiers>
+						<v8:DateFractions>Date</v8:DateFractions>
+					</v8:DateQualifiers>
+				</valueType>
+				<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+				<useRestriction>false</useRestriction>
+			</parameter>
+			<parameter>
+				<name>ДатаОкончания</name>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Дата окончания</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:dateTime</v8:Type>
+					<v8:DateQualifiers>
+						<v8:DateFractions>Date</v8:DateFractions>
+					</v8:DateQualifiers>
+				</valueType>
+				<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+				<useRestriction>false</useRestriction>
+			</parameter>
+			<parameter>
+				<name>ТекущаяДата</name>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Текущая дата</v8:content>
+					</v8:item>
+				</title>
+				<valueType>
+					<v8:Type>xs:dateTime</v8:Type>
+					<v8:DateQualifiers>
+						<v8:DateFractions>DateTime</v8:DateFractions>
+					</v8:DateQualifiers>
+				</valueType>
+				<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+				<useRestriction>true</useRestriction>
+				<expression>ТекущаяДата()</expression>
+			</parameter>
+			<settingsVariant>
+				<dcsset:name>ПоДокументуДвижения</dcsset:name>
+				<dcsset:presentation xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>По документу движения</v8:content>
+					</v8:item>
+				</dcsset:presentation>
+				<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ДокументПрихода</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:field>ДокументДвижения</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Номенклатура</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Приход</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ПриходПоРегистру</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Расход</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>РасходПоРегистру</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Разница</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ПриходМинусРасход</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ПриходПоРегиструМинусРасходПоРегистру</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ПриходМинусПриходПоРегистру</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>РасходМинусРасходПоРегистру</dcsset:field>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Склад</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Склады.ПустаяСсылка</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:dataParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ДатаНачала</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Field">ПараметрыДанных.ДатаНачала</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Field">ПараметрыДанных.ДатаОкончания</dcscor:value>
+						</dcscor:item>
+					</dcsset:dataParameters>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Склад</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:item xsi:type="dcsset:StructureItemGroup">
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>ДокументПрихода</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>ДокументПрихода.Проведен</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>ДокументПрихода.Номер</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Приход</dcsset:left>
+									<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:Field">Расход</dcsset:right>
+									<dcsset:viewMode>Normal</dcsset:viewMode>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:use>false</dcsset:use>
+									<dcsset:left xsi:type="dcscor:Field">ПриходПоРегистру</dcsset:left>
+									<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:Field">РасходПоРегистру</dcsset:right>
+									<dcsset:viewMode>Normal</dcsset:viewMode>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:use>false</dcsset:use>
+									<dcsset:left xsi:type="dcscor:Field">ПриходПоРегистру</dcsset:left>
+									<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:Field">Приход</dcsset:right>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:use>false</dcsset:use>
+									<dcsset:left xsi:type="dcscor:Field">РасходПоРегистру</dcsset:left>
+									<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:Field">Расход</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+							<dcsset:item xsi:type="dcsset:StructureItemGroup">
+								<dcsset:groupItems>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>Номенклатура</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
+								</dcsset:groupItems>
+								<dcsset:filter>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:left xsi:type="dcscor:Field">Приход</dcsset:left>
+										<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+										<dcsset:right xsi:type="dcscor:Field">Расход</dcsset:right>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:use>false</dcsset:use>
+										<dcsset:left xsi:type="dcscor:Field">ПриходПоРегистру</dcsset:left>
+										<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+										<dcsset:right xsi:type="dcscor:Field">РасходПоРегистру</dcsset:right>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:use>false</dcsset:use>
+										<dcsset:left xsi:type="dcscor:Field">ПриходПоРегистру</dcsset:left>
+										<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+										<dcsset:right xsi:type="dcscor:Field">Приход</dcsset:right>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:use>false</dcsset:use>
+										<dcsset:left xsi:type="dcscor:Field">РасходПоРегистру</dcsset:left>
+										<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+										<dcsset:right xsi:type="dcscor:Field">Расход</dcsset:right>
+									</dcsset:item>
+								</dcsset:filter>
+								<dcsset:order>
+									<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+								</dcsset:order>
+								<dcsset:selection>
+									<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+								</dcsset:selection>
+								<dcsset:outputParameters>
+									<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+										<dcscor:use>false</dcscor:use>
+										<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+										<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+									</dcscor:item>
+								</dcsset:outputParameters>
+								<dcsset:item xsi:type="dcsset:StructureItemGroup">
+									<dcsset:groupItems>
+										<dcsset:item xsi:type="dcsset:GroupItemField">
+											<dcsset:field>ДокументДвижения</dcsset:field>
+											<dcsset:groupType>Items</dcsset:groupType>
+											<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+											<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+											<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+										</dcsset:item>
+									</dcsset:groupItems>
+									<dcsset:order>
+										<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+									</dcsset:order>
+									<dcsset:selection>
+										<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+									</dcsset:selection>
+								</dcsset:item>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:settings>
+			</settingsVariant>
+		</schema>
+		<settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">ДокументПрихода</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ДокументПрихода</dcsset:right>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:Field">ОбъектНастройкиВладелец.Номенклатура</dcsset:right>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаНачала</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.ДатаНачала</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.ДатаОкончания</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+		</settings>
+	</nestedSchema>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДокументПрихода</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номенклатура</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Приход</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПриходПоРегистру</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Расход</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РасходПоРегистру</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Разница</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПриходМинусРасход</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПриходПоРегиструМинусРасходПоРегистру</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПриходМинусПриходПоРегистру</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>РасходМинусРасходПоРегистру</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Склад</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Склады.ПустаяСсылка</dcsset:right>
+					<dcsset:userSettingID>386315b0-50b0-4c08-8cda-3a6592858231</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">ПриходМинусРасход</dcsset:left>
+					<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					<dcsset:userSettingID>17ae9306-2e11-4c42-a66d-ace0eba2faf6</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ПриходПоРегиструМинусРасходПоРегистру</dcsset:left>
+					<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					<dcsset:userSettingID>3ccdd99b-b960-46e3-82df-acf557380cb9</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ПриходМинусПриходПоРегистру</dcsset:left>
+					<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					<dcsset:userSettingID>cb8f8b55-39dd-435c-90f8-8a1e177a9a9b</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">РасходМинусРасходПоРегистру</dcsset:left>
+					<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					<dcsset:userSettingID>effc20c8-810e-4c3d-a618-bc4180794250</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">БылаВыгрузкаВТопЛог</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:userSettingID>2365d63b-fdcb-4696-9182-a75c8b68404f</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаНачала</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+						<v8:date>2018-08-01T00:00:00</v8:date>
+					</dcscor:value>
+					<dcsset:userSettingID>09330926-cf15-4e05-9497-c4808fb880ec</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+						<v8:date>2018-08-31T00:00:00</v8:date>
+					</dcscor:value>
+					<dcsset:userSettingID>610b9059-7232-4773-b10d-3b9dc6591f04</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Separately</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Склад</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТипМакета</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionGroupTemplateType">Horizontal</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ДокументПрихода</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ДокументПрихода.Проведен</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ДокументПрихода.Номер</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>БылаВыгрузкаВТопЛог</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:outputParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ТипМакета</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionGroupTemplateType">Horizontal</dcscor:value>
+						</dcscor:item>
+					</dcsset:outputParameters>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Номенклатура</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:outputParameters>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>ТипМакета</dcscor:parameter>
+								<dcscor:value xsi:type="dcsset:DataCompositionGroupTemplateType">Horizontal</dcscor:value>
+							</dcscor:item>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:use>false</dcscor:use>
+								<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+								<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+							</dcscor:item>
+						</dcsset:outputParameters>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+			<dcsset:itemsUserSettingID>d00e34a6-357d-4489-ab68-8719dbce24fd</dcsset:itemsUserSettingID>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>
