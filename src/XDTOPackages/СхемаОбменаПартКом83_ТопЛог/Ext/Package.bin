@@ -346,12 +346,13 @@
 		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="СтрокаТовары" type="d3p1:ТранзитнаяОтгрузка.Товары.Строка" lowerBound="0" upperBound="-1"/>
 	</objectType>
 	<objectType name="ТранзитнаяОтгрузка.Товары.Строка" ordered="false" sequenced="true">
-		<property name="НоменклатураСсылка" type="xs:string"/>
-		<property name="НоменклатураНаименование" type="xs:string"/>
-		<property name="НоменклатураАртикул" type="xs:string"/>
-		<property name="SSID" type="xs:string"/>
-		<property name="ОрганизацияСсылка" type="xs:string"/>
-		<property name="Количество" type="xs:int"/>
+		<property name="НоменклатураСсылка" type="xs:string" lowerBound="0"/>
+		<property name="НоменклатураНаименование" type="xs:string" lowerBound="0"/>
+		<property name="НоменклатураАртикул" type="xs:string" lowerBound="0"/>
+		<property name="SSID" type="xs:string" lowerBound="0"/>
+		<property name="ОрганизацияСсылка" type="xs:string" lowerBound="0"/>
+		<property name="Количество" type="xs:int" lowerBound="0"/>
+		<property name="ПоступлениеСсылка" type="xs:string" lowerBound="0"/>
 	</objectType>
 	<objectType name="УдалениеОбъекта" ordered="false" sequenced="true">
 		<property name="ТипОбъекта" type="xs:string"/>
