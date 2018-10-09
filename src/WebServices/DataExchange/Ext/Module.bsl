@@ -84,6 +84,12 @@
 	Возврат DataExchangeModule.СравнитьДокументы(StartDate, FinalDate, DocumentTable);
 	
 КонецФункции
+
+Функция GetDebt(UserLoginArray)
+Возврат DataExchangeModule.ВыгрузитьОборотыПоКлиентам(UserLoginArray);
+	
+	
+КонецФункции
  
 //ДАННЫЙ МОДУЛЬ ИЗМЕНЯТЬ С ОСТОРОЖНОСТЬЮ, Т.К. ТУТ ОТКЛЮЧЕНА ПРОВЕРКА СИНТАКСИСА
 //ЗДЕСЬ ТОЛЬКО ПЕРЕХОДЫ В ОБЩИЙ МОДУЛЬ DataExchangeModule
