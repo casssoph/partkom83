@@ -85,8 +85,8 @@
 	
 КонецФункции
 
-Функция GetDebt(UserLoginArray)
-Возврат DataExchangeModule.ВыгрузитьОборотыПоКлиентам(UserLoginArray);
+Функция GetDebt(UserLoginArray,DateBegin,DateEnd)
+Возврат DataExchangeModule.ВыгрузитьОборотыПоКлиентам(UserLoginArray,DateBegin,DateEnd);
 	
 	
 КонецФункции
