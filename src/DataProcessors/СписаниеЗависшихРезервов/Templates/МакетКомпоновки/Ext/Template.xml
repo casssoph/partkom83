@@ -7,36 +7,14 @@
 	<dataSet xsi:type="DataSetQuery">
 		<name>НаборДанных1</name>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>СтрокаПрихода</dataPath>
-			<field>СтрокаПрихода</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Номенклатура</dataPath>
-			<field>Номенклатура</field>
-			<role>
-				<dcscom:dimension>true</dcscom:dimension>
-			</role>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Склад</dataPath>
-			<field>Склад</field>
-			<role>
-				<dcscom:dimension>true</dcscom:dimension>
-			</role>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>СтрокаЗаявки</dataPath>
-			<field>СтрокаЗаявки</field>
-			<role>
-				<dcscom:dimension>true</dcscom:dimension>
-			</role>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Качество</dataPath>
-			<field>Качество</field>
-			<role>
-				<dcscom:dimension>true</dcscom:dimension>
-			</role>
+			<dataPath>Регион</dataPath>
+			<field>Регион</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регион</v8:content>
+				</v8:item>
+			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Отгружено</dataPath>
@@ -49,51 +27,12 @@
 			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>ДнейРезерва</dataPath>
-			<field>ДнейРезерва</field>
+			<dataPath>БлокировкаКонтрагента</dataPath>
+			<field>БлокировкаКонтрагента</field>
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Дней резерва</v8:content>
-				</v8:item>
-			</title>
-			<role>
-				<dcscom:periodNumber>1</dcscom:periodNumber>
-				<dcscom:periodType>Additional</dcscom:periodType>
-			</role>
-			<appearance>
-				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:parameter>Формат</dcscor:parameter>
-					<dcscor:value xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ЧДЦ=</v8:content>
-						</v8:item>
-					</dcscor:value>
-				</dcscor:item>
-			</appearance>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>ВСборке</dataPath>
-			<field>ВСборке</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>В сборке</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Менеджер</dataPath>
-			<field>Менеджер</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Регион</dataPath>
-			<field>Регион</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Регион</v8:content>
+					<v8:content>Блокировка контрагента</v8:content>
 				</v8:item>
 			</title>
 		</field>
@@ -118,6 +57,26 @@
 			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
+			<dataPath>ВРезерве</dataPath>
+			<field>ВРезерве</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>В резерве</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заявка</dataPath>
+			<field>Заявка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заявка</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
 			<dataPath>ТипПоставки</dataPath>
 			<field>ТипПоставки</field>
 			<title xsi:type="v8:LocalStringType">
@@ -136,6 +95,20 @@
 					<v8:content>Организация</v8:content>
 				</v8:item>
 			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДнейРезерва</dataPath>
+			<field>ДнейРезерва</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дней резерва</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Additional</dcscom:periodType>
+			</role>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>IDSite</dataPath>
@@ -158,42 +131,21 @@
 			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>ВРезерве</dataPath>
-			<field>ВРезерве</field>
+			<dataPath>Менеджер</dataPath>
+			<field>Менеджер</field>
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>В резерве</v8:content>
+					<v8:content>Менеджер</v8:content>
 				</v8:item>
 			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>Заявка</dataPath>
-			<field>Заявка</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Заявка</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>БлокировкаКонтрагента</dataPath>
-			<field>БлокировкаКонтрагента</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Блокировка контрагента</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>ДоговорКонтрагента</dataPath>
-			<field>ДоговорКонтрагента</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>ТорговаяТочка</dataPath>
-			<field>ТорговаяТочка</field>
+			<dataPath>Качество</dataPath>
+			<field>Качество</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>СуммаРезерва</dataPath>
@@ -206,12 +158,53 @@
 			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
+			<dataPath>ВСборке</dataPath>
+			<field>ВСборке</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>В сборке</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
 			<dataPath>ЮрФизЛицо</dataPath>
 			<field>ЮрФизЛицо</field>
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Юр/физ лицо</v8:content>
+					<v8:content>Юр физ лицо</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтрокаЗаявки</dataPath>
+			<field>СтрокаЗаявки</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Блокировка</dataPath>
+			<field>Блокировка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Блокировка</v8:content>
 				</v8:item>
 			</title>
 		</field>
@@ -224,20 +217,19 @@
 	РезервыТоваровОстатки.КоличествоОстаток КАК Остаток
 ПОМЕСТИТЬ ОстаткиРезервов
 ИЗ
-	РегистрНакопления.РезервыТоваров.Остатки({(ДОБАВИТЬКДАТЕ(&amp;КонецПериода, ДЕНЬ, 1))}, ) КАК РезервыТоваровОстатки
+	РегистрНакопления.РезервыТоваров.Остатки({(ДОБАВИТЬКДАТЕ(&amp;КонецПериода, ДЕНЬ, 1))}, {(Номенклатура).*, (Склад).*, (СтрокаЗаявки).*}) КАК РезервыТоваровОстатки
 ГДЕ
 	(НЕ РезервыТоваровОстатки.СтрокаЗаявки.Заявка = ЗНАЧЕНИЕ(Документ.ЗаявкаПокупателя.ПустаяСсылка)
 				И РезервыТоваровОстатки.СтрокаЗаявки.ТипПоставки = ЗНАЧЕНИЕ(Перечисление.ТипПоставки.Сток)
 			ИЛИ РезервыТоваровОстатки.СтрокаЗаявки.ТипПоставки = ЗНАЧЕНИЕ(Перечисление.ТипПоставки.VMI)
 			ИЛИ РезервыТоваровОстатки.СтрокаЗаявки.ТипПоставки = ЗНАЧЕНИЕ(Перечисление.ТипПоставки.Кросс)
 				И РезервыТоваровОстатки.Номенклатура.ВидЛиквидности = ЗНАЧЕНИЕ(Перечисление.ВидыЛиквидности.Необходимый))
-				И КоличествоОстаток &gt; 0
+	И РезервыТоваровОстатки.КоличествоОстаток &gt; 0
 ;
 
 ////////////////////////////////////////////////////////////////////////////////
 ВЫБРАТЬ
 	ЗаявкиПокупателейОстатки.Номенклатура,
-	ЗаявкиПокупателейОстатки.Склад,
 	ЗаявкиПокупателейОстатки.Качество,
 	ЗаявкиПокупателейОстатки.СтрокаЗаявки,
 	ВЫБОР
@@ -247,7 +239,15 @@
 	КОНЕЦ КАК Цена
 ПОМЕСТИТЬ ЗаявкиПокупателейОстатки
 ИЗ
-	РегистрНакопления.ЗаявкиПокупателей.Остатки({(ДОБАВИТЬКДАТЕ(&amp;КонецПериода, ДЕНЬ, 1))}, ) КАК ЗаявкиПокупателейОстатки
+	РегистрНакопления.ЗаявкиПокупателей.Остатки({(ДОБАВИТЬКДАТЕ(&amp;КонецПериода, ДЕНЬ, 1))}, {(Номенклатура).*, (СтрокаЗаявки).*}) КАК ЗаявкиПокупателейОстатки
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заявка КАК Заявка
+ПОМЕСТИТЬ НезакрытыеЗаявки
+ИЗ
+	ЗаявкиПокупателейОстатки КАК ЗаявкиПокупателейОстатки
 ;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -268,7 +268,7 @@
 		КОНЕЦ) КАК Отгружено
 ПОМЕСТИТЬ ОборотыРезервов
 ИЗ
-	РегистрНакопления.РезервыТоваров.Обороты({(&amp;НачалоПериода)}, {(КОНЕЦПЕРИОДА(&amp;КонецПериода, ДЕНЬ))}, Авто, ) КАК РезервыТоваровОбороты
+	РегистрНакопления.РезервыТоваров.Обороты({(&amp;НачалоПериода)}, {(КОНЕЦПЕРИОДА(&amp;КонецПериода, ДЕНЬ))}, Авто, {(Номенклатура).*, (Склад).*, (СтрокаЗаявки).*}) КАК РезервыТоваровОбороты
 		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ОстаткиРезервов КАК ОстаткиРезервов
 		ПО (ОстаткиРезервов.Номенклатура = РезервыТоваровОбороты.Номенклатура)
 			И (ОстаткиРезервов.Склад = РезервыТоваровОбороты.Склад)
@@ -293,7 +293,7 @@
 	МАКСИМУМ(РАЗНОСТЬДАТ(РезервыТоваровОбороты.ПериодДень, НАЧАЛОПЕРИОДА(&amp;КонецПериода, ДЕНЬ), ДЕНЬ)) КАК КоличествоДней
 ПОМЕСТИТЬ ДниРезерва
 ИЗ
-	РегистрНакопления.РезервыТоваров.Обороты({(&amp;НачалоПериода)}, {(КОНЕЦПЕРИОДА(&amp;КонецПериода, ДЕНЬ))}, Авто, ) КАК РезервыТоваровОбороты
+	РегистрНакопления.РезервыТоваров.Обороты({(&amp;НачалоПериода)}, {(КОНЕЦПЕРИОДА(&amp;КонецПериода, ДЕНЬ))}, Авто, {(Номенклатура).*, (Склад).*, (СтрокаЗаявки).*}) КАК РезервыТоваровОбороты
 		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ОстаткиРезервов КАК ОстаткиРезервов
 		ПО (ОстаткиРезервов.Номенклатура = РезервыТоваровОбороты.Номенклатура)
 			И (ОстаткиРезервов.Склад = РезервыТоваровОбороты.Склад)
@@ -312,10 +312,10 @@
 ////////////////////////////////////////////////////////////////////////////////
 ВЫБРАТЬ
 	ЕСТЬNULL(МенеджерыТорговыхТочекСрезПоследних.Менеджер, ЗНАЧЕНИЕ(Справочник.Менеджеры.ПустаяСсылка)) КАК Менеджер,
-	ОстаткиРезервов.Номенклатура,
-	ОстаткиРезервов.Склад,
-	ОстаткиРезервов.Качество,
-	ОстаткиРезервов.СтрокаЗаявки,
+	ОстаткиРезервов.Номенклатура КАК Номенклатура,
+	ОстаткиРезервов.Склад КАК Склад,
+	ОстаткиРезервов.Качество КАК Качество,
+	ОстаткиРезервов.СтрокаЗаявки КАК СтрокаЗаявки,
 	ОстаткиРезервов.СтрокаЗаявки.Заявка КАК Заявка,
 	ОстаткиРезервов.СтрокаЗаявки.Заявка.Организация КАК Организация,
 	ОстаткиРезервов.СтрокаЗаявки.Заявка.Контрагент КАК Контрагент,
@@ -331,6 +331,27 @@
 	ЕСТЬNULL(ОборотыРезервов.Отгружено, 0) КАК Отгружено,
 	ОстаткиРезервов.Остаток КАК ВРезерве,
 	ВЫРАЗИТЬ(ОстаткиРезервов.Остаток * ЗаявкиПокупателейОстатки.Цена КАК ЧИСЛО(15, 2)) КАК СуммаРезерва
+{ВЫБРАТЬ
+	Менеджер.*,
+	Номенклатура.*,
+	Склад.*,
+	Качество.*,
+	СтрокаЗаявки.*,
+	Заявка.*,
+	Организация.*,
+	Контрагент.*,
+	ВидЛиквидности.*,
+	ТипПоставки.*,
+	IDSite,
+	ЮрФизЛицо.*,
+	Регион.*,
+	Филиал.*,
+	БлокировкаКонтрагента,
+	ДнейРезерва,
+	ВСборке,
+	Отгружено,
+	ВРезерве,
+	СуммаРезерва}
 ИЗ
 	ОстаткиРезервов КАК ОстаткиРезервов
 		ЛЕВОЕ СОЕДИНЕНИЕ ДниРезерва КАК ДниРезерва
@@ -345,14 +366,38 @@
 			И ОстаткиРезервов.СтрокаЗаявки = ОборотыРезервов.СтрокаЗаявки
 		ЛЕВОЕ СОЕДИНЕНИЕ ЗаявкиПокупателейОстатки КАК ЗаявкиПокупателейОстатки
 		ПО ОстаткиРезервов.Номенклатура = ЗаявкиПокупателейОстатки.Номенклатура
-			И ОстаткиРезервов.Склад = ЗаявкиПокупателейОстатки.Склад
 			И ОстаткиРезервов.Качество = ЗаявкиПокупателейОстатки.Качество
 			И ОстаткиРезервов.СтрокаЗаявки = ЗаявкиПокупателейОстатки.СтрокаЗаявки
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.МенеджерыТорговыхТочек.СрезПоследних({(КОНЕЦПЕРИОДА(&amp;КонецПериода, ДЕНЬ))}, ) КАК МенеджерыТорговыхТочекСрезПоследних
 		ПО ОстаткиРезервов.СтрокаЗаявки.Заявка.Контрагент.ОсновнаяТорговаяТочка = МенеджерыТорговыхТочекСрезПоследних.ТорговаяТочка
 			И (МенеджерыТорговыхТочекСрезПоследних.ВидМенеджера = ЗНАЧЕНИЕ(Перечисление.ВидыМенеджеров.Продажи))
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ НезакрытыеЗаявки КАК НезакрытыеЗаявки
+		ПО ОстаткиРезервов.СтрокаЗаявки.Заявка = НезакрытыеЗаявки.Заявка
+
 ГДЕ
-	ЕСТЬNULL(ОборотыРезервов.ВСборке, 0) = 0</query>
+	ЕСТЬNULL(ОборотыРезервов.ВСборке, 0) = 0
+{ГДЕ
+	(ЕСТЬNULL(МенеджерыТорговыхТочекСрезПоследних.Менеджер, ЗНАЧЕНИЕ(Справочник.Менеджеры.ПустаяСсылка))).* КАК Менеджер,
+	ОстаткиРезервов.Номенклатура.* КАК Номенклатура,
+	ОстаткиРезервов.Склад.* КАК Склад,
+	ОстаткиРезервов.Качество.* КАК Качество,
+	ОстаткиРезервов.СтрокаЗаявки.* КАК СтрокаЗаявки,
+	ОстаткиРезервов.СтрокаЗаявки.Заявка.* КАК Заявка,
+	ОстаткиРезервов.СтрокаЗаявки.Заявка.Организация.* КАК Организация,
+	ОстаткиРезервов.СтрокаЗаявки.Заявка.Контрагент.* КАК Контрагент,
+	ОстаткиРезервов.Номенклатура.ВидЛиквидности.* КАК ВидЛиквидности,
+	ОстаткиРезервов.СтрокаЗаявки.ТипПоставки.* КАК ТипПоставки,
+	ОстаткиРезервов.СтрокаЗаявки.IDSite КАК IDSite,
+	ОстаткиРезервов.СтрокаЗаявки.Заявка.Контрагент.ЮрФизЛицо.* КАК ЮрФизЛицо,
+	ОстаткиРезервов.СтрокаЗаявки.Заявка.Контрагент.ОсновнаяТорговаяТочка.Регион.* КАК Регион,
+	ОстаткиРезервов.СтрокаЗаявки.Заявка.Контрагент.ОсновнаяТорговаяТочка.Регион.Филиал.* КАК Филиал,
+	ОстаткиРезервов.СтрокаЗаявки.Заявка.Контрагент.Блокировка КАК Блокировка,
+	(ЕСТЬNULL(ДниРезерва.КоличествоДней, 0)) КАК ДнейРезерва,
+	(ЕСТЬNULL(ОборотыРезервов.ВСборке, 0)) КАК ВСборке,
+	(ЕСТЬNULL(ОборотыРезервов.Отгружено, 0)) КАК Отгружено,
+	ОстаткиРезервов.Остаток КАК ВРезерве,
+	(ВЫРАЗИТЬ(ОстаткиРезервов.Остаток * ЗаявкиПокупателейОстатки.Цена КАК ЧИСЛО(15, 2))) КАК СуммаРезерва}</query>
+		<autoFillFields>false</autoFillFields>
 	</dataSet>
 	<calculatedField>
 		<dataPath>СтрокаЗаявкиIDSite</dataPath>
@@ -368,26 +413,6 @@
 			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ИдентификаторыСтрокЗаявок</v8:Type>
 		</valueType>
 	</calculatedField>
-	<totalField>
-		<dataPath>ВСборке</dataPath>
-		<expression>Сумма(ВСборке)</expression>
-	</totalField>
-	<totalField>
-		<dataPath>Отгружено</dataPath>
-		<expression>Сумма(Отгружено)</expression>
-	</totalField>
-	<totalField>
-		<dataPath>ДнейРезерва</dataPath>
-		<expression>Среднее(ДнейРезерва)</expression>
-	</totalField>
-	<totalField>
-		<dataPath>ВРезерве</dataPath>
-		<expression>Сумма(ВРезерве)</expression>
-	</totalField>
-	<totalField>
-		<dataPath>СуммаРезерва</dataPath>
-		<expression>Сумма(СуммаРезерва)</expression>
-	</totalField>
 	<parameter>
 		<name>КонецПериода</name>
 		<title xsi:type="v8:LocalStringType">
