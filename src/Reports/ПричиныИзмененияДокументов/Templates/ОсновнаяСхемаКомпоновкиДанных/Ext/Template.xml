@@ -76,12 +76,28 @@
 				</dcscor:item>
 			</appearance>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаОплаты</dataPath>
+			<field>ДатаОплаты</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДФ=dd.MM.yyyy</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	ПричиныИзмененияДокументов.Период КАК ДатаИзменения,
 	ПричиныИзмененияДокументов.Документ,
 	ПричиныИзмененияДокументов.Пользователь,
 	ПричиныИзмененияДокументов.ДатаДокумента,
+	ПричиныИзмененияДокументов.ДатаОплаты,
 	ПричиныИзмененияДокументов.СуммаДокументаДо,
 	ПричиныИзмененияДокументов.СуммаДокумента,
 	ПричиныИзмененияДокументов.СуммаДокументаДо - ПричиныИзмененияДокументов.СуммаДокумента КАК СуммаСкидки,
@@ -92,6 +108,18 @@
 ИЗ
 	РегистрСведений.ПричиныИзмененияДокументов КАК ПричиныИзмененияДокументов</query>
 	</dataSet>
+	<totalField>
+		<dataPath>СуммаСкидки</dataPath>
+		<expression>Сумма(СуммаСкидки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаДокументаДо</dataPath>
+		<expression>Сумма(СуммаДокументаДо)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаДокумента</dataPath>
+		<expression>Сумма(СуммаДокумента)</expression>
+	</totalField>
 	<settingsVariant>
 		<dcsset:name>Основной</dcsset:name>
 		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
@@ -105,6 +133,9 @@
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Документ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаОплаты</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>СуммаДокументаДо</dcsset:field>
