@@ -384,6 +384,16 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЛогинСайта</dataPath>
+			<field>ЛогинСайта</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Логин сайта</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	ВЫБОР
@@ -550,7 +560,8 @@
 	ТаблицаПродаж.Заявка,
 	ТаблицаПродаж.ЗаявкаОтветственный КАК Ответственный,
 	ТаблицаПродаж.Изготовитель,
-	ТаблицаПродаж.УчетнаяЗаписьСайта
+	ТаблицаПродаж.УчетнаяЗаписьСайта,
+	ТаблицаПродаж.УчетнаяЗаписьСайта.Код КАК ЛогинСайта
 ИЗ
 	(ВЫБРАТЬ
 		ВТПродажи.ДокументДвижения КАК ДокументДвижения,
@@ -671,7 +682,8 @@
 	ТаблицаПродаж.Заявка,
 	ТаблицаПродаж.ЗаявкаОтветственный,
 	ТаблицаПродаж.Изготовитель,
-	ТаблицаПродаж.УчетнаяЗаписьСайта</query>
+	ТаблицаПродаж.УчетнаяЗаписьСайта,
+	ТаблицаПродаж.УчетнаяЗаписьСайта.Код</query>
 	</dataSet>
 	<calculatedField>
 		<dataPath>Сумма</dataPath>
@@ -1878,7 +1890,7 @@
 		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
 			<dcsset:selection>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>УчетнаяЗаписьСайта</dcsset:field>
+					<dcsset:field>ЛогинСайта</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>ПериодМесяц</dcsset:field>
@@ -1916,7 +1928,7 @@
 			<dcsset:item xsi:type="dcsset:StructureItemGroup">
 				<dcsset:groupItems>
 					<dcsset:item xsi:type="dcsset:GroupItemField">
-						<dcsset:field>УчетнаяЗаписьСайта</dcsset:field>
+						<dcsset:field>ЛогинСайта</dcsset:field>
 						<dcsset:groupType>Items</dcsset:groupType>
 						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
