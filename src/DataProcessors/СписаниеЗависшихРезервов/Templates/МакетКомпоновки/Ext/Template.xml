@@ -414,6 +414,20 @@
 		</valueType>
 	</calculatedField>
 	<parameter>
+		<name>Автоматически</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Автоматически</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
 		<name>КонецПериода</name>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
@@ -637,6 +651,11 @@
 				</dcsset:item>
 			</dcsset:filter>
 			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Автоматически</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					<dcsset:userSettingID>d42b18ee-bd55-42de-9a02-81a5c1b72548</dcsset:userSettingID>
+				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>КонецПериода</dcscor:parameter>
 					<dcscor:value xsi:type="v8:StandardBeginningDate">
