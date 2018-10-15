@@ -5,7 +5,7 @@
 		<dataSourceType>Local</dataSourceType>
 	</dataSource>
 	<dataSet xsi:type="DataSetQuery">
-		<name>НаборДанных1</name>
+		<name>ОсновнойНабор</name>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>СуммаДокумента</dataPath>
 			<field>СуммаДокумента</field>
@@ -108,6 +108,101 @@
 ИЗ
 	РегистрСведений.ПричиныИзмененияДокументов КАК ПричиныИзмененияДокументов</query>
 	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>СрезПоследних</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Документ</dataPath>
+			<field>Документ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Пользователь</dataPath>
+			<field>Пользователь</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаПоследнейКорректировки</dataPath>
+			<field>СуммаПоследнейКорректировки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма последней корректировки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПрибыльПоследнейКорректировки</dataPath>
+			<field>ПрибыльПоследнейКорректировки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прибыль последней корректировки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ПричиныИзмененияДокументов.Документ,
+	ПричиныИзмененияДокументов.Пользователь,
+	ПричиныИзмененияДокументов.СуммаДокумента КАК СуммаПоследнейКорректировки,
+	ПричиныИзмененияДокументов.Прибыль КАК ПрибыльПоследнейКорректировки
+ИЗ
+	РегистрСведений.ПричиныИзмененияДокументов.СрезПоследних(, ) КАК ПричиныИзмененияДокументов</query>
+	</dataSet>
+	<dataSetLink>
+		<sourceDataSet>ОсновнойНабор</sourceDataSet>
+		<destinationDataSet>СрезПоследних</destinationDataSet>
+		<sourceExpression>Документ</sourceExpression>
+		<destinationExpression>Документ</destinationExpression>
+		<required>false</required>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>ОсновнойНабор</sourceDataSet>
+		<destinationDataSet>СрезПоследних</destinationDataSet>
+		<sourceExpression>Пользователь</sourceExpression>
+		<destinationExpression>Пользователь</destinationExpression>
+		<required>false</required>
+	</dataSetLink>
+	<calculatedField>
+		<dataPath>ПроцентСкидкиОтСуммыПоследнейКорректировки</dataPath>
+		<expression>0</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Процент скидки от суммы последней корректировки</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ПроцентСкидкиОтПрибылиПоследнейКорректировки</dataPath>
+		<expression>0</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Процент скидки от прибыли последней корректировки</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
 	<totalField>
 		<dataPath>СуммаСкидки</dataPath>
 		<expression>Сумма(СуммаСкидки)</expression>
@@ -115,11 +210,52 @@
 	<totalField>
 		<dataPath>СуммаДокументаДо</dataPath>
 		<expression>Сумма(СуммаДокументаДо)</expression>
+		<group>Документ</group>
 	</totalField>
 	<totalField>
 		<dataPath>СуммаДокумента</dataPath>
 		<expression>Сумма(СуммаДокумента)</expression>
+		<group>Документ</group>
 	</totalField>
+	<totalField>
+		<dataPath>СуммаПоследнейКорректировки</dataPath>
+		<expression>Сумма(СуммаПоследнейКорректировки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПрибыльПоследнейКорректировки</dataPath>
+		<expression>Сумма(ПрибыльПоследнейКорректировки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПроцентСкидкиОтПрибылиПоследнейКорректировки</dataPath>
+		<expression>Сумма(СуммаСкидки)*100/Сумма(ПрибыльПоследнейКорректировки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПроцентСкидкиОтСуммыПоследнейКорректировки</dataPath>
+		<expression>Сумма(СуммаСкидки)*100/Сумма(СуммаПоследнейКорректировки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Прибыль</dataPath>
+		<expression>Сумма(Прибыль)</expression>
+		<group>Прибыль</group>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>ТекущаяДата()</expression>
+	</parameter>
 	<settingsVariant>
 		<dcsset:name>Основной</dcsset:name>
 		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
@@ -144,10 +280,16 @@
 					<dcsset:field>СуммаДокумента</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Прибыль</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>СуммаСкидки</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>Прибыль</dcsset:field>
+					<dcsset:field>ПроцентСкидкиОтСуммыПоследнейКорректировки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаПоследнейКорректировки</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Комментарий</dcsset:field>
