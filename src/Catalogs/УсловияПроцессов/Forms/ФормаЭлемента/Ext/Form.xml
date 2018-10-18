@@ -16,28 +16,84 @@
 			<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
 			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
 		</InputField>
-		<LabelDecoration name="Подсказка" id="13">
-			<Title formatted="false">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Необходимо установить значение переменной "Результат"</v8:content>
-				</v8:item>
-			</Title>
-			<ContextMenu name="ПодсказкаКонтекстноеМеню" id="14"/>
-			<ExtendedTooltip name="ПодсказкаРасширеннаяПодсказка" id="15"/>
-		</LabelDecoration>
-		<InputField name="Алгоритм" id="7">
-			<DataPath>Объект.Условие</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<ContextMenu name="АлгоритмКонтекстноеМеню" id="8"/>
-			<ExtendedTooltip name="АлгоритмРасширеннаяПодсказка" id="9"/>
-		</InputField>
 		<InputField name="Комментарий" id="10">
 			<DataPath>Объект.Комментарий</DataPath>
 			<EditMode>EnterOnInput</EditMode>
 			<ContextMenu name="КомментарийКонтекстноеМеню" id="11"/>
 			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="12"/>
 		</InputField>
+		<Pages name="ГруппаСтраницы" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="17"/>
+			<ChildItems>
+				<Page name="ГруппаОсновное" id="18">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Текст алгоритма</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа основное</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаОсновноеРасширеннаяПодсказка" id="19"/>
+					<ChildItems>
+						<LabelDecoration name="Подсказка" id="13">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Необходимо установить значение переменной "Результат"</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ПодсказкаКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="ПодсказкаРасширеннаяПодсказка" id="15"/>
+						</LabelDecoration>
+						<InputField name="Алгоритм" id="7">
+							<DataPath>Объект.Условие</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="АлгоритмКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="АлгоритмРасширеннаяПодсказка" id="9"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаСообщениеПриНевыполнении" id="20">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сообщение при невыполнении условия</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа сообщение при невыполнении</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаСообщениеПриНевыполненииРасширеннаяПодсказка" id="21"/>
+					<ChildItems>
+						<InputField name="СообщениеПриНевыполнении" id="22">
+							<DataPath>Объект.СообщениеПриНевыполнении</DataPath>
+							<ContextMenu name="СообщениеПриНевыполненииКонтекстноеМеню" id="23"/>
+							<ExtendedTooltip name="СообщениеПриНевыполненииРасширеннаяПодсказка" id="24"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
