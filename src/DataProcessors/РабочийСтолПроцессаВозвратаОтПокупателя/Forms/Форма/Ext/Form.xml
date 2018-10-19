@@ -41,7 +41,6 @@
 							<v8:content>Настройки</v8:content>
 						</v8:item>
 					</CollapsedRepresentationTitle>
-					<Collapsed>true</Collapsed>
 					<Representation>NormalSeparation</Representation>
 					<ShowLeftMargin>false</ShowLeftMargin>
 					<ExtendedTooltip name="ГруппаНастройкиРасширеннаяПодсказка" id="30"/>
@@ -95,7 +94,7 @@
 						</Button>
 						<Button name="ВсеАкты" id="80">
 							<Type>UsualButton</Type>
-							<CommandName>Form.Command.ВсеАкты</CommandName>
+							<CommandName>Form.Command.АктыБезОтветственного</CommandName>
 							<ExtendedTooltip name="ВсеАктыРасширеннаяПодсказка" id="81"/>
 						</Button>
 					</ChildItems>
@@ -165,8 +164,19 @@
 								<ExtendedTooltip name="АктыРассмотренияВозвратаУправлениеПоискомРасширеннаяПодсказка" id="13"/>
 							</SearchControlAddition>
 							<ChildItems>
+								<LabelField name="АктыРассмотренияВозвратаДата" id="87">
+									<DataPath>АктыРассмотренияВозврата.Date</DataPath>
+									<ContextMenu name="АктыРассмотренияВозвратаДатаКонтекстноеМеню" id="88"/>
+									<ExtendedTooltip name="АктыРассмотренияВозвратаДатаРасширеннаяПодсказка" id="89"/>
+								</LabelField>
+								<LabelField name="АктыРассмотренияВозвратаНомер" id="84">
+									<DataPath>АктыРассмотренияВозврата.Number</DataPath>
+									<ContextMenu name="АктыРассмотренияВозвратаНомерКонтекстноеМеню" id="85"/>
+									<ExtendedTooltip name="АктыРассмотренияВозвратаНомерРасширеннаяПодсказка" id="86"/>
+								</LabelField>
 								<LabelField name="АктыРассмотренияВозвратаСсылка" id="14">
 									<DataPath>АктыРассмотренияВозврата.Ref</DataPath>
+									<Visible>false</Visible>
 									<ContextMenu name="АктыРассмотренияВозвратаСсылкаКонтекстноеМеню" id="15"/>
 									<ExtendedTooltip name="АктыРассмотренияВозвратаСсылкаРасширеннаяПодсказка" id="16"/>
 								</LabelField>
@@ -314,20 +324,20 @@
 			</ToolTip>
 			<Action>АктыМоейГруппы</Action>
 		</Command>
-		<Command name="ВсеАкты" id="3">
+		<Command name="АктыБезОтветственного" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Все акты</v8:content>
+					<v8:content>Акты без ответственного</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Все акты</v8:content>
+					<v8:content>Акты без ответственного</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ВсеАкты</Action>
+			<Action>АктыБезОтветственного</Action>
 		</Command>
 	</Commands>
 </Form>
