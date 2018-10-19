@@ -46,44 +46,58 @@
 					<ShowLeftMargin>false</ShowLeftMargin>
 					<ExtendedTooltip name="ГруппаНастройкиРасширеннаяПодсказка" id="30"/>
 					<ChildItems>
-						<Table name="АктыРассмотренияВозвратаКомпоновщикНастроекНастройкиОтбор" id="61">
-							<Representation>Tree</Representation>
-							<Autofill>true</Autofill>
-							<Width>60</Width>
-							<InitialTreeView>ExpandAllLevels</InitialTreeView>
-							<EnableStartDrag>true</EnableStartDrag>
-							<EnableDrag>true</EnableDrag>
-							<DataPath>АктыРассмотренияВозврата.SettingsComposer.Settings.Filter</DataPath>
-							<ViewMode>All</ViewMode>
-							<SettingsNamedItemDetailedRepresentation>false</SettingsNamedItemDetailedRepresentation>
-							<ContextMenu name="АктыРассмотренияВозвратаКомпоновщикНастроекНастройкиОтборКонтекстноеМеню" id="62"/>
-							<AutoCommandBar name="АктыРассмотренияВозвратаКомпоновщикНастроекНастройкиОтборКоманднаяПанель" id="63"/>
-							<ExtendedTooltip name="АктыРассмотренияВозвратаКомпоновщикНастроекНастройкиОтборРасширеннаяПодсказка" id="64"/>
-							<SearchStringAddition name="АктыРассмотренияВозвратаКомпоновщикНастроекНастройкиОтборСтрокаПоиска" id="65">
-								<AdditionSource>
-									<Item>АктыРассмотренияВозвратаКомпоновщикНастроекНастройкиОтбор</Item>
-									<Type>SearchStringRepresentation</Type>
-								</AdditionSource>
-								<ContextMenu name="АктыРассмотренияВозвратаКомпоновщикНастроекНастройкиОтборСтрокаПоискаКонтекстноеМеню" id="66"/>
-								<ExtendedTooltip name="АктыРассмотренияВозвратаКомпоновщикНастроекНастройкиОтборСтрокаПоискаРасширеннаяПодсказка" id="67"/>
-							</SearchStringAddition>
-							<ViewStatusAddition name="АктыРассмотренияВозвратаКомпоновщикНастроекНастройкиОтборСостояниеПросмотра" id="68">
-								<AdditionSource>
-									<Item>АктыРассмотренияВозвратаКомпоновщикНастроекНастройкиОтбор</Item>
-									<Type>ViewStatusRepresentation</Type>
-								</AdditionSource>
-								<ContextMenu name="АктыРассмотренияВозвратаКомпоновщикНастроекНастройкиОтборСостояниеПросмотраКонтекстноеМеню" id="69"/>
-								<ExtendedTooltip name="АктыРассмотренияВозвратаКомпоновщикНастроекНастройкиОтборСостояниеПросмотраРасширеннаяПодсказка" id="70"/>
-							</ViewStatusAddition>
-							<SearchControlAddition name="АктыРассмотренияВозвратаКомпоновщикНастроекНастройкиОтборУправлениеПоиском" id="71">
-								<AdditionSource>
-									<Item>АктыРассмотренияВозвратаКомпоновщикНастроекНастройкиОтбор</Item>
-									<Type>SearchControl</Type>
-								</AdditionSource>
-								<ContextMenu name="АктыРассмотренияВозвратаКомпоновщикНастроекНастройкиОтборУправлениеПоискомКонтекстноеМеню" id="72"/>
-								<ExtendedTooltip name="АктыРассмотренияВозвратаКомпоновщикНастроекНастройкиОтборУправлениеПоискомРасширеннаяПодсказка" id="73"/>
-							</SearchControlAddition>
-						</Table>
+						<UsualGroup name="КомпоновщикНастроекПользовательскиеНастройки" id="82">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Компоновщик настроек пользовательские настройки</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Компоновщик настроек пользовательские настройки</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="КомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="83"/>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаБыстрыеОтборы" id="76">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа быстрые отборы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа быстрые отборы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>Horizontal</Group>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаБыстрыеОтборыРасширеннаяПодсказка" id="77"/>
+					<ChildItems>
+						<Button name="МоиАкты" id="74">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.МоиАкты</CommandName>
+							<ExtendedTooltip name="МоиАктыРасширеннаяПодсказка" id="75"/>
+						</Button>
+						<Button name="АктыМоейГруппы" id="78">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.АктыМоейГруппы</CommandName>
+							<ExtendedTooltip name="АктыМоейГруппыРасширеннаяПодсказка" id="79"/>
+						</Button>
+						<Button name="ВсеАкты" id="80">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.ВсеАкты</CommandName>
+							<ExtendedTooltip name="ВсеАктыРасширеннаяПодсказка" id="81"/>
+						</Button>
 					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="ГруппаАктыРассмотренияВозврата" id="44">
@@ -122,6 +136,7 @@
 							<ShowRoot>true</ShowRoot>
 							<AllowRootChoice>false</AllowRootChoice>
 							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<UserSettingsGroup>КомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 							<ContextMenu name="АктыРассмотренияВозвратаКонтекстноеМеню" id="2"/>
 							<AutoCommandBar name="АктыРассмотренияВозвратаКоманднаяПанель" id="3"/>
 							<ExtendedTooltip name="АктыРассмотренияВозвратаРасширеннаяПодсказка" id="4"/>
@@ -209,21 +224,25 @@
 							<dcsset:use>false</dcsset:use>
 							<dcsset:left xsi:type="dcscor:Field">Ответственный</dcsset:left>
 							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:userSettingID>32016b8c-efa0-4482-86db-64c9c3be0e56</dcsset:userSettingID>
 						</dcsset:item>
 						<dcsset:item xsi:type="dcsset:FilterItemComparison">
 							<dcsset:use>false</dcsset:use>
 							<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
 							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:userSettingID>0d277e05-afb2-495e-910f-23b3b2f5a22f</dcsset:userSettingID>
 						</dcsset:item>
 						<dcsset:item xsi:type="dcsset:FilterItemComparison">
 							<dcsset:use>false</dcsset:use>
 							<dcsset:left xsi:type="dcscor:Field">СтатусДокумента</dcsset:left>
 							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:userSettingID>7aa30f85-9e0d-4947-b206-531e68d004f0</dcsset:userSettingID>
 						</dcsset:item>
 						<dcsset:item xsi:type="dcsset:FilterItemComparison">
 							<dcsset:use>false</dcsset:use>
 							<dcsset:left xsi:type="dcscor:Field">СтатусПроверкиБухгалтерией</dcsset:left>
 							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:userSettingID>d9ed993e-697d-4b46-b633-7697ab1d437c</dcsset:userSettingID>
 						</dcsset:item>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
 						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
@@ -264,4 +283,51 @@
 			</Settings>
 		</Attribute>
 	</Attributes>
+	<Commands>
+		<Command name="МоиАкты" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Мои акты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Мои акты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>МоиАкты</Action>
+		</Command>
+		<Command name="АктыМоейГруппы" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Акты моей группы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Акты моей группы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>АктыМоейГруппы</Action>
+		</Command>
+		<Command name="ВсеАкты" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Все акты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Все акты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВсеАкты</Action>
+		</Command>
+	</Commands>
 </Form>

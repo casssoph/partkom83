@@ -101,6 +101,14 @@
 								<InputField name="ТаблицаУсловийУсловие" id="36">
 									<DataPath>Объект.ТаблицаУсловий.Условие</DataPath>
 									<EditMode>EnterOnInput</EditMode>
+									<ChoiceParameters>
+										<app:item name="Отбор.Условие">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xs:boolean">true</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
 									<ContextMenu name="ТаблицаУсловийУсловиеКонтекстноеМеню" id="37"/>
 									<ExtendedTooltip name="ТаблицаУсловийУсловиеРасширеннаяПодсказка" id="38"/>
 								</InputField>
@@ -168,6 +176,14 @@
 								<InputField name="ТаблицаАлгоритмовАлгоритм" id="60">
 									<DataPath>Объект.Обработчики.Обработчик</DataPath>
 									<EditMode>EnterOnInput</EditMode>
+									<ChoiceParameters>
+										<app:item name="Отбор.Условие">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xs:boolean">false</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
 									<ContextMenu name="ТаблицаАлгоритмовАлгоритмКонтекстноеМеню" id="61"/>
 									<ExtendedTooltip name="ТаблицаАлгоритмовАлгоритмРасширеннаяПодсказка" id="62"/>
 								</InputField>

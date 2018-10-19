@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<InputField name="Код" id="1">
+			<DataPath>Объект.Code</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="Наименование" id="4">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="Имя" id="7">
+			<DataPath>Объект.Имя</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ИмяКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ИмяРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<CheckBoxField name="НаКлиенте" id="13">
+			<DataPath>Объект.НаКлиенте</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="НаКлиентеКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="НаКлиентеРасширеннаяПодсказка" id="15"/>
+		</CheckBoxField>
+		<Table name="Обработчики" id="16">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.Обработчики</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ОбработчикиКонтекстноеМеню" id="17"/>
+			<AutoCommandBar name="ОбработчикиКоманднаяПанель" id="18"/>
+			<ExtendedTooltip name="ОбработчикиРасширеннаяПодсказка" id="19"/>
+			<SearchStringAddition name="ОбработчикиСтрокаПоиска" id="20">
+				<AdditionSource>
+					<Item>Обработчики</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ОбработчикиСтрокаПоискаКонтекстноеМеню" id="21"/>
+				<ExtendedTooltip name="ОбработчикиСтрокаПоискаРасширеннаяПодсказка" id="22"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ОбработчикиСостояниеПросмотра" id="23">
+				<AdditionSource>
+					<Item>Обработчики</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ОбработчикиСостояниеПросмотраКонтекстноеМеню" id="24"/>
+				<ExtendedTooltip name="ОбработчикиСостояниеПросмотраРасширеннаяПодсказка" id="25"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ОбработчикиУправлениеПоиском" id="26">
+				<AdditionSource>
+					<Item>Обработчики</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ОбработчикиУправлениеПоискомКонтекстноеМеню" id="27"/>
+				<ExtendedTooltip name="ОбработчикиУправлениеПоискомРасширеннаяПодсказка" id="28"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ОбработчикиНомерСтроки" id="29">
+					<DataPath>Объект.Обработчики.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОбработчикиНомерСтрокиКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ОбработчикиНомерСтрокиРасширеннаяПодсказка" id="31"/>
+				</LabelField>
+				<InputField name="ОбработчикиОбработчик" id="32">
+					<DataPath>Объект.Обработчики.Обработчик</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОбработчикиОбработчикКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="ОбработчикиОбработчикРасширеннаяПодсказка" id="34"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<InputField name="Комментарий" id="10">
+			<DataPath>Объект.Комментарий</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="12"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.КомандыПроцессов</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>
