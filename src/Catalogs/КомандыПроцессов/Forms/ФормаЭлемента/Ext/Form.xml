@@ -3,6 +3,9 @@
 	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
 	<ChildItems>
 		<InputField name="Код" id="1">
 			<DataPath>Объект.Code</DataPath>
@@ -29,55 +32,178 @@
 			<ContextMenu name="НаКлиентеКонтекстноеМеню" id="14"/>
 			<ExtendedTooltip name="НаКлиентеРасширеннаяПодсказка" id="15"/>
 		</CheckBoxField>
-		<Table name="Обработчики" id="16">
-			<Representation>List</Representation>
-			<AutoInsertNewRow>true</AutoInsertNewRow>
-			<EnableStartDrag>true</EnableStartDrag>
-			<EnableDrag>true</EnableDrag>
-			<DataPath>Объект.Обработчики</DataPath>
-			<RowFilter xsi:nil="true"/>
-			<ContextMenu name="ОбработчикиКонтекстноеМеню" id="17"/>
-			<AutoCommandBar name="ОбработчикиКоманднаяПанель" id="18"/>
-			<ExtendedTooltip name="ОбработчикиРасширеннаяПодсказка" id="19"/>
-			<SearchStringAddition name="ОбработчикиСтрокаПоиска" id="20">
-				<AdditionSource>
-					<Item>Обработчики</Item>
-					<Type>SearchStringRepresentation</Type>
-				</AdditionSource>
-				<ContextMenu name="ОбработчикиСтрокаПоискаКонтекстноеМеню" id="21"/>
-				<ExtendedTooltip name="ОбработчикиСтрокаПоискаРасширеннаяПодсказка" id="22"/>
-			</SearchStringAddition>
-			<ViewStatusAddition name="ОбработчикиСостояниеПросмотра" id="23">
-				<AdditionSource>
-					<Item>Обработчики</Item>
-					<Type>ViewStatusRepresentation</Type>
-				</AdditionSource>
-				<ContextMenu name="ОбработчикиСостояниеПросмотраКонтекстноеМеню" id="24"/>
-				<ExtendedTooltip name="ОбработчикиСостояниеПросмотраРасширеннаяПодсказка" id="25"/>
-			</ViewStatusAddition>
-			<SearchControlAddition name="ОбработчикиУправлениеПоиском" id="26">
-				<AdditionSource>
-					<Item>Обработчики</Item>
-					<Type>SearchControl</Type>
-				</AdditionSource>
-				<ContextMenu name="ОбработчикиУправлениеПоискомКонтекстноеМеню" id="27"/>
-				<ExtendedTooltip name="ОбработчикиУправлениеПоискомРасширеннаяПодсказка" id="28"/>
-			</SearchControlAddition>
+		<Pages name="ГруппаСтраницы" id="35">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="36"/>
 			<ChildItems>
-				<LabelField name="ОбработчикиНомерСтроки" id="29">
-					<DataPath>Объект.Обработчики.LineNumber</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="ОбработчикиНомерСтрокиКонтекстноеМеню" id="30"/>
-					<ExtendedTooltip name="ОбработчикиНомерСтрокиРасширеннаяПодсказка" id="31"/>
-				</LabelField>
-				<InputField name="ОбработчикиОбработчик" id="32">
-					<DataPath>Объект.Обработчики.Обработчик</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="ОбработчикиОбработчикКонтекстноеМеню" id="33"/>
-					<ExtendedTooltip name="ОбработчикиОбработчикРасширеннаяПодсказка" id="34"/>
-				</InputField>
+				<Page name="ГруппаОбработчики" id="37">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа обработчики</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа обработчики</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаОбработчикиРасширеннаяПодсказка" id="38"/>
+					<ChildItems>
+						<Table name="Обработчики" id="16">
+							<Representation>List</Representation>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.Обработчики</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ОбработчикиКонтекстноеМеню" id="17"/>
+							<AutoCommandBar name="ОбработчикиКоманднаяПанель" id="18"/>
+							<ExtendedTooltip name="ОбработчикиРасширеннаяПодсказка" id="19"/>
+							<SearchStringAddition name="ОбработчикиСтрокаПоиска" id="20">
+								<AdditionSource>
+									<Item>Обработчики</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ОбработчикиСтрокаПоискаКонтекстноеМеню" id="21"/>
+								<ExtendedTooltip name="ОбработчикиСтрокаПоискаРасширеннаяПодсказка" id="22"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ОбработчикиСостояниеПросмотра" id="23">
+								<AdditionSource>
+									<Item>Обработчики</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ОбработчикиСостояниеПросмотраКонтекстноеМеню" id="24"/>
+								<ExtendedTooltip name="ОбработчикиСостояниеПросмотраРасширеннаяПодсказка" id="25"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ОбработчикиУправлениеПоиском" id="26">
+								<AdditionSource>
+									<Item>Обработчики</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ОбработчикиУправлениеПоискомКонтекстноеМеню" id="27"/>
+								<ExtendedTooltip name="ОбработчикиУправлениеПоискомРасширеннаяПодсказка" id="28"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ОбработчикиНомерСтроки" id="29">
+									<DataPath>Объект.Обработчики.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ОбработчикиНомерСтрокиКонтекстноеМеню" id="30"/>
+									<ExtendedTooltip name="ОбработчикиНомерСтрокиРасширеннаяПодсказка" id="31"/>
+								</LabelField>
+								<InputField name="ОбработчикиОбработчик" id="32">
+									<DataPath>Объект.Обработчики.Обработчик</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ОбработчикиОбработчикКонтекстноеМеню" id="33"/>
+									<ExtendedTooltip name="ОбработчикиОбработчикРасширеннаяПодсказка" id="34"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаИспользование" id="39">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Использование</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа использование</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаИспользованиеРасширеннаяПодсказка" id="40"/>
+					<ChildItems>
+						<Table name="ИспользованиеВСтатусах" id="41">
+							<TitleLocation>Top</TitleLocation>
+							<Header>false</Header>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>ИспользованиеВСтатусах</DataPath>
+							<RowPictureDataPath>ИспользованиеВСтатусах.DefaultPicture</RowPictureDataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>В статусах</v8:content>
+								</v8:item>
+							</Title>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<ContextMenu name="ИспользованиеВСтатусахКонтекстноеМеню" id="42"/>
+							<AutoCommandBar name="ИспользованиеВСтатусахКоманднаяПанель" id="43">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ИспользованиеВСтатусахРасширеннаяПодсказка" id="44"/>
+							<SearchStringAddition name="ИспользованиеВСтатусахСтрокаПоиска" id="45">
+								<AdditionSource>
+									<Item>ИспользованиеВСтатусах</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ИспользованиеВСтатусахСтрокаПоискаКонтекстноеМеню" id="46"/>
+								<ExtendedTooltip name="ИспользованиеВСтатусахСтрокаПоискаРасширеннаяПодсказка" id="47"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ИспользованиеВСтатусахСостояниеПросмотра" id="48">
+								<AdditionSource>
+									<Item>ИспользованиеВСтатусах</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ИспользованиеВСтатусахСостояниеПросмотраКонтекстноеМеню" id="49"/>
+								<ExtendedTooltip name="ИспользованиеВСтатусахСостояниеПросмотраРасширеннаяПодсказка" id="50"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ИспользованиеВСтатусахУправлениеПоиском" id="51">
+								<AdditionSource>
+									<Item>ИспользованиеВСтатусах</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ИспользованиеВСтатусахУправлениеПоискомКонтекстноеМеню" id="52"/>
+								<ExtendedTooltip name="ИспользованиеВСтатусахУправлениеПоискомРасширеннаяПодсказка" id="53"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">ИспользованиеВСтатусахВыбор</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="ИспользованиеВСтатусахСсылка" id="54">
+									<DataPath>ИспользованиеВСтатусах.Ref</DataPath>
+									<ContextMenu name="ИспользованиеВСтатусахСсылкаКонтекстноеМеню" id="55"/>
+									<ExtendedTooltip name="ИспользованиеВСтатусахСсылкаРасширеннаяПодсказка" id="56"/>
+								</LabelField>
+								<LabelField name="ИспользованиеВСтатусахСтандартнаяКартинка" id="57">
+									<DataPath>ИспользованиеВСтатусах.DefaultPicture</DataPath>
+									<Visible>false</Visible>
+									<ContextMenu name="ИспользованиеВСтатусахСтандартнаяКартинкаКонтекстноеМеню" id="58"/>
+									<ExtendedTooltip name="ИспользованиеВСтатусахСтандартнаяКартинкаРасширеннаяПодсказка" id="59"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
 			</ChildItems>
-		</Table>
+		</Pages>
 		<InputField name="Комментарий" id="10">
 			<DataPath>Объект.Комментарий</DataPath>
 			<EditMode>EnterOnInput</EditMode>
@@ -92,6 +218,43 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ИспользованиеВСтатусах" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использование в статусах</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗЛИЧНЫЕ
+	КомандыПроцесса.Ссылка
+ИЗ
+	Справочник.СтатусыДокументов.КомандыПроцесса КАК КомандыПроцесса
+ГДЕ
+	КомандыПроцесса.КомандаПроцесса = &amp;Команда</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
 		</Attribute>
 	</Attributes>
 </Form>

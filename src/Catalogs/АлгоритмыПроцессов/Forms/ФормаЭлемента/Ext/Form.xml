@@ -5,6 +5,7 @@
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
 		<InputField name="Код" id="1">
@@ -169,6 +170,246 @@
 						</InputField>
 					</ChildItems>
 				</Page>
+				<Page name="ГруппаИспользование" id="54">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Использование</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа использование</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаИспользованиеРасширеннаяПодсказка" id="55"/>
+					<ChildItems>
+						<Table name="ИспользованиеВКомандах" id="56">
+							<TitleLocation>Top</TitleLocation>
+							<HeightInTableRows>3</HeightInTableRows>
+							<Header>false</Header>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>ИспользованиеВКомандах</DataPath>
+							<RowPictureDataPath>ИспользованиеВКомандах.DefaultPicture</RowPictureDataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>В командах</v8:content>
+								</v8:item>
+							</Title>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<ContextMenu name="ИспользованиеВКомандахКонтекстноеМеню" id="57"/>
+							<AutoCommandBar name="ИспользованиеВКомандахКоманднаяПанель" id="58">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ИспользованиеВКомандахРасширеннаяПодсказка" id="59"/>
+							<SearchStringAddition name="ИспользованиеВКомандахСтрокаПоиска" id="60">
+								<AdditionSource>
+									<Item>ИспользованиеВКомандах</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ИспользованиеВКомандахСтрокаПоискаКонтекстноеМеню" id="61"/>
+								<ExtendedTooltip name="ИспользованиеВКомандахСтрокаПоискаРасширеннаяПодсказка" id="62"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ИспользованиеВКомандахСостояниеПросмотра" id="63">
+								<AdditionSource>
+									<Item>ИспользованиеВКомандах</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ИспользованиеВКомандахСостояниеПросмотраКонтекстноеМеню" id="64"/>
+								<ExtendedTooltip name="ИспользованиеВКомандахСостояниеПросмотраРасширеннаяПодсказка" id="65"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ИспользованиеВКомандахУправлениеПоиском" id="66">
+								<AdditionSource>
+									<Item>ИспользованиеВКомандах</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ИспользованиеВКомандахУправлениеПоискомКонтекстноеМеню" id="67"/>
+								<ExtendedTooltip name="ИспользованиеВКомандахУправлениеПоискомРасширеннаяПодсказка" id="68"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">ИспользованиеВКомандахВыбор</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="ИспользованиеВКомандахСсылка" id="69">
+									<DataPath>ИспользованиеВКомандах.Ref</DataPath>
+									<ContextMenu name="ИспользованиеВКомандахСсылкаКонтекстноеМеню" id="70"/>
+									<ExtendedTooltip name="ИспользованиеВКомандахСсылкаРасширеннаяПодсказка" id="71"/>
+									<Events>
+										<Event name="Click">ИспользованиеВКомандахСсылкаНажатие</Event>
+									</Events>
+								</LabelField>
+								<LabelField name="ИспользованиеВКомандахСтандартнаяКартинка" id="72">
+									<DataPath>ИспользованиеВКомандах.DefaultPicture</DataPath>
+									<Visible>false</Visible>
+									<ContextMenu name="ИспользованиеВКомандахСтандартнаяКартинкаКонтекстноеМеню" id="73"/>
+									<ExtendedTooltip name="ИспользованиеВКомандахСтандартнаяКартинкаРасширеннаяПодсказка" id="74"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+						<Table name="ИспользованиеВоВзаимосвязях" id="75">
+							<TitleLocation>Top</TitleLocation>
+							<HeightInTableRows>3</HeightInTableRows>
+							<Header>false</Header>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>ИспользованиеВоВзаимосвязях</DataPath>
+							<RowPictureDataPath>ИспользованиеВоВзаимосвязях.DefaultPicture</RowPictureDataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Во взаимосвязях</v8:content>
+								</v8:item>
+							</Title>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<ContextMenu name="ИспользованиеВоВзаимосвязяхКонтекстноеМеню" id="76"/>
+							<AutoCommandBar name="ИспользованиеВоВзаимосвязяхКоманднаяПанель" id="77">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ИспользованиеВоВзаимосвязяхРасширеннаяПодсказка" id="78"/>
+							<SearchStringAddition name="ИспользованиеВоВзаимосвязяхСтрокаПоиска" id="79">
+								<AdditionSource>
+									<Item>ИспользованиеВоВзаимосвязях</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ИспользованиеВоВзаимосвязяхСтрокаПоискаКонтекстноеМеню" id="80"/>
+								<ExtendedTooltip name="ИспользованиеВоВзаимосвязяхСтрокаПоискаРасширеннаяПодсказка" id="81"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ИспользованиеВоВзаимосвязяхСостояниеПросмотра" id="82">
+								<AdditionSource>
+									<Item>ИспользованиеВоВзаимосвязях</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ИспользованиеВоВзаимосвязяхСостояниеПросмотраКонтекстноеМеню" id="83"/>
+								<ExtendedTooltip name="ИспользованиеВоВзаимосвязяхСостояниеПросмотраРасширеннаяПодсказка" id="84"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ИспользованиеВоВзаимосвязяхУправлениеПоиском" id="85">
+								<AdditionSource>
+									<Item>ИспользованиеВоВзаимосвязях</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ИспользованиеВоВзаимосвязяхУправлениеПоискомКонтекстноеМеню" id="86"/>
+								<ExtendedTooltip name="ИспользованиеВоВзаимосвязяхУправлениеПоискомРасширеннаяПодсказка" id="87"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">ИспользованиеВоВзаимосвязяхВыбор</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="ИспользованиеВоВзаимосвязяхСсылка" id="88">
+									<DataPath>ИспользованиеВоВзаимосвязях.Ссылка</DataPath>
+									<ContextMenu name="ИспользованиеВоВзаимосвязяхСсылкаКонтекстноеМеню" id="89"/>
+									<ExtendedTooltip name="ИспользованиеВоВзаимосвязяхСсылкаРасширеннаяПодсказка" id="90"/>
+								</LabelField>
+								<LabelField name="ИспользованиеВоВзаимосвязяхСтандартнаяКартинка" id="91">
+									<DataPath>ИспользованиеВоВзаимосвязях.DefaultPicture</DataPath>
+									<Visible>false</Visible>
+									<ContextMenu name="ИспользованиеВоВзаимосвязяхСтандартнаяКартинкаКонтекстноеМеню" id="92"/>
+									<ExtendedTooltip name="ИспользованиеВоВзаимосвязяхСтандартнаяКартинкаРасширеннаяПодсказка" id="93"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+						<Table name="ИспользованиеВСтатусах" id="94">
+							<TitleLocation>Top</TitleLocation>
+							<HeightInTableRows>3</HeightInTableRows>
+							<Header>false</Header>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>ИспользованиеВСтатусах</DataPath>
+							<RowPictureDataPath>ИспользованиеВСтатусах.DefaultPicture</RowPictureDataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>В статусах</v8:content>
+								</v8:item>
+							</Title>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<ContextMenu name="ИспользованиеВСтатусахКонтекстноеМеню" id="95"/>
+							<AutoCommandBar name="ИспользованиеВСтатусахКоманднаяПанель" id="96">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
+							<ExtendedTooltip name="ИспользованиеВСтатусахРасширеннаяПодсказка" id="97"/>
+							<SearchStringAddition name="ИспользованиеВСтатусахСтрокаПоиска" id="98">
+								<AdditionSource>
+									<Item>ИспользованиеВСтатусах</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ИспользованиеВСтатусахСтрокаПоискаКонтекстноеМеню" id="99"/>
+								<ExtendedTooltip name="ИспользованиеВСтатусахСтрокаПоискаРасширеннаяПодсказка" id="100"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ИспользованиеВСтатусахСостояниеПросмотра" id="101">
+								<AdditionSource>
+									<Item>ИспользованиеВСтатусах</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ИспользованиеВСтатусахСостояниеПросмотраКонтекстноеМеню" id="102"/>
+								<ExtendedTooltip name="ИспользованиеВСтатусахСостояниеПросмотраРасширеннаяПодсказка" id="103"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ИспользованиеВСтатусахУправлениеПоиском" id="104">
+								<AdditionSource>
+									<Item>ИспользованиеВСтатусах</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ИспользованиеВСтатусахУправлениеПоискомКонтекстноеМеню" id="105"/>
+								<ExtendedTooltip name="ИспользованиеВСтатусахУправлениеПоискомРасширеннаяПодсказка" id="106"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">ИспользованиеВСтатусахВыбор</Event>
+							</Events>
+							<ChildItems>
+								<LabelField name="ИспользованиеВСтатусахСсылка" id="107">
+									<DataPath>ИспользованиеВСтатусах.Ref</DataPath>
+									<ContextMenu name="ИспользованиеВСтатусахСсылкаКонтекстноеМеню" id="108"/>
+									<ExtendedTooltip name="ИспользованиеВСтатусахСсылкаРасширеннаяПодсказка" id="109"/>
+								</LabelField>
+								<LabelField name="ИспользованиеВСтатусахСтандартнаяКартинка" id="110">
+									<DataPath>ИспользованиеВСтатусах.DefaultPicture</DataPath>
+									<Visible>false</Visible>
+									<ContextMenu name="ИспользованиеВСтатусахСтандартнаяКартинкаКонтекстноеМеню" id="111"/>
+									<ExtendedTooltip name="ИспользованиеВСтатусахСтандартнаяКартинкаРасширеннаяПодсказка" id="112"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
 			</ChildItems>
 		</Pages>
 		<InputField name="Комментарий" id="10">
@@ -185,6 +426,119 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ИспользованиеВКомандах" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использование в командах</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ Различные
+	КомандыПроцессовОбработчики.Ссылка
+ИЗ
+	Справочник.КомандыПроцессов.Обработчики КАК КомандыПроцессовОбработчики
+ГДЕ
+	КомандыПроцессовОбработчики.Обработчик = &amp;Алгоритм</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ИспользованиеВСтатусах" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использование в статусах</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ Различные
+	СправочникСтатусыДокументовТаблицаАлгоритмов.Ссылка
+ИЗ
+	Справочник.СтатусыДокументов.ТаблицаАлгоритмов КАК СправочникСтатусыДокументовТаблицаАлгоритмов
+	Где СправочникСтатусыДокументовТаблицаАлгоритмов.Алгоритм = &amp;Алгоритм</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ИспользованиеВоВзаимосвязях" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использование во взаимосвязях</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗЛИЧНЫЕ
+	ЕСТЬNULL(ТаблицаУсловий.Ссылка, Обработчики.Ссылка) КАК Ссылка
+ИЗ
+	Справочник.ВзаимосвязиСтатусовПроцессаВозвратаОтПокупателя.ТаблицаУсловий КАК ТаблицаУсловий
+		ПОЛНОЕ СОЕДИНЕНИЕ Справочник.ВзаимосвязиСтатусовПроцессаВозвратаОтПокупателя.Обработчики КАК Обработчики
+		ПО ТаблицаУсловий.Ссылка = Обработчики.Ссылка
+ГДЕ
+	(ТаблицаУсловий.Условие = &amp;Алгоритм
+			ИЛИ Обработчики.Обработчик = &amp;Алгоритм)</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
 		</Attribute>
 	</Attributes>
 </Form>
