@@ -718,6 +718,9 @@
 		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
 			<dcsset:selection>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Склад</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Заявка.Дата</dcsset:field>
 					<dcsset:title>Дата заявки</dcsset:title>
 				</dcsset:item>
@@ -726,20 +729,39 @@
 					<dcsset:title>Артикул</dcsset:title>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
 					<dcsset:field>СтрокаЗаявки</dcsset:field>
 					<dcsset:title>SSID</dcsset:title>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>ОстатокПоЗаявке</dcsset:field>
+					<dcsset:field>СтрокаЗаявки.СостояниеЗаявки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Покупатель</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Заявка</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>ОстатокПоЗаказу</dcsset:field>
+					<dcsset:field>ОстатокПоЗаявке</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Заказ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОстатокПоЗаказу</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаОстатокПоЗаказу</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КомментарийЗаказа</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДетальныйКомментарий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДниВРаботеЗаказа</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>ДокументПоступление</dcsset:field>
@@ -747,11 +769,17 @@
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>АктПримемки</dcsset:field>
 				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>ДетальныйКомментарий</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>ДниВРаботеЗаказа</dcsset:field>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ДокументПоступление.СтатусДокумента</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Статус Поступления</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
 				</dcsset:item>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>d4600e34-d696-4d84-941d-f3536dff11cc</dcsset:userSettingID>
@@ -781,6 +809,7 @@
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">Поставщик</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>22d35cf2-9f1d-46e0-bde3-4ec0b3d9b7fb</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>2f4e5a59-481f-4377-a6da-37beb33e2f19</dcsset:userSettingID>
@@ -794,6 +823,10 @@
 				</dcscor:item>
 			</dcsset:dataParameters>
 			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Заказ</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>50547128-db6b-4141-b9c0-2f48f075ef6c</dcsset:userSettingID>
 			</dcsset:order>
@@ -804,20 +837,26 @@
 			<dcsset:item xsi:type="dcsset:StructureItemGroup">
 				<dcsset:filter>
 					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>dc37af7e-243d-4317-bce0-0f77b573e3c4</dcsset:userSettingID>
 				</dcsset:filter>
 				<dcsset:order>
 					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>843d4a87-e16f-4316-be0c-eb12c05827cf</dcsset:userSettingID>
 				</dcsset:order>
 				<dcsset:selection>
 					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>dc4d8990-011d-4e41-90e1-3979a4ebd1fc</dcsset:userSettingID>
 				</dcsset:selection>
 				<dcsset:conditionalAppearance>
 					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>cba62b26-d41e-4c1a-acec-019505ae722c</dcsset:userSettingID>
 				</dcsset:conditionalAppearance>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>a9b35e18-f2ec-4ed9-8d18-befcd548cd11</dcsset:userSettingID>
 				<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+				<dcsset:itemsUserSettingID>8802443e-81f7-4546-a9e9-92403c259c7a</dcsset:itemsUserSettingID>
 			</dcsset:item>
 			<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
 			<dcsset:itemsUserSettingID>e2e2d7d2-6fcc-4eae-b809-452b199e0be9</dcsset:itemsUserSettingID>
