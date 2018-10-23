@@ -92,12 +92,11 @@
 			</title>
 			<appearance>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:use>false</dcscor:use>
 					<dcscor:parameter>Формат</dcscor:parameter>
 					<dcscor:value xsi:type="v8:LocalStringType">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=-</v8:content>
+							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=Ноль</v8:content>
 						</v8:item>
 					</dcscor:value>
 				</dcscor:item>
@@ -114,12 +113,11 @@
 			</title>
 			<appearance>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:use>false</dcscor:use>
 					<dcscor:parameter>Формат</dcscor:parameter>
 					<dcscor:value xsi:type="v8:LocalStringType">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=-</v8:content>
+							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=Ноль</v8:content>
 						</v8:item>
 					</dcscor:value>
 				</dcscor:item>
@@ -136,12 +134,11 @@
 			</title>
 			<appearance>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:use>false</dcscor:use>
 					<dcscor:parameter>Формат</dcscor:parameter>
 					<dcscor:value xsi:type="v8:LocalStringType">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=-</v8:content>
+							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=Ноль</v8:content>
 						</v8:item>
 					</dcscor:value>
 				</dcscor:item>
@@ -258,12 +255,11 @@
 			</title>
 			<appearance>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:use>false</dcscor:use>
 					<dcscor:parameter>Формат</dcscor:parameter>
 					<dcscor:value xsi:type="v8:LocalStringType">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=-</v8:content>
+							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=Ноль</v8:content>
 						</v8:item>
 					</dcscor:value>
 				</dcscor:item>
@@ -509,12 +505,11 @@
 			</title>
 			<appearance>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:use>false</dcscor:use>
 					<dcscor:parameter>Формат</dcscor:parameter>
 					<dcscor:value xsi:type="v8:LocalStringType">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=-</v8:content>
+							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=Ноль</v8:content>
 						</v8:item>
 					</dcscor:value>
 				</dcscor:item>
@@ -572,12 +567,11 @@
 			</title>
 			<appearance>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:use>false</dcscor:use>
 					<dcscor:parameter>Формат</dcscor:parameter>
 					<dcscor:value xsi:type="v8:LocalStringType">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=-</v8:content>
+							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=Ноль</v8:content>
 						</v8:item>
 					</dcscor:value>
 				</dcscor:item>
@@ -793,7 +787,7 @@
 	ЭталонныеСрокиЛогистическойЦепочкиСрезПоследних.Срок
 ПОМЕСТИТЬ НОРМАТИВЫ_Текущие
 ИЗ
-	РегистрСведений.ЭталонныеСрокиЛогистическойЦепочки.СрезПоследних({(&amp;ДатаК)}, Поставщик = &amp;КА) КАК ЭталонныеСрокиЛогистическойЦепочкиСрезПоследних
+	РегистрСведений.ЭталонныеСрокиЛогистическойЦепочки.СрезПоследних({(&amp;ДатаК)}, ) КАК ЭталонныеСрокиЛогистическойЦепочкиСрезПоследних
 ;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -852,7 +846,7 @@
 	И ИдентификаторыСтрокЗаявок.Заявка.ВидОперации = ЗНАЧЕНИЕ(Перечисление.ВидыОперацийЗаявкаПокупателя.ПополнениеСклада)
 	И НЕ ИдентификаторыСтрокЗаявок.Заявка = ЗНАЧЕНИЕ(Документ.ЗаявкаПокупателя.ПустаяСсылка)
 	И НЕ ИдентификаторыСтрокЗаявок.Поставщик = ЗНАЧЕНИЕ(Справочник.Контрагенты.ПустаяСсылка)
-	И ИдентификаторыСтрокЗаявок.Поставщик = &amp;КА
+	
 ;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -1559,20 +1553,6 @@
 		<expression>ТекущаяДата()</expression>
 		<use>Always</use>
 	</parameter>
-	<parameter>
-		<name>КА</name>
-		<title xsi:type="v8:LocalStringType">
-			<v8:item>
-				<v8:lang>ru</v8:lang>
-				<v8:content>КА</v8:content>
-			</v8:item>
-		</title>
-		<valueType>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Контрагенты</v8:Type>
-		</valueType>
-		<value xsi:nil="true"/>
-		<useRestriction>true</useRestriction>
-	</parameter>
 	<settingsVariant>
 		<dcsset:name>Основной</dcsset:name>
 		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
@@ -1623,9 +1603,11 @@
 					<dcsset:field>Номенклатура</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
 					<dcsset:field>ЗаявкаНомер</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
 					<dcsset:field>ЗаявкаДата</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
@@ -1833,11 +1815,6 @@
 					<dcscor:value xsi:type="v8:StandardBeginningDate">
 						<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfNextDay</v8:variant>
 					</dcscor:value>
-				</dcscor:item>
-				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:use>false</dcscor:use>
-					<dcscor:parameter>КА</dcscor:parameter>
-					<dcscor:value xsi:nil="true"/>
 				</dcscor:item>
 			</dcsset:dataParameters>
 			<dcsset:order>
@@ -2335,12 +2312,29 @@
 							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 						</dcsset:selection>
 						<dcsset:item xsi:type="dcsset:StructureItemGroup">
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Заявка</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
 							<dcsset:order>
 								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 							</dcsset:order>
 							<dcsset:selection>
 								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 							</dcsset:selection>
+							<dcsset:item xsi:type="dcsset:StructureItemGroup">
+								<dcsset:order>
+									<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+								</dcsset:order>
+								<dcsset:selection>
+									<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+								</dcsset:selection>
+							</dcsset:item>
 						</dcsset:item>
 					</dcsset:item>
 				</dcsset:item>
