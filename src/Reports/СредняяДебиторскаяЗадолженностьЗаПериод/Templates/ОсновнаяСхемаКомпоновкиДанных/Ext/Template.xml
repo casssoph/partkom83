@@ -52,6 +52,9 @@
 					<v8:content>ПДЗ</v8:content>
 				</v8:item>
 			</title>
+			<role>
+				<dcscom:required>true</dcscom:required>
+			</role>
 			<appearance>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>Формат</dcscor:parameter>
@@ -308,6 +311,7 @@
 	ВЫРАЗИТЬ(ВзаиморасчетыОстатки.ДокументРасчетов КАК Документ.РеализацияТоваровУслуг).Дата КАК ДатаДокумента,
 	ВЫРАЗИТЬ(ВзаиморасчетыОстатки.ДокументРасчетов КАК Документ.РеализацияТоваровУслуг).СуммаДокумента КАК СуммаДокумента,
 	ВзаиморасчетыОстатки.СуммаРеглНачальныйОстаток КАК СуммаРеглНачальныйОстаток,
+	ВзаиморасчетыОстатки.СуммаРеглКонечныйОстаток КАК СуммаРеглКонечныйОстаток,
 	ВзаиморасчетыОстатки.СуммаРеглОборот КАК СуммаРеглОборот,
 	спрКонтрагенты.Менеджер КАК Менеджер
 ПОМЕСТИТЬ ВзаиморасчетыОстаткиИОборотыПросрочка
@@ -340,10 +344,10 @@
 	СУММА(ВЫБОР
 			КОГДА ВзаиморасчетыОстатки.ПериодДень = &amp;НачалоПериода
 					И ВЫРАЗИТЬ(ВзаиморасчетыОстатки.ДокументРасчетов КАК Документ.РеализацияТоваровУслуг).ДатаОплаты &lt; ДНИ.Период
-				ТОГДА ВзаиморасчетыОстатки.СуммаРеглНачальныйОстаток
+				ТОГДА isnull(ВзаиморасчетыОстатки.СуммаРеглКонечныйОстаток,0)
 			КОГДА ВзаиморасчетыОстатки.ПериодДень &lt;= ДНИ.Период
 					И ВЫРАЗИТЬ(ВзаиморасчетыОстатки.ДокументРасчетов КАК Документ.РеализацияТоваровУслуг).ДатаОплаты &lt; ДНИ.Период
-				ТОГДА ВзаиморасчетыОстатки.СуммаРеглОборот
+				ТОГДА isnull(ВзаиморасчетыОстатки.СуммаРеглОборот,0)
 			ИНАЧЕ 0
 		КОНЕЦ) КАК Остаток,
 	ВзаиморасчетыОстатки.Менеджер КАК Менеджер
@@ -358,6 +362,18 @@
 	ВзаиморасчетыОстатки.ДокументРасчетов,
 	ВзаиморасчетыОстатки.ДоговорКонтрагента,
 	ВзаиморасчетыОстатки.Менеджер
+	
+Имеющие 
+	СУММА(ВЫБОР
+			КОГДА ВзаиморасчетыОстатки.ПериодДень = &amp;НачалоПериода
+					И ВЫРАЗИТЬ(ВзаиморасчетыОстатки.ДокументРасчетов КАК Документ.РеализацияТоваровУслуг).ДатаОплаты &lt; ДНИ.Период
+				ТОГДА isnull(ВзаиморасчетыОстатки.СуммаРеглКонечныйОстаток,0)
+			КОГДА ВзаиморасчетыОстатки.ПериодДень &lt;= ДНИ.Период
+					И ВЫРАЗИТЬ(ВзаиморасчетыОстатки.ДокументРасчетов КАК Документ.РеализацияТоваровУслуг).ДатаОплаты &lt; ДНИ.Период
+				ТОГДА isnull(ВзаиморасчетыОстатки.СуммаРеглОборот,0)
+			ИНАЧЕ 0
+		КОНЕЦ)&gt;=0
+
 </query>
 	</dataSet>
 	<dataSet xsi:type="DataSetQuery">
@@ -439,6 +455,14 @@
 				</dcscor:value>
 			</dcscor:item>
 		</appearance>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>15</v8:Digits>
+				<v8:FractionDigits>2</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
 	</calculatedField>
 	<calculatedField>
 		<dataPath>ПроцентПДЗ</dataPath>
@@ -460,6 +484,14 @@
 				</dcscor:value>
 			</dcscor:item>
 		</appearance>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>15</v8:Digits>
+				<v8:FractionDigits>2</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
 	</calculatedField>
 	<totalField>
 		<dataPath>Остаток</dataPath>
@@ -756,13 +788,6 @@
 				<dcsset:row>
 					<dcsset:groupItems>
 						<dcsset:item xsi:type="dcsset:GroupItemField">
-							<dcsset:field>ДоговорКонтрагента.Владелец</dcsset:field>
-							<dcsset:groupType>Items</dcsset:groupType>
-							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
-							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
-							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
-						</dcsset:item>
-						<dcsset:item xsi:type="dcsset:GroupItemField">
 							<dcsset:field>Менеджер</dcsset:field>
 							<dcsset:groupType>Items</dcsset:groupType>
 							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
@@ -777,17 +802,9 @@
 						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 					</dcsset:selection>
 					<dcsset:item>
-						<dcsset:use>false</dcsset:use>
 						<dcsset:groupItems>
 							<dcsset:item xsi:type="dcsset:GroupItemField">
-								<dcsset:field>ДокументРасчетов</dcsset:field>
-								<dcsset:groupType>Items</dcsset:groupType>
-								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
-								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
-								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
-							</dcsset:item>
-							<dcsset:item xsi:type="dcsset:GroupItemField">
-								<dcsset:field>ДатаОплаты</dcsset:field>
+								<dcsset:field>ДоговорКонтрагента.Владелец</dcsset:field>
 								<dcsset:groupType>Items</dcsset:groupType>
 								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
@@ -800,6 +817,31 @@
 						<dcsset:selection>
 							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 						</dcsset:selection>
+						<dcsset:item>
+							<dcsset:use>false</dcsset:use>
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>ДокументРасчетов</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>ДатаОплаты</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+						</dcsset:item>
 					</dcsset:item>
 				</dcsset:row>
 				<dcsset:rowsViewMode>Normal</dcsset:rowsViewMode>
