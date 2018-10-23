@@ -1,0 +1,56 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://megalogist.ru/logist">
+	<objectType name="Good">
+		<property name="GoodID" type="xs:string" nillable="true"/>
+		<property name="GoodName" type="xs:string" nillable="true"/>
+		<property name="Qnty" type="xs:double" nillable="true"/>
+		<property name="Price" type="xs:double" nillable="true"/>
+		<property name="Pack" type="xs:string" nillable="true"/>
+		<property name="CharID" type="xs:string" nillable="true"/>
+		<property name="CharName" type="xs:string" nillable="true"/>
+		<property name="QntyActual" type="xs:double" nillable="true"/>
+		<property name="SummActual" type="xs:double" nillable="true"/>
+	</objectType>
+	<objectType name="Goods">
+		<property xmlns:d3p1="http://megalogist.ru/logist" name="Good" type="d3p1:Good" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="Reasons">
+		<property name="Name" type="xs:string" upperBound="1874919423" nillable="true"/>
+	</objectType>
+	<objectType name="ShuttleMission">
+		<property name="Number" type="xs:string" nillable="true"/>
+		<property name="Date" type="xs:dateTime" nillable="true"/>
+		<property name="Address" type="xs:string" nillable="true"/>
+		<property name="DeliveryTime" type="xs:string" nillable="true"/>
+		<property name="JobType" type="xs:string" nillable="true"/>
+		<property name="Status" type="xs:string" nillable="true"/>
+		<property name="Sum" type="xs:double" nillable="true"/>
+		<property name="Customer" type="xs:string" nillable="true"/>
+		<property name="Contact" type="xs:string" nillable="true"/>
+		<property name="Comment" type="xs:string" nillable="true"/>
+		<property name="RowNumber" type="xs:short" nillable="true"/>
+		<property xmlns:d3p1="http://megalogist.ru/logist" name="Goods" type="d3p1:Goods" nillable="true"/>
+		<property name="CustomerOrderNumber" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="SuplierOrderNumber" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="PaymentType" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="PayedCash" type="xs:double" nillable="true"/>
+		<property name="PayedCard" type="xs:double" nillable="true"/>
+	</objectType>
+	<objectType name="ShuttleMissions">
+		<property xmlns:d3p1="http://megalogist.ru/logist" name="ShuttleMission" type="d3p1:ShuttleMission" lowerBound="0" upperBound="1874919423"/>
+		<property name="GCMId" type="xs:string" nillable="true"/>
+	</objectType>
+	<objectType name="Status">
+		<property name="Time" type="xs:dateTime" nillable="true"/>
+		<property name="Number" type="xs:string" nillable="true"/>
+		<property name="Type" type="xs:string" nillable="true" fixed="false"/>
+		<property name="CurrStatus" type="xs:string" nillable="true"/>
+		<property name="Reason" type="xs:string" nillable="true"/>
+		<property name="Comment" type="xs:string" nillable="true"/>
+	</objectType>
+	<objectType name="Statuses">
+		<property xmlns:d3p1="http://megalogist.ru/logist" name="Status" type="d3p1:Status" lowerBound="0" upperBound="1874919423"/>
+	</objectType>
+	<objectType name="PayMetods">
+		<property name="Name" type="xs:string" upperBound="1874919423" nillable="true"/>
+	</objectType>
+</package>

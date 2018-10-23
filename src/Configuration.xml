@@ -131,6 +131,8 @@
 			<Subsystem>внЖурналРегистрации</Subsystem>
 			<Subsystem>СправочнаяСистема</Subsystem>
 			<Subsystem>APDEX</Subsystem>
+			<Subsystem>МегаЛогист</Subsystem>
+			<Subsystem>ИнтеграцияWEB</Subsystem>
 			<StyleItem>ЗаблокированныйРеквизитЦвет</StyleItem>
 			<StyleItem>НедоступныеДанныеЦвет</StyleItem>
 			<StyleItem>НепринятаяВерсия</StyleItem>
@@ -818,6 +820,8 @@
 			<Role>СБ</Role>
 			<Role>СБ_КРО</Role>
 			<Role>ПрайсыЧтение</Role>
+			<Role>Мегалогист</Role>
+			<Role>МегаЛогист_ПодключениеМобильноеПриложение</Role>
 			<CommonTemplate>внОписаниеИзменений</CommonTemplate>
 			<CommonTemplate>ЗаголовокСообщенияОбмена</CommonTemplate>
 			<CommonTemplate>ИсторияПроверкиДокумента</CommonTemplate>
@@ -1030,13 +1034,19 @@
 			<CommonModule>APDEX_ОценкаПроизводительностиКлиентСервер</CommonModule>
 			<CommonModule>APDEX_ОценкаПроизводительностиСерверВызовСервера</CommonModule>
 			<CommonModule>ОценкаПроизводительностиКлиентСервер</CommonModule>
-			<CommonModule>РаботаСSQLСервер</CommonModule>
+			<CommonModule>МегаЛогист_УправлениеДоставкой</CommonModule>
 			<CommonModule>ЗаявкиПокупателяСервер</CommonModule>
 			<CommonModule>ВозвратыОтПокупателяВызовСервера</CommonModule>
 			<CommonModule>ВозвратыОтПокупателяСервер</CommonModule>
 			<CommonModule>ВозвратыОтПокупателяКлиент</CommonModule>
 			<CommonModule>ВозвратыОтПокупателяКэшНаВызов</CommonModule>
 			<CommonModule>ЗаявкиПокупателяКлиентСервер</CommonModule>
+			<CommonModule>МегаЛогист_УправлениеЗаказамиКлиентов</CommonModule>
+			<CommonModule>Мегалогист</CommonModule>
+			<CommonModule>МегаЛогист_РаботаСМакоптра</CommonModule>
+			<CommonModule>МегаЛогист_Служебный</CommonModule>
+			<CommonModule>МегаЛогист_РаботаСАвтограф</CommonModule>
+			<CommonModule>РаботаСSQLСервер</CommonModule>
 			<ExchangePlan>ОбменПартКом77_83</ExchangePlan>
 			<ExchangePlan>ОбменПартКом83_77</ExchangePlan>
 			<ExchangePlan>ОбменПартКом83_CRM</ExchangePlan>
@@ -1066,7 +1076,11 @@
 			<XDTOPackage>СхемаОбменаПартКом83_Сайт</XDTOPackage>
 			<XDTOPackage>СхемаОбменаПартКом83_ТопЛог</XDTOPackage>
 			<XDTOPackage>СхемаОбменаСЭлмой</XDTOPackage>
+			<XDTOPackage>LogistMobile</XDTOPackage>
+			<XDTOPackage>GPX</XDTOPackage>
+			<XDTOPackage>Максоптра</XDTOPackage>
 			<WebService>DataExchange</WebService>
+			<WebService>LogistMobileExchange</WebService>
 			<HTTPService>SiteExchange</HTTPService>
 			<EventSubscription>_ЗаписатьИсториюСтрокЗаявок</EventSubscription>
 			<EventSubscription>внЖурналРегистрацииПередЗаписью</EventSubscription>
@@ -1097,6 +1111,7 @@
 			<EventSubscription>ОбменПартКом83_77_РегистрацияИзмененийДокументовПередЗаписью</EventSubscription>
 			<EventSubscription>ОбменПартКом83_77_РегистрацияИзмененийДокументовПриЗаписи</EventSubscription>
 			<EventSubscription>ОбменПартКом83_77_РегистрацияИзмененийДокументовПередУдалением</EventSubscription>
+			<EventSubscription>МегаЛогист_ЗаказПокупателяПриЗаписи</EventSubscription>
 			<ScheduledJob>РегламентныйЗапускОбработки</ScheduledJob>
 			<ScheduledJob>внПереносКэшаЖурналаРегистрации</ScheduledJob>
 			<ScheduledJob>ОбменCRM</ScheduledJob>
@@ -1236,6 +1251,45 @@
 			<Constant>ИспользоватьПричиныИзмененияВДокументах</Constant>
 			<Constant>МинимальнаяЦенаУслуги</Constant>
 			<Constant>ЗПДелитьПоКоличествуСтрок</Constant>
+			<Constant>МегаЛогист_ID</Constant>
+			<Constant>МегаЛогист_ИспользоватьКартыОСМ</Constant>
+			<Constant>МегаЛогист_Зум</Constant>
+			<Constant>МегаЛогист_МаркерНомерX</Constant>
+			<Constant>МегаЛогист_МаркерНомерY</Constant>
+			<Constant>МегаЛогист_МаркерНомерРазмерX</Constant>
+			<Constant>МегаЛогист_МаркерНомерРазмерШрифта</Constant>
+			<Constant>МегаЛогист_МаркерОкноЯкорьX</Constant>
+			<Constant>МегаЛогист_МаркерОкноЯкорьY</Constant>
+			<Constant>МегаЛогист_МаркерРазмерX</Constant>
+			<Constant>МегаЛогист_МаркерРазмерY</Constant>
+			<Constant>МегаЛогист_МаркерЯкорьX</Constant>
+			<Constant>МегаЛогист_МаркерЯкорьY</Constant>
+			<Constant>МегаЛогист_ОграничительныйПрямоугольникТочка1Долгота</Constant>
+			<Constant>МегаЛогист_ОграничительныйПрямоугольникТочка1Широта</Constant>
+			<Constant>МегаЛогист_ОграничительныйПрямоугольникТочка2Долгота</Constant>
+			<Constant>МегаЛогист_ОграничительныйПрямоугольникТочка2Широта</Constant>
+			<Constant>МегаЛогист_ЦентрДолгота</Constant>
+			<Constant>МегаЛогист_ЦентрШирота</Constant>
+			<Constant>МегаЛогист_СлойДляКартыOSM</Constant>
+			<Constant>МегаЛогист_Организация</Constant>
+			<Constant>МегаЛогист_АдресВебПубликации</Constant>
+			<Constant>МегаЛогист_АдресЗабораУПоставщика</Constant>
+			<Constant>МегаЛогист_Максоптра_URLСервиса</Constant>
+			<Constant>МегаЛогист_Максоптра_ПортСервиса</Constant>
+			<Constant>МегаЛогист_Максоптра_URLАккаунта</Constant>
+			<Constant>МегаЛогист_Максоптра_ИмяПользователя</Constant>
+			<Constant>МегаЛогист_Максоптра_Пароль</Constant>
+			<Constant>МегаЛогист_Максоптра_АвтоматическоеПланирование</Constant>
+			<Constant>МегаЛогист_IDGCM</Constant>
+			<Constant>МегаЛогист_ProjectID</Constant>
+			<Constant>МегаЛогист_ЗапрашиватьПодтверждениеСохранениеАдреса</Constant>
+			<Constant>МегаЛогист_ВыделятьМаркерПриВыделенииСтроки</Constant>
+			<Constant>МегаЛогист_Автограф_URLСервиса</Constant>
+			<Constant>МегаЛогист_Автограф_ПортСервиса</Constant>
+			<Constant>МегаЛогист_Автограф_ПодключениеРазрешено</Constant>
+			<Constant>МегаЛогист_ИмяГеокодера</Constant>
+			<Constant>МегаЛогист_GoogleAPIKey</Constant>
+			<Constant>МегаЛогист_YandexAPIKey</Constant>
 			<CommonForm>ВводЗначенийСпискомСФлажками</CommonForm>
 			<CommonForm>НастройкаОтправкиОтчета</CommonForm>
 			<CommonForm>НастройкаПараметровОбращенияВОтделТехническойПоддержки</CommonForm>
@@ -1264,6 +1318,10 @@
 			<CommonForm>ХодВыполненияОбработкиДанных</CommonForm>
 			<CommonForm>УстановкаДатыЗапретаИзмененияДанных</CommonForm>
 			<CommonForm>ФормаВыбораКПП</CommonForm>
+			<CommonForm>МегаЛогист_ФормаКонстантМаксоптра</CommonForm>
+			<CommonForm>МегаЛогист_ФормаКонстантПушУведомления</CommonForm>
+			<CommonForm>МегаЛогист_ФормаКонстантАвтограф</CommonForm>
+			<CommonForm>МегаЛогист_ОПрограмме</CommonForm>
 			<Catalog>Автомобили</Catalog>
 			<Catalog>АукционПоставщиков</Catalog>
 			<Catalog>Банки</Catalog>
@@ -1384,6 +1442,21 @@
 			<Catalog>УсловияПроцессов</Catalog>
 			<Catalog>КомандыПроцессов</Catalog>
 			<Catalog>ИменованныеКонстантыПроцессов</Catalog>
+			<Catalog>МегаЛогист_ЗоныДоставки</Catalog>
+			<Catalog>МегаЛогист_ТипыМаршрутныхЗаданий</Catalog>
+			<Catalog>МегаЛогист_Маркеры</Catalog>
+			<Catalog>МегаЛогист_ТранспортныеСредства</Catalog>
+			<Catalog>МегаЛогист_ПричиныНевыполнения</Catalog>
+			<Catalog>МегаЛогист_ТранспортныеСредстваКурьеров</Catalog>
+			<Catalog>МегаЛогист_СокращенияУлиц</Catalog>
+			<Catalog>МегаЛогист_ПреобразованиеУлицДляПоиска</Catalog>
+			<Catalog>МегаЛогист_СлоиДляКартыOSM</Catalog>
+			<Catalog>МегаЛогист_ХарактеристикиТранспортныхСредств</Catalog>
+			<Catalog>МегаЛогист_ГеоЗоныДляПланирования</Catalog>
+			<Catalog>МегаЛогист_СоответствиеСкладов1СИMaxoptra</Catalog>
+			<Catalog>МегаЛогист_ХарактеристикиВодителей</Catalog>
+			<Catalog>МегаЛогист_ГрафикиРаботыВодителей</Catalog>
+			<Catalog>МегаЛогист_ТребованияКТС</Catalog>
 			<Document>АвансовыйОтчет</Document>
 			<Document>АктРассмотренияВозврата</Document>
 			<Document>ВводНачальныхДанныхПоПродажам</Document>
@@ -1446,6 +1519,8 @@
 			<Document>УстановкаТиповЦенПоГруппамНоменклатурыДляПокупателей</Document>
 			<Document>УстановкаЦенНоменклатуры</Document>
 			<Document>УстановкаЦенНоменклатурыКонтрагентов</Document>
+			<Document>МегаЛогист_МаршрутноеЗадание</Document>
+			<Document>МегаЛогист_МаршрутныйЛист</Document>
 			<Document>ЭлектронноеПисьмо</Document>
 			<DocumentNumerator>НумераторЗаявокКорректировокЗаявок</DocumentNumerator>
 			<DocumentNumerator>НумераторЗаказовКорретировокЗаказов</DocumentNumerator>
@@ -1585,6 +1660,15 @@
 			<Enum>АРВ_СтатусыПроверкиБухгалтерией</Enum>
 			<Enum>МоментыВыполненияАлгоритма</Enum>
 			<Enum>РасположенияКомандыПроцесса</Enum>
+			<Enum>МегаЛогист_ИменаГеокодера</Enum>
+			<Enum>МегаЛогист_СтатусыМаршрутныхЗаданий</Enum>
+			<Enum>МегаЛогист_СтатусыМаршрутныхЛистов</Enum>
+			<Enum>МегаЛогист_СтатусыЗаказа</Enum>
+			<Enum>МегаЛогист_СтатусыОплаты</Enum>
+			<Enum>МегаЛогист_СтатусыОтгрузки</Enum>
+			<Enum>МегаЛогист_СтатусыДоставки</Enum>
+			<Enum>МегаЛогист_ВидыМаркеров</Enum>
+			<Enum>МегаЛогист_ВидыОперацияВзаиморасчетыСКурьером</Enum>
 			<Report>АктСверкиВзаиморасчетов</Report>
 			<Report>АнализЗаказовПоставщикам</Report>
 			<Report>АнализЗаявокПокупателей</Report>
@@ -1649,6 +1733,8 @@
 			<Report>КалендарьОплатПоVMIПоставщикам</Report>
 			<Report>КалендарьОплатПоПокупателям</Report>
 			<Report>СредняяДебиторскаяЗадолженностьЗаПериод</Report>
+			<Report>МегаЛогист_ОтчетПоДоставке</Report>
+			<Report>МегаЛогист_РасширенныйАнализРейсов</Report>
 			<DataProcessor>_ОбработкаОбновления</DataProcessor>
 			<DataProcessor>АдреснаяКнига</DataProcessor>
 			<DataProcessor>БлокировкаКонтрагентов</DataProcessor>
@@ -1728,6 +1814,12 @@
 			<DataProcessor>СписаниеЗависшихРезервов</DataProcessor>
 			<DataProcessor>ОценкаПроизводительности</DataProcessor>
 			<DataProcessor>РабочийСтолПроцессаВозвратаОтПокупателя</DataProcessor>
+			<DataProcessor>МегаЛогист_АРМ_УправлениеЗаказами</DataProcessor>
+			<DataProcessor>МегаЛогист_ПечатьДокументовДоставки</DataProcessor>
+			<DataProcessor>МегаЛогист_ПечатьДокументовПоЗаказуПокупателя</DataProcessor>
+			<DataProcessor>МегаЛогист_РаботаСКартамиОСМ</DataProcessor>
+			<DataProcessor>МегаЛогист_ФормированиеМаршрутныхЗаданийПоРеализациям</DataProcessor>
+			<DataProcessor>МегаЛогист_ФормированиеМаршрутныхЗаданийПоЗаказамПоставщику</DataProcessor>
 			<InformationRegister>_ДляПереносаВзаиморасчеты</InformationRegister>
 			<InformationRegister>_ДляПереносаДанных</InformationRegister>
 			<InformationRegister>_ИсторияОбмена_1С7_1С8</InformationRegister>
@@ -1869,6 +1961,18 @@
 			<InformationRegister>ОчередьОтправкиДокументовОтгрузки</InformationRegister>
 			<InformationRegister>ПричиныИзмененияДокументов</InformationRegister>
 			<InformationRegister>СобытияАктовРассмотренияВозврата</InformationRegister>
+			<InformationRegister>Мегалогист_АдресаОтправки</InformationRegister>
+			<InformationRegister>МегаЛогист_ДополнительныеРеквизитыЗаказовПокупателей</InformationRegister>
+			<InformationRegister>МегаЛогист_ДокументыМаршрутныхЗаданий</InformationRegister>
+			<InformationRegister>МегаЛогист_ДокументыМаршрутныхЛистов</InformationRegister>
+			<InformationRegister>МегаЛогист_ИсторияСтатусовЗаказовПокупателей</InformationRegister>
+			<InformationRegister>МегаЛогист_ИсторияСтатусовМаршрутныхЗаданий</InformationRegister>
+			<InformationRegister>МегаЛогист_ПродолжительностьРазгрузкиПогрузки</InformationRegister>
+			<InformationRegister>МегаЛогист_НомераПриложенийКурьеров</InformationRegister>
+			<InformationRegister>МегаЛогист_СохраненныеАдреса</InformationRegister>
+			<InformationRegister>Мегалогист_Автограф_ТочкиМаршрута</InformationRegister>
+			<InformationRegister>Мегалогист_ПовышающийКоэффициентПогрузки</InformationRegister>
+			<InformationRegister>Мегалогист_ТребованияКЗаказам</InformationRegister>
 			<AccumulationRegister>БюджетыЦФО</AccumulationRegister>
 			<AccumulationRegister>Взаиморасчеты</AccumulationRegister>
 			<AccumulationRegister>ВзаиморасчетыПриСборкеОтгрузки</AccumulationRegister>
@@ -1893,6 +1997,7 @@
 			<AccumulationRegister>ТоварыНаСкладах</AccumulationRegister>
 			<AccumulationRegister>УдалитьПартииТоваровУпр</AccumulationRegister>
 			<AccumulationRegister>Услуги</AccumulationRegister>
+			<AccumulationRegister>МегаЛогист_ВзаиморасчетыСКурьерами</AccumulationRegister>
 			<ChartOfCharacteristicTypes>ВопросыДляАнкетирования</ChartOfCharacteristicTypes>
 			<ChartOfCharacteristicTypes>НазначенияСвойствКатегорийОбъектов</ChartOfCharacteristicTypes>
 			<ChartOfCharacteristicTypes>НастройкиПользователей</ChartOfCharacteristicTypes>

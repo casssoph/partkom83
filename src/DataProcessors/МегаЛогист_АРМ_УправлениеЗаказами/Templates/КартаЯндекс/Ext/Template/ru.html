@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>Примеры. Геокодирование.</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type"></meta><script type="text/javascript" src="http://api-maps.yandex.ru/1.1/index.xml?key=ANpUFEkBAAAAf7jmJwMAHGZHrcKNDsbEqEVjEUtCmufxQMwAAAAAAAAAAAAvVrubVT4btztbduoIgTLAeFILaQ=="></script><script type="text/javascript">
+
+		var map, geoResult;
+		var BoundsCenter = new YMaps.GeoBounds(new YMaps.GeoPoint(37.13	, 55.95), new YMaps.GeoPoint(38.16, 55.45));
+		var GroupPolygon	= new YMaps.Group();
+		var GroupPoints		= new YMaps.Group();
+
+		var style = new YMaps.Style("default#greenPoint");
+		style.polygonStyle = new YMaps.PolygonStyle();
+		style.polygonStyle.fill = 0;
+		style.polygonStyle.outline = 1;
+		style.polygonStyle.strokeWidth = 2;
+		style.polygonStyle.strokeColor = "000000";
+		YMaps.Styles.add("polygon#Example", style);
+
+		var options = {
+			draggable: true,
+			hasBalloon: false,
+			style: "polygon#Example"
+		};
+
+		// Создание обработчика для события window.onLoad 
+		YMaps.jQuery(function (){
+			// Создание экземпляра карты и его привязка к созданному контейнеру 
+			map = new YMaps.Map(YMaps.jQuery("#YMapsID")[0]);
+			// Установка для карты ее центра и масштаба 
+			map.setCenter(new YMaps.GeoPoint(37.64, 55.76), 10);
+
+           map.disableDblClickZoom();
+			map.enableScrollZoom();
+
+			// Создание кнопки-флажка
+			var button = new YMaps.ToolBarButton({caption: "Объединить в группы"});
+			YMaps.Events.observe(button, button.Events.Click, function () { StateGroupPoints(); });
+
+			// Добавление элементов управления
+			map.addControl(new YMaps.ToolBar(button));
+			map.addControl(new YMaps.Zoom());
+			map.addControl(new YMaps.TypeControl());
+
+			YMaps.Events.observe(
+				map,
+				map.Events.DblClick,
+				function (map, mEvent){
+					
+					var x = mEvent.getGeoPoint().getLng();
+					var y = mEvent.getGeoPoint().getLat();
+					var polygon = new YMaps.Polygon([
+								new YMaps.GeoPoint(x,     y),
+								new YMaps.GeoPoint(x+0.2, y),
+								new YMaps.GeoPoint(x+0.2, y-0.1),
+								new YMaps.GeoPoint(x,     y-0.1)
+								], options
+					);
+					map.addOverlay(polygon);
+					GroupPolygon.add(polygon);
+                   polygon.startEditing();
+
+					YMaps.Events.observe(
+						polygon,
+						polygon.Events.DblClick,
+						function (polygon){
+							if (polygon.isEditing()) {
+								polygon.stopEditing();
+							} else {
+								polygon.startEditing();
+							}
+						}
+					);
+
+					YMaps.Events.observe(
+						polygon,
+						polygon.Events.MouseEnter,
+						function (polygon){
+							for (a=0;a<GroupPoints.length();a++){
+								var obj = GroupPoints.get(a);
+								if (polygon.contains(obj._point) == 1) {
+			                        obj.setStyle("default#greenPoint");
+								} else {
+			                        obj.setStyle("default#lightBluePoint");
+			                    }
+							}
+						}
+					);
+
+					YMaps.Events.observe(
+						polygon,
+						polygon.Events.MouseLeave,
+						function (polygon){
+							for (a=0;a<GroupPoints.length();a++){
+								var obj = GroupPoints.get(a);
+								if (polygon.contains(obj._point) == 1) {
+			                        obj.setStyle("default#lightBluePoint");
+			                    }
+							}
+						}
+					);
+
+                   // Установка параметров редактирования ломанной
+					polygon.setEditingOptions({
+						menuManager: function (index, menuItems) {
+							menuItems.push({
+								id: "RemovePolygon",
+								title: '<span style="white-space:nowrap;">Удалить выделение</span>',
+								onClick: function (polygon, pointIndex) {
+									GroupPolygon.remove(polygon); map.removeOverlay(polygon);
+								}
+							});
+							return menuItems;
+						}
+					});
+				}
+			);
+		});
+
+		function StateGroupPoints() {
+			map.closeBalloon();
+			if (GroupPolygon.length() == 0) {alert("Невозможно выполнить объединение. Выделения групп не найдены."); return;}
+			if (GroupPoints.length() == 0) {alert("Невозможно выполнить объединение. Не найдены метки на карте."); return;}
+           for (i=0; i<GroupPolygon.length(); i++){
+				var polygon = GroupPolygon.get(i);
+				polygon.metaDataProperty = (i+1);
+				for (a=0; a<GroupPoints.length(); a++){
+					var obj = GroupPoints.get(a);
+					if (polygon.contains(obj._point) == 1) {
+						obj.metaDataProperty = (i+1);
+					}
+				}
+			}
+			var res_elem = document.getElementById("result_string");
+			res_elem.value = "";
+			for (a=0; a<GroupPoints.length(); a++){
+				var obj			= GroupPoints.get(a);
+				res_elem.value	= res_elem.value + "#" + obj.description + "|" + obj.metaDataProperty;
+			}
+			if (res_elem.value != "") {alert("Объединение успешно завершено!");}
+		}
+
+		function showA(CountPoint) {
+			for(var a=1; a<=CountPoint; a++) {
+				showAddress(document.getElementById("address_string" + a).value, document.getElementById("number_string" + a).value);
+			};
+		};
+
+		// Функция для отображения результата геокодирования 
+		// Параметр value - адрес объекта для поиска 
+		function showAddress (value, index) {
+			// Запуск процесса геокодирования 
+			var geocoder = new YMaps.Geocoder(value, {results: 1, boundedBy: map.getBounds(), strictBounds:true});
+
+			// Создание обработчика для успешного завершения геокодирования 
+			YMaps.Events.observe(geocoder, geocoder.Events.Load, function () {
+				// Если объект был найден, то добавляем его на карту 
+				// и центрируем карту по области обзора найденного объекта 
+
+				if (this.length()) {
+					geoResult = this.get(0);
+					geoResult.description = index;
+					GroupPoints.add(geoResult);
+					map.addOverlay(geoResult);
+					map.setBounds(BoundsCenter);		
+				} else {
+				}
+			});
+
+			// Процесс геокодирования завершен неудачно 
+			YMaps.Events.observe(
+						geocoder,
+						geocoder.Events.Fault,
+						function (geocoder, error) {
+							alert("Произошла ошибка: " + error);
+						}
+			);
+
+		};
+	
+</script><meta name="GENERATOR" content="MSHTML 11.00.10570.1001"></meta></head><body onload="javascript:showA(1)">
+<div id="YMapsID" style="HEIGHT: 100%; WIDTH: 100%"></div><input id="number_string1" type="hidden" value="00000000002"></input><input id="address_string1" type="hidden" value="115404, Москва г, Элеваторная ул, дом № 10, корпус 1"></input><br><input id="result_string" type="hidden"></input><link rel="stylesheet" href="http://api-maps.yandex.ru/1.1.21/_YMaps-ie.css"></link><script type="text/javascript" charset="utf-8" src="http://api-maps.yandex.ru/1.1.21/_YMaps.js"></script><script type="text/javascript" charset="utf-8" src="http://api-maps.yandex.ru/1.1.21/xml/data.xml?v=3.57.03.5.0-0"></script></body></html>
