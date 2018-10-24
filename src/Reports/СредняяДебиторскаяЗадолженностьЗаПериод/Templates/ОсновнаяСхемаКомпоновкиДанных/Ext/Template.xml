@@ -21,19 +21,6 @@
 			</role>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>ДатаОплаты</dataPath>
-			<field>ДатаОплаты</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Дата оплаты</v8:content>
-				</v8:item>
-			</title>
-			<role>
-				<dcscom:dimension>true</dcscom:dimension>
-			</role>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>Контрагент</dataPath>
 			<field>Контрагент</field>
 			<title xsi:type="v8:LocalStringType">
@@ -68,28 +55,8 @@
 			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>ДнейПросрочки</dataPath>
-			<field>ДнейПросрочки</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Дней просрочки</v8:content>
-				</v8:item>
-			</title>
-			<role>
-				<dcscom:dimension>true</dcscom:dimension>
-			</role>
-			<appearance>
-				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:parameter>Формат</dcscor:parameter>
-					<dcscor:value xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ЧДЦ=1</v8:content>
-						</v8:item>
-					</dcscor:value>
-				</dcscor:item>
-			</appearance>
+			<dataPath>Менеджер</dataPath>
+			<field>Менеджер</field>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>СуммаДокумента</dataPath>
@@ -105,12 +72,12 @@
 			</role>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>ДатаДокумента</dataPath>
-			<field>ДатаДокумента</field>
+			<dataPath>ДатаОплаты</dataPath>
+			<field>ДатаОплаты</field>
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Дата документа</v8:content>
+					<v8:content>Дата оплаты</v8:content>
 				</v8:item>
 			</title>
 			<role>
@@ -118,15 +85,27 @@
 			</role>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>Менеджер</dataPath>
-			<field>Менеджер</field>
+			<dataPath>ДнейПросрочки</dataPath>
+			<field>ДнейПросрочки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дней просрочки</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ПериодДень</dataPath>
 			<field>ПериодДень</field>
-			<role>
-				<dcscom:dimension>true</dcscom:dimension>
-			</role>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период день</v8:content>
+				</v8:item>
+			</title>
 			<appearance>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>Формат</dcscor:parameter>
@@ -138,6 +117,19 @@
 					</dcscor:value>
 				</dcscor:item>
 			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаДокумента</dataPath>
+			<field>ДатаДокумента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата документа</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
 		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
@@ -338,19 +330,20 @@
 	ВзаиморасчетыОстатки.ДокументРасчетов,
 	ВзаиморасчетыОстатки.ДоговорКонтрагента,
 	РАЗНОСТЬДАТ(ВЫРАЗИТЬ(ВзаиморасчетыОстатки.ДокументРасчетов КАК Документ.РеализацияТоваровУслуг).ДатаОплаты, ДНИ.Период, ДЕНЬ) КАК ДнейПросрочки,
-	ВЫРАЗИТЬ(ВзаиморасчетыОстатки.ДокументРасчетов КАК Документ.РеализацияТоваровУслуг).ДатаОплаты КАК ДатаОплаты,
-	ВЫРАЗИТЬ(ВзаиморасчетыОстатки.ДокументРасчетов КАК Документ.РеализацияТоваровУслуг).Дата КАК ДатаДокумента,
-	ВЫРАЗИТЬ(ВзаиморасчетыОстатки.ДокументРасчетов КАК Документ.РеализацияТоваровУслуг).СуммаДокумента КАК СуммаДокумента,
+	ВзаиморасчетыОстатки.ДатаОплаты КАК ДатаОплаты,
+	ВзаиморасчетыОстатки.ДатаДокумента КАК ДатаДокумента,
+	ВзаиморасчетыОстатки.СуммаДокумента КАК СуммаДокумента,
 	СУММА(ВЫБОР
 			КОГДА ВзаиморасчетыОстатки.ПериодДень = &amp;НачалоПериода
 					И ВЫРАЗИТЬ(ВзаиморасчетыОстатки.ДокументРасчетов КАК Документ.РеализацияТоваровУслуг).ДатаОплаты &lt; ДНИ.Период
-				ТОГДА isnull(ВзаиморасчетыОстатки.СуммаРеглКонечныйОстаток,0)
+				ТОГДА ЕСТЬNULL(ВзаиморасчетыОстатки.СуммаРеглКонечныйОстаток, 0)
 			КОГДА ВзаиморасчетыОстатки.ПериодДень &lt;= ДНИ.Период
 					И ВЫРАЗИТЬ(ВзаиморасчетыОстатки.ДокументРасчетов КАК Документ.РеализацияТоваровУслуг).ДатаОплаты &lt; ДНИ.Период
-				ТОГДА isnull(ВзаиморасчетыОстатки.СуммаРеглОборот,0)
+				ТОГДА ЕСТЬNULL(ВзаиморасчетыОстатки.СуммаРеглОборот, 0)
 			ИНАЧЕ 0
 		КОНЕЦ) КАК Остаток,
 	ВзаиморасчетыОстатки.Менеджер КАК Менеджер
+ПОМЕСТИТЬ ПросрочкаПоДням
 ИЗ
 	Дни КАК ДНИ,
 	ВзаиморасчетыОстаткиИОборотыПросрочка КАК ВзаиморасчетыОстатки
@@ -361,20 +354,53 @@
 	ДНИ.Период,
 	ВзаиморасчетыОстатки.ДокументРасчетов,
 	ВзаиморасчетыОстатки.ДоговорКонтрагента,
-	ВзаиморасчетыОстатки.Менеджер
-	
-Имеющие 
+	ВзаиморасчетыОстатки.Менеджер,
+	ВзаиморасчетыОстатки.ДатаОплаты,
+	ВзаиморасчетыОстатки.ДатаДокумента,
+	ВзаиморасчетыОстатки.СуммаДокумента
+
+ИМЕЮЩИЕ
 	СУММА(ВЫБОР
 			КОГДА ВзаиморасчетыОстатки.ПериодДень = &amp;НачалоПериода
 					И ВЫРАЗИТЬ(ВзаиморасчетыОстатки.ДокументРасчетов КАК Документ.РеализацияТоваровУслуг).ДатаОплаты &lt; ДНИ.Период
-				ТОГДА isnull(ВзаиморасчетыОстатки.СуммаРеглКонечныйОстаток,0)
+				ТОГДА ЕСТЬNULL(ВзаиморасчетыОстатки.СуммаРеглКонечныйОстаток, 0)
 			КОГДА ВзаиморасчетыОстатки.ПериодДень &lt;= ДНИ.Период
 					И ВЫРАЗИТЬ(ВзаиморасчетыОстатки.ДокументРасчетов КАК Документ.РеализацияТоваровУслуг).ДатаОплаты &lt; ДНИ.Период
-				ТОГДА isnull(ВзаиморасчетыОстатки.СуммаРеглОборот,0)
+				ТОГДА ЕСТЬNULL(ВзаиморасчетыОстатки.СуммаРеглОборот, 0)
 			ИНАЧЕ 0
-		КОНЕЦ)&gt;=0
+		КОНЕЦ) &gt;= 0
+;
 
-</query>
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ПросрочкаПоДням.ДоговорКонтрагента КАК ДоговорКонтрагента,
+	СУММА(ПросрочкаПоДням.Остаток) КАК Остаток
+ПОМЕСТИТЬ ДоговорКонтрагентаСПросрочкой
+ИЗ
+	ПросрочкаПоДням КАК ПросрочкаПоДням
+
+СГРУППИРОВАТЬ ПО
+	ПросрочкаПоДням.ДоговорКонтрагента
+
+ИМЕЮЩИЕ
+	СУММА(ПросрочкаПоДням.Остаток) &gt; 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ПросрочкаПоДням.ПериодДень,
+	ПросрочкаПоДням.ДокументРасчетов,
+	ПросрочкаПоДням.ДоговорКонтрагента,
+	ПросрочкаПоДням.ДнейПросрочки,
+	ПросрочкаПоДням.ДатаОплаты,
+	ПросрочкаПоДням.ДатаДокумента,
+	ПросрочкаПоДням.СуммаДокумента,
+	ПросрочкаПоДням.Остаток,
+	ПросрочкаПоДням.Менеджер КАК Менеджер
+ИЗ
+	ПросрочкаПоДням КАК ПросрочкаПоДням
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ДоговорКонтрагентаСПросрочкой КАК ДоговорКонтрагентаСПросрочкой
+		ПО ПросрочкаПоДням.ДоговорКонтрагента = ДоговорКонтрагентаСПросрочкой.ДоговорКонтрагента</query>
 	</dataSet>
 	<dataSet xsi:type="DataSetQuery">
 		<name>ПродажиПоКонтрагентам</name>
@@ -397,14 +423,47 @@
 			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>Продажи</dataPath>
-			<field>Продажи</field>
+			<dataPath>Качество</dataPath>
+			<field>Качество</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтрокаЗаявки</dataPath>
+			<field>СтрокаЗаявки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПродажиПоКонтрагенту</dataPath>
+			<field>ПродажиПоКонтрагенту</field>
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Продажи</v8:content>
+					<v8:content>Продажи по контрагенту</v8:content>
 				</v8:item>
 			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ПродажиОбороты.ТорговаяТочка.Владелец КАК Контрагент,
+	ПродажиОбороты.СуммаРеглОборот КАК ПродажиПоКонтрагенту
+ИЗ
+	РегистрНакопления.Продажи.Обороты({(&amp;НачалоПериода)}, {КонецПериода(&amp;ОкончаниеПериода, День)}, , ) КАК ПродажиОбороты</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ПродажиПоМенеджерам</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Филиал</dataPath>
+			<field>Филиал</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТорговаяТочка</dataPath>
+			<field>ТорговаяТочка</field>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Качество</dataPath>
@@ -422,18 +481,43 @@
 			<dataPath>СтрокаЗаявки</dataPath>
 			<field>СтрокаЗаявки</field>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Менеджер</dataPath>
+			<field>Менеджер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПродажиПоМенеджеру</dataPath>
+			<field>ПродажиПоМенеджеру</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Продажи по менеджеру</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
-	ПродажиОбороты.ТорговаяТочка.Владелец КАК Контрагент,
-	ПродажиОбороты.СуммаРеглОборот КАК Продажи
+	МенеджерыТорговыхТочекСрезПоследних.Менеджер КАК Менеджер,
+	СУММА(ПродажиОбороты.СуммаРеглОборот) КАК ПродажиПоМенеджеру
 ИЗ
-	РегистрНакопления.Продажи.Обороты({(&amp;НачалоПериода)}, {КонецПериода(&amp;ОкончаниеПериода, День)}, , ) КАК ПродажиОбороты</query>
+	РегистрНакопления.Продажи.Обороты({(&amp;НачалоПериода)}, {(КОНЕЦПЕРИОДА(&amp;ОкончаниеПериода, ДЕНЬ))}, , ) КАК ПродажиОбороты
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.МенеджерыТорговыхТочек.СрезПоследних({(&amp;ТекущаяДата)}, ВидМенеджера = ЗНАЧЕНИЕ(Перечисление.ВидыМенеджеров.Продажи)) КАК МенеджерыТорговыхТочекСрезПоследних
+		ПО ПродажиОбороты.ТорговаяТочка = МенеджерыТорговыхТочекСрезПоследних.ТорговаяТочка
+
+СГРУППИРОВАТЬ ПО
+	МенеджерыТорговыхТочекСрезПоследних.Менеджер</query>
 	</dataSet>
 	<dataSetLink>
 		<sourceDataSet>ОсновнойНабор</sourceDataSet>
 		<destinationDataSet>ПродажиПоКонтрагентам</destinationDataSet>
 		<sourceExpression>ДоговорКонтрагента.Владелец</sourceExpression>
 		<destinationExpression>Контрагент</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>ОсновнойНабор</sourceDataSet>
+		<destinationDataSet>ПродажиПоМенеджерам</destinationDataSet>
+		<sourceExpression>Менеджер</sourceExpression>
+		<destinationExpression>Менеджер</destinationExpression>
 	</dataSetLink>
 	<calculatedField>
 		<dataPath>СреднееОстаток</dataPath>
@@ -465,12 +549,41 @@
 		</valueType>
 	</calculatedField>
 	<calculatedField>
-		<dataPath>ПроцентПДЗ</dataPath>
+		<dataPath>ПроцентПДЗПоКонтрагенту</dataPath>
 		<expression>0</expression>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
-				<v8:content>% ПДЗ</v8:content>
+				<v8:content>% ПДЗ (по контрагенту)</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</appearance>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>15</v8:Digits>
+				<v8:FractionDigits>2</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ПроцентПДЗПоМенеджеру</dataPath>
+		<expression>0</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>% ПДЗ (по менеджеру)</v8:content>
 			</v8:item>
 		</title>
 		<appearance>
@@ -498,24 +611,24 @@
 		<expression>Сумма(Остаток)</expression>
 	</totalField>
 	<totalField>
-		<dataPath>ДнейПросрочки</dataPath>
-		<expression>Среднее(ДнейПросрочки)</expression>
-	</totalField>
-	<totalField>
-		<dataPath>СуммаДокумента</dataPath>
-		<expression>Сумма(СуммаДокумента)</expression>
-	</totalField>
-	<totalField>
-		<dataPath>Продажи</dataPath>
-		<expression>Сумма(Продажи)</expression>
-	</totalField>
-	<totalField>
 		<dataPath>СреднееОстаток</dataPath>
 		<expression>Среднее(ВычислитьВыражениеСГруппировкойМассив("Сумма(Остаток)", "ПериодДень"))</expression>
 	</totalField>
 	<totalField>
-		<dataPath>ПроцентПДЗ</dataPath>
-		<expression>Среднее(ВычислитьВыражениеСГруппировкойМассив("Сумма(Остаток)", "ПериодДень"))*100/Сумма(Продажи)</expression>
+		<dataPath>ПродажиПоКонтрагенту</dataPath>
+		<expression>Сумма(ПродажиПоКонтрагенту)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПродажиПоМенеджеру</dataPath>
+		<expression>Сумма(ПродажиПоМенеджеру)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПроцентПДЗПоКонтрагенту</dataPath>
+		<expression>Среднее(ВычислитьВыражениеСГруппировкойМассив("Сумма(Остаток)", "ПериодДень"))*100/Сумма(ПродажиПоКонтрагенту)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПроцентПДЗПоМенеджеру</dataPath>
+		<expression>Среднее(ВычислитьВыражениеСГруппировкойМассив("Сумма(Остаток)", "ПериодДень"))*100/Сумма(ПродажиПоМенеджеру)</expression>
 	</totalField>
 	<parameter>
 		<name>НачалоПериода</name>
@@ -601,14 +714,14 @@
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
-					<dcsset:left xsi:type="dcscor:Field">ДоговорКонтрагента.Владелец.Регион</dcsset:left>
+					<dcsset:left xsi:type="dcscor:Field">ДоговорКонтрагента.Владелец.ОсновнаяТорговаяТочка.Регион</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Регионы.ПустаяСсылка</dcsset:right>
 					<dcsset:userSettingID>506a9d8f-cc4d-46eb-b060-8c27eb6acc24</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
-					<dcsset:left xsi:type="dcscor:Field">ДоговорКонтрагента.Владелец.Регион.Филиал</dcsset:left>
+					<dcsset:left xsi:type="dcscor:Field">ДоговорКонтрагента.Владелец.ОсновнаяТорговаяТочка.Регион.Филиал</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Филиалы.ПустаяСсылка</dcsset:right>
 					<dcsset:userSettingID>f4d8ddb8-2fc2-440a-8146-cc21f1fdd9a3</dcsset:userSettingID>
@@ -744,10 +857,30 @@
 							<dcsset:use>false</dcsset:use>
 						</dcsset:item>
 						<dcsset:item xsi:type="dcsset:SelectedItemField">
-							<dcsset:field>Продажи</dcsset:field>
+							<dcsset:use>false</dcsset:use>
+							<dcsset:field>ПродажиПоКонтрагенту</dcsset:field>
 						</dcsset:item>
 						<dcsset:item xsi:type="dcsset:SelectedItemField">
-							<dcsset:field>ПроцентПДЗ</dcsset:field>
+							<dcsset:field>ПродажиПоМенеджеру</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Продажи</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:field>ПроцентПДЗПоКонтрагенту</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ПроцентПДЗПоМенеджеру</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>% ПДЗ</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
 						</dcsset:item>
 						<dcsset:item xsi:type="dcsset:SelectedItemField">
 							<dcsset:field>СреднееОстаток</dcsset:field>
@@ -817,6 +950,46 @@
 						<dcsset:selection>
 							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 						</dcsset:selection>
+						<dcsset:conditionalAppearance>
+							<dcsset:item>
+								<dcsset:selection>
+									<dcsset:item>
+										<dcsset:field>ПродажиПоМенеджеру</dcsset:field>
+									</dcsset:item>
+								</dcsset:selection>
+								<dcsset:filter/>
+								<dcsset:appearance>
+									<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+										<dcscor:parameter>Текст</dcscor:parameter>
+										<dcscor:value xsi:type="dcscor:Field">ПродажиПоКонтрагенту</dcscor:value>
+									</dcscor:item>
+								</dcsset:appearance>
+								<dcsset:useInOverall>DontUse</dcsset:useInOverall>
+								<dcsset:useInFieldsHeader>DontUse</dcsset:useInFieldsHeader>
+								<dcsset:useInHeader>DontUse</dcsset:useInHeader>
+								<dcsset:useInParameters>DontUse</dcsset:useInParameters>
+								<dcsset:useInFilter>DontUse</dcsset:useInFilter>
+							</dcsset:item>
+							<dcsset:item>
+								<dcsset:selection>
+									<dcsset:item>
+										<dcsset:field>ПроцентПДЗПоМенеджеру</dcsset:field>
+									</dcsset:item>
+								</dcsset:selection>
+								<dcsset:filter/>
+								<dcsset:appearance>
+									<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+										<dcscor:parameter>Текст</dcscor:parameter>
+										<dcscor:value xsi:type="dcscor:Field">ПроцентПДЗПоКонтрагенту</dcscor:value>
+									</dcscor:item>
+								</dcsset:appearance>
+								<dcsset:useInOverall>DontUse</dcsset:useInOverall>
+								<dcsset:useInFieldsHeader>DontUse</dcsset:useInFieldsHeader>
+								<dcsset:useInHeader>DontUse</dcsset:useInHeader>
+								<dcsset:useInParameters>DontUse</dcsset:useInParameters>
+								<dcsset:useInFilter>DontUse</dcsset:useInFilter>
+							</dcsset:item>
+						</dcsset:conditionalAppearance>
 						<dcsset:item>
 							<dcsset:use>false</dcsset:use>
 							<dcsset:groupItems>
