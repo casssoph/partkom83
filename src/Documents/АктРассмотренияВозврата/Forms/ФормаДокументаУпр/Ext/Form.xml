@@ -172,6 +172,12 @@
 										</UsualGroup>
 										<InputField name="СтатусДокумента" id="134">
 											<DataPath>Объект.СтатусДокумента</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Статус</v8:content>
+												</v8:item>
+											</Title>
 											<ContextMenu name="СтатусДокументаКонтекстноеМеню" id="135"/>
 											<ExtendedTooltip name="СтатусДокументаРасширеннаяПодсказка" id="136"/>
 											<Events>
@@ -262,6 +268,16 @@
 											<ContextMenu name="ДоговорКонтрагентаКонтекстноеМеню" id="17"/>
 											<ExtendedTooltip name="ДоговорКонтрагентаРасширеннаяПодсказка" id="18"/>
 										</InputField>
+										<InputField name="Склад" id="311">
+											<DataPath>Объект.Склад</DataPath>
+											<ContextMenu name="СкладКонтекстноеМеню" id="312"/>
+											<ExtendedTooltip name="СкладРасширеннаяПодсказка" id="313"/>
+										</InputField>
+										<InputField name="СрокВозвратаКлиента" id="314">
+											<DataPath>Объект.СрокВозвратаКлиента</DataPath>
+											<ContextMenu name="СрокВозвратаКлиентаКонтекстноеМеню" id="315"/>
+											<ExtendedTooltip name="СрокВозвратаКлиентаРасширеннаяПодсказка" id="316"/>
+										</InputField>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
@@ -307,61 +323,101 @@
 									<ContextMenu name="ТоварыНомерСтрокиКонтекстноеМеню" id="102"/>
 									<ExtendedTooltip name="ТоварыНомерСтрокиРасширеннаяПодсказка" id="103"/>
 								</LabelField>
-								<LabelField name="ТоварыНоменклатураАртикул" id="305">
-									<DataPath>Объект.Товары.Номенклатура.Артикул</DataPath>
+								<InputField name="ТоварыПричинаВозврата" id="329">
+									<DataPath>Объект.Товары.ПричинаВозврата</DataPath>
 									<EditMode>EnterOnInput</EditMode>
-									<Width>10</Width>
-									<HorizontalStretch>false</HorizontalStretch>
-									<ContextMenu name="ТоварыНоменклатураАртикулКонтекстноеМеню" id="306"/>
-									<ExtendedTooltip name="ТоварыНоменклатураАртикулРасширеннаяПодсказка" id="307"/>
-								</LabelField>
-								<LabelField name="ТоварыНоменклатураИзготовитель" id="308">
-									<DataPath>Объект.Товары.Номенклатура.Изготовитель</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<Width>10</Width>
-									<HorizontalStretch>false</HorizontalStretch>
-									<ContextMenu name="ТоварыНоменклатураИзготовительКонтекстноеМеню" id="309"/>
-									<ExtendedTooltip name="ТоварыНоменклатураИзготовительРасширеннаяПодсказка" id="310"/>
-								</LabelField>
-								<InputField name="ТоварыНоменклатура" id="104">
-									<DataPath>Объект.Товары.Номенклатура</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ТоварыНоменклатураКонтекстноеМеню" id="105"/>
-									<ExtendedTooltip name="ТоварыНоменклатураРасширеннаяПодсказка" id="106"/>
-									<Events>
-										<Event name="OnChange">ТоварыНоменклатураПриИзменении</Event>
-									</Events>
+									<ContextMenu name="ТоварыПричинаВозвратаКонтекстноеМеню" id="330"/>
+									<ExtendedTooltip name="ТоварыПричинаВозвратаРасширеннаяПодсказка" id="331"/>
 								</InputField>
-								<InputField name="ТоварыЕдиницаИзмерения" id="107">
-									<DataPath>Объект.Товары.ЕдиницаИзмерения</DataPath>
+								<ColumnGroup name="ТоварыГруппаНоменклатура" id="344">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Ед.</v8:content>
+											<v8:content>Товары группа номенклатура</v8:content>
 										</v8:item>
 									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<Width>6</Width>
-									<AutoMaxWidth>false</AutoMaxWidth>
-									<HorizontalStretch>false</HorizontalStretch>
-									<ContextMenu name="ТоварыЕдиницаИзмеренияКонтекстноеМеню" id="108"/>
-									<ExtendedTooltip name="ТоварыЕдиницаИзмеренияРасширеннаяПодсказка" id="109"/>
-								</InputField>
-								<InputField name="ТоварыКоэффициент" id="110">
-									<DataPath>Объект.Товары.Коэффициент</DataPath>
-									<ReadOnly>true</ReadOnly>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Товары группа номенклатура</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ТоварыГруппаНоменклатураРасширеннаяПодсказка" id="345"/>
+									<ChildItems>
+										<InputField name="ТоварыНоменклатура" id="104">
+											<DataPath>Объект.Товары.Номенклатура</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ТоварыНоменклатураКонтекстноеМеню" id="105"/>
+											<ExtendedTooltip name="ТоварыНоменклатураРасширеннаяПодсказка" id="106"/>
+											<Events>
+												<Event name="OnChange">ТоварыНоменклатураПриИзменении</Event>
+											</Events>
+										</InputField>
+										<LabelField name="ТоварыНоменклатураАртикул" id="305">
+											<DataPath>Объект.Товары.Номенклатура.Артикул</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>10</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="ТоварыНоменклатураАртикулКонтекстноеМеню" id="306"/>
+											<ExtendedTooltip name="ТоварыНоменклатураАртикулРасширеннаяПодсказка" id="307"/>
+										</LabelField>
+										<LabelField name="ТоварыНоменклатураИзготовитель" id="308">
+											<DataPath>Объект.Товары.Номенклатура.Изготовитель</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>10</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="ТоварыНоменклатураИзготовительКонтекстноеМеню" id="309"/>
+											<ExtendedTooltip name="ТоварыНоменклатураИзготовительРасширеннаяПодсказка" id="310"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ТоварыГруппаЕд" id="346">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>К.</v8:content>
+											<v8:content>Товары группа ед</v8:content>
 										</v8:item>
 									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<Width>2</Width>
-									<HorizontalStretch>false</HorizontalStretch>
-									<ContextMenu name="ТоварыКоэффициентКонтекстноеМеню" id="111"/>
-									<ExtendedTooltip name="ТоварыКоэффициентРасширеннаяПодсказка" id="112"/>
-								</InputField>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Товары группа ед</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ТоварыГруппаЕдРасширеннаяПодсказка" id="347"/>
+									<ChildItems>
+										<InputField name="ТоварыЕдиницаИзмерения" id="107">
+											<DataPath>Объект.Товары.ЕдиницаИзмерения</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Ед.</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>6</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="ТоварыЕдиницаИзмеренияКонтекстноеМеню" id="108"/>
+											<ExtendedTooltip name="ТоварыЕдиницаИзмеренияРасширеннаяПодсказка" id="109"/>
+										</InputField>
+										<InputField name="ТоварыКоэффициент" id="110">
+											<DataPath>Объект.Товары.Коэффициент</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>К.</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>2</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="ТоварыКоэффициентКонтекстноеМеню" id="111"/>
+											<ExtendedTooltip name="ТоварыКоэффициентРасширеннаяПодсказка" id="112"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
 								<InputField name="ТоварыКоличество" id="113">
 									<DataPath>Объект.Товары.Количество</DataPath>
 									<EditMode>EnterOnInput</EditMode>
@@ -382,18 +438,70 @@
 										<Event name="OnChange">ТоварыЦенаПриИзменении</Event>
 									</Events>
 								</InputField>
-								<InputField name="ТоварыСтавкаНДС" id="293">
-									<DataPath>Объект.Товары.СтавкаНДС</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ТоварыСтавкаНДСКонтекстноеМеню" id="294"/>
-									<ExtendedTooltip name="ТоварыСтавкаНДСРасширеннаяПодсказка" id="295"/>
-								</InputField>
-								<InputField name="ТоварыСуммаНДС" id="296">
-									<DataPath>Объект.Товары.СуммаНДС</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ТоварыСуммаНДСКонтекстноеМеню" id="297"/>
-									<ExtendedTooltip name="ТоварыСуммаНДСРасширеннаяПодсказка" id="298"/>
-								</InputField>
+								<ColumnGroup name="ТоварыГруппаУценка" id="338">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Товары группа уценка</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Товары группа уценка</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ТоварыГруппаУценкаРасширеннаяПодсказка" id="339"/>
+									<ChildItems>
+										<InputField name="ТоварыЦенаПослеУценки" id="320">
+											<DataPath>Объект.Товары.ЦенаПослеУценки</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ТоварыЦенаПослеУценкиКонтекстноеМеню" id="321"/>
+											<ExtendedTooltip name="ТоварыЦенаПослеУценкиРасширеннаяПодсказка" id="322"/>
+										</InputField>
+										<InputField name="ТоварыВидУценки" id="323">
+											<DataPath>Объект.Товары.ВидУценки</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ТоварыВидУценкиКонтекстноеМеню" id="324"/>
+											<ExtendedTooltip name="ТоварыВидУценкиРасширеннаяПодсказка" id="325"/>
+										</InputField>
+										<InputField name="ТоварыПроцентУценки" id="317">
+											<DataPath>Объект.Товары.ПроцентУценки</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ТоварыПроцентУценкиКонтекстноеМеню" id="318"/>
+											<ExtendedTooltip name="ТоварыПроцентУценкиРасширеннаяПодсказка" id="319"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ТоварыГруппаНДС" id="348">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Товары группа НДС</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Товары группа НДС</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ТоварыГруппаНДСРасширеннаяПодсказка" id="349"/>
+									<ChildItems>
+										<InputField name="ТоварыСуммаНДС" id="296">
+											<DataPath>Объект.Товары.СуммаНДС</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ТоварыСуммаНДСКонтекстноеМеню" id="297"/>
+											<ExtendedTooltip name="ТоварыСуммаНДСРасширеннаяПодсказка" id="298"/>
+										</InputField>
+										<InputField name="ТоварыСтавкаНДС" id="293">
+											<DataPath>Объект.Товары.СтавкаНДС</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ТоварыСтавкаНДСКонтекстноеМеню" id="294"/>
+											<ExtendedTooltip name="ТоварыСтавкаНДСРасширеннаяПодсказка" id="295"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
 								<InputField name="ТоварыСумма" id="119">
 									<DataPath>Объект.Товары.Сумма</DataPath>
 									<EditMode>EnterOnInput</EditMode>
@@ -403,24 +511,72 @@
 										<Event name="OnChange">ТоварыСуммаПриИзменении</Event>
 									</Events>
 								</InputField>
-								<InputField name="ТоварыСтрокаЗаявки" id="272">
-									<DataPath>Объект.Товары.СтрокаЗаявки</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ТоварыСтрокаЗаявкиКонтекстноеМеню" id="273"/>
-									<ExtendedTooltip name="ТоварыСтрокаЗаявкиРасширеннаяПодсказка" id="274"/>
-								</InputField>
-								<LabelField name="ТоварыСтрокаЗаявкиIDSite" id="275">
-									<DataPath>Объект.Товары.СтрокаЗаявки.IDSite</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ТоварыСтрокаЗаявкиIDSiteКонтекстноеМеню" id="276"/>
-									<ExtendedTooltip name="ТоварыСтрокаЗаявкиIDSiteРасширеннаяПодсказка" id="277"/>
-								</LabelField>
-								<InputField name="ТоварыСклад" id="122">
-									<DataPath>1/0:02c014cf-77b3-43dd-b0dd-8ab23cd02ab4/0:ac383736-768c-4739-bd6b-610167be5709</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ТоварыСкладКонтекстноеМеню" id="123"/>
-									<ExtendedTooltip name="ТоварыСкладРасширеннаяПодсказка" id="124"/>
-								</InputField>
+								<ColumnGroup name="ТоварыГруппаСтрокаЗаявки" id="342">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Товары группа строка заявки</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Товары группа строка заявки</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ТоварыГруппаСтрокаЗаявкиРасширеннаяПодсказка" id="343"/>
+									<ChildItems>
+										<InputField name="ТоварыСтрокаЗаявки" id="272">
+											<DataPath>Объект.Товары.СтрокаЗаявки</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ТоварыСтрокаЗаявкиКонтекстноеМеню" id="273"/>
+											<ExtendedTooltip name="ТоварыСтрокаЗаявкиРасширеннаяПодсказка" id="274"/>
+										</InputField>
+										<LabelField name="ТоварыСтрокаЗаявкиIDSite" id="275">
+											<DataPath>Объект.Товары.СтрокаЗаявки.IDSite</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ТоварыСтрокаЗаявкиIDSiteКонтекстноеМеню" id="276"/>
+											<ExtendedTooltip name="ТоварыСтрокаЗаявкиIDSiteРасширеннаяПодсказка" id="277"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
+								<ColumnGroup name="ТоварыГруппаДоп1" id="340">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Товары группа доп1</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Товары группа доп1</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ТоварыГруппаДоп1РасширеннаяПодсказка" id="341"/>
+									<ChildItems>
+										<InputField name="ТоварыСуммаКомпенсации" id="326">
+											<DataPath>Объект.Товары.СуммаКомпенсации</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ТоварыСуммаКомпенсацииКонтекстноеМеню" id="327"/>
+											<ExtendedTooltip name="ТоварыСуммаКомпенсацииРасширеннаяПодсказка" id="328"/>
+										</InputField>
+										<CheckBoxField name="ТоварыЦелостностьУпаковки" id="332">
+											<DataPath>Объект.Товары.ЦелостностьУпаковки</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ТоварыЦелостностьУпаковкиКонтекстноеМеню" id="333"/>
+											<ExtendedTooltip name="ТоварыЦелостностьУпаковкиРасширеннаяПодсказка" id="334"/>
+										</CheckBoxField>
+										<CheckBoxField name="ТоварыОтсутствуютСледыУстановки" id="335">
+											<DataPath>Объект.Товары.ОтсутствуютСледыУстановки</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ТоварыОтсутствуютСледыУстановкиКонтекстноеМеню" id="336"/>
+											<ExtendedTooltip name="ТоварыОтсутствуютСледыУстановкиРасширеннаяПодсказка" id="337"/>
+										</CheckBoxField>
+									</ChildItems>
+								</ColumnGroup>
 								<InputField name="ТоварыДокументПродажи" id="125">
 									<DataPath>Объект.Товары.ДокументПродажи</DataPath>
 									<EditMode>EnterOnInput</EditMode>
