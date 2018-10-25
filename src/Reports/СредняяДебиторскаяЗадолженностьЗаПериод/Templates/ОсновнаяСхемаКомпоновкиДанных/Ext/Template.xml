@@ -373,21 +373,6 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 ВЫБРАТЬ
-	ПросрочкаПоДням.ДоговорКонтрагента КАК ДоговорКонтрагента,
-	СУММА(ПросрочкаПоДням.Остаток) КАК Остаток
-ПОМЕСТИТЬ ДоговорКонтрагентаСПросрочкой
-ИЗ
-	ПросрочкаПоДням КАК ПросрочкаПоДням
-
-СГРУППИРОВАТЬ ПО
-	ПросрочкаПоДням.ДоговорКонтрагента
-
-ИМЕЮЩИЕ
-	СУММА(ПросрочкаПоДням.Остаток) &gt; 0
-;
-
-////////////////////////////////////////////////////////////////////////////////
-ВЫБРАТЬ
 	ПросрочкаПоДням.ПериодДень,
 	ПросрочкаПоДням.ДокументРасчетов,
 	ПросрочкаПоДням.ДоговорКонтрагента,
@@ -395,12 +380,49 @@
 	ПросрочкаПоДням.ДатаОплаты,
 	ПросрочкаПоДням.ДатаДокумента,
 	ПросрочкаПоДням.СуммаДокумента,
-	ПросрочкаПоДням.Остаток,
+	ВЫБОР
+		КОГДА ПросрочкаПоДням.ДнейПросрочки &gt;= &amp;ДнейПросрочкиОт
+				И (ПросрочкаПоДням.ДнейПросрочки &lt;= &amp;ДнейПросрочкиДо
+					ИЛИ &amp;ДнейПросрочкиДо = 0)
+			ТОГДА ПросрочкаПоДням.Остаток
+		ИНАЧЕ 0
+	КОНЕЦ КАК Остаток,
 	ПросрочкаПоДням.Менеджер КАК Менеджер
+ПОМЕСТИТЬ ПросрочкаПоДням2
 ИЗ
 	ПросрочкаПоДням КАК ПросрочкаПоДням
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ПросрочкаПоДням2.ДоговорКонтрагента КАК ДоговорКонтрагента,
+	СУММА(ПросрочкаПоДням2.Остаток) КАК Остаток
+ПОМЕСТИТЬ ДоговорКонтрагентаСПросрочкой
+ИЗ
+	ПросрочкаПоДням2 КАК ПросрочкаПоДням2
+
+СГРУППИРОВАТЬ ПО
+	ПросрочкаПоДням2.ДоговорКонтрагента
+
+ИМЕЮЩИЕ
+	СУММА(ПросрочкаПоДням2.Остаток) &gt; 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ПросрочкаПоДням2.ПериодДень,
+	ПросрочкаПоДням2.ДокументРасчетов,
+	ПросрочкаПоДням2.ДоговорКонтрагента,
+	ПросрочкаПоДням2.ДнейПросрочки,
+	ПросрочкаПоДням2.ДатаОплаты,
+	ПросрочкаПоДням2.ДатаДокумента,
+	ПросрочкаПоДням2.СуммаДокумента,
+	ПросрочкаПоДням2.Остаток,
+	ПросрочкаПоДням2.Менеджер КАК Менеджер
+ИЗ
+	ПросрочкаПоДням2 КАК ПросрочкаПоДням2
 		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ДоговорКонтрагентаСПросрочкой КАК ДоговорКонтрагентаСПросрочкой
-		ПО ПросрочкаПоДням.ДоговорКонтрагента = ДоговорКонтрагентаСПросрочкой.ДоговорКонтрагента</query>
+		ПО ПросрочкаПоДням2.ДоговорКонтрагента = ДоговорКонтрагентаСПросрочкой.ДоговорКонтрагента</query>
 	</dataSet>
 	<dataSet xsi:type="DataSetQuery">
 		<name>ПродажиПоКонтрагентам</name>
@@ -684,6 +706,44 @@
 		<useRestriction>true</useRestriction>
 		<expression>НачалоПериода(ТекущаяДата(), "День")</expression>
 	</parameter>
+	<parameter>
+		<name>ДнейПросрочкиОт</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дней просрочки от (включительно)</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:type="xs:decimal">0</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДнейПросрочкиДо</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дней просрочки до (включительно)</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:type="xs:decimal">0</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
 	<settingsVariant>
 		<dcsset:name>Основной</dcsset:name>
 		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
@@ -747,20 +807,6 @@
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.ДоговорыКонтрагентов.ПустаяСсылка</dcsset:right>
 					<dcsset:userSettingID>d705c415-fd6c-4f9d-a482-7c0590dbcdba</dcsset:userSettingID>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:FilterItemComparison">
-					<dcsset:use>false</dcsset:use>
-					<dcsset:left xsi:type="dcscor:Field">ДнейПросрочки</dcsset:left>
-					<dcsset:comparisonType>GreaterOrEqual</dcsset:comparisonType>
-					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
-					<dcsset:userSettingID>b9335aa4-160c-464c-a438-b92bd09a4559</dcsset:userSettingID>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:FilterItemComparison">
-					<dcsset:use>false</dcsset:use>
-					<dcsset:left xsi:type="dcscor:Field">ДнейПросрочки</dcsset:left>
-					<dcsset:comparisonType>LessOrEqual</dcsset:comparisonType>
-					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
-					<dcsset:userSettingID>c86e2d93-58ea-4b00-8518-dbcf9679b88d</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemGroup">
 					<dcsset:use>false</dcsset:use>
@@ -827,6 +873,16 @@
 						<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
 					</dcscor:value>
 					<dcsset:userSettingID>3f5a0314-0459-4383-9ba7-f310e9fd34b7</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДнейПросрочкиОт</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+					<dcsset:userSettingID>a83a1ff7-cb23-4bb5-9142-ab5167739d61</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДнейПросрочкиДо</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+					<dcsset:userSettingID>19c20e8a-f0b0-49e8-9a45-fc04793a81b8</dcsset:userSettingID>
 				</dcscor:item>
 			</dcsset:dataParameters>
 			<dcsset:outputParameters>
