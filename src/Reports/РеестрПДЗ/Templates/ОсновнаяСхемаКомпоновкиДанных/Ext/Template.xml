@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументРасчетов</dataPath>
+			<field>ДокументРасчетов</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоговорКонтрагента</dataPath>
+			<field>ДоговорКонтрагента</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаРегистрации</dataPath>
+			<field>ДатаРегистрации</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата регистрации</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДФ=dd.MM.yyyy</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">15</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Менеджер</dataPath>
+			<field>Менеджер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДнейПросрочки</dataPath>
+			<field>ДнейПросрочки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дней просрочки</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПериодДень</dataPath>
+			<field>ПериодДень</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период, день</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДФ=dd.MM.yyyy</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаДокумента</dataPath>
+			<field>СуммаДокумента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма документа</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаПДЗ</dataPath>
+			<field>СуммаПДЗ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма ПДЗ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаПДЗТекущая</dataPath>
+			<field>СуммаПДЗТекущая</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма ПДЗ (текущая)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	спрКонтрагенты.Ссылка КАК Контрагент,
+	МенеджерыТорговыхТочекСрезПоследних.Менеджер КАК Менеджер
+ПОМЕСТИТЬ спрКонтрагенты
+ИЗ
+	Справочник.Контрагенты КАК спрКонтрагенты
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.МенеджерыТорговыхТочек.СрезПоследних({(&amp;ТекущаяДата)}, ВидМенеджера = ЗНАЧЕНИЕ(Перечисление.ВидыМенеджеров.Продажи)) КАК МенеджерыТорговыхТочекСрезПоследних
+		ПО спрКонтрагенты.ОсновнаяТорговаяТочка = МенеджерыТорговыхТочекСрезПоследних.ТорговаяТочка
+{ГДЕ
+	спрКонтрагенты.Ссылка.* КАК Контрагент,
+	МенеджерыТорговыхТочекСрезПоследних.Менеджер.*}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВзаиморасчетыОстатки.ДокументРасчетов,
+	ВзаиморасчетыОстатки.СуммаРеглОстаток КАК СуммаПДЗТекущая
+ПОМЕСТИТЬ ТекущаяПДЗ
+ИЗ
+	РегистрНакопления.Взаиморасчеты.Остатки(
+			{(КОНЕЦПЕРИОДА(&amp;ТекущаяДата, ДЕНЬ))},
+			ДоговорКонтрагента.Владелец В
+				(ВЫБРАТЬ
+					спрКонтрагенты.Контрагент
+				ИЗ
+					спрКонтрагенты) {(ДоговорКонтрагента).*, (ДокументРасчетов).*}) КАК ВзаиморасчетыОстатки
+ГДЕ
+	ВзаиморасчетыОстатки.СуммаРеглОстаток &gt; 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВзаиморасчетыОстатки.Период КАК ПериодДень,
+	спрКонтрагенты.Менеджер,
+	ВзаиморасчетыОстатки.ДокументРасчетов,
+	ВзаиморасчетыОстатки.ДоговорКонтрагента,
+	ВзаиморасчетыОстатки.СуммаРеглНачальныйОстаток КАК СуммаПДЗ,
+	РАЗНОСТЬДАТ(ВЫРАЗИТЬ(ВзаиморасчетыОстатки.ДокументРасчетов КАК Документ.РеализацияТоваровУслуг).ДатаОплаты, ВзаиморасчетыОстатки.Период, ДЕНЬ) КАК ДнейПросрочки,
+	ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ВзаиморасчетыОстатки.ДокументРасчетов КАК Документ.РеализацияТоваровУслуг).ДатаОплаты, ДЕНЬ, 30) КАК ДатаРегистрации,
+	ВзаиморасчетыОстатки.ДокументРасчетов.СуммаДокумента КАК СуммаДокумента,
+	ЕСТЬNULL(ТекущаяПДЗ.СуммаПДЗТекущая, 0) КАК СуммаПДЗТекущая
+ИЗ
+	РегистрНакопления.Взаиморасчеты.ОстаткиИОбороты(
+			{(&amp;НачалоПериода)},
+			{(КОНЕЦПЕРИОДА(&amp;ОкончаниеПериода, ДЕНЬ))},
+			День,
+			,
+			ДоговорКонтрагента.Владелец В
+				(ВЫБРАТЬ
+					спрКонтрагенты.Контрагент
+				ИЗ
+					спрКонтрагенты) {(ДоговорКонтрагента).*, (ДокументРасчетов).*}) КАК ВзаиморасчетыОстатки
+		ЛЕВОЕ СОЕДИНЕНИЕ спрКонтрагенты КАК спрКонтрагенты
+		ПО (спрКонтрагенты.Контрагент = ВзаиморасчетыОстатки.ДоговорКонтрагента.Владелец)
+		ЛЕВОЕ СОЕДИНЕНИЕ ТекущаяПДЗ КАК ТекущаяПДЗ
+		ПО (ТекущаяПДЗ.ДокументРасчетов = ВзаиморасчетыОстатки.ДокументРасчетов)
+ГДЕ
+	ВзаиморасчетыОстатки.СуммаРеглНачальныйОстаток &gt; 0
+	И ВзаиморасчетыОстатки.ДокументРасчетов ССЫЛКА Документ.РеализацияТоваровУслуг
+	И РАЗНОСТЬДАТ(ВЫРАЗИТЬ(ВзаиморасчетыОстатки.ДокументРасчетов КАК Документ.РеализацияТоваровУслуг).ДатаОплаты, ВзаиморасчетыОстатки.Период, ДЕНЬ) &gt;= &amp;ДнейПросрочкиОт
+	И (РАЗНОСТЬДАТ(ВЫРАЗИТЬ(ВзаиморасчетыОстатки.ДокументРасчетов КАК Документ.РеализацияТоваровУслуг).ДатаОплаты, ВзаиморасчетыОстатки.Период, ДЕНЬ) &lt;= &amp;ДнейПросрочкиДо
+			ИЛИ &amp;ДнейПросрочкиДо = 0)</query>
+	</dataSet>
+	<totalField>
+		<dataPath>ДнейПросрочки</dataPath>
+		<expression>Среднее(ДнейПросрочки)</expression>
+		<group>ДокументРасчетов</group>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаПДЗ</dataPath>
+		<expression>Сумма(СуммаПДЗ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаПДЗТекущая</dataPath>
+		<expression>Сумма(СуммаПДЗТекущая)</expression>
+		<group>ДокументРасчетов</group>
+	</totalField>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ОкончаниеПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Окончание периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДнейПросрочкиОт</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дней просрочки от</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>12</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:type="xs:decimal">0</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДнейПросрочкиДо</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дней просрочки до</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+		<value xsi:type="xs:decimal">0</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТекущаяДата</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Текущая дата</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>ТекущаяДата()</expression>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Основной</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДоговорКонтрагента.Владелец</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДокументРасчетов</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаПДЗ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДнейПросрочки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>СуммаПДЗТекущая</dcsset:field>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>a7a586fc-ee39-4ec7-b9eb-98e345d87223</dcsset:userSettingID>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Менеджер</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Менеджеры.ПустаяСсылка</dcsset:right>
+					<dcsset:userSettingID>57bac2d8-5c25-4aae-8900-25c5e903ad1c</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ДоговорКонтрагента.Владелец</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Контрагенты.ПустаяСсылка</dcsset:right>
+					<dcsset:userSettingID>b9ddb867-35f5-485d-922b-79660916d6ff</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ДоговорКонтрагента.Организация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Организации.ПустаяСсылка</dcsset:right>
+					<dcsset:userSettingID>7b63a4f5-4da9-4949-b2ec-1762d83f9cc3</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ДоговорКонтрагента.Владелец.ОсновнаяТорговаяТочка.Владелец.Регион</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Регионы.ПустаяСсылка</dcsset:right>
+					<dcsset:userSettingID>de189f0b-9b8f-4c3e-8338-74b0ce375481</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ДоговорКонтрагента.Владелец.ОсновнаяТорговаяТочка.Владелец.Регион.Филиал</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Филиалы.ПустаяСсылка</dcsset:right>
+					<dcsset:userSettingID>aa7c0705-8a5c-403c-ad9e-8f1b663860e4</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ДоговорКонтрагента.ВидОплаты</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>2a525757-13e0-461a-a7c1-684958c1f812</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>94f23eef-ba39-48df-85dd-2c1e5e8b071c</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisMonth</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>7e9ed067-a8d9-4d10-9746-cbcc02a13424</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ОкончаниеПериода</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>0b167163-938a-4aa6-9f36-a5d671634f1a</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДнейПросрочкиОт</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">7</dcscor:value>
+					<dcsset:userSettingID>1adb69ef-51ee-4d5c-9392-0a21831984ad</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДнейПросрочкиДо</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">29</dcscor:value>
+					<dcsset:userSettingID>c3a6e250-0db9-4ef7-9e85-12a48bddd37c</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>СуммаПДЗ</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">СуммаПДЗТекущая</dcsset:left>
+							<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветТекста</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">style:SpecialTextColor</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+					<dcsset:useInHierarchicalGroup>DontUse</dcsset:useInHierarchicalGroup>
+					<dcsset:useInOverall>DontUse</dcsset:useInOverall>
+					<dcsset:useInFieldsHeader>DontUse</dcsset:useInFieldsHeader>
+					<dcsset:useInHeader>DontUse</dcsset:useInHeader>
+					<dcsset:useInParameters>DontUse</dcsset:useInParameters>
+					<dcsset:useInFilter>DontUse</dcsset:useInFilter>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Separately</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ДоговорКонтрагента.Владелец</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ДокументРасчетов</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ДокументРасчетов.ДатаОплаты</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ПериодДень</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+			<dcsset:itemsUserSettingID>2c2319d6-eb99-4731-b296-057b6830b959</dcsset:itemsUserSettingID>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>
