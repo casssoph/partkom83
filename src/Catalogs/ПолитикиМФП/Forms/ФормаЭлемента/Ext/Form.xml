@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаПараметрыПолитики" id="152">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ПараметрыПолитики</CommandName>
+				<ExtendedTooltip name="ФормаПараметрыПолитикиРасширеннаяПодсказка" id="153"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Код" id="1">
+			<DataPath>Объект.Code</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="Наименование" id="4">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="Владелец" id="7">
+			<DataPath>Объект.Owner</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ВладелецКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ВладелецРасширеннаяПодсказка" id="9"/>
+			<Events>
+				<Event name="OnChange">ВладелецПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="ПериодДействия" id="10">
+			<DataPath>Объект.ПериодДействия</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ПериодДействияКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="ПериодДействияРасширеннаяПодсказка" id="12"/>
+			<Events>
+				<Event name="OnChange">ПериодДействияПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="Контрагент" id="13">
+			<DataPath>Объект.Контрагент</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КонтрагентКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<UsualGroup name="ГруппаВнешниеКлиенты" id="142">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Внешние клиенты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа внешние клиенты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ГруппаВнешниеКлиентыРасширеннаяПодсказка" id="143"/>
+			<ChildItems>
+				<CheckBoxField name="РазрешенаЗакупкаУВнешнихПоставщиков" id="16">
+					<DataPath>Объект.РазрешенаЗакупкаУВнешнихПоставщиков</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РазрешенаЗакупкаУВнешнихПоставщиковКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="РазрешенаЗакупкаУВнешнихПоставщиковРасширеннаяПодсказка" id="18"/>
+				</CheckBoxField>
+				<CheckBoxField name="РазрешенаПродажаВнешнимКлиентам" id="22">
+					<DataPath>Объект.РазрешенаПродажаВнешнимКлиентам</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РазрешенаПродажаВнешнимКлиентамКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="РазрешенаПродажаВнешнимКлиентамРасширеннаяПодсказка" id="24"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="СобственныеОрганизации" id="144">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Собственные организации</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Собственные организации</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="СобственныеОрганизацииРасширеннаяПодсказка" id="145"/>
+			<ChildItems>
+				<CheckBoxField name="РазрешенаПродажаСобственнымОрганизациям" id="25">
+					<DataPath>Объект.РазрешенаПродажаСобственнымОрганизациям</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РазрешенаПродажаСобственнымОрганизациямКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="РазрешенаПродажаСобственнымОрганизациямРасширеннаяПодсказка" id="27"/>
+					<Events>
+						<Event name="OnChange">РазрешенаПродажаСобственнымОрганизациямПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="Страницы" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="29"/>
+			<ChildItems>
+				<Page name="ГруппаПродажа" id="140">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Продажа</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа продажа</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаПродажаРасширеннаяПодсказка" id="141"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаСобственныеОрганизацииРазрешенаПродажа" id="72">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Собственные организации которым разрешено продавать товар</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<ExtendedTooltip name="ГруппаСобственныеОрганизацииРазрешенаПродажаРасширеннаяПодсказка" id="73"/>
+							<ChildItems>
+								<LabelDecoration name="ДекорацияГруппаСобственныеОрганизацииРазрешенаПродажа" id="146">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Если не указано ни одной организации, то разрешено продавать всем</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДекорацияГруппаСобственныеОрганизацииРазрешенаПродажаКонтекстноеМеню" id="147"/>
+									<ExtendedTooltip name="ДекорацияГруппаСобственныеОрганизацииРазрешенаПродажаРасширеннаяПодсказка" id="148"/>
+								</LabelDecoration>
+								<Table name="СобственныеОрганизацииРазрешенаПродажа" id="74">
+									<Representation>List</Representation>
+									<AutoInsertNewRow>true</AutoInsertNewRow>
+									<EnableStartDrag>true</EnableStartDrag>
+									<EnableDrag>true</EnableDrag>
+									<DataPath>Объект.СобственныеОрганизацииРазрешенаПродажа</DataPath>
+									<RowFilter xsi:nil="true"/>
+									<ContextMenu name="СобственныеОрганизацииРазрешенаПродажаКонтекстноеМеню" id="75"/>
+									<AutoCommandBar name="СобственныеОрганизацииРазрешенаПродажаКоманднаяПанель" id="76"/>
+									<ExtendedTooltip name="СобственныеОрганизацииРазрешенаПродажаРасширеннаяПодсказка" id="77"/>
+									<SearchStringAddition name="СобственныеОрганизацииРазрешенаПродажаСтрокаПоиска" id="78">
+										<AdditionSource>
+											<Item>СобственныеОрганизацииРазрешенаПродажа</Item>
+											<Type>SearchStringRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="СобственныеОрганизацииРазрешенаПродажаСтрокаПоискаКонтекстноеМеню" id="79"/>
+										<ExtendedTooltip name="СобственныеОрганизацииРазрешенаПродажаСтрокаПоискаРасширеннаяПодсказка" id="80"/>
+									</SearchStringAddition>
+									<ViewStatusAddition name="СобственныеОрганизацииРазрешенаПродажаСостояниеПросмотра" id="81">
+										<AdditionSource>
+											<Item>СобственныеОрганизацииРазрешенаПродажа</Item>
+											<Type>ViewStatusRepresentation</Type>
+										</AdditionSource>
+										<ContextMenu name="СобственныеОрганизацииРазрешенаПродажаСостояниеПросмотраКонтекстноеМеню" id="82"/>
+										<ExtendedTooltip name="СобственныеОрганизацииРазрешенаПродажаСостояниеПросмотраРасширеннаяПодсказка" id="83"/>
+									</ViewStatusAddition>
+									<SearchControlAddition name="СобственныеОрганизацииРазрешенаПродажаУправлениеПоиском" id="84">
+										<AdditionSource>
+											<Item>СобственныеОрганизацииРазрешенаПродажа</Item>
+											<Type>SearchControl</Type>
+										</AdditionSource>
+										<ContextMenu name="СобственныеОрганизацииРазрешенаПродажаУправлениеПоискомКонтекстноеМеню" id="85"/>
+										<ExtendedTooltip name="СобственныеОрганизацииРазрешенаПродажаУправлениеПоискомРасширеннаяПодсказка" id="86"/>
+									</SearchControlAddition>
+									<ChildItems>
+										<LabelField name="СобственныеОрганизацииРазрешенаПродажаНомерСтроки" id="87">
+											<DataPath>Объект.СобственныеОрганизацииРазрешенаПродажа.LineNumber</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СобственныеОрганизацииРазрешенаПродажаНомерСтрокиКонтекстноеМеню" id="88"/>
+											<ExtendedTooltip name="СобственныеОрганизацииРазрешенаПродажаНомерСтрокиРасширеннаяПодсказка" id="89"/>
+										</LabelField>
+										<InputField name="СобственныеОрганизацииРазрешенаПродажаОрганизация" id="90">
+											<DataPath>Объект.СобственныеОрганизацииРазрешенаПродажа.Организация</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СобственныеОрганизацииРазрешенаПродажаОрганизацияКонтекстноеМеню" id="91"/>
+											<ExtendedTooltip name="СобственныеОрганизацииРазрешенаПродажаОрганизацияРасширеннаяПодсказка" id="92"/>
+										</InputField>
+										<InputField name="СобственныеОрганизацииРазрешенаПродажаПроцентНаценки" id="149">
+											<DataPath>Объект.СобственныеОрганизацииРазрешенаПродажа.ПроцентНаценки</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="СобственныеОрганизацииРазрешенаПродажаПроцентНаценкиКонтекстноеМеню" id="150"/>
+											<ExtendedTooltip name="СобственныеОрганизацииРазрешенаПродажаПроцентНаценкиРасширеннаяПодсказка" id="151"/>
+										</InputField>
+									</ChildItems>
+								</Table>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.ПолитикиМФП</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ПараметрыПолитики" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры политики</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры политики</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПараметрыПолитики</Action>
+		</Command>
+	</Commands>
+</Form>
