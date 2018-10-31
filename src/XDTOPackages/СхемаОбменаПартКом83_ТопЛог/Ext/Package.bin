@@ -127,6 +127,25 @@
 		<property name="ГородСсылка" type="xs:string"/>
 		<property name="СкладПолучательСсылка" type="xs:string"/>
 	</objectType>
+	<objectType name="ЗаказНаОтгрузкуСтатус" ordered="false" sequenced="true">
+		<property name="ЗаказСсылка" type="xs:string" lowerBound="0"/>
+		<property name="ЗаказНомер" type="xs:string" lowerBound="0"/>
+		<property name="ЗаказНомерWMS" type="xs:string" lowerBound="0"/>
+		<property name="ЗаказСтатус" type="xs:string" lowerBound="0"/>
+		<property name="ЗаказДатаСтатуса" type="xs:dateTime" lowerBound="0"/>
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Товары" type="d3p1:ЗаказНаОтгрузкуСтатус.Товары" lowerBound="0"/>
+	</objectType>
+	<objectType name="ЗаказНаОтгрузкуСтатус.Товары">
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="СтрокаТовары" type="d3p1:ЗаказНаОтгрузкуСтатус.Товары.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ЗаказНаОтгрузкуСтатус.Товары.Строка" ordered="false" sequenced="true">
+		<property name="НоменклатураСсылка" type="xs:string"/>
+		<property name="НоменклатураНаименование" type="xs:string"/>
+		<property name="НоменклатураАртикул" type="xs:string"/>
+		<property name="SSID" type="xs:string"/>
+		<property name="План" type="xs:int"/>
+		<property name="Факт" type="xs:int"/>
+	</objectType>
 	<objectType name="Объекты">
 		<property name="Объект" type="xs:anyType" lowerBound="0" upperBound="-1"/>
 	</objectType>
@@ -268,14 +287,14 @@
 		<property name="ЭтоГруппа" type="xs:boolean"/>
 	</objectType>
 	<objectType name="Справочники.Номенклатура" ordered="false" sequenced="true">
-		<property name="Ссылка" type="xs:string"/>
-		<property name="Наименование" type="xs:string"/>
-		<property name="ИзготовительСсылка" type="xs:string"/>
-		<property name="Артикул" type="xs:string"/>
-		<property name="НаименованиеПолное" type="xs:string"/>
-		<property name="ПометкаУдаления" type="xs:boolean"/>
-		<property name="ЭтоГруппа" type="xs:boolean"/>
-		<property name="РодительСсылка" type="xs:string"/>
+		<property name="Ссылка" type="xs:string" lowerBound="0"/>
+		<property name="Наименование" type="xs:string" lowerBound="0"/>
+		<property name="ИзготовительСсылка" type="xs:string" lowerBound="0"/>
+		<property name="Артикул" type="xs:string" lowerBound="0"/>
+		<property name="НаименованиеПолное" type="xs:string" lowerBound="0"/>
+		<property name="ПометкаУдаления" type="xs:boolean" lowerBound="0"/>
+		<property name="ЭтоГруппа" type="xs:boolean" lowerBound="0"/>
+		<property name="РодительСсылка" type="xs:string" lowerBound="0"/>
 		<property name="Услуга" type="xs:boolean" lowerBound="0"/>
 	</objectType>
 	<objectType name="Справочники.Организации" ordered="false" sequenced="true">
