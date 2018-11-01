@@ -147,16 +147,6 @@
 							<Group>Vertical</Group>
 							<ExtendedTooltip name="ГруппаСобственныеОрганизацииРазрешенаПродажаРасширеннаяПодсказка" id="73"/>
 							<ChildItems>
-								<LabelDecoration name="ДекорацияГруппаСобственныеОрганизацииРазрешенаПродажа" id="146">
-									<Title formatted="false">
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Если не указано ни одной организации, то разрешено продавать всем</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="ДекорацияГруппаСобственныеОрганизацииРазрешенаПродажаКонтекстноеМеню" id="147"/>
-									<ExtendedTooltip name="ДекорацияГруппаСобственныеОрганизацииРазрешенаПродажаРасширеннаяПодсказка" id="148"/>
-								</LabelDecoration>
 								<Table name="СобственныеОрганизацииРазрешенаПродажа" id="74">
 									<Representation>List</Representation>
 									<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -218,6 +208,11 @@
 				</Page>
 			</ChildItems>
 		</Pages>
+		<InputField name="Комментарий" id="154">
+			<DataPath>Объект.Комментарий</DataPath>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="155"/>
+			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="156"/>
+		</InputField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
