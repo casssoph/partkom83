@@ -101,14 +101,13 @@
 			<Representation>StrongSeparation</Representation>
 			<ExtendedTooltip name="СобственныеОрганизацииРасширеннаяПодсказка" id="145"/>
 			<ChildItems>
-				<CheckBoxField name="РазрешенаПродажаСобственнымОрганизациям" id="25">
-					<DataPath>Объект.РазрешенаПродажаСобственнымОрганизациям</DataPath>
-					<EditMode>EnterOnInput</EditMode>
+				<CheckBoxField name="РазрешенаПокупкаУСобственныхОрганизаций" id="183">
+					<DataPath>Объект.РазрешенаПокупкаУСобственныхОрганизаций</DataPath>
 					<CheckBoxType>Auto</CheckBoxType>
-					<ContextMenu name="РазрешенаПродажаСобственнымОрганизациямКонтекстноеМеню" id="26"/>
-					<ExtendedTooltip name="РазрешенаПродажаСобственнымОрганизациямРасширеннаяПодсказка" id="27"/>
+					<ContextMenu name="РазрешенаПокупкаУСобственныхОрганизацийКонтекстноеМеню" id="184"/>
+					<ExtendedTooltip name="РазрешенаПокупкаУСобственныхОрганизацийРасширеннаяПодсказка" id="185"/>
 					<Events>
-						<Event name="OnChange">РазрешенаПродажаСобственнымОрганизациямПриИзменении</Event>
+						<Event name="OnChange">РазрешенаПокупкаУСобственныхОрганизацийПриИзменении</Event>
 					</Events>
 				</CheckBoxField>
 			</ChildItems>
@@ -122,83 +121,88 @@
 			</Title>
 			<ExtendedTooltip name="СтраницыРасширеннаяПодсказка" id="29"/>
 			<ChildItems>
-				<Page name="ГруппаПродажа" id="140">
+				<Page name="ГруппаПокупка" id="157">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Продажа</v8:content>
+							<v8:content>Покупка</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа продажа</v8:content>
+							<v8:content>Группа покупка</v8:content>
 						</v8:item>
 					</ToolTip>
-					<ExtendedTooltip name="ГруппаПродажаРасширеннаяПодсказка" id="141"/>
+					<ExtendedTooltip name="ГруппаПокупкаРасширеннаяПодсказка" id="158"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаСобственныеОрганизацииРазрешенаПродажа" id="72">
+						<UsualGroup name="ГруппаСобственныеОрганизацииРазрешенаПокупка" id="159">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Собственные организации которым разрешено продавать товар</v8:content>
+									<v8:content>Собственные организации у которых разрешено покупать товар</v8:content>
 								</v8:item>
 							</Title>
-							<Group>Vertical</Group>
-							<ExtendedTooltip name="ГруппаСобственныеОрганизацииРазрешенаПродажаРасширеннаяПодсказка" id="73"/>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа собственные организации разрешена покупка</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="ГруппаСобственныеОрганизацииРазрешенаПокупкаРасширеннаяПодсказка" id="160"/>
 							<ChildItems>
-								<Table name="СобственныеОрганизацииРазрешенаПродажа" id="74">
-									<Representation>List</Representation>
+								<Table name="СобственныеОрганизацииРазрешенаПокупка" id="161">
 									<AutoInsertNewRow>true</AutoInsertNewRow>
 									<EnableStartDrag>true</EnableStartDrag>
 									<EnableDrag>true</EnableDrag>
-									<DataPath>Объект.СобственныеОрганизацииРазрешенаПродажа</DataPath>
+									<DataPath>Объект.СобственныеОрганизацииРазрешенаПокупка</DataPath>
 									<RowFilter xsi:nil="true"/>
-									<ContextMenu name="СобственныеОрганизацииРазрешенаПродажаКонтекстноеМеню" id="75"/>
-									<AutoCommandBar name="СобственныеОрганизацииРазрешенаПродажаКоманднаяПанель" id="76"/>
-									<ExtendedTooltip name="СобственныеОрганизацииРазрешенаПродажаРасширеннаяПодсказка" id="77"/>
-									<SearchStringAddition name="СобственныеОрганизацииРазрешенаПродажаСтрокаПоиска" id="78">
+									<ContextMenu name="СобственныеОрганизацииРазрешенаПокупкаКонтекстноеМеню" id="162"/>
+									<AutoCommandBar name="СобственныеОрганизацииРазрешенаПокупкаКоманднаяПанель" id="163"/>
+									<ExtendedTooltip name="СобственныеОрганизацииРазрешенаПокупкаРасширеннаяПодсказка" id="164"/>
+									<SearchStringAddition name="СобственныеОрганизацииРазрешенаПокупкаСтрокаПоиска" id="165">
 										<AdditionSource>
-											<Item>СобственныеОрганизацииРазрешенаПродажа</Item>
+											<Item>СобственныеОрганизацииРазрешенаПокупка</Item>
 											<Type>SearchStringRepresentation</Type>
 										</AdditionSource>
-										<ContextMenu name="СобственныеОрганизацииРазрешенаПродажаСтрокаПоискаКонтекстноеМеню" id="79"/>
-										<ExtendedTooltip name="СобственныеОрганизацииРазрешенаПродажаСтрокаПоискаРасширеннаяПодсказка" id="80"/>
+										<ContextMenu name="СобственныеОрганизацииРазрешенаПокупкаСтрокаПоискаКонтекстноеМеню" id="166"/>
+										<ExtendedTooltip name="СобственныеОрганизацииРазрешенаПокупкаСтрокаПоискаРасширеннаяПодсказка" id="167"/>
 									</SearchStringAddition>
-									<ViewStatusAddition name="СобственныеОрганизацииРазрешенаПродажаСостояниеПросмотра" id="81">
+									<ViewStatusAddition name="СобственныеОрганизацииРазрешенаПокупкаСостояниеПросмотра" id="168">
 										<AdditionSource>
-											<Item>СобственныеОрганизацииРазрешенаПродажа</Item>
+											<Item>СобственныеОрганизацииРазрешенаПокупка</Item>
 											<Type>ViewStatusRepresentation</Type>
 										</AdditionSource>
-										<ContextMenu name="СобственныеОрганизацииРазрешенаПродажаСостояниеПросмотраКонтекстноеМеню" id="82"/>
-										<ExtendedTooltip name="СобственныеОрганизацииРазрешенаПродажаСостояниеПросмотраРасширеннаяПодсказка" id="83"/>
+										<ContextMenu name="СобственныеОрганизацииРазрешенаПокупкаСостояниеПросмотраКонтекстноеМеню" id="169"/>
+										<ExtendedTooltip name="СобственныеОрганизацииРазрешенаПокупкаСостояниеПросмотраРасширеннаяПодсказка" id="170"/>
 									</ViewStatusAddition>
-									<SearchControlAddition name="СобственныеОрганизацииРазрешенаПродажаУправлениеПоиском" id="84">
+									<SearchControlAddition name="СобственныеОрганизацииРазрешенаПокупкаУправлениеПоиском" id="171">
 										<AdditionSource>
-											<Item>СобственныеОрганизацииРазрешенаПродажа</Item>
+											<Item>СобственныеОрганизацииРазрешенаПокупка</Item>
 											<Type>SearchControl</Type>
 										</AdditionSource>
-										<ContextMenu name="СобственныеОрганизацииРазрешенаПродажаУправлениеПоискомКонтекстноеМеню" id="85"/>
-										<ExtendedTooltip name="СобственныеОрганизацииРазрешенаПродажаУправлениеПоискомРасширеннаяПодсказка" id="86"/>
+										<ContextMenu name="СобственныеОрганизацииРазрешенаПокупкаУправлениеПоискомКонтекстноеМеню" id="172"/>
+										<ExtendedTooltip name="СобственныеОрганизацииРазрешенаПокупкаУправлениеПоискомРасширеннаяПодсказка" id="173"/>
 									</SearchControlAddition>
 									<ChildItems>
-										<LabelField name="СобственныеОрганизацииРазрешенаПродажаНомерСтроки" id="87">
-											<DataPath>Объект.СобственныеОрганизацииРазрешенаПродажа.LineNumber</DataPath>
+										<LabelField name="СобственныеОрганизацииРазрешенаПокупкаНомерСтроки" id="174">
+											<DataPath>Объект.СобственныеОрганизацииРазрешенаПокупка.LineNumber</DataPath>
 											<EditMode>EnterOnInput</EditMode>
-											<ContextMenu name="СобственныеОрганизацииРазрешенаПродажаНомерСтрокиКонтекстноеМеню" id="88"/>
-											<ExtendedTooltip name="СобственныеОрганизацииРазрешенаПродажаНомерСтрокиРасширеннаяПодсказка" id="89"/>
+											<ContextMenu name="СобственныеОрганизацииРазрешенаПокупкаНомерСтрокиКонтекстноеМеню" id="175"/>
+											<ExtendedTooltip name="СобственныеОрганизацииРазрешенаПокупкаНомерСтрокиРасширеннаяПодсказка" id="176"/>
 										</LabelField>
-										<InputField name="СобственныеОрганизацииРазрешенаПродажаОрганизация" id="90">
-											<DataPath>Объект.СобственныеОрганизацииРазрешенаПродажа.Организация</DataPath>
+										<InputField name="СобственныеОрганизацииРазрешенаПокупкаОрганизация" id="177">
+											<DataPath>Объект.СобственныеОрганизацииРазрешенаПокупка.Организация</DataPath>
 											<EditMode>EnterOnInput</EditMode>
-											<ContextMenu name="СобственныеОрганизацииРазрешенаПродажаОрганизацияКонтекстноеМеню" id="91"/>
-											<ExtendedTooltip name="СобственныеОрганизацииРазрешенаПродажаОрганизацияРасширеннаяПодсказка" id="92"/>
+											<ContextMenu name="СобственныеОрганизацииРазрешенаПокупкаОрганизацияКонтекстноеМеню" id="178"/>
+											<ExtendedTooltip name="СобственныеОрганизацииРазрешенаПокупкаОрганизацияРасширеннаяПодсказка" id="179"/>
 										</InputField>
-										<InputField name="СобственныеОрганизацииРазрешенаПродажаПроцентНаценки" id="149">
-											<DataPath>Объект.СобственныеОрганизацииРазрешенаПродажа.ПроцентНаценки</DataPath>
+										<InputField name="СобственныеОрганизацииРазрешенаПокупкаПроцентНаценки" id="180">
+											<DataPath>Объект.СобственныеОрганизацииРазрешенаПокупка.ПроцентНаценки</DataPath>
 											<EditMode>EnterOnInput</EditMode>
-											<ContextMenu name="СобственныеОрганизацииРазрешенаПродажаПроцентНаценкиКонтекстноеМеню" id="150"/>
-											<ExtendedTooltip name="СобственныеОрганизацииРазрешенаПродажаПроцентНаценкиРасширеннаяПодсказка" id="151"/>
+											<ContextMenu name="СобственныеОрганизацииРазрешенаПокупкаПроцентНаценкиКонтекстноеМеню" id="181"/>
+											<ExtendedTooltip name="СобственныеОрганизацииРазрешенаПокупкаПроцентНаценкиРасширеннаяПодсказка" id="182"/>
 										</InputField>
 									</ChildItems>
 								</Table>
