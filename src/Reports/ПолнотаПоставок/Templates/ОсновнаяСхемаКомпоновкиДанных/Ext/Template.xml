@@ -196,7 +196,7 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сч Эталон %</v8:content>
+					<v8:content>Сч Эталон дн. (в %)</v8:content>
 				</v8:item>
 			</title>
 			<appearance>
@@ -227,7 +227,7 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сч 30 %</v8:content>
+					<v8:content>Сч 30 дн. (в %)</v8:content>
 				</v8:item>
 			</title>
 			<appearance>
@@ -269,7 +269,7 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сч 45 %</v8:content>
+					<v8:content>Сч 45 дн. (в %)</v8:content>
 				</v8:item>
 			</title>
 			<appearance>
@@ -925,7 +925,7 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сч 360+ %</v8:content>
+					<v8:content>Сч 360+ дн. (в %)</v8:content>
 				</v8:item>
 			</title>
 			<appearance>
@@ -946,7 +946,7 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сч 60 %</v8:content>
+					<v8:content>Сч 60 дн. (в %)</v8:content>
 				</v8:item>
 			</title>
 			<appearance>
@@ -967,7 +967,7 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сч 90 %</v8:content>
+					<v8:content>Сч 90 дн. (в %)</v8:content>
 				</v8:item>
 			</title>
 			<appearance>
@@ -988,7 +988,7 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сч 180 %</v8:content>
+					<v8:content>Сч 180 дн. (в %)</v8:content>
 				</v8:item>
 			</title>
 			<appearance>
@@ -2099,7 +2099,6 @@
 		</valueType>
 		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
 		<useRestriction>false</useRestriction>
-		<expression>ДАТАВРЕМЯ(2018,6,2)</expression>
 		<denyIncompleteValues>true</denyIncompleteValues>
 		<use>Always</use>
 	</parameter>
@@ -2119,7 +2118,6 @@
 		</valueType>
 		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
 		<useRestriction>false</useRestriction>
-		<expression>ТекущаяДата()</expression>
 		<denyIncompleteValues>true</denyIncompleteValues>
 		<use>Always</use>
 	</parameter>
@@ -2136,7 +2134,6 @@
 		</valueType>
 		<value xsi:nil="true"/>
 		<useRestriction>false</useRestriction>
-		<expression>Справочники.Контрагенты.НайтиПоКоду("С0012609")</expression>
 		<denyIncompleteValues>true</denyIncompleteValues>
 		<use>Always</use>
 	</parameter>
@@ -2340,9 +2337,6 @@
 					<dcsset:field>СлужебноеПоле3</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>СлужебноеПоле4</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>СлужебноеПоле5</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
@@ -2350,6 +2344,9 @@
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>СлужебноеПоле7</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СлужебноеПоле4</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>СлужебноеПоле8</dcsset:field>
@@ -2468,12 +2465,6 @@
 					<dcsset:left xsi:type="dcscor:Field">IDSite</dcsset:left>
 					<dcsset:comparisonType>Contains</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:string"/>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:FilterItemComparison">
-					<dcsset:use>false</dcsset:use>
-					<dcsset:left xsi:type="dcscor:Field">Поставщик</dcsset:left>
-					<dcsset:comparisonType>Equal</dcsset:comparisonType>
-					<dcsset:right xsi:type="dcscor:Field">ПараметрыДанных.КА</dcsset:right>
 				</dcsset:item>
 			</dcsset:filter>
 			<dcsset:dataParameters>
