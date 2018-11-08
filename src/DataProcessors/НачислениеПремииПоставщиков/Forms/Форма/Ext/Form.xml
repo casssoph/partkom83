@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<ChildItems>
 		<Pages name="Страницы" id="17">
@@ -98,11 +99,13 @@
 											<ChildItems>
 												<InputField name="ПроцентПремии" id="39">
 													<DataPath>ПроцентПремии</DataPath>
+													<AutoMarkIncomplete>true</AutoMarkIncomplete>
 													<ContextMenu name="ПроцентПремииКонтекстноеМеню" id="40"/>
 													<ExtendedTooltip name="ПроцентПремииРасширеннаяПодсказка" id="41"/>
 												</InputField>
 												<InputField name="СуммаОборота" id="44">
 													<DataPath>СуммаОборота</DataPath>
+													<AutoMarkIncomplete>true</AutoMarkIncomplete>
 													<ContextMenu name="СуммаОборотаКонтекстноеМеню" id="45"/>
 													<ExtendedTooltip name="СуммаОборотаРасширеннаяПодсказка" id="46"/>
 												</InputField>
@@ -115,7 +118,7 @@
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Только новые документы</v8:content>
+											<v8:content>Учитывать отраженные</v8:content>
 										</v8:item>
 									</Title>
 									<ToolTip>
@@ -129,64 +132,91 @@
 									<ContextMenu name="ТолькоНовыеКонтекстноеМеню" id="48"/>
 									<ExtendedTooltip name="ТолькоНовыеРасширеннаяПодсказка" id="49"/>
 								</CheckBoxField>
-								<Table name="Поставщики" id="23">
-									<Representation>List</Representation>
-									<TitleLocation>Top</TitleLocation>
-									<Header>false</Header>
-									<HorizontalLines>false</HorizontalLines>
-									<VerticalLines>false</VerticalLines>
-									<AutoInsertNewRow>true</AutoInsertNewRow>
-									<DataPath>Поставщики</DataPath>
-									<RowPictureDataPath>Поставщики.Picture</RowPictureDataPath>
+								<UsualGroup name="ГруппаПоставщики" id="99">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Список поставщиков</v8:content>
+											<v8:content>Список поставщиков (свернуть)</v8:content>
 										</v8:item>
 									</Title>
 									<ToolTip>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Если список не заполнен, формирование будет произведено по всем поставщикам.</v8:content>
+											<v8:content>Группа поставщики</v8:content>
 										</v8:item>
 									</ToolTip>
-									<ToolTipRepresentation>ShowAuto</ToolTipRepresentation>
-									<ContextMenu name="ПоставщикиКонтекстноеМеню" id="24"/>
-									<AutoCommandBar name="ПоставщикиКоманднаяПанель" id="25"/>
-									<ExtendedTooltip name="ПоставщикиРасширеннаяПодсказка" id="26"/>
-									<SearchStringAddition name="ПоставщикиСтрокаПоиска" id="27">
-										<AdditionSource>
-											<Item>Поставщики</Item>
-											<Type>SearchStringRepresentation</Type>
-										</AdditionSource>
-										<ContextMenu name="ПоставщикиСтрокаПоискаКонтекстноеМеню" id="28"/>
-										<ExtendedTooltip name="ПоставщикиСтрокаПоискаРасширеннаяПодсказка" id="29"/>
-									</SearchStringAddition>
-									<ViewStatusAddition name="ПоставщикиСостояниеПросмотра" id="30">
-										<AdditionSource>
-											<Item>Поставщики</Item>
-											<Type>ViewStatusRepresentation</Type>
-										</AdditionSource>
-										<ContextMenu name="ПоставщикиСостояниеПросмотраКонтекстноеМеню" id="31"/>
-										<ExtendedTooltip name="ПоставщикиСостояниеПросмотраРасширеннаяПодсказка" id="32"/>
-									</ViewStatusAddition>
-									<SearchControlAddition name="ПоставщикиУправлениеПоиском" id="33">
-										<AdditionSource>
-											<Item>Поставщики</Item>
-											<Type>SearchControl</Type>
-										</AdditionSource>
-										<ContextMenu name="ПоставщикиУправлениеПоискомКонтекстноеМеню" id="34"/>
-										<ExtendedTooltip name="ПоставщикиУправлениеПоискомРасширеннаяПодсказка" id="35"/>
-									</SearchControlAddition>
+									<Behavior>Collapsible</Behavior>
+									<CollapsedRepresentationTitle>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Список поставщиков (развернуть)</v8:content>
+										</v8:item>
+									</CollapsedRepresentationTitle>
+									<Collapsed>true</Collapsed>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаПоставщикиРасширеннаяПодсказка" id="100"/>
 									<ChildItems>
-										<InputField name="ПоставщикиЗначение" id="36">
-											<DataPath>Поставщики.Value</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<ContextMenu name="ПоставщикиЗначениеКонтекстноеМеню" id="37"/>
-											<ExtendedTooltip name="ПоставщикиЗначениеРасширеннаяПодсказка" id="38"/>
-										</InputField>
+										<Table name="Поставщики" id="23">
+											<Representation>List</Representation>
+											<TitleLocation>Top</TitleLocation>
+											<Header>false</Header>
+											<HorizontalLines>false</HorizontalLines>
+											<VerticalLines>false</VerticalLines>
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<DataPath>Поставщики</DataPath>
+											<RowPictureDataPath>Поставщики.Picture</RowPictureDataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Список поставщиков</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Если список не заполнен, формирование будет произведено по всем поставщикам.</v8:content>
+												</v8:item>
+											</ToolTip>
+											<ToolTipRepresentation>ShowAuto</ToolTipRepresentation>
+											<ContextMenu name="ПоставщикиКонтекстноеМеню" id="24"/>
+											<AutoCommandBar name="ПоставщикиКоманднаяПанель" id="25"/>
+											<ExtendedTooltip name="ПоставщикиРасширеннаяПодсказка" id="26"/>
+											<SearchStringAddition name="ПоставщикиСтрокаПоиска" id="27">
+												<AdditionSource>
+													<Item>Поставщики</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ПоставщикиСтрокаПоискаКонтекстноеМеню" id="28"/>
+												<ExtendedTooltip name="ПоставщикиСтрокаПоискаРасширеннаяПодсказка" id="29"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ПоставщикиСостояниеПросмотра" id="30">
+												<AdditionSource>
+													<Item>Поставщики</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ПоставщикиСостояниеПросмотраКонтекстноеМеню" id="31"/>
+												<ExtendedTooltip name="ПоставщикиСостояниеПросмотраРасширеннаяПодсказка" id="32"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ПоставщикиУправлениеПоиском" id="33">
+												<AdditionSource>
+													<Item>Поставщики</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="ПоставщикиУправлениеПоискомКонтекстноеМеню" id="34"/>
+												<ExtendedTooltip name="ПоставщикиУправлениеПоискомРасширеннаяПодсказка" id="35"/>
+											</SearchControlAddition>
+											<ChildItems>
+												<InputField name="ПоставщикиЗначение" id="36">
+													<DataPath>Поставщики.Value</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ПоставщикиЗначениеКонтекстноеМеню" id="37"/>
+													<ExtendedTooltip name="ПоставщикиЗначениеРасширеннаяПодсказка" id="38"/>
+												</InputField>
+											</ChildItems>
+										</Table>
 									</ChildItems>
-								</Table>
+								</UsualGroup>
 								<UsualGroup name="ГруппаДалее" id="52">
 									<Title>
 										<v8:item>
@@ -318,6 +348,9 @@
 											<CheckBoxType>Auto</CheckBoxType>
 											<ContextMenu name="ДанныеПометкаКонтекстноеМеню" id="91"/>
 											<ExtendedTooltip name="ДанныеПометкаРасширеннаяПодсказка" id="92"/>
+											<Events>
+												<Event name="OnChange">ПометкаПриИзменении</Event>
+											</Events>
 										</CheckBoxField>
 										<InputField name="ДанныеОрганизация" id="70">
 											<DataPath>Данные.Организация</DataPath>
@@ -337,17 +370,54 @@
 											<ContextMenu name="ДанныеКонтрагентКонтекстноеМеню" id="77"/>
 											<ExtendedTooltip name="ДанныеКонтрагентРасширеннаяПодсказка" id="78"/>
 										</InputField>
-										<InputField name="ДанныеСуммаОборота" id="79">
-											<DataPath>Данные.СуммаОборота</DataPath>
+										<InputField name="ДанныеСуммаЗакупки" id="79">
+											<DataPath>Данные.СуммаЗакупки</DataPath>
 											<EditMode>EnterOnInput</EditMode>
-											<ContextMenu name="ДанныеСуммаОборотаКонтекстноеМеню" id="80"/>
-											<ExtendedTooltip name="ДанныеСуммаОборотаРасширеннаяПодсказка" id="81"/>
+											<ContextMenu name="ДанныеСуммаЗакупкиКонтекстноеМеню" id="80"/>
+											<ExtendedTooltip name="ДанныеСуммаЗакупкиРасширеннаяПодсказка" id="81"/>
+										</InputField>
+										<InputField name="ДанныеСуммаВозврата" id="101">
+											<DataPath>Данные.СуммаВозврата</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ДанныеСуммаВозвратаКонтекстноеМеню" id="102"/>
+											<ExtendedTooltip name="ДанныеСуммаВозвратаРасширеннаяПодсказка" id="103"/>
+										</InputField>
+										<InputField name="ДанныеСуммаОтгрузки" id="107">
+											<DataPath>Данные.СуммаОтгрузки</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Сумма отгрузки (СПБ)</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ДанныеСуммаОтгрузкиКонтекстноеМеню" id="108"/>
+											<ExtendedTooltip name="ДанныеСуммаОтгрузкиРасширеннаяПодсказка" id="109"/>
 										</InputField>
 										<InputField name="ДанныеСуммаОтражено" id="82">
 											<DataPath>Данные.СуммаОтражено</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<ContextMenu name="ДанныеСуммаОтраженоКонтекстноеМеню" id="83"/>
 											<ExtendedTooltip name="ДанныеСуммаОтраженоРасширеннаяПодсказка" id="84"/>
+										</InputField>
+										<InputField name="ДанныеСуммаПремии" id="104">
+											<DataPath>Данные.СуммаПремии</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+											<ContextMenu name="ДанныеСуммаПремииКонтекстноеМеню" id="105"/>
+											<ExtendedTooltip name="ДанныеСуммаПремииРасширеннаяПодсказка" id="106"/>
+										</InputField>
+										<InputField name="ДанныеКорректировкаСсылка" id="110">
+											<DataPath>Данные.КорректировкаСсылка</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Документ «Корректировка долга»</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ДанныеКорректировкаСсылкаКонтекстноеМеню" id="111"/>
+											<ExtendedTooltip name="ДанныеКорректировкаСсылкаРасширеннаяПодсказка" id="112"/>
 										</InputField>
 									</ChildItems>
 								</Table>
@@ -380,7 +450,7 @@
 	<Attributes>
 		<Attribute name="Объект" id="1">
 			<Type>
-				<v8:Type>cfg:DataProcessorObject.НачислениеБонусовПоставщиков</v8:Type>
+				<v8:Type>cfg:DataProcessorObject.НачислениеПремииПоставщиков</v8:Type>
 			</Type>
 			<MainAttribute>true</MainAttribute>
 		</Attribute>
@@ -394,6 +464,13 @@
 			<Type>
 				<v8:Type>v8:StandardPeriod</v8:Type>
 			</Type>
+			<SavedData>true</SavedData>
+			<FillCheck>ShowError</FillCheck>
+			<Save>
+				<Field>Период.Variant</Field>
+				<Field>Период.StartDate</Field>
+				<Field>Период</Field>
+			</Save>
 		</Attribute>
 		<Attribute name="Организация" id="3">
 			<Title>
@@ -435,6 +512,11 @@
 					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
 				</v8:NumberQualifiers>
 			</Type>
+			<SavedData>true</SavedData>
+			<FillCheck>ShowError</FillCheck>
+			<Save>
+				<Field>ПроцентПремии</Field>
+			</Save>
 		</Attribute>
 		<Attribute name="СуммаОборота" id="6">
 			<Title>
@@ -451,6 +533,11 @@
 					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
 				</v8:NumberQualifiers>
 			</Type>
+			<SavedData>true</SavedData>
+			<FillCheck>ShowError</FillCheck>
+			<Save>
+				<Field>СуммаОборота</Field>
+			</Save>
 		</Attribute>
 		<Attribute name="ПропускатьСозданные" id="7">
 			<Title>
@@ -462,6 +549,9 @@
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
+			<Save>
+				<Field>ПропускатьСозданные</Field>
+			</Save>
 		</Attribute>
 		<Attribute name="Данные" id="8">
 			<Title>
@@ -507,11 +597,11 @@
 						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
 					</Type>
 				</Column>
-				<Column name="СуммаОборота" id="4">
+				<Column name="СуммаЗакупки" id="4">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Сумма оборота</v8:content>
+							<v8:content>Сумма закупки</v8:content>
 						</v8:item>
 					</Title>
 					<Type>
@@ -547,7 +637,76 @@
 						</v8:item>
 					</Title>
 					<Type>
-						<v8:Type>xs:boolean</v8:Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>1</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="СуммаВозврата" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма возврата</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="СуммаПремии" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма премии</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="СуммаОтгрузки" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма отгрузки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="КорректировкаСсылка" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Корректировка ссылка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:Type>cfg:DocumentRef.КорректировкаДолга</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
 					</Type>
 				</Column>
 			</Columns>
