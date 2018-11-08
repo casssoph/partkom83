@@ -89,7 +89,7 @@
 					<v8:content>Собственные организации</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Group>Horizontal</Group>
+			<Group>Vertical</Group>
 			<Representation>StrongSeparation</Representation>
 			<ExtendedTooltip name="СобственныеОрганизацииРасширеннаяПодсказка" id="145"/>
 			<ChildItems>
@@ -101,6 +101,18 @@
 					<Events>
 						<Event name="OnChange">РазрешенаПокупкаУСобственныхОрганизацийПриИзменении</Event>
 					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="РазрешенаЦепочкаЗакупок" id="192">
+					<DataPath>Объект.РазрешенаЦепочкаЗакупок</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РазрешенаЦепочкаЗакупокКонтекстноеМеню" id="193"/>
+					<ExtendedTooltip name="РазрешенаЦепочкаЗакупокРасширеннаяПодсказка" id="194"/>
+				</CheckBoxField>
+				<CheckBoxField name="РазрешенВозврат" id="195">
+					<DataPath>Объект.РазрешенВозврат</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РазрешенВозвратКонтекстноеМеню" id="196"/>
+					<ExtendedTooltip name="РазрешенВозвратРасширеннаяПодсказка" id="197"/>
 				</CheckBoxField>
 			</ChildItems>
 		</UsualGroup>
