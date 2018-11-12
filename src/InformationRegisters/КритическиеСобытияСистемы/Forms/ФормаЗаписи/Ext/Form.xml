@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<UsualGroup name="ГруппаОсновная" id="34">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа основная</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа основная</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<ExtendedTooltip name="ГруппаОсновнаяРасширеннаяПодсказка" id="35"/>
+			<ChildItems>
+				<UsualGroup name="ЛеваяЧасть" id="36">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Левая часть</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Левая часть</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ЛеваяЧастьРасширеннаяПодсказка" id="37"/>
+					<ChildItems>
+						<InputField name="Период" id="1">
+							<DataPath>Запись.Period</DataPath>
+							<ContextMenu name="ПериодКонтекстноеМеню" id="2"/>
+							<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="3"/>
+						</InputField>
+						<InputField name="ИсточникКритическогоСобытия" id="4">
+							<DataPath>Запись.ИсточникКритическогоСобытия</DataPath>
+							<ContextMenu name="ИсточникКритическогоСобытияКонтекстноеМеню" id="5"/>
+							<ExtendedTooltip name="ИсточникКритическогоСобытияРасширеннаяПодсказка" id="6"/>
+						</InputField>
+						<InputField name="Событие" id="7">
+							<DataPath>Запись.Событие</DataPath>
+							<ContextMenu name="СобытиеКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="СобытиеРасширеннаяПодсказка" id="9"/>
+						</InputField>
+						<CheckBoxField name="ФлагОтправкиОпопвещения" id="13">
+							<DataPath>Запись.ФлагОтправкиОпопвещения</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ФлагОтправкиОпопвещенияКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="ФлагОтправкиОпопвещенияРасширеннаяПодсказка" id="15"/>
+						</CheckBoxField>
+						<CheckBoxField name="Отправлено" id="16">
+							<DataPath>Запись.Отправлено</DataPath>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОтправленоКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ОтправленоРасширеннаяПодсказка" id="18"/>
+						</CheckBoxField>
+						<UsualGroup name="Группа1" id="40">
+							<Width>10</Width>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="41"/>
+							<ChildItems>
+								<LabelField name="Пользователь" id="19">
+									<DataPath>Запись.Пользователь</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Пол-ль.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПользовательКонтекстноеМеню" id="20"/>
+									<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="21"/>
+								</LabelField>
+								<LabelField name="ДатаСеанса" id="22">
+									<DataPath>Запись.ДатаСеанса</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Вр.С-а</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ДатаСеансаКонтекстноеМеню" id="23"/>
+									<ExtendedTooltip name="ДатаСеансаРасширеннаяПодсказка" id="24"/>
+								</LabelField>
+								<LabelField name="Компьютер" id="25">
+									<DataPath>Запись.Компьютер</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Ком-р</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="КомпьютерКонтекстноеМеню" id="26"/>
+									<ExtendedTooltip name="КомпьютерРасширеннаяПодсказка" id="27"/>
+								</LabelField>
+								<LabelField name="НомерСеанса" id="28">
+									<DataPath>Запись.НомерСеанса</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>№ с-са</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="НомерСеансаКонтекстноеМеню" id="29"/>
+									<ExtendedTooltip name="НомерСеансаРасширеннаяПодсказка" id="30"/>
+								</LabelField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ПраваяЧасть" id="38">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Правая часть</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Правая часть</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПраваяЧастьРасширеннаяПодсказка" id="39"/>
+					<ChildItems>
+						<InputField name="ПараметрыВызова" id="31">
+							<DataPath>Запись.ПараметрыВызова</DataPath>
+							<Height>3</Height>
+							<ContextMenu name="ПараметрыВызоваКонтекстноеМеню" id="32"/>
+							<ExtendedTooltip name="ПараметрыВызоваРасширеннаяПодсказка" id="33"/>
+						</InputField>
+						<InputField name="ОписаниеОшибки" id="10">
+							<DataPath>Запись.ОписаниеОшибки</DataPath>
+							<Height>3</Height>
+							<ContextMenu name="ОписаниеОшибкиКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ОписаниеОшибкиРасширеннаяПодсказка" id="12"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.КритическиеСобытияСистемы</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>
