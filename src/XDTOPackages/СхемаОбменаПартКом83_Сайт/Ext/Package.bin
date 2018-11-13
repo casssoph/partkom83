@@ -1,5 +1,9 @@
 ﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema">
 	<import namespace="http://v8.1c.ru/8.1/data/core"/>
+	<valueType name="EnumRef.ТипыСкладов" base="xs:string" variety="Atomic" memberTypes="">
+		<enumeration xsi:type="xs:string">Магазин</enumeration>
+		<enumeration xsi:type="xs:string">ТочкаДоставки</enumeration>
+	</valueType>
 	<objectType name="Объекты" ordered="false">
 		<property name="Объект" type="xs:anyType" lowerBound="0" upperBound="-1"/>
 	</objectType>
@@ -604,11 +608,18 @@
 			<typeDef xsi:type="ObjectType" ordered="false">
 				<property name="item" lowerBound="0" upperBound="-1">
 					<typeDef xsi:type="ObjectType" ordered="false">
-						<property xmlns:d7p1="http://v8.1c.ru/8.1/data/core" name="part_uuid" type="d7p1:UUID"/>
 						<property name="site_id" type="xs:string" lowerBound="0" nillable="true"/>
-						<property name="price" type="xs:float" lowerBound="0"/>
+						<property xmlns:d7p1="http://v8.1c.ru/8.1/data/core" name="part_uuid" type="d7p1:UUID"/>
 						<property name="quantity" type="xs:int" lowerBound="0"/>
+						<property name="price" type="xs:float" lowerBound="0"/>
 						<property name="description" type="xs:string" lowerBound="0" nillable="true"/>
+						<property name="is_cross" type="xs:boolean" nillable="true"/>
+						<property name="input_price" type="xs:float" nillable="true"/>
+						<property name="provider_id" type="xs:int" nillable="true"/>
+						<property name="date_guaranteed" type="xs:dateTime" nillable="true"/>
+						<property name="provider_date_guaranteed" type="xs:dateTime" nillable="true"/>
+						<property name="date_expected" type="xs:dateTime" nillable="true"/>
+						<property name="provider_date_expected" type="xs:dateTime" nillable="true"/>
 					</typeDef>
 				</property>
 			</typeDef>
