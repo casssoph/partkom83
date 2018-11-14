@@ -368,6 +368,8 @@
 		<property name="client_phone" type="xs:string"/>
 		<property name="delivery_address" type="xs:string"/>
 		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="items" type="d3p1:ExpressDelivery.Items"/>
+		<property name="date_statement" type="xs:dateTime" nillable="true"/>
+		<property name="date_arrival" type="xs:dateTime" nillable="true"/>
 	</objectType>
 	<objectType name="ExpressDelivery.Add" ordered="false">
 		<property name="express_delivery_request_id" type="xs:string"/>
