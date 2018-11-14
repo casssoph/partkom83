@@ -9,9 +9,6 @@
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ДоговорКонтрагента</dataPath>
 			<field>ДоговорКонтрагента</field>
-			<role>
-				<dcscom:dimension>true</dcscom:dimension>
-			</role>
 			<appearance>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
@@ -30,6 +27,12 @@
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Склад</dataPath>
 			<field>Склад</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
 			<role>
 				<dcscom:dimension>true</dcscom:dimension>
 			</role>
@@ -139,6 +142,17 @@
 					<v8:content>Сумма остаток</v8:content>
 				</v8:item>
 			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Отсрочка</dataPath>
@@ -279,6 +293,17 @@
 					<v8:content>Сумма заявки</v8:content>
 				</v8:item>
 			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>СуммаРезерва</dataPath>
@@ -339,6 +364,17 @@
 					<v8:content>%  отказов</v8:content>
 				</v8:item>
 			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ПроцентКРезерву</dataPath>
@@ -350,6 +386,15 @@
 				</v8:item>
 			</title>
 			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
 					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
@@ -363,10 +408,13 @@
 			ТОГДА ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заявка.Склад
 		ИНАЧЕ ЗаявкиПокупателейОстатки.СтрокаЗаявки.ПоследняяКорректировка.Склад
 	КОНЕЦ КАК Склад,
+	ВЫБОР
+		КОГДА ЗаявкиПокупателейОстатки.СтрокаЗаявки.ПоследняяКорректировка = ЗНАЧЕНИЕ(Документ.КорректировкаЗаявкиПокупателя.ПустаяСсылка)
+			ТОГДА ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заявка.Ответственный
+		ИНАЧЕ ЗаявкиПокупателейОстатки.СтрокаЗаявки.ПоследняяКорректировка.Ответственный
+	КОНЕЦ КАК Ответственный,
 	ЗаявкиПокупателейОстатки.Номенклатура,
 	ЗаявкиПокупателейОстатки.СтрокаЗаявки,
-	ЗаявкиПокупателейОстатки.ТорговаяТочка,
-	ЗаявкиПокупателейОстатки.ДоговорКонтрагента,
 	ЗаявкиПокупателейОстатки.КоличествоОстаток КАК Количество,
 	ЗаявкиПокупателейОстатки.СуммаРеглОстаток КАК Сумма
 ПОМЕСТИТЬ ОстаткиСтрокЗаявок
@@ -378,9 +426,21 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 ВЫБРАТЬ
+	ОстаткиСтрокЗаявок.СтрокаЗаявки КАК СтрокаЗаявки,
+	СУММА(ОстаткиСтрокЗаявок.Сумма) / СУММА(ОстаткиСтрокЗаявок.Количество) КАК Цена
+ПОМЕСТИТЬ ОстаткиСтрокЗаявокСЦеной
+ИЗ
+	ОстаткиСтрокЗаявок КАК ОстаткиСтрокЗаявок
+
+СГРУППИРОВАТЬ ПО
+	ОстаткиСтрокЗаявок.СтрокаЗаявки
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
 	ОтказыПоЗаявкамОбороты.СтрокаЗаявки.Заявка КАК Заявка,
 	СУММА(ОтказыПоЗаявкамОбороты.КоличествоОборот) КАК Количество,
-	СУММА(ОтказыПоЗаявкамОбороты.СуммаРеглОборот) КАК Сумма
+	СУММА(ОтказыПоЗаявкамОбороты.КоличествоОборот * ЕСТЬNULL(ОстаткиСтрокЗаявокСЦеной.Цена, 0)) КАК Сумма
 ПОМЕСТИТЬ ОтказыПоЗаявкам
 ИЗ
 	РегистрНакопления.ОтказыПоЗаявкам.Обороты(
@@ -392,8 +452,10 @@
 					ОстаткиСтрокЗаявок.СтрокаЗаявки
 				ИЗ
 					ОстаткиСтрокЗаявок)) КАК ОтказыПоЗаявкамОбороты
+		ЛЕВОЕ СОЕДИНЕНИЕ ОстаткиСтрокЗаявокСЦеной КАК ОстаткиСтрокЗаявокСЦеной
+		ПО (ОстаткиСтрокЗаявокСЦеной.СтрокаЗаявки = ОтказыПоЗаявкамОбороты.СтрокаЗаявки)
 ГДЕ
-	ОтказыПоЗаявкамОбороты.СуммаРеглОборот &gt; 0
+	ОтказыПоЗаявкамОбороты.КоличествоОборот &gt; 0
 
 СГРУППИРОВАТЬ ПО
 	ОтказыПоЗаявкамОбороты.СтрокаЗаявки.Заявка
@@ -407,8 +469,6 @@
 	ОстаткиСтрокЗаявок.СтрокаЗаявки.Заявка КАК Заявка,
 	ОстаткиСтрокЗаявок.СтрокаЗаявки.Заявка.СтатусДокумента КАК СтатусДокумента,
 	ОстаткиСтрокЗаявок.СтрокаЗаявки КАК СтрокаЗаявки,
-	ОстаткиСтрокЗаявок.ТорговаяТочка.Владелец КАК Контрагент,
-	ОстаткиСтрокЗаявок.ДоговорКонтрагента,
 	ОстаткиСтрокЗаявок.Количество КАК Количество,
 	ОстаткиСтрокЗаявок.Сумма КАК Сумма,
 	РезервыТоваровОстатки.КоличествоОстаток КАК КоличествоВРезерве
@@ -431,8 +491,11 @@
 			ТОГДА ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заявка
 		ИНАЧЕ ЗаявкиПокупателейОстатки.СтрокаЗаявки.ПоследняяКорректировка
 	КОНЕЦ КАК ПоследняяКорректировка,
-	ЗаявкиПокупателейОстатки.Контрагент,
-	ЗаявкиПокупателейОстатки.ДоговорКонтрагента,
+	ВЫБОР
+		КОГДА ЗаявкиПокупателейОстатки.СтрокаЗаявки.ПоследняяКорректировка = ЗНАЧЕНИЕ(Документ.КорректировкаЗаявкиПокупателя.ПустаяСсылка)
+			ТОГДА ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заявка.ДоговорКонтрагента
+		ИНАЧЕ ЗаявкиПокупателейОстатки.СтрокаЗаявки.ПоследняяКорректировка.ДоговорКонтрагента
+	КОНЕЦ КАК ДоговорКонтрагента,
 	МАКСИМУМ(ЗаявкиПокупателейОстатки.СтрокаЗаявки.СрокГарантированный) КАК СрокГарантированный,
 	СУММА(ЗаявкиПокупателейОстатки.Количество) КАК Количество,
 	СУММА(ЗаявкиПокупателейОстатки.Сумма) КАК Сумма
@@ -442,9 +505,12 @@
 
 СГРУППИРОВАТЬ ПО
 	ЗаявкиПокупателейОстатки.Склад,
-	ЗаявкиПокупателейОстатки.Контрагент,
-	ЗаявкиПокупателейОстатки.ДоговорКонтрагента,
 	ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заявка,
+	ВЫБОР
+		КОГДА ЗаявкиПокупателейОстатки.СтрокаЗаявки.ПоследняяКорректировка = ЗНАЧЕНИЕ(Документ.КорректировкаЗаявкиПокупателя.ПустаяСсылка)
+			ТОГДА ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заявка.ДоговорКонтрагента
+		ИНАЧЕ ЗаявкиПокупателейОстатки.СтрокаЗаявки.ПоследняяКорректировка.ДоговорКонтрагента
+	КОНЕЦ,
 	ВЫБОР
 		КОГДА ЗаявкиПокупателейОстатки.СтрокаЗаявки.ПоследняяКорректировка = ЗНАЧЕНИЕ(Документ.КорректировкаЗаявкиПокупателя.ПустаяСсылка)
 			ТОГДА ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заявка
@@ -569,8 +635,8 @@
 	ОстаткиЗаявок.Заявка,
 	РАЗНОСТЬДАТ(ОстаткиЗаявок.Заявка.Дата, &amp;Период, ДЕНЬ) КАК ВРаботеДней,
 	ОстаткиЗаявок.ПоследняяКорректировка,
-	ОстаткиЗаявок.Контрагент,
-	ОстаткиЗаявок.ДоговорКонтрагента,
+	ОстаткиЗаявок.ПоследняяКорректировка.Контрагент КАК Контрагент,
+	ОстаткиЗаявок.ДоговорКонтрагента КАК ДоговорКонтрагента,
 	ОстаткиЗаявок.ПоследняяКорректировка.СтатусДокумента КАК Статус,
 	ОстаткиЗаявок.ПоследняяКорректировка.БлокировкаОтгрузки КАК БлокировкаЗаявки,
 	ОстаткиЗаявок.ПоследняяКорректировка.Контрагент.ГоловнойКонтрагент.Блокировка КАК БлокировкаКонтрагента,
@@ -586,22 +652,23 @@
 	ЕСТЬNULL(ВзаиморасчетыОстатки.Сумма, 0) КАК Баланс,
 	ЕСТЬNULL(СуммыРезерва.СуммаРезерва, 0) КАК СуммаРезерва,
 	ВЫБОР
-		КОГДА ЕСТЬNULL(ОстаткиЗаявок.ПоследняяКорректировка.СуммаДокумента, 0) = 0
+		КОГДА ЕСТЬNULL(СуммыРезерва.СуммаРезерва, 0) = 0
 			ТОГДА 0
-		ИНАЧЕ ВЫРАЗИТЬ(100 * СуммыРезерва.СуммаРезерва / ОстаткиЗаявок.ПоследняяКорректировка.СуммаДокумента КАК ЧИСЛО(10, 0))
+		//ИНАЧЕ ВЫРАЗИТЬ(100 - 100 * (ОстаткиЗаявок.Сумма - ЕСТЬNULL(СуммыРезерва.СуммаРезерва, 0)) / ЕСТЬNULL(СуммыРезерва.СуммаРезерва, 0) КАК ЧИСЛО(10, 0))
+		ИНАЧЕ ВЫРАЗИТЬ((100 * ЕСТЬNULL(СуммыРезерва.СуммаРезерва, 0) / ЕСТЬNULL(ОстаткиЗаявок.Сумма, 0)) КАК ЧИСЛО(10, 0))
 	КОНЕЦ КАК ПроцентКомплектации,
 	ВЫБОР
 		КОГДА ЕСТЬNULL(ОстаткиЗаявок.Заявка.СуммаДокумента, 0) = 0
 			ТОГДА 100
-		ИНАЧЕ ВЫРАЗИТЬ(100 * ОтказыПоЗаявкам.Сумма / ОстаткиЗаявок.Заявка.СуммаДокумента КАК ЧИСЛО(10, 0))
+		ИНАЧЕ 100 * ОтказыПоЗаявкам.Сумма / ОстаткиЗаявок.Заявка.СуммаДокумента
 	КОНЕЦ КАК ПроцентОтказов,
 	ВЫБОР
-		КОГДА ЕСТЬNULL(ОстаткиЗаявок.ПоследняяКорректировка.СуммаДокумента, 0) = 0
+		КОГДА ОстаткиЗаявок.Сумма - ЕСТЬNULL(СуммыРезерва.СуммаРезерва, 0) = 0
 			ТОГДА 0
 		ИНАЧЕ ВЫБОР
-				КОГДА (ВЫРАЗИТЬ(100 * КРезерву.СуммаСвободныйОстаток / ОстаткиЗаявок.ПоследняяКорректировка.СуммаДокумента КАК ЧИСЛО(10, 0))) &gt; 100
+				КОГДА 100 * ЕСТЬNULL(КРезерву.СуммаСвободныйОстаток, 0) / (ОстаткиЗаявок.Сумма - ЕСТЬNULL(СуммыРезерва.СуммаРезерва, 0)) &gt; 100
 					ТОГДА 100
-				ИНАЧЕ ВЫРАЗИТЬ(100 * КРезерву.СуммаСвободныйОстаток / ОстаткиЗаявок.ПоследняяКорректировка.СуммаДокумента КАК ЧИСЛО(10, 0))
+				ИНАЧЕ 100 * ЕСТЬNULL(КРезерву.СуммаСвободныйОстаток, 0) / (ОстаткиЗаявок.Сумма - ЕСТЬNULL(СуммыРезерва.СуммаРезерва, 0))
 			КОНЕЦ
 	КОНЕЦ КАК ПроцентКРезерву
 ИЗ
@@ -753,23 +820,23 @@
 			<dcsset:filter>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
-					<dcsset:left xsi:type="dcscor:Field">Склад</dcsset:left>
-					<dcsset:comparisonType>Equal</dcsset:comparisonType>
-					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Склады.ПустаяСсылка</dcsset:right>
-					<dcsset:userSettingID>628c3441-7f59-42a0-989c-fd2667c266fa</dcsset:userSettingID>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:left xsi:type="dcscor:Field">Ответственный</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Пользователи.ПустаяСсылка</dcsset:right>
 					<dcsset:userSettingID>fa8653f3-9d39-4ae1-be24-560c8dc39d88</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
-					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">Статус</dcsset:left>
 					<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
 					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.СтатусыДокументов.ЗаявкаПокупателяЗакрыт</dcsset:right>
 					<dcsset:userSettingID>b6dcce34-b71a-4e80-9b92-44ce2fd622f0</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Заявка.Склад</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Склады.ПустаяСсылка</dcsset:right>
+					<dcsset:userSettingID>2c2ee14d-6a0e-4a01-bed1-04b756597565</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
@@ -821,6 +888,7 @@
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Номенклатура.ПустаяСсылка</dcsset:right>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
@@ -856,13 +924,14 @@
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">СтрокаЗаявки</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.ИдентификаторыСтрокЗаявок.ПустаяСсылка</dcsset:right>
 				</dcsset:item>
 			</dcsset:filter>
 			<dcsset:dataParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>Период</dcscor:parameter>
 					<dcscor:value xsi:type="v8:StandardBeginningDate">
-						<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfNextDay</v8:variant>
 					</dcscor:value>
 					<dcsset:userSettingID>f7dd0ff0-3ec4-40b8-a747-9e521ad22e6c</dcsset:userSettingID>
 				</dcscor:item>
@@ -959,6 +1028,11 @@
 							<dcsset:comparisonType>Greater</dcsset:comparisonType>
 							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
 						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПроцентКомплектации</dcsset:left>
+							<dcsset:comparisonType>Less</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">100</dcsset:right>
+						</dcsset:item>
 					</dcsset:filter>
 					<dcsset:appearance>
 						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
@@ -969,6 +1043,26 @@
 							<dcscor:use>false</dcscor:use>
 							<dcscor:parameter>ЦветТекста</dcscor:parameter>
 							<dcscor:value xsi:type="v8ui:Color">style:NegativeTextColor</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ПроцентКРезерву</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПроцентКомплектации</dcsset:left>
+							<dcsset:comparisonType>GreaterOrEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">100</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Текст</dcscor:parameter>
+							<dcscor:value xsi:type="xs:string"/>
 						</dcscor:item>
 					</dcsset:appearance>
 				</dcsset:item>
