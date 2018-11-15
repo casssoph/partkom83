@@ -1429,6 +1429,7 @@
 		<Metadata name="Catalog.Менеджеры.ManagerModule" id="6a2f2020-9d54-4310-81ce-83112fd2d80a.3" configVersion="f4c1878140f5024b93fe1e413847b71d00000000"/>
 		<Metadata name="Catalog.Менеджеры.ObjectModule" id="6a2f2020-9d54-4310-81ce-83112fd2d80a.0" configVersion="f0a89779b6f7384eb9c506d60d5d9f1b00000000"/>
 		<Metadata name="Catalog.Модели" id="1cc9920d-f241-453c-95fb-9b75da5246ba" configVersion="f7590195bb121542960850ed977ead8800000000"/>
+		<Metadata name="Catalog.НастройкаSMSоповещения" id="78ed7716-98b7-43f7-ab8e-78c3cd8ab4f5" configVersion="bb29a810aa16b24f91037ad9acc4676800000000"/>
 		<Metadata name="Catalog.НастройкиFTP" id="e873ca41-d0ad-4959-b1c4-20ecddf774d7" configVersion="34d8a542724ac3409ad8e5c1190348b900000000">
 			<Metadata name="Catalog.НастройкиFTP.TabularSection.Контрагенты.Attribute.ДополнениеИмениФайла2" id="0e16c9b6-18f7-4725-a9da-e2283d0dc9be"/>
 			<Metadata name="Catalog.НастройкиFTP.Attribute.ТекстЗапроса" id="0fd91ea6-71b8-4c77-83fa-ac8c9382fb51"/>
@@ -2625,6 +2626,7 @@
 		<Metadata name="CommonModule.DataExchangeModule.Module" id="af9516a0-2db6-481f-a9a0-64fda13cf723.0" configVersion="c3aff66c36cd804aa569361dcce7faa800000000"/>
 		<Metadata name="CommonModule.DataExchangeПовтИсп" id="1e5bdba0-520d-4182-8c06-076d3c932945" configVersion="38a2a0ba8da2a447a5a339bcb3b5862800000000"/>
 		<Metadata name="CommonModule.DataExchangeПовтИсп.Module" id="1e5bdba0-520d-4182-8c06-076d3c932945.0" configVersion="20d0f073cdbe5e489bde0251894858e600000000"/>
+		<Metadata name="CommonModule.SMSоповещение" id="275ba933-da4e-46e5-af56-af1ea345ecfb" configVersion="db6eb519bc28de4786fddaccea6e96aa00000000"/>
 		<Metadata name="CommonModule.АдресныйКлассификатор" id="c9e0a533-3eb0-49e2-8b64-800b1f50c70d" configVersion="845881b3b74f96429b8ce1af74270d6800000000"/>
 		<Metadata name="CommonModule.АдресныйКлассификатор.Module" id="c9e0a533-3eb0-49e2-8b64-800b1f50c70d.0" configVersion="e4f25c7d471b3044abf2ee259f8cd4e200000000"/>
 		<Metadata name="CommonModule.АдресныйКлассификаторВызовСервера" id="8da22d23-a9ec-4afa-8db1-0d49596e61e6" configVersion="732b56dcd85e1f4da703d22fdcb3f04b00000000"/>
@@ -4174,7 +4176,7 @@
 		<Metadata name="CommonTemplate.УниверсальныйПередаточныйДокумент981.Template" id="45d49c97-4a2b-44dd-9f8c-9bd788c7c6fa.0" configVersion="0b937868ca9cb54899fd791624062a0600000000"/>
 		<Metadata name="CommonTemplate.внОписаниеИзменений" id="11ef461b-2845-4e96-9c8d-bc565fd3f977" configVersion="ef0fe6f01440ef408b7b68dd93a6191700000000"/>
 		<Metadata name="CommonTemplate.внОписаниеИзменений.Template" id="11ef461b-2845-4e96-9c8d-bc565fd3f977.0" configVersion="4cceb25e0b537542a03ffc7d26e9630100000000"/>
-		<Metadata name="Configuration.ПартКом" id="f1877542-4901-4e19-85a5-7ac952814031" configVersion="0f01a91651ac45418d31c269fed59d7a00000000"/>
+		<Metadata name="Configuration.ПартКом" id="f1877542-4901-4e19-85a5-7ac952814031" configVersion="4c16c594f464804d96af19053b46523d00000000"/>
 		<Metadata name="Configuration.ПартКом.ExternalConnectionModule" id="d5c0af9b-55ca-4335-b540-2c6aa49082d6.5" configVersion="3b647ca0e33e14489291d4998c6e228f00000000"/>
 		<Metadata name="Configuration.ПартКом.ManagedApplicationModule" id="d5c0af9b-55ca-4335-b540-2c6aa49082d6.6" configVersion="999d3fe6f47f254ab765e901226dc88000000000"/>
 		<Metadata name="Configuration.ПартКом.OrdinaryApplicationModule" id="d5c0af9b-55ca-4335-b540-2c6aa49082d6.0" configVersion="ed8479ad9f4d20489b86a64450ac2fb000000000"/>
@@ -9298,6 +9300,13 @@
 			<Metadata name="Enum.СтавкиНДС.EnumValue.НДС20" id="d5bb82e5-e40d-40e4-9f6f-056d67ba0e04"/>
 			<Metadata name="Enum.СтавкиНДС.EnumValue.НДС0" id="f1c4b45d-6803-40be-b784-4a634ede381a"/>
 		</Metadata>
+		<Metadata name="Enum.СтатусыSMSоповещения" id="d7fde80c-e3d4-429a-969c-971287e4a907" configVersion="8340a7469967694abe851080b6b1060d00000000">
+			<Metadata name="Enum.СтатусыSMSоповещения.EnumValue.НеДоставлено" id="11eafb68-1b73-42d7-b3cf-e2103898178a"/>
+			<Metadata name="Enum.СтатусыSMSоповещения.EnumValue.НеВозможноОтправить" id="2b99d3ad-707b-4d6d-a37c-47b0a08b7daf"/>
+			<Metadata name="Enum.СтатусыSMSоповещения.EnumValue.Доставлено" id="40d58522-6d45-4483-aabe-bd377e2f42b7"/>
+			<Metadata name="Enum.СтатусыSMSоповещения.EnumValue.Ожидание" id="c6ceb11c-5d58-4c70-9b9c-e9350bc36351"/>
+			<Metadata name="Enum.СтатусыSMSоповещения.EnumValue.Отправлено" id="ca600065-c1a6-4879-acfe-cb51d0c2036d"/>
+		</Metadata>
 		<Metadata name="Enum.СтатусыКонтрагентов" id="15ebf5fa-9dc8-4111-985f-3bbad481af5e" configVersion="87258093a4922a4d9e15c7afdc201d8800000000">
 			<Metadata name="Enum.СтатусыКонтрагентов.EnumValue.Поставщик" id="2111186e-2e5e-4a03-bfd4-94b9f96f247c"/>
 			<Metadata name="Enum.СтатусыКонтрагентов.EnumValue.Покупатель" id="9b1eb138-4516-46be-bda3-d92f17f24a49"/>
@@ -10085,6 +10094,7 @@
 			<Metadata name="InformationRegister.ДополнительныеАдресныеСведения.Dimension.КодСубъектаРФ" id="a85a0c82-d68d-477d-8f56-30dd342d938c"/>
 			<Metadata name="InformationRegister.ДополнительныеАдресныеСведения.Resource.ОКТМО" id="d5760e5c-ec58-41cd-8190-ab6d5aa9058c"/>
 		</Metadata>
+		<Metadata name="InformationRegister.ЖурналSMSоповещения" id="e232318f-1140-456c-a59e-19b3e366d3f9" configVersion="ed0487f86ba2e142b39c3b9c87d8418600000000"/>
 		<Metadata name="InformationRegister.ЗагруженныеВерсииАдресныхСведений" id="ad72e66b-e665-487b-ab0f-939eed9b0b4f" configVersion="09f07093c1f1a8429091c27c05b67eb400000000">
 			<Metadata name="InformationRegister.ЗагруженныеВерсииАдресныхСведений.Dimension.КодСубъектаРФ" id="1bb6ae25-2024-4f7f-b6e8-9de8b63e6551"/>
 			<Metadata name="InformationRegister.ЗагруженныеВерсииАдресныхСведений.Resource.ДатаВерсии" id="9c4835cb-8768-4c97-81e9-b358bf7f165c"/>
@@ -12323,6 +12333,7 @@
 		<Metadata name="StyleItem.ЦветГиперссылки" id="896539a4-d00d-4c2e-8ed7-dad961759e59" configVersion="f646e92fcb55594b971898f7b3547ce500000000"/>
 		<Metadata name="StyleItem.ШрифтВажнойНадписи" id="32394f0c-8816-4869-be23-a1c4b261655d" configVersion="7a7c2f8b4a9c0b4c941a74435197275600000000"/>
 		<Metadata name="Subsystem.APDEX" id="503a63ac-1034-41a2-b8d7-d603b9d5de4d" configVersion="4770841d9003d647a4366d26f64eb7ff00000000"/>
+		<Metadata name="Subsystem.SMSоповещение" id="9e72530d-e8bc-4c23-b584-99ba42f639e4" configVersion="ac802b3d862d2e47a04d2e46fa6a2f7e00000000"/>
 		<Metadata name="Subsystem.Администрирование" id="8e08dc65-a1a6-4a27-a148-ac17a8871c86" configVersion="16c3eecbff505f4cb93f6a42439f69a600000000"/>
 		<Metadata name="Subsystem.Администрирование.Subsystem.ОповещенияСистемы" id="eb180625-4832-4f97-9055-15b950086896" configVersion="c916c4c6f31d2b459169bf011e0682e900000000"/>
 		<Metadata name="Subsystem.Администрирование.Subsystem.СинхронизацияДанных" id="4c7847cd-96fb-4bf5-89f0-f7e13ae1f433" configVersion="c9838e5faf0f6e4ca8b334bbe62ed21900000000"/>
