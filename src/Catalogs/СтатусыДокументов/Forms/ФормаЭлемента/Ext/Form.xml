@@ -45,28 +45,28 @@
 			</ToolTip>
 			<ExtendedTooltip name="ГруппаОсновнаяРасширеннаяПодсказка" id="36"/>
 			<ChildItems>
-				<Page name="ГруппаВзамосвязи" id="39">
+				<Page name="ГруппаВзаимосвязи" id="39">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Взамосвязи</v8:content>
+							<v8:content>Взаимосвязи</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа взамосвязи</v8:content>
+							<v8:content>Группа взаимосвязи</v8:content>
 						</v8:item>
 					</ToolTip>
-					<ExtendedTooltip name="ГруппаВзамосвязиРасширеннаяПодсказка" id="40"/>
+					<ExtendedTooltip name="ГруппаВзаимосвязиРасширеннаяПодсказка" id="40"/>
 					<ChildItems>
-						<Table name="ВзамосвязиВходящие" id="41">
+						<Table name="ВзаимосвязиВходящие" id="41">
 							<TitleLocation>Top</TitleLocation>
 							<HeightInTableRows>3</HeightInTableRows>
 							<UseAlternationRowColor>true</UseAlternationRowColor>
 							<EnableStartDrag>true</EnableStartDrag>
-							<DataPath>ВзамосвязиВходящие</DataPath>
-							<RowPictureDataPath>ВзамосвязиВходящие.DefaultPicture</RowPictureDataPath>
+							<DataPath>ВзаимосвязиВходящие</DataPath>
+							<RowPictureDataPath>ВзаимосвязиВходящие.DefaultPicture</RowPictureDataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -86,63 +86,66 @@
 							<ShowRoot>true</ShowRoot>
 							<AllowRootChoice>false</AllowRootChoice>
 							<UpdateOnDataChange>Auto</UpdateOnDataChange>
-							<ContextMenu name="ВзамосвязиВходящиеКонтекстноеМеню" id="42"/>
-							<AutoCommandBar name="ВзамосвязиВходящиеКоманднаяПанель" id="43"/>
-							<ExtendedTooltip name="ВзамосвязиВходящиеРасширеннаяПодсказка" id="44"/>
-							<SearchStringAddition name="ВзамосвязиВходящиеСтрокаПоиска" id="45">
+							<ContextMenu name="ВзаимосвязиВходящиеКонтекстноеМеню" id="42"/>
+							<AutoCommandBar name="ВзаимосвязиВходящиеКоманднаяПанель" id="43"/>
+							<ExtendedTooltip name="ВзаимосвязиВходящиеРасширеннаяПодсказка" id="44"/>
+							<SearchStringAddition name="ВзаимосвязиВходящиеСтрокаПоиска" id="45">
 								<AdditionSource>
-									<Item>ВзамосвязиВходящие</Item>
+									<Item>ВзаимосвязиВходящие</Item>
 									<Type>SearchStringRepresentation</Type>
 								</AdditionSource>
-								<ContextMenu name="ВзамосвязиВходящиеСтрокаПоискаКонтекстноеМеню" id="46"/>
-								<ExtendedTooltip name="ВзамосвязиВходящиеСтрокаПоискаРасширеннаяПодсказка" id="47"/>
+								<ContextMenu name="ВзаимосвязиВходящиеСтрокаПоискаКонтекстноеМеню" id="46"/>
+								<ExtendedTooltip name="ВзаимосвязиВходящиеСтрокаПоискаРасширеннаяПодсказка" id="47"/>
 							</SearchStringAddition>
-							<ViewStatusAddition name="ВзамосвязиВходящиеСостояниеПросмотра" id="48">
+							<ViewStatusAddition name="ВзаимосвязиВходящиеСостояниеПросмотра" id="48">
 								<AdditionSource>
-									<Item>ВзамосвязиВходящие</Item>
+									<Item>ВзаимосвязиВходящие</Item>
 									<Type>ViewStatusRepresentation</Type>
 								</AdditionSource>
-								<ContextMenu name="ВзамосвязиВходящиеСостояниеПросмотраКонтекстноеМеню" id="49"/>
-								<ExtendedTooltip name="ВзамосвязиВходящиеСостояниеПросмотраРасширеннаяПодсказка" id="50"/>
+								<ContextMenu name="ВзаимосвязиВходящиеСостояниеПросмотраКонтекстноеМеню" id="49"/>
+								<ExtendedTooltip name="ВзаимосвязиВходящиеСостояниеПросмотраРасширеннаяПодсказка" id="50"/>
 							</ViewStatusAddition>
-							<SearchControlAddition name="ВзамосвязиВходящиеУправлениеПоиском" id="51">
+							<SearchControlAddition name="ВзаимосвязиВходящиеУправлениеПоиском" id="51">
 								<AdditionSource>
-									<Item>ВзамосвязиВходящие</Item>
+									<Item>ВзаимосвязиВходящие</Item>
 									<Type>SearchControl</Type>
 								</AdditionSource>
-								<ContextMenu name="ВзамосвязиВходящиеУправлениеПоискомКонтекстноеМеню" id="52"/>
-								<ExtendedTooltip name="ВзамосвязиВходящиеУправлениеПоискомРасширеннаяПодсказка" id="53"/>
+								<ContextMenu name="ВзаимосвязиВходящиеУправлениеПоискомКонтекстноеМеню" id="52"/>
+								<ExtendedTooltip name="ВзаимосвязиВходящиеУправлениеПоискомРасширеннаяПодсказка" id="53"/>
 							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">ВзаимосвязиВходящиеВыбор</Event>
+							</Events>
 							<ChildItems>
 								<LabelField name="ВзамосвязиСсылка" id="57">
-									<DataPath>ВзамосвязиВходящие.Ref</DataPath>
+									<DataPath>ВзаимосвязиВходящие.Ref</DataPath>
 									<ContextMenu name="ВзамосвязиСсылкаКонтекстноеМеню" id="58"/>
 									<ExtendedTooltip name="ВзамосвязиСсылкаРасширеннаяПодсказка" id="59"/>
 								</LabelField>
 								<LabelField name="ВзамосвязиТекущийСтатус" id="69">
-									<DataPath>ВзамосвязиВходящие.ТекущийСтатус</DataPath>
+									<DataPath>ВзаимосвязиВходящие.ТекущийСтатус</DataPath>
 									<ContextMenu name="ВзамосвязиТекущийСтатусКонтекстноеМеню" id="70"/>
 									<ExtendedTooltip name="ВзамосвязиТекущийСтатусРасширеннаяПодсказка" id="71"/>
 								</LabelField>
 								<LabelField name="ВзамосвязиСледующийСтатус" id="66">
-									<DataPath>ВзамосвязиВходящие.СледующийСтатус</DataPath>
+									<DataPath>ВзаимосвязиВходящие.СледующийСтатус</DataPath>
 									<ContextMenu name="ВзамосвязиСледующийСтатусКонтекстноеМеню" id="67"/>
 									<ExtendedTooltip name="ВзамосвязиСледующийСтатусРасширеннаяПодсказка" id="68"/>
 								</LabelField>
 								<LabelField name="ВзамосвязиКомментарий" id="63">
-									<DataPath>ВзамосвязиВходящие.Комментарий</DataPath>
+									<DataPath>ВзаимосвязиВходящие.Комментарий</DataPath>
 									<ContextMenu name="ВзамосвязиКомментарийКонтекстноеМеню" id="64"/>
 									<ExtendedTooltip name="ВзамосвязиКомментарийРасширеннаяПодсказка" id="65"/>
 								</LabelField>
 							</ChildItems>
 						</Table>
-						<Table name="ВзамосвязиИсходящие" id="99">
+						<Table name="ВзаимосвязиИсходящие" id="99">
 							<TitleLocation>Top</TitleLocation>
 							<HeightInTableRows>3</HeightInTableRows>
 							<UseAlternationRowColor>true</UseAlternationRowColor>
 							<EnableStartDrag>true</EnableStartDrag>
-							<DataPath>ВзамосвязиИсходящие</DataPath>
-							<RowPictureDataPath>ВзамосвязиИсходящие.DefaultPicture</RowPictureDataPath>
+							<DataPath>ВзаимосвязиИсходящие</DataPath>
+							<RowPictureDataPath>ВзаимосвязиИсходящие.DefaultPicture</RowPictureDataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -162,53 +165,56 @@
 							<ShowRoot>true</ShowRoot>
 							<AllowRootChoice>false</AllowRootChoice>
 							<UpdateOnDataChange>Auto</UpdateOnDataChange>
-							<ContextMenu name="ВзамосвязиИсходящиеКонтекстноеМеню" id="100"/>
-							<AutoCommandBar name="ВзамосвязиИсходящиеКоманднаяПанель" id="101">
+							<ContextMenu name="ВзаимосвязиИсходящиеКонтекстноеМеню" id="100"/>
+							<AutoCommandBar name="ВзаимосвязиИсходящиеКоманднаяПанель" id="101">
 								<Autofill>false</Autofill>
 							</AutoCommandBar>
-							<ExtendedTooltip name="ВзамосвязиИсходящиеРасширеннаяПодсказка" id="102"/>
-							<SearchStringAddition name="ВзамосвязиИсходящиеСтрокаПоиска" id="103">
+							<ExtendedTooltip name="ВзаимосвязиИсходящиеРасширеннаяПодсказка" id="102"/>
+							<SearchStringAddition name="ВзаимосвязиИсходящиеСтрокаПоиска" id="103">
 								<AdditionSource>
-									<Item>ВзамосвязиИсходящие</Item>
+									<Item>ВзаимосвязиИсходящие</Item>
 									<Type>SearchStringRepresentation</Type>
 								</AdditionSource>
-								<ContextMenu name="ВзамосвязиИсходящиеСтрокаПоискаКонтекстноеМеню" id="104"/>
-								<ExtendedTooltip name="ВзамосвязиИсходящиеСтрокаПоискаРасширеннаяПодсказка" id="105"/>
+								<ContextMenu name="ВзаимосвязиИсходящиеСтрокаПоискаКонтекстноеМеню" id="104"/>
+								<ExtendedTooltip name="ВзаимосвязиИсходящиеСтрокаПоискаРасширеннаяПодсказка" id="105"/>
 							</SearchStringAddition>
-							<ViewStatusAddition name="ВзамосвязиИсходящиеСостояниеПросмотра" id="106">
+							<ViewStatusAddition name="ВзаимосвязиИсходящиеСостояниеПросмотра" id="106">
 								<AdditionSource>
-									<Item>ВзамосвязиИсходящие</Item>
+									<Item>ВзаимосвязиИсходящие</Item>
 									<Type>ViewStatusRepresentation</Type>
 								</AdditionSource>
-								<ContextMenu name="ВзамосвязиИсходящиеСостояниеПросмотраКонтекстноеМеню" id="107"/>
-								<ExtendedTooltip name="ВзамосвязиИсходящиеСостояниеПросмотраРасширеннаяПодсказка" id="108"/>
+								<ContextMenu name="ВзаимосвязиИсходящиеСостояниеПросмотраКонтекстноеМеню" id="107"/>
+								<ExtendedTooltip name="ВзаимосвязиИсходящиеСостояниеПросмотраРасширеннаяПодсказка" id="108"/>
 							</ViewStatusAddition>
-							<SearchControlAddition name="ВзамосвязиИсходящиеУправлениеПоиском" id="109">
+							<SearchControlAddition name="ВзаимосвязиИсходящиеУправлениеПоиском" id="109">
 								<AdditionSource>
-									<Item>ВзамосвязиИсходящие</Item>
+									<Item>ВзаимосвязиИсходящие</Item>
 									<Type>SearchControl</Type>
 								</AdditionSource>
-								<ContextMenu name="ВзамосвязиИсходящиеУправлениеПоискомКонтекстноеМеню" id="110"/>
-								<ExtendedTooltip name="ВзамосвязиИсходящиеУправлениеПоискомРасширеннаяПодсказка" id="111"/>
+								<ContextMenu name="ВзаимосвязиИсходящиеУправлениеПоискомКонтекстноеМеню" id="110"/>
+								<ExtendedTooltip name="ВзаимосвязиИсходящиеУправлениеПоискомРасширеннаяПодсказка" id="111"/>
 							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">ВзаимосвязиИсходящиеВыбор</Event>
+							</Events>
 							<ChildItems>
 								<LabelField name="ВзамосвязиИсходящиеСсылка" id="115">
-									<DataPath>ВзамосвязиИсходящие.Ref</DataPath>
+									<DataPath>ВзаимосвязиИсходящие.Ref</DataPath>
 									<ContextMenu name="ВзамосвязиИсходящиеСсылкаКонтекстноеМеню" id="116"/>
 									<ExtendedTooltip name="ВзамосвязиИсходящиеСсылкаРасширеннаяПодсказка" id="117"/>
 								</LabelField>
 								<LabelField name="ВзамосвязиИсходящиеТекущийСтатус" id="127">
-									<DataPath>ВзамосвязиИсходящие.ТекущийСтатус</DataPath>
+									<DataPath>ВзаимосвязиИсходящие.ТекущийСтатус</DataPath>
 									<ContextMenu name="ВзамосвязиИсходящиеТекущийСтатусКонтекстноеМеню" id="128"/>
 									<ExtendedTooltip name="ВзамосвязиИсходящиеТекущийСтатусРасширеннаяПодсказка" id="129"/>
 								</LabelField>
 								<LabelField name="ВзамосвязиИсходящиеСледующийСтатус" id="124">
-									<DataPath>ВзамосвязиИсходящие.СледующийСтатус</DataPath>
+									<DataPath>ВзаимосвязиИсходящие.СледующийСтатус</DataPath>
 									<ContextMenu name="ВзамосвязиИсходящиеСледующийСтатусКонтекстноеМеню" id="125"/>
 									<ExtendedTooltip name="ВзамосвязиИсходящиеСледующийСтатусРасширеннаяПодсказка" id="126"/>
 								</LabelField>
 								<LabelField name="ВзамосвязиИсходящиеКомментарий" id="121">
-									<DataPath>ВзамосвязиИсходящие.Комментарий</DataPath>
+									<DataPath>ВзаимосвязиИсходящие.Комментарий</DataPath>
 									<ContextMenu name="ВзамосвязиИсходящиеКомментарийКонтекстноеМеню" id="122"/>
 									<ExtendedTooltip name="ВзамосвязиИсходящиеКомментарийРасширеннаяПодсказка" id="123"/>
 								</LabelField>
@@ -395,11 +401,11 @@
 			<MainAttribute>true</MainAttribute>
 			<SavedData>true</SavedData>
 		</Attribute>
-		<Attribute name="ВзамосвязиВходящие" id="2">
+		<Attribute name="ВзаимосвязиВходящие" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Взамосвязи входящие</v8:content>
+					<v8:content>Взаимосвязи входящие</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -438,11 +444,11 @@
 				</ListSettings>
 			</Settings>
 		</Attribute>
-		<Attribute name="ВзамосвязиИсходящие" id="3">
+		<Attribute name="ВзаимосвязиИсходящие" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Взамосвязи исходящие</v8:content>
+					<v8:content>Взаимосвязи исходящие</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
