@@ -453,9 +453,9 @@
 		<property name="ДатаБлокировкиОтгрузок" type="xs:dateTime"/>
 		<property name="ДатаБлокировкиЗаказов" type="xs:dateTime" nillable="false"/>
 		<property name="ДоступнаУслугаЭкспрессДоставки" type="xs:boolean" lowerBound="0" nillable="false"/>
-		<property name="СтоимостьУслугиЭДрубли" type="xs:float" lowerBound="0" nillable="false"/>
-		<property name="СтоимостьУслугиЭДбонусы" type="xs:float" lowerBound="0" nillable="false"/>
-		<property name="СуммаБесплатнойЭД" type="xs:float" lowerBound="0" nillable="false"/>
+		<property name="СтоимостьУслугиЭДрубли" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="СтоимостьУслугиЭДбонусы" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="СуммаБесплатнойЭД" type="xs:int" lowerBound="0" nillable="true"/>
 	</objectType>
 	<objectType name="Справочник.Покупатели.КонтактныеЛица" ordered="false">
 		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="КонтактноеЛицо" type="d3p1:Справочник.Покупатели.КонтактноеЛицо" lowerBound="0" upperBound="-1"/>
