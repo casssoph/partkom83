@@ -215,6 +215,42 @@
 												<Event name="OnChange">ОтветственныйПриИзменении</Event>
 											</Events>
 										</InputField>
+										<UsualGroup name="ГруппаДокументПродажи" id="371">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа документ продажи</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа документ продажи</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаДокументПродажиРасширеннаяПодсказка" id="372"/>
+											<ChildItems>
+												<InputField name="ДокументПродажи" id="358">
+													<DataPath>Объект.ДокументПродажи</DataPath>
+													<TitleLocation>Left</TitleLocation>
+													<ContextMenu name="ДокументПродажиКонтекстноеМеню" id="359"/>
+													<ExtendedTooltip name="ДокументПродажиРасширеннаяПодсказка" id="360"/>
+												</InputField>
+												<Button name="ПодборДокументаПродажи" id="373">
+													<Type>UsualButton</Type>
+													<Representation>Picture</Representation>
+													<CommandName>Form.Command.ПодборДокументаПродажи</CommandName>
+													<Picture>
+														<xr:Ref>CommonPicture.Поиск</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+													</Picture>
+													<ExtendedTooltip name="ПодборДокументаПродажиРасширеннаяПодсказка" id="374"/>
+												</Button>
+											</ChildItems>
+										</UsualGroup>
 										<CheckBoxField name="БезоговорочныйВозврат" id="153">
 											<DataPath>Объект.БезоговорочныйВозврат</DataPath>
 											<CheckBoxType>Auto</CheckBoxType>
@@ -293,6 +329,11 @@
 											<ContextMenu name="СрокВозвратаКлиентаКонтекстноеМеню" id="315"/>
 											<ExtendedTooltip name="СрокВозвратаКлиентаРасширеннаяПодсказка" id="316"/>
 										</InputField>
+										<InputField name="ПричинаВозврата" id="361">
+											<DataPath>Объект.ПричинаВозврата</DataPath>
+											<ContextMenu name="ПричинаВозвратаКонтекстноеМеню" id="362"/>
+											<ExtendedTooltip name="ПричинаВозвратаРасширеннаяПодсказка" id="363"/>
+										</InputField>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
@@ -305,7 +346,15 @@
 							<DataPath>Объект.Товары</DataPath>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="ТоварыКонтекстноеМеню" id="89"/>
-							<AutoCommandBar name="ТоварыКоманднаяПанель" id="90"/>
+							<AutoCommandBar name="ТоварыКоманднаяПанель" id="90">
+								<ChildItems>
+									<Button name="ТоварыЗаполнитьПартииПоДокументуПродажи" id="369">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ЗаполнитьПартииПоДокументуПродажи</CommandName>
+										<ExtendedTooltip name="ТоварыЗаполнитьПартииПоДокументуПродажиРасширеннаяПодсказка" id="370"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
 							<ExtendedTooltip name="ТоварыРасширеннаяПодсказка" id="91"/>
 							<SearchStringAddition name="ТоварыСтрокаПоиска" id="92">
 								<AdditionSource>
@@ -338,12 +387,6 @@
 									<ContextMenu name="ТоварыНомерСтрокиКонтекстноеМеню" id="102"/>
 									<ExtendedTooltip name="ТоварыНомерСтрокиРасширеннаяПодсказка" id="103"/>
 								</LabelField>
-								<InputField name="ТоварыПричинаВозврата" id="329">
-									<DataPath>Объект.Товары.ПричинаВозврата</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ТоварыПричинаВозвратаКонтекстноеМеню" id="330"/>
-									<ExtendedTooltip name="ТоварыПричинаВозвратаРасширеннаяПодсказка" id="331"/>
-								</InputField>
 								<ColumnGroup name="ТоварыГруппаНоменклатура" id="344">
 									<Title>
 										<v8:item>
@@ -597,18 +640,35 @@
 										</CheckBoxField>
 									</ChildItems>
 								</ColumnGroup>
-								<InputField name="ТоварыДокументПродажи" id="125">
-									<DataPath>Объект.Товары.ДокументПродажи</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ТоварыДокументПродажиКонтекстноеМеню" id="126"/>
-									<ExtendedTooltip name="ТоварыДокументПродажиРасширеннаяПодсказка" id="127"/>
-								</InputField>
-								<InputField name="ТоварыСебестоимость" id="128">
-									<DataPath>Объект.Товары.Себестоимость</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ТоварыСебестоимостьКонтекстноеМеню" id="129"/>
-									<ExtendedTooltip name="ТоварыСебестоимостьРасширеннаяПодсказка" id="130"/>
-								</InputField>
+								<ColumnGroup name="ТоварыГруппаСтрокаПриходаСебестоимость" id="367">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Товары группа строка прихода себестоимость</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Товары группа строка прихода себестоимость</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ТоварыГруппаСтрокаПриходаСебестоимостьРасширеннаяПодсказка" id="368"/>
+									<ChildItems>
+										<InputField name="ТоварыСтрокаПрихода" id="364">
+											<DataPath>Объект.Товары.СтрокаПрихода</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ТоварыСтрокаПриходаКонтекстноеМеню" id="365"/>
+											<ExtendedTooltip name="ТоварыСтрокаПриходаРасширеннаяПодсказка" id="366"/>
+										</InputField>
+										<InputField name="ТоварыСебестоимость" id="128">
+											<DataPath>Объект.Товары.Себестоимость</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ТоварыСебестоимостьКонтекстноеМеню" id="129"/>
+											<ExtendedTooltip name="ТоварыСебестоимостьРасширеннаяПодсказка" id="130"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
 							</ChildItems>
 						</Table>
 						<UsualGroup name="ТоварыИтог" id="285">
@@ -1230,6 +1290,36 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СоздатьЭлектронноеПисьмо</Action>
+		</Command>
+		<Command name="ЗаполнитьПартииПоДокументуПродажи" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить партии по документу продажи</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить партии по документу продажи</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьПартииПоДокументуПродажи</Action>
+		</Command>
+		<Command name="ПодборДокументаПродажи" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подбор документа продажи</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подбор документа продажи</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПодборДокументаПродажи</Action>
 		</Command>
 	</Commands>
 	<CommandInterface>
