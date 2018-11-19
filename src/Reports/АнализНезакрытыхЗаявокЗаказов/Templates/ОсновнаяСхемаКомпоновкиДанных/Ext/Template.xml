@@ -253,6 +253,20 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументПоступление</dataPath>
+			<field>ДокументПоступление</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ поступление</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>2</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	ЗаказыПоставщикамОстатки.КоличествоОстаток,
@@ -455,7 +469,7 @@
 	МАКСИМУМ(ВтОстаткиСКОмментарием.МенеджерКлиентаПродажи) КАК МенеджерКлиентаПродажи,
 	ВтОстаткиСКОмментарием.Покупатель КАК Покупатель,
 	ВЫРАЗИТЬ(ВтОстаткиСКОмментарием.ПоследняяКорректировкаЗаказа.Комментарий КАК СТРОКА(1024)) КАК КомментарийЗаказа,
-	ВтОстаткиСКОмментарием.ДокументПоступление
+	ВтОстаткиСКОмментарием.ДокументПоступление КАК ДокументПоступление
 {ВЫБРАТЬ
 	Номенклатура.*,
 	Качество.*,
@@ -477,7 +491,8 @@
 	ПоследняяКорректировкаЗаказа.*,
 	МенеджерКлиентаСнабжения.*,
 	МенеджерКлиентаПродажи.*,
-	Покупатель.*}
+	Покупатель.*,
+	ДокументПоступление.*}
 ИЗ
 	ВтОстаткиСКОмментарием КАК ВтОстаткиСКОмментарием
 		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ПоступлениеТоваровУслуг.АктПриемки КАК ПоступлениеТоваровУслугАктПриемки
@@ -597,6 +612,9 @@
 					<dcsset:field>Заявка</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Покупатель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>ОстатокПоЗаказу</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
@@ -662,6 +680,12 @@
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>2d20bc75-2d98-4d36-baa7-0c331a518c0a</dcsset:userSettingID>
 			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Separately</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
 			<dcsset:item xsi:type="dcsset:StructureItemGroup">
 				<dcsset:filter>
 					<dcsset:viewMode>Normal</dcsset:viewMode>
@@ -845,6 +869,12 @@
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>2d20bc75-2d98-4d36-baa7-0c331a518c0a</dcsset:userSettingID>
 			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Separately</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
 			<dcsset:item xsi:type="dcsset:StructureItemGroup">
 				<dcsset:groupItems>
 					<dcsset:item xsi:type="dcsset:GroupItemField">
