@@ -578,6 +578,7 @@
 					</Synonym>
 					<Comment>если реквизит заполнен - значит идет приемка из ТопЛог</Comment>
 					<Type>
+						<v8:Type>cfg:DocumentRef.ВозвратТоваровОтПокупателя</v8:Type>
 						<v8:Type>cfg:DocumentRef.ПеремещениеТоваров</v8:Type>
 						<v8:Type>cfg:DocumentRef.ПоступлениеТоваровУслуг</v8:Type>
 					</Type>
@@ -872,6 +873,44 @@
 					<LinkByType/>
 					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
 					<Indexing>DontIndex</Indexing>
+					<FullTextSearch>Use</FullTextSearch>
+				</Properties>
+			</Attribute>
+			<Attribute uuid="a1332fb3-a24c-4b5a-b086-c13707af2c46">
+				<Properties>
+					<Name>АктРассмотренияВозврата</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Акт рассмотрения возврата</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Type>
+						<v8:Type>cfg:DocumentRef.АктРассмотренияВозврата</v8:Type>
+					</Type>
+					<PasswordMode>false</PasswordMode>
+					<Format/>
+					<EditFormat/>
+					<ToolTip/>
+					<MarkNegatives>false</MarkNegatives>
+					<Mask/>
+					<MultiLine>false</MultiLine>
+					<ExtendedEdit>false</ExtendedEdit>
+					<MinValue xsi:nil="true"/>
+					<MaxValue xsi:nil="true"/>
+					<FillFromFillingValue>false</FillFromFillingValue>
+					<FillValue xsi:nil="true"/>
+					<FillChecking>DontCheck</FillChecking>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<ChoiceParameterLinks/>
+					<ChoiceParameters/>
+					<QuickChoice>Auto</QuickChoice>
+					<CreateOnInput>Auto</CreateOnInput>
+					<ChoiceForm/>
+					<LinkByType/>
+					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+					<Indexing>Index</Indexing>
 					<FullTextSearch>Use</FullTextSearch>
 				</Properties>
 			</Attribute>
