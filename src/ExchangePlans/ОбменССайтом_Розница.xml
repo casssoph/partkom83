@@ -33,7 +33,7 @@
 				</v8:item>
 			</Synonym>
 			<Comment/>
-			<UseStandardCommands>false</UseStandardCommands>
+			<UseStandardCommands>true</UseStandardCommands>
 			<CodeLength>9</CodeLength>
 			<CodeAllowedLength>Variable</CodeAllowedLength>
 			<DescriptionLength>25</DescriptionLength>
@@ -49,7 +49,7 @@
 			<FullTextSearchOnInputByString>DontUse</FullTextSearchOnInputByString>
 			<ChoiceDataGetModeOnInputByString>Directly</ChoiceDataGetModeOnInputByString>
 			<DefaultObjectForm>ExchangePlan.ОбменССайтом_Розница.Form.ФормаУзла</DefaultObjectForm>
-			<DefaultListForm>ExchangePlan.ОбменССайтом_Розница.Form.ФормаСписка</DefaultListForm>
+			<DefaultListForm>ExchangePlan.ОбменССайтом_Розница.Form.ФормаСпискаУпр</DefaultListForm>
 			<DefaultChoiceForm/>
 			<AuxiliaryObjectForm/>
 			<AuxiliaryListForm/>
@@ -191,6 +191,30 @@
 			</Attribute>
 			<Form>ФормаУзла</Form>
 			<Form>ФормаСписка</Form>
+			<Form>ФормаСпискаУпр</Form>
+			<Command uuid="8198eb65-c821-4df7-9d12-366a1ec82008">
+				<Properties>
+					<Name>ВыполнитьОбменСсайтом</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выполнить обмен</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Group>CommandGroup.ОбменССайтом</Group>
+					<CommandParameterType/>
+					<ParameterUseMode>Single</ParameterUseMode>
+					<ModifiesData>false</ModifiesData>
+					<Representation>PictureAndText</Representation>
+					<ToolTip/>
+					<Picture>
+						<xr:Ref>CommonPicture.Выполнить</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<Shortcut/>
+				</Properties>
+			</Command>
 		</ChildObjects>
 	</ExchangePlan>
 </MetaDataObject>
