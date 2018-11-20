@@ -289,7 +289,8 @@
 			И (РазмещенияСтрокЗаказов.Регистратор ССЫЛКА Документ.ПоступлениеТоваровУслуг)
 			И (РазмещенияСтрокЗаказов.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход))}
 {ГДЕ
-	ЗаказыПоставщикамОстатки.СтрокаЗаявки.*}
+	ЗаказыПоставщикамОстатки.СтрокаЗаявки.*,
+	РазмещенияСтрокЗаказов.Регистратор.* КАК ДокументПоступление}
 
 СГРУППИРОВАТЬ ПО
 	ЗаказыПоставщикамОстатки.КоличествоОстаток,
@@ -316,7 +317,7 @@
 	СУММА(ЗаказыПоставщикамОстатки.СуммаУпрОстаток) КАК СуммаОстатокПоЗаказу,
 	МАКСИМУМ(МенТорговыхТочекСрезПоследних_Продажи.Менеджер) КАК МенеджерКлиентаПродажи,
 	ЗаявкиПокупателейОстатки.ТорговаяТочка.Владелец КАК Покупатель,
-	ЗаказыПоставщикамОстатки.ДокументПоступление,
+	ЗаказыПоставщикамОстатки.ДокументПоступление КАК ДокументПоступление,
 	МенТорговыхТочекСрезПоследних_Снабжение.Менеджер КАК МенеджерКлиентаСнабжение
 ПОМЕСТИТЬ ВТОстаткиЗаявок
 {ВЫБРАТЬ
@@ -331,7 +332,8 @@
 	Заявка.*,
 	Поставщик.*,
 	МенеджерКлиентаПродажи.*,
-	МенеджерКлиентаСнабжение.*}
+	МенеджерКлиентаСнабжение.*,
+	ДокументПоступление.*}
 ИЗ
 	РегистрНакопления.ЗаявкиПокупателей.Остатки({(&amp;Период)}, {(ЕСТЬNULL(ТорговаяТочка.Владелец, ЗНАЧЕНИЕ(Справочник.Контрагенты.ПустаяСсылка))).* КАК Покупатель, (ЕСТЬNULL(СтрокаЗаявки.Поставщик, ЗНАЧЕНИЕ(Справочник.Контрагенты.ПустаяСсылка))).* КАК Поставщик, (СтрокаЗаявки) КАК СтрокаЗаявки, (ЕСТЬNULL(СтрокаЗаявки.Заявка, ЗНАЧЕНИЕ(Документ.ЗаявкаПокупателя.ПустаяСсылка))).* КАК Заявка}) КАК ЗаявкиПокупателейОстатки
 		{ЛЕВОЕ СОЕДИНЕНИЕ ОстаткиЗаказов КАК ЗаказыПоставщикамОстатки
@@ -601,9 +603,17 @@
 	</parameter>
 	<settingsVariant>
 		<dcsset:name>Основной</dcsset:name>
-		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Основной</v8:content>
+			</v8:item>
+		</dcsset:presentation>
 		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
 			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Поставщик</dcsset:field>
+				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Заявка.Дата</dcsset:field>
 					<dcsset:lwsTitle>
@@ -632,19 +642,31 @@
 					</dcsset:lwsTitle>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>ОстатокПоЗаявке</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>Заявка</dcsset:field>
+					<dcsset:field>Заказ.СтатусДокумента</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>СтатусЗаказа</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Покупатель</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>ОстатокПоЗаказу</dcsset:field>
+					<dcsset:field>Заявка</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Заказ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДетальныйКомментарий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КомментарийЗаказа</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДниВРаботеЗаказа</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>ДокументПоступление</dcsset:field>
@@ -653,25 +675,24 @@
 					<dcsset:field>АктПримемки</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>ДетальныйКомментарий</dcsset:field>
+					<dcsset:field>ДокументПоступление.СтатусДокумента</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статус поступления</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>ДниВРаботеЗаказа</dcsset:field>
+					<dcsset:field>ОстатокПоЗаявке</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОстатокПоЗаказу</dcsset:field>
 				</dcsset:item>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>d4600e34-d696-4d84-941d-f3536dff11cc</dcsset:userSettingID>
 			</dcsset:selection>
 			<dcsset:filter>
-				<dcsset:item xsi:type="dcsset:FilterItemComparison">
-					<dcsset:use>false</dcsset:use>
-					<dcsset:left xsi:type="dcscor:Field">МенеджерЗаказа</dcsset:left>
-					<dcsset:comparisonType>Equal</dcsset:comparisonType>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:FilterItemComparison">
-					<dcsset:use>false</dcsset:use>
-					<dcsset:left xsi:type="dcscor:Field">МенеджерЗаявки</dcsset:left>
-					<dcsset:comparisonType>Equal</dcsset:comparisonType>
-				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">Изготовитель</dcsset:left>
@@ -681,11 +702,45 @@
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">Покупатель</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>d1d78974-7b7c-4269-9c2b-783cfec7993e</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">Поставщик</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>efc5a9c3-8069-4817-8a9d-32cee540a7ef</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">МенеджерКлиентаСнабжение</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>6942c766-2bf1-41f6-af3e-b4b288ae499e</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemGroup">
+					<dcsset:groupType>OrGroup</dcsset:groupType>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ОстатокПоЗаказу</dcsset:left>
+						<dcsset:comparisonType>GreaterOrEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ОстатокПоЗаявке</dcsset:left>
+						<dcsset:comparisonType>GreaterOrEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					</dcsset:item>
+					<dcsset:presentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Без минусов</v8:content>
+						</v8:item>
+					</dcsset:presentation>
+					<dcsset:userSettingID>e794d3db-d55b-41e6-8709-31fcd11247c6</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Без минусов</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
 				</dcsset:item>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>2f4e5a59-481f-4377-a6da-37beb33e2f19</dcsset:userSettingID>
@@ -699,10 +754,24 @@
 				</dcscor:item>
 			</dcsset:dataParameters>
 			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Заказ</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>50547128-db6b-4141-b9c0-2f48f075ef6c</dcsset:userSettingID>
 			</dcsset:order>
 			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection/>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>2d20bc75-2d98-4d36-baa7-0c331a518c0a</dcsset:userSettingID>
 			</dcsset:conditionalAppearance>
@@ -713,22 +782,56 @@
 				</dcscor:item>
 			</dcsset:outputParameters>
 			<dcsset:item xsi:type="dcsset:StructureItemGroup">
-				<dcsset:filter>
-					<dcsset:viewMode>Normal</dcsset:viewMode>
-				</dcsset:filter>
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Поставщик</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
 				<dcsset:order>
 					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
-					<dcsset:viewMode>Normal</dcsset:viewMode>
 				</dcsset:order>
 				<dcsset:selection>
 					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
-					<dcsset:viewMode>Normal</dcsset:viewMode>
 				</dcsset:selection>
-				<dcsset:conditionalAppearance>
-					<dcsset:viewMode>Normal</dcsset:viewMode>
-				</dcsset:conditionalAppearance>
-				<dcsset:viewMode>Normal</dcsset:viewMode>
-				<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Заказ</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:filter>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+						</dcsset:filter>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+						</dcsset:selection>
+						<dcsset:conditionalAppearance>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+						</dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					</dcsset:item>
+				</dcsset:item>
 			</dcsset:item>
 			<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
 			<dcsset:itemsUserSettingID>e2e2d7d2-6fcc-4eae-b809-452b199e0be9</dcsset:itemsUserSettingID>
@@ -744,6 +847,9 @@
 		</dcsset:presentation>
 		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
 			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Поставщик</dcsset:field>
+				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Заявка.Дата</dcsset:field>
 					<dcsset:title>Дата заявки</dcsset:title>
