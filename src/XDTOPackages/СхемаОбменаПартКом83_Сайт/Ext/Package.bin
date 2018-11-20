@@ -3,6 +3,7 @@
 	<valueType name="EnumRef.ТипыСкладов" base="xs:string" variety="Atomic" memberTypes="">
 		<enumeration xsi:type="xs:string">Магазин</enumeration>
 		<enumeration xsi:type="xs:string">ТочкаДоставки</enumeration>
+		<enumeration xsi:type="xs:string">МагазинИТочкаДоставки</enumeration>
 	</valueType>
 	<objectType name="Объекты" ordered="false">
 		<property name="Объект" type="xs:anyType" lowerBound="0" upperBound="-1"/>
@@ -106,6 +107,7 @@
 		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="ФизическийСклад" type="d3p1:UUID"/>
 		<property name="Адрес" type="xs:string"/>
 		<property name="Оптовый" type="xs:boolean"/>
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="ТипСклада" type="d3p1:EnumRef.ТипыСкладов" lowerBound="0"/>
 	</objectType>
 	<objectType name="Справочники.ПрайсыПоставщиков" ordered="false">
 		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
