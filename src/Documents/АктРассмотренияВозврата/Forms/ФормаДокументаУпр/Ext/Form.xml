@@ -21,6 +21,7 @@
 				<ExtendedTooltip name="ГруппаКомандыПроцесса_ПодменюРасширеннаяПодсказка" id="162"/>
 			</Popup>
 			<Popup name="ФормаГруппаВводНаОсновании" id="281">
+				<Visible>false</Visible>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
@@ -44,6 +45,33 @@
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.СоздатьЭлектронноеПисьмо</CommandName>
 						<ExtendedTooltip name="ФормаСоздатьЭлектронноеПисьмоРасширеннаяПодсказка" id="284"/>
+					</Button>
+				</ChildItems>
+			</Popup>
+			<Popup name="ФормаГруппаПерейти" id="414">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Перейти</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Форма группа перейти</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="ФормаГруппаПерейтиРасширеннаяПодсказка" id="415"/>
+				<ChildItems>
+					<Button name="ФормаСтруктураПодчиненности" id="412">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СтруктураПодчиненности</CommandName>
+						<ExtendedTooltip name="ФормаСтруктураПодчиненностиРасширеннаяПодсказка" id="413"/>
+					</Button>
+					<Button name="ФормаДвиженияДокументаПоРегистрам" id="416">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ДвиженияДокументаПоРегистрам</CommandName>
+						<ExtendedTooltip name="ФормаДвиженияДокументаПоРегистрамРасширеннаяПодсказка" id="417"/>
 					</Button>
 				</ChildItems>
 			</Popup>
@@ -1553,6 +1581,36 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПечатьСФКлиента</Action>
+		</Command>
+		<Command name="СтруктураПодчиненности" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структура подчиненности</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Структура подчиненности</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СтруктураПодчиненности</Action>
+		</Command>
+		<Command name="ДвиженияДокументаПоРегистрам" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Движения документа</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Движения документа по регистрам</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ДвиженияДокументаПоРегистрам</Action>
 		</Command>
 	</Commands>
 	<CommandInterface>
