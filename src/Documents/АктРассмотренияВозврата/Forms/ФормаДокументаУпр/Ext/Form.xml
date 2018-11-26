@@ -63,6 +63,11 @@
 				</ToolTip>
 				<ExtendedTooltip name="ФормаГруппаПерейтиРасширеннаяПодсказка" id="415"/>
 				<ChildItems>
+					<Button name="ФормаДокументыПоАктуВозврата" id="424">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ДокументыПоАктуВозврата</CommandName>
+						<ExtendedTooltip name="ФормаДокументыПоАктуВозвратаРасширеннаяПодсказка" id="425"/>
+					</Button>
 					<Button name="ФормаСтруктураПодчиненности" id="412">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.СтруктураПодчиненности</CommandName>
@@ -105,6 +110,7 @@
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
 		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
@@ -127,6 +133,12 @@
 			<Group>Horizontal</Group>
 			<ExtendedTooltip name="ГруппаКомандыПроцесса_ВверхуФормыРасширеннаяПодсказка" id="160"/>
 		</UsualGroup>
+		<LabelDecoration name="ИнформационнаяНадписьВерх" id="418">
+			<TextColor>style:FieldSelectionBackColor</TextColor>
+			<Font ref="style:ШрифтВажнойНадписи" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+			<ContextMenu name="ИнформационнаяНадписьВерхКонтекстноеМеню" id="419"/>
+			<ExtendedTooltip name="ИнформационнаяНадписьВерхРасширеннаяПодсказка" id="420"/>
+		</LabelDecoration>
 		<Pages name="ГруппаСтраницыОсновная" id="169">
 			<Title>
 				<v8:item>
@@ -1205,6 +1217,12 @@
 				</Page>
 			</ChildItems>
 		</Pages>
+		<LabelDecoration name="ИнформационнаяНадписьНиз" id="421">
+			<TextColor>style:FieldSelectionBackColor</TextColor>
+			<Font ref="style:ШрифтВажнойНадписи" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+			<ContextMenu name="ИнформационнаяНадписьНизКонтекстноеМеню" id="422"/>
+			<ExtendedTooltip name="ИнформационнаяНадписьНизРасширеннаяПодсказка" id="423"/>
+		</LabelDecoration>
 		<UsualGroup name="ГруппаКомандыПроцесса_ВнизуФормы" id="151">
 			<Title>
 				<v8:item>
@@ -1612,6 +1630,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ДвиженияДокументаПоРегистрам</Action>
+		</Command>
+		<Command name="ДокументыПоАктуВозврата" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документы по акту возврата</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документы по акту возврата</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ДокументыПоАктуВозврата</Action>
 		</Command>
 	</Commands>
 	<CommandInterface>
