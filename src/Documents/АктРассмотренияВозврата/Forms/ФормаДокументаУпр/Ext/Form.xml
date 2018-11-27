@@ -20,6 +20,41 @@
 				</ToolTip>
 				<ExtendedTooltip name="ГруппаКомандыПроцесса_ПодменюРасширеннаяПодсказка" id="162"/>
 			</Popup>
+			<Popup name="ФормаГруппаОтправитьЭлПисьмо" id="426">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отправить e-mail</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отправить электронное письмо</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="ФормаГруппаОтправитьЭлПисьмоРасширеннаяПодсказка" id="427"/>
+				<ChildItems>
+					<Button name="ФормаСоздатьЭлектронноеПисьмоКлиенту" id="428">
+						<Type>CommandBarButton</Type>
+						<OnlyInAllActions>true</OnlyInAllActions>
+						<CommandName>Form.Command.СоздатьЭлектронноеПисьмоКлиенту</CommandName>
+						<ExtendedTooltip name="ФормаСоздатьЭлектронноеПисьмоКлиентуРасширеннаяПодсказка" id="429"/>
+					</Button>
+					<Button name="ФормаСоздатьЭлектронноеПисьмоПоставщику" id="430">
+						<Type>CommandBarButton</Type>
+						<OnlyInAllActions>true</OnlyInAllActions>
+						<CommandName>Form.Command.СоздатьЭлектронноеПисьмоПоставщику</CommandName>
+						<ExtendedTooltip name="ФормаСоздатьЭлектронноеПисьмоПоставщикуРасширеннаяПодсказка" id="431"/>
+					</Button>
+				</ChildItems>
+			</Popup>
+			<Button name="ФормаДокументыПоАктуВозврата" id="424">
+				<Type>CommandBarButton</Type>
+				<OnlyInAllActions>true</OnlyInAllActions>
+				<CommandName>Form.Command.ДокументыПоАктуВозврата</CommandName>
+				<ExtendedTooltip name="ФормаДокументыПоАктуВозвратаРасширеннаяПодсказка" id="425"/>
+			</Button>
 			<Popup name="ФормаГруппаВводНаОсновании" id="281">
 				<Visible>false</Visible>
 				<Title>
@@ -43,7 +78,7 @@
 				<ChildItems>
 					<Button name="ФормаСоздатьЭлектронноеПисьмо" id="283">
 						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.СоздатьЭлектронноеПисьмо</CommandName>
+						<CommandName>Form.Command.СоздатьЭлектронноеПисьмоКлиенту</CommandName>
 						<ExtendedTooltip name="ФормаСоздатьЭлектронноеПисьмоРасширеннаяПодсказка" id="284"/>
 					</Button>
 				</ChildItems>
@@ -63,11 +98,6 @@
 				</ToolTip>
 				<ExtendedTooltip name="ФормаГруппаПерейтиРасширеннаяПодсказка" id="415"/>
 				<ChildItems>
-					<Button name="ФормаДокументыПоАктуВозврата" id="424">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ДокументыПоАктуВозврата</CommandName>
-						<ExtendedTooltip name="ФормаДокументыПоАктуВозвратаРасширеннаяПодсказка" id="425"/>
-					</Button>
 					<Button name="ФормаСтруктураПодчиненности" id="412">
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.СтруктураПодчиненности</CommandName>
@@ -1046,6 +1076,11 @@
 									<ContextMenu name="СписокЭПТемаКонтекстноеМеню" id="228"/>
 									<ExtendedTooltip name="СписокЭПТемаРасширеннаяПодсказка" id="229"/>
 								</LabelField>
+								<LabelField name="СписокЭПКонтрагент" id="432">
+									<DataPath>СписокЭП.Контрагент</DataPath>
+									<ContextMenu name="СписокЭПКонтрагентКонтекстноеМеню" id="433"/>
+									<ExtendedTooltip name="СписокЭПКонтрагентРасширеннаяПодсказка" id="434"/>
+								</LabelField>
 								<LabelField name="СписокЭПКомуПредставление" id="212">
 									<DataPath>СписокЭП.КомуПредставление</DataPath>
 									<ContextMenu name="СписокЭПКомуПредставлениеКонтекстноеМеню" id="213"/>
@@ -1402,10 +1437,12 @@
 	ДокументЭлектронноеПисьмо.Ответственный,
 	ДокументЭлектронноеПисьмо.СтатусПисьма,
 	ДокументЭлектронноеПисьмо.ДатаОтправления,
-	ДокументЭлектронноеПисьмо.ЕстьВложения
+	ДокументЭлектронноеПисьмо.ЕстьВложения,
+	ДокументЭлектронноеПисьмо.Контрагент
 ИЗ
 	Документ.ЭлектронноеПисьмо КАК ДокументЭлектронноеПисьмо
-ГДЕ  ОснованиеПисьма = &amp;ОснованиеПисьма</QueryText>
+ГДЕ
+	ДокументЭлектронноеПисьмо.ОснованиеПисьма = &amp;ОснованиеПисьма</QueryText>
 				<MainTable>Document.ЭлектронноеПисьмо</MainTable>
 				<ListSettings>
 					<dcsset:filter>
@@ -1525,17 +1562,17 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="СоздатьЭлектронноеПисьмо" id="1">
+		<Command name="СоздатьЭлектронноеПисьмоКлиенту" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Электронное письмо</v8:content>
+					<v8:content>Отправить e-mail клиенту</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Создать электронное письмо</v8:content>
+					<v8:content>Создать электронное письмо клиенту</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>СоздатьЭлектронноеПисьмо</Action>
@@ -1645,6 +1682,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ДокументыПоАктуВозврата</Action>
+		</Command>
+		<Command name="СоздатьЭлектронноеПисьмоПоставщику" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить e-mail поставщику</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать электронное письмо клиенту</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьЭлектронноеПисьмоПоставщику</Action>
 		</Command>
 	</Commands>
 	<CommandInterface>
