@@ -15,17 +15,6 @@
 		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<LabelDecoration name="Декорация3" id="23">
-			<Font ref="style:NormalTextFont" bold="false" italic="true" underline="false" strikeout="false" kind="StyleItem"/>
-			<Title formatted="false">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Шаг 1. Период:</v8:content>
-				</v8:item>
-			</Title>
-			<ContextMenu name="Декорация3КонтекстноеМеню" id="24"/>
-			<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="25"/>
-		</LabelDecoration>
 		<UsualGroup name="Группа3" id="32">
 			<Group>Horizontal</Group>
 			<Representation>None</Representation>
@@ -34,6 +23,7 @@
 			<ChildItems>
 				<InputField name="Период" id="34">
 					<DataPath>Период</DataPath>
+					<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 					<ContextMenu name="ПериодКонтекстноеМеню" id="35"/>
 					<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="36"/>
 					<Events>
@@ -42,55 +32,12 @@
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
-		<LabelDecoration name="Декорация1" id="1">
-			<Font ref="style:NormalTextFont" bold="false" italic="true" underline="false" strikeout="false" kind="StyleItem"/>
-			<Title formatted="false">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Шаг 2. Вид контрагента:</v8:content>
-				</v8:item>
-			</Title>
-			<ContextMenu name="Декорация1КонтекстноеМеню" id="2"/>
-			<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="3"/>
-		</LabelDecoration>
-		<UsualGroup name="Группа1" id="10">
-			<Group>Horizontal</Group>
-			<Representation>None</Representation>
-			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="11"/>
-			<ChildItems>
-				<CheckBoxField name="РассылатьПокупателям" id="7">
-					<DataPath>Объект.РассылатьПокупателям</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Покупатели</v8:content>
-						</v8:item>
-					</Title>
-					<CheckBoxType>Auto</CheckBoxType>
-					<ContextMenu name="РассылатьПокупателямКонтекстноеМеню" id="8"/>
-					<ExtendedTooltip name="РассылатьПокупателямРасширеннаяПодсказка" id="9"/>
-				</CheckBoxField>
-				<CheckBoxField name="РассылатьПоставщикам" id="4">
-					<DataPath>Объект.РассылатьПоставщикам</DataPath>
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Поставщики</v8:content>
-						</v8:item>
-					</Title>
-					<CheckBoxType>Auto</CheckBoxType>
-					<ContextMenu name="РассылатьПоставщикамКонтекстноеМеню" id="5"/>
-					<ExtendedTooltip name="РассылатьПоставщикамРасширеннаяПодсказка" id="6"/>
-				</CheckBoxField>
-			</ChildItems>
-		</UsualGroup>
 		<LabelDecoration name="Декорация2" id="12">
-			<Font ref="style:NormalTextFont" bold="false" italic="true" underline="false" strikeout="false" kind="StyleItem"/>
+			<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 			<Title formatted="false">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Шаг 3. Старая организация контрагента:</v8:content>
+					<v8:content>Старая Организация контрагента</v8:content>
 				</v8:item>
 			</Title>
 			<ContextMenu name="Декорация2КонтекстноеМеню" id="13"/>
@@ -125,18 +72,18 @@
 			</ChildItems>
 		</UsualGroup>
 		<LabelDecoration name="Декорация4" id="37">
-			<Font ref="style:NormalTextFont" bold="false" italic="true" underline="false" strikeout="false" kind="StyleItem"/>
+			<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 			<Title formatted="false">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Шаг 4. Основные договора контрагентов</v8:content>
+					<v8:content>Основные договора контрагентов</v8:content>
 				</v8:item>
 			</Title>
 			<ContextMenu name="Декорация4КонтекстноеМеню" id="38"/>
 			<ExtendedTooltip name="Декорация4РасширеннаяПодсказка" id="39"/>
 		</LabelDecoration>
 		<RadioButtonField name="ВидДоговора" id="43">
-			<DataPath>ВидДоговора</DataPath>
+			<DataPath>Объект.ВидДоговора</DataPath>
 			<TitleLocation>None</TitleLocation>
 			<RadioButtonType>Auto</RadioButtonType>
 			<ChoiceList>
@@ -160,6 +107,19 @@
 						<Presentation>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
+								<v8:content>Только действующие</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:decimal">2</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
 								<v8:content>Не важно</v8:content>
 							</v8:item>
 						</Presentation>
@@ -171,11 +131,11 @@
 			<ExtendedTooltip name="ВидДоговораРасширеннаяПодсказка" id="45"/>
 		</RadioButtonField>
 		<LabelDecoration name="Декорация5" id="46">
-			<Font ref="style:NormalTextFont" bold="false" italic="true" underline="false" strikeout="false" kind="StyleItem"/>
+			<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 			<Title formatted="false">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Шаг 5. Долги</v8:content>
+					<v8:content>Долги по взаиморасчетам</v8:content>
 				</v8:item>
 			</Title>
 			<ContextMenu name="Декорация5КонтекстноеМеню" id="47"/>
@@ -217,11 +177,11 @@
 			<ExtendedTooltip name="НаличиеДолгаРасширеннаяПодсказка" id="51"/>
 		</RadioButtonField>
 		<LabelDecoration name="Декорация6" id="52">
-			<Font ref="style:NormalTextFont" bold="false" italic="true" underline="false" strikeout="false" kind="StyleItem"/>
+			<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 			<Title formatted="false">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Шаг 6. Отбор по текущей организации</v8:content>
+					<v8:content>Отбор по текущей организации</v8:content>
 				</v8:item>
 			</Title>
 			<ContextMenu name="Декорация6КонтекстноеМеню" id="53"/>
@@ -306,22 +266,6 @@
 			</Title>
 			<Type>
 				<v8:Type>v8:StandardPeriod</v8:Type>
-			</Type>
-		</Attribute>
-		<Attribute name="ВидДоговора" id="3">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Вид договора</v8:content>
-				</v8:item>
-			</Title>
-			<Type>
-				<v8:Type>xs:decimal</v8:Type>
-				<v8:NumberQualifiers>
-					<v8:Digits>1</v8:Digits>
-					<v8:FractionDigits>0</v8:FractionDigits>
-					<v8:AllowedSign>Any</v8:AllowedSign>
-				</v8:NumberQualifiers>
 			</Type>
 		</Attribute>
 		<Attribute name="НаличиеДолга" id="4">
