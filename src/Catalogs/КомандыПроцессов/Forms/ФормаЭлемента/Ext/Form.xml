@@ -51,7 +51,7 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Группа обработчики</v8:content>
+							<v8:content>Обработчики</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTip>
@@ -109,6 +109,86 @@
 									<ContextMenu name="ОбработчикиОбработчикКонтекстноеМеню" id="33"/>
 									<ExtendedTooltip name="ОбработчикиОбработчикРасширеннаяПодсказка" id="34"/>
 								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаУсловия" id="82">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Условия доступности</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа условия</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаУсловияРасширеннаяПодсказка" id="83"/>
+					<ChildItems>
+						<Table name="ТаблицаУсловий" id="60">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.ТаблицаУсловий</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ТаблицаУсловийКонтекстноеМеню" id="61"/>
+							<AutoCommandBar name="ТаблицаУсловийКоманднаяПанель" id="62"/>
+							<ExtendedTooltip name="ТаблицаУсловийРасширеннаяПодсказка" id="63"/>
+							<SearchStringAddition name="ТаблицаУсловийСтрокаПоиска" id="64">
+								<AdditionSource>
+									<Item>ТаблицаУсловий</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаУсловийСтрокаПоискаКонтекстноеМеню" id="65"/>
+								<ExtendedTooltip name="ТаблицаУсловийСтрокаПоискаРасширеннаяПодсказка" id="66"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ТаблицаУсловийСостояниеПросмотра" id="67">
+								<AdditionSource>
+									<Item>ТаблицаУсловий</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаУсловийСостояниеПросмотраКонтекстноеМеню" id="68"/>
+								<ExtendedTooltip name="ТаблицаУсловийСостояниеПросмотраРасширеннаяПодсказка" id="69"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ТаблицаУсловийУправлениеПоиском" id="70">
+								<AdditionSource>
+									<Item>ТаблицаУсловий</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ТаблицаУсловийУправлениеПоискомКонтекстноеМеню" id="71"/>
+								<ExtendedTooltip name="ТаблицаУсловийУправлениеПоискомРасширеннаяПодсказка" id="72"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ТаблицаУсловийНомерСтроки" id="73">
+									<DataPath>Объект.ТаблицаУсловий.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТаблицаУсловийНомерСтрокиКонтекстноеМеню" id="74"/>
+									<ExtendedTooltip name="ТаблицаУсловийНомерСтрокиРасширеннаяПодсказка" id="75"/>
+								</LabelField>
+								<InputField name="ТаблицаУсловийУсловие" id="76">
+									<DataPath>Объект.ТаблицаУсловий.Условие</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ChoiceParameters>
+										<app:item name="Отбор.Условие">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xs:boolean">true</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="ТаблицаУсловийУсловиеКонтекстноеМеню" id="77"/>
+									<ExtendedTooltip name="ТаблицаУсловийУсловиеРасширеннаяПодсказка" id="78"/>
+								</InputField>
+								<CheckBoxField name="ТаблицаУсловийРезультат" id="79">
+									<DataPath>Объект.ТаблицаУсловий.Результат</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ТаблицаУсловийРезультатКонтекстноеМеню" id="80"/>
+									<ExtendedTooltip name="ТаблицаУсловийРезультатРасширеннаяПодсказка" id="81"/>
+								</CheckBoxField>
 							</ChildItems>
 						</Table>
 					</ChildItems>
