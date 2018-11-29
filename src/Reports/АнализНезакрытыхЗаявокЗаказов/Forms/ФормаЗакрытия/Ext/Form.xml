@@ -71,6 +71,16 @@
 						<CommandName>Form.Command.ЗаполнитьПоОтбору</CommandName>
 						<ExtendedTooltip name="ДеревоДанныхЗаполнитьПоОтборуРасширеннаяПодсказка" id="30"/>
 					</Button>
+					<Button name="ДеревоДанныхУстановитьФлажки" id="48">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.УстановитьФлажки</CommandName>
+						<ExtendedTooltip name="ДеревоДанныхУстановитьФлажкиРасширеннаяПодсказка" id="49"/>
+					</Button>
+					<Button name="ДеревоДанныхСнятьФлажки" id="50">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СнятьФлажки</CommandName>
+						<ExtendedTooltip name="ДеревоДанныхСнятьФлажкиРасширеннаяПодсказка" id="51"/>
+					</Button>
 				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="ДеревоДанныхРасширеннаяПодсказка" id="16"/>
@@ -113,9 +123,13 @@
 					<EditMode>EnterOnInput</EditMode>
 					<ContextMenu name="ДеревоДанныхЗаявкаКонтекстноеМеню" id="37"/>
 					<ExtendedTooltip name="ДеревоДанныхЗаявкаРасширеннаяПодсказка" id="38"/>
+					<Events>
+						<Event name="OnChange">ДеревоДанныхЗаявкаПриИзменении</Event>
+					</Events>
 				</InputField>
 				<InputField name="ДеревоДанныхСтрокаЗаявки" id="33">
 					<DataPath>ДеревоДанных.СтрокаЗаявки</DataPath>
+					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<ContextMenu name="ДеревоДанныхСтрокаЗаявкиКонтекстноеМеню" id="34"/>
 					<ExtendedTooltip name="ДеревоДанныхСтрокаЗаявкиРасширеннаяПодсказка" id="35"/>
@@ -129,12 +143,16 @@
 				</InputField>
 				<InputField name="ДеревоДанныхОстатокПоЗаявке" id="42">
 					<DataPath>ДеревоДанных.ОстатокПоЗаявке</DataPath>
+					<Enabled>false</Enabled>
+					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<ContextMenu name="ДеревоДанныхОстатокПоЗаявкеКонтекстноеМеню" id="43"/>
 					<ExtendedTooltip name="ДеревоДанныхОстатокПоЗаявкеРасширеннаяПодсказка" id="44"/>
 				</InputField>
 				<InputField name="ДеревоДанныхОстатокПоЗаказу" id="45">
 					<DataPath>ДеревоДанных.ОстатокПоЗаказу</DataPath>
+					<Enabled>false</Enabled>
+					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
 					<ContextMenu name="ДеревоДанныхОстатокПоЗаказуКонтекстноеМеню" id="46"/>
 					<ExtendedTooltip name="ДеревоДанныхОстатокПоЗаказуРасширеннаяПодсказка" id="47"/>
@@ -323,6 +341,46 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗакрытьВыбраное</Action>
+		</Command>
+		<Command name="УстановитьФлажки" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить флажки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить флажки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>УстановитьФлажки</Action>
+			<Representation>Picture</Representation>
+		</Command>
+		<Command name="СнятьФлажки" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять флажки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять флажки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СнятьФлажки</Action>
+			<Representation>Picture</Representation>
 		</Command>
 	</Commands>
 </Form>
