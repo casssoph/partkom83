@@ -232,6 +232,7 @@
 									<Group>Vertical</Group>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
+									<ThroughAlign>Use</ThroughAlign>
 									<ExtendedTooltip name="ГруппаШапкаЛевоРасширеннаяПодсказка" id="164"/>
 									<ChildItems>
 										<UsualGroup name="ГруппаНомерДата" id="146">
@@ -267,20 +268,54 @@
 												</InputField>
 											</ChildItems>
 										</UsualGroup>
-										<InputField name="СтатусДокумента" id="134">
-											<DataPath>Объект.СтатусДокумента</DataPath>
+										<UsualGroup name="ГруппаСтатус" id="435">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Статус</v8:content>
+													<v8:content>Группа статус</v8:content>
 												</v8:item>
 											</Title>
-											<ContextMenu name="СтатусДокументаКонтекстноеМеню" id="135"/>
-											<ExtendedTooltip name="СтатусДокументаРасширеннаяПодсказка" id="136"/>
-											<Events>
-												<Event name="OnChange">СтатусДокументаПриИзменении</Event>
-											</Events>
-										</InputField>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа статус</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ThroughAlign>Use</ThroughAlign>
+											<ExtendedTooltip name="ГруппаСтатусРасширеннаяПодсказка" id="436"/>
+											<ChildItems>
+												<InputField name="СтатусДокумента" id="134">
+													<DataPath>Объект.СтатусДокумента</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Статус</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="СтатусДокументаКонтекстноеМеню" id="135"/>
+													<ExtendedTooltip name="СтатусДокументаРасширеннаяПодсказка" id="136"/>
+													<Events>
+														<Event name="OnChange">СтатусДокументаПриИзменении</Event>
+													</Events>
+												</InputField>
+												<LabelDecoration name="ПродолжительностьНахожденияВСтатусе" id="437">
+													<TextColor>win:Highlight</TextColor>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Время нахождения в текущем статусе</v8:content>
+														</v8:item>
+													</ToolTip>
+													<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+													<HorizontalAlign>Right</HorizontalAlign>
+													<ContextMenu name="ПродолжительностьНахожденияВСтатусеКонтекстноеМеню" id="438"/>
+													<ExtendedTooltip name="ПродолжительностьНахожденияВСтатусеРасширеннаяПодсказка" id="439"/>
+												</LabelDecoration>
+											</ChildItems>
+										</UsualGroup>
 										<InputField name="КодВозврата" id="148">
 											<DataPath>Объект.КодВозврата</DataPath>
 											<ContextMenu name="КодВозвратаКонтекстноеМеню" id="149"/>
