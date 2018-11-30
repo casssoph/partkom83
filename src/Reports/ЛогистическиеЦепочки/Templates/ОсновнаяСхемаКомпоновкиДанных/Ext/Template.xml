@@ -87,7 +87,7 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Срок Заказ = Подтверждение</v8:content>
+					<v8:content>Срок Заказ = Подтверждение (факт)</v8:content>
 				</v8:item>
 			</title>
 			<appearance>
@@ -96,7 +96,7 @@
 					<dcscor:value xsi:type="v8:LocalStringType">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=Ноль</v8:content>
+							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=0</v8:content>
 						</v8:item>
 					</dcscor:value>
 				</dcscor:item>
@@ -108,7 +108,7 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Срок Инвойс = Доставка поставщиком</v8:content>
+					<v8:content>Срок Инвойс = Доставка поставщиком (факт)</v8:content>
 				</v8:item>
 			</title>
 			<appearance>
@@ -117,7 +117,7 @@
 					<dcscor:value xsi:type="v8:LocalStringType">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=Ноль</v8:content>
+							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=0</v8:content>
 						</v8:item>
 					</dcscor:value>
 				</dcscor:item>
@@ -129,7 +129,7 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Срок Приемка = Размещение</v8:content>
+					<v8:content>Срок Приемка = Размещение (факт)</v8:content>
 				</v8:item>
 			</title>
 			<appearance>
@@ -138,7 +138,7 @@
 					<dcscor:value xsi:type="v8:LocalStringType">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=Ноль</v8:content>
+							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=0</v8:content>
 						</v8:item>
 					</dcscor:value>
 				</dcscor:item>
@@ -250,7 +250,7 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Срок Заявка = Заказ</v8:content>
+					<v8:content>Срок Заявка = Заказ (факт)</v8:content>
 				</v8:item>
 			</title>
 			<appearance>
@@ -259,7 +259,7 @@
 					<dcscor:value xsi:type="v8:LocalStringType">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=Ноль</v8:content>
+							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=0</v8:content>
 						</v8:item>
 					</dcscor:value>
 				</dcscor:item>
@@ -500,7 +500,7 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Срок Доставка поставщиком = Приемка</v8:content>
+					<v8:content>Срок Доставка поставщиком = Приемка (факт)</v8:content>
 				</v8:item>
 			</title>
 			<appearance>
@@ -509,7 +509,7 @@
 					<dcscor:value xsi:type="v8:LocalStringType">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=Ноль</v8:content>
+							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=0</v8:content>
 						</v8:item>
 					</dcscor:value>
 				</dcscor:item>
@@ -562,7 +562,7 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Срок Подтверждение = Инвойс</v8:content>
+					<v8:content>Срок Подтверждение = Инвойс (факт)</v8:content>
 				</v8:item>
 			</title>
 			<appearance>
@@ -571,7 +571,7 @@
 					<dcscor:value xsi:type="v8:LocalStringType">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=Ноль</v8:content>
+							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=0</v8:content>
 						</v8:item>
 					</dcscor:value>
 				</dcscor:item>
@@ -806,9 +806,20 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Срок заказ инвойс факт</v8:content>
+					<v8:content>Срок Заказ = Инвойс (факт)</v8:content>
 				</v8:item>
 			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=0</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ПланФакт_Заказ</dataPath>
@@ -816,9 +827,24 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>План факт заказ</v8:content>
+					<v8:content>Откл. Заказ</v8:content>
 				</v8:item>
 			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=0</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ПланФакт_Проверка</dataPath>
@@ -826,9 +852,24 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>План факт проверка</v8:content>
+					<v8:content>Откл. Доставка</v8:content>
 				</v8:item>
 			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=0</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Срок_Всего_Эталон_Текущий</dataPath>
@@ -836,9 +877,20 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Срок всего эталон текущий</v8:content>
+					<v8:content>Срок всего (эталон текущий)</v8:content>
 				</v8:item>
 			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=0</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ПланФакт_Подтверждение</dataPath>
@@ -846,9 +898,24 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>План факт подтверждение</v8:content>
+					<v8:content>Откл. Подтверждение</v8:content>
 				</v8:item>
 			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=0</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Срок_Всего_Факт</dataPath>
@@ -856,9 +923,20 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Срок всего факт</v8:content>
+					<v8:content>Срок всего (факт)</v8:content>
 				</v8:item>
 			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=0</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ПланФакт_Размещение</dataPath>
@@ -866,9 +944,24 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>План факт размещение</v8:content>
+					<v8:content>Откл. Размещение</v8:content>
 				</v8:item>
 			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=0</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ПланФакт_Приемка</dataPath>
@@ -876,9 +969,24 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>План факт приемка</v8:content>
+					<v8:content>Откл. Приемка</v8:content>
 				</v8:item>
 			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=0</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ПланФакт_Инвойс</dataPath>
@@ -886,13 +994,53 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>План факт инвойс</v8:content>
+					<v8:content>Откл. Инвойс</v8:content>
 				</v8:item>
 			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=0</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ФизическийСклад</dataPath>
 			<field>ФизическийСклад</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПланФакт_Всего</dataPath>
+			<field>ПланФакт_Всего</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Срок всего (откл)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧЦ=3; ЧДЦ=; ЧН=0</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
 		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
@@ -1649,7 +1797,7 @@
 		КОГДА СТРОКИ_ЗАЯВОК_3.Дата_1 = ДАТАВРЕМЯ(1, 1, 1)
 				ИЛИ СТРОКИ_ЗАЯВОК_3.Дата_3 = ДАТАВРЕМЯ(1, 1, 1)
 			ТОГДА NULL
-		ИНАЧЕ РАЗНОСТЬДАТ(СТРОКИ_ЗАЯВОК_3.Дата_3, СТРОКИ_ЗАЯВОК_3.Дата_1, ДЕНЬ)
+		ИНАЧЕ РАЗНОСТЬДАТ(СТРОКИ_ЗАЯВОК_3.Дата_1, СТРОКИ_ЗАЯВОК_3.Дата_3, ДЕНЬ)
 	КОНЕЦ КАК ИТОГО_13,
 	ВЫБОР
 		КОГДА СТРОКИ_ЗАЯВОК_3.Дата_6 = ДАТАВРЕМЯ(1, 1, 1)
@@ -1659,32 +1807,32 @@
 	ВЫБОР
 		КОГДА СТРОКИ_ЗАЯВОК_3.Дата_1 = ДАТАВРЕМЯ(1, 1, 1)
 			ТОГДА NULL
-		ИНАЧЕ РАЗНОСТЬДАТ(СТРОКИ_ЗАЯВОК_3.Дата_1_План, СТРОКИ_ЗАЯВОК_3.Дата_1, ДЕНЬ)
+		ИНАЧЕ РАЗНОСТЬДАТ(СТРОКИ_ЗАЯВОК_3.Дата_1, СТРОКИ_ЗАЯВОК_3.Дата_1_План, ДЕНЬ)
 	КОНЕЦ КАК ОтклонениеПланФакт_1,
 	ВЫБОР
 		КОГДА СТРОКИ_ЗАЯВОК_3.Дата_2 = ДАТАВРЕМЯ(1, 1, 1)
 			ТОГДА NULL
-		ИНАЧЕ РАЗНОСТЬДАТ(СТРОКИ_ЗАЯВОК_3.Дата_2_План, СТРОКИ_ЗАЯВОК_3.Дата_2, ДЕНЬ)
+		ИНАЧЕ РАЗНОСТЬДАТ(СТРОКИ_ЗАЯВОК_3.Дата_2, СТРОКИ_ЗАЯВОК_3.Дата_2_План, ДЕНЬ)
 	КОНЕЦ КАК ОтклонениеПланФакт_2,
 	ВЫБОР
 		КОГДА СТРОКИ_ЗАЯВОК_3.Дата_3 = ДАТАВРЕМЯ(1, 1, 1)
 			ТОГДА NULL
-		ИНАЧЕ РАЗНОСТЬДАТ(СТРОКИ_ЗАЯВОК_3.Дата_3_План, СТРОКИ_ЗАЯВОК_3.Дата_3, ДЕНЬ)
+		ИНАЧЕ РАЗНОСТЬДАТ(СТРОКИ_ЗАЯВОК_3.Дата_3, СТРОКИ_ЗАЯВОК_3.Дата_3_План, ДЕНЬ)
 	КОНЕЦ КАК ОтклонениеПланФакт_3,
 	ВЫБОР
 		КОГДА СТРОКИ_ЗАЯВОК_3.Дата_4 = ДАТАВРЕМЯ(1, 1, 1)
 			ТОГДА NULL
-		ИНАЧЕ РАЗНОСТЬДАТ(СТРОКИ_ЗАЯВОК_3.Дата_4_План, СТРОКИ_ЗАЯВОК_3.Дата_4, ДЕНЬ)
+		ИНАЧЕ РАЗНОСТЬДАТ(СТРОКИ_ЗАЯВОК_3.Дата_4, СТРОКИ_ЗАЯВОК_3.Дата_4_План, ДЕНЬ)
 	КОНЕЦ КАК ОтклонениеПланФакт_4,
 	ВЫБОР
 		КОГДА СТРОКИ_ЗАЯВОК_3.Дата_5 = ДАТАВРЕМЯ(1, 1, 1)
 			ТОГДА NULL
-		ИНАЧЕ РАЗНОСТЬДАТ(СТРОКИ_ЗАЯВОК_3.Дата_5_План, СТРОКИ_ЗАЯВОК_3.Дата_5, ДЕНЬ)
+		ИНАЧЕ РАЗНОСТЬДАТ(СТРОКИ_ЗАЯВОК_3.Дата_5, СТРОКИ_ЗАЯВОК_3.Дата_5_План, ДЕНЬ)
 	КОНЕЦ КАК ОтклонениеПланФакт_5,
 	ВЫБОР
 		КОГДА СТРОКИ_ЗАЯВОК_3.Дата_6 = ДАТАВРЕМЯ(1, 1, 1)
 			ТОГДА NULL
-		ИНАЧЕ РАЗНОСТЬДАТ(СТРОКИ_ЗАЯВОК_3.Дата_6_План, СТРОКИ_ЗАЯВОК_3.Дата_6, ДЕНЬ)
+		ИНАЧЕ РАЗНОСТЬДАТ(СТРОКИ_ЗАЯВОК_3.Дата_6, СТРОКИ_ЗАЯВОК_3.Дата_6_План, ДЕНЬ)
 	КОНЕЦ КАК ОтклонениеПланФакт_6,
 	ВЫБОР
 		КОГДА СТРОКИ_ЗАЯВОК_3.Дата_0 = ДАТАВРЕМЯ(1, 1, 1)
@@ -1920,6 +2068,7 @@
 	СТРОКИ_ЗАЯВОК_5.РазностьДней_Всего КАК Срок_Всего_Эталон_Текущий,
 	СТРОКИ_ЗАЯВОК_5.РазностьДней_01_Эталон + СТРОКИ_ЗАЯВОК_5.РазностьДней_12_Эталон + СТРОКИ_ЗАЯВОК_5.РазностьДней_23_Эталон + СТРОКИ_ЗАЯВОК_5.РазностьДней_34_Эталон + СТРОКИ_ЗАЯВОК_5.РазностьДней_45_Эталон + СТРОКИ_ЗАЯВОК_5.РазностьДней_56_Эталон КАК Срок_Всего_Эталон,
 	СТРОКИ_ЗАЯВОК_5.ИТОГО_06 КАК Срок_Всего_Факт,
+	(СТРОКИ_ЗАЯВОК_5.РазностьДней_01_Эталон + СТРОКИ_ЗАЯВОК_5.РазностьДней_12_Эталон + СТРОКИ_ЗАЯВОК_5.РазностьДней_23_Эталон + СТРОКИ_ЗАЯВОК_5.РазностьДней_34_Эталон + СТРОКИ_ЗАЯВОК_5.РазностьДней_45_Эталон + СТРОКИ_ЗАЯВОК_5.РазностьДней_56_Эталон) - СТРОКИ_ЗАЯВОК_5.ИТОГО_06 КАК ПланФакт_Всего,
 	СТРОКИ_ЗАЯВОК_5.ИТОГО_13 КАК Срок_ЗаказИнвойс_Факт,
 	СТРОКИ_ЗАЯВОК_5.Дата_Максимум,
 	СТРОКИ_ЗАЯВОК_5.Дата_Текущая,
@@ -2027,6 +2176,46 @@
 		<dataPath>Сч</dataPath>
 		<expression>Сумма(Сч)</expression>
 	</totalField>
+	<totalField>
+		<dataPath>ПланФакт_Заказ</dataPath>
+		<expression>Среднее(ПланФакт_Заказ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПланФакт_Подтверждение</dataPath>
+		<expression>Среднее(ПланФакт_Подтверждение)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПланФакт_Инвойс</dataPath>
+		<expression>Среднее(ПланФакт_Инвойс)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПланФакт_Проверка</dataPath>
+		<expression>Среднее(ПланФакт_Проверка)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПланФакт_Приемка</dataPath>
+		<expression>Среднее(ПланФакт_Приемка)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПланФакт_Размещение</dataPath>
+		<expression>Среднее(ПланФакт_Размещение)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Срок_Всего_Эталон</dataPath>
+		<expression>Среднее(Срок_Всего_Эталон)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Срок_Всего_Факт</dataPath>
+		<expression>Среднее(Срок_Всего_Факт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Срок_ЗаказИнвойс_Факт</dataPath>
+		<expression>Среднее(Срок_ЗаказИнвойс_Факт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПланФакт_Всего</dataPath>
+		<expression>Среднее(ПланФакт_Всего)</expression>
+	</totalField>
 	<parameter>
 		<name>ДатаН</name>
 		<title xsi:type="v8:LocalStringType">
@@ -2087,7 +2276,7 @@
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
-				<v8:content>КА</v8:content>
+				<v8:content>Поставщик</v8:content>
 			</v8:item>
 		</title>
 		<valueType>
@@ -2107,6 +2296,7 @@
 					<dcsset:field>СтрокаЗаявки</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
 					<dcsset:field>Поставщик</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
@@ -2122,6 +2312,10 @@
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:field>Склад</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ФизическийСклад</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Заявка</dcsset:field>
@@ -2146,9 +2340,11 @@
 					<dcsset:field>Номенклатура</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
 					<dcsset:field>ЗаявкаНомер</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
 					<dcsset:field>ЗаявкаДата</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
@@ -2194,7 +2390,17 @@
 					<dcsset:field>ПТУРазмещение</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>Сч</dcsset:field>
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>Срок_Всего_Эталон</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Срок_Всего_Факт</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПланФакт_Всего</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Срок_ЗаказИнвойс_Факт</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:use>false</dcsset:use>
@@ -2237,14 +2443,6 @@
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Срок_ПриемкаРазмещение_Факт</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:use>false</dcsset:use>
-					<dcsset:field>Дата_Максимум</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:use>false</dcsset:use>
-					<dcsset:field>Срок_Всего_Эталон</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:use>false</dcsset:use>
@@ -2293,6 +2491,31 @@
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:field>Срок_ПриемкаРазмещение_Прогноз</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПланФакт_Заказ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПланФакт_Подтверждение</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПланФакт_Инвойс</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПланФакт_Проверка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПланФакт_Приемка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПланФакт_Размещение</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Сч</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>Дата_Максимум</dcsset:field>
 				</dcsset:item>
 			</dcsset:selection>
 			<dcsset:filter>
@@ -2423,6 +2646,39 @@
 						</dcsset:item>
 						<dcsset:item>
 							<dcsset:field>Срок_ПриемкаРазмещение_Эталон</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Срок_Всего_Факт</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Срок_ЗаказИнвойс_Факт</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Срок_Всего_Эталон</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Срок_Всего_Эталон_Текущий</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПланФакт_Заказ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПланФакт_Инвойс</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПланФакт_Подтверждение</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПланФакт_Приемка</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПланФакт_Проверка</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПланФакт_Размещение</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПланФакт_Всего</dcsset:field>
 						</dcsset:item>
 					</dcsset:selection>
 					<dcsset:filter/>
@@ -2779,6 +3035,46 @@
 						</dcscor:item>
 					</dcsset:appearance>
 				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>Срок_Всего_Факт</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПланФакт_Всего</dcsset:left>
+							<dcsset:comparisonType>GreaterOrEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветФона</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">web:PaleGreen</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>Срок_Всего_Факт</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ПланФакт_Всего</dcsset:left>
+							<dcsset:comparisonType>Less</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ЦветФона</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Color">web:Pink</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
 			</dcsset:conditionalAppearance>
 			<dcsset:outputParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
@@ -2806,7 +3102,7 @@
 			<dcsset:item xsi:type="dcsset:StructureItemGroup">
 				<dcsset:groupItems>
 					<dcsset:item xsi:type="dcsset:GroupItemField">
-						<dcsset:field>Поставщик</dcsset:field>
+						<dcsset:field>Бренд</dcsset:field>
 						<dcsset:groupType>Items</dcsset:groupType>
 						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
@@ -2822,7 +3118,7 @@
 				<dcsset:item xsi:type="dcsset:StructureItemGroup">
 					<dcsset:groupItems>
 						<dcsset:item xsi:type="dcsset:GroupItemField">
-							<dcsset:field>Бренд</dcsset:field>
+							<dcsset:field>КА</dcsset:field>
 							<dcsset:groupType>Items</dcsset:groupType>
 							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
@@ -2838,7 +3134,7 @@
 					<dcsset:item xsi:type="dcsset:StructureItemGroup">
 						<dcsset:groupItems>
 							<dcsset:item xsi:type="dcsset:GroupItemField">
-								<dcsset:field>КА</dcsset:field>
+								<dcsset:field>Заявка</dcsset:field>
 								<dcsset:groupType>Items</dcsset:groupType>
 								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
@@ -2852,29 +3148,12 @@
 							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 						</dcsset:selection>
 						<dcsset:item xsi:type="dcsset:StructureItemGroup">
-							<dcsset:groupItems>
-								<dcsset:item xsi:type="dcsset:GroupItemField">
-									<dcsset:field>Заявка</dcsset:field>
-									<dcsset:groupType>Items</dcsset:groupType>
-									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
-									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
-									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
-								</dcsset:item>
-							</dcsset:groupItems>
 							<dcsset:order>
 								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 							</dcsset:order>
 							<dcsset:selection>
 								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 							</dcsset:selection>
-							<dcsset:item xsi:type="dcsset:StructureItemGroup">
-								<dcsset:order>
-									<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
-								</dcsset:order>
-								<dcsset:selection>
-									<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
-								</dcsset:selection>
-							</dcsset:item>
 						</dcsset:item>
 					</dcsset:item>
 				</dcsset:item>
