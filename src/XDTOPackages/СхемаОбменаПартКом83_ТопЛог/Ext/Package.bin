@@ -110,6 +110,8 @@
 		<property name="НомерВходящегоСФ" type="xs:string" lowerBound="0"/>
 		<property name="ДатаВходящегоСФ" type="xs:dateTime" lowerBound="0"/>
 		<property name="ОтветХранение" type="xs:boolean" lowerBound="0"/>
+		<property name="КодВозврата" type="xs:int" lowerBound="0" nillable="false"/>
+		<property name="ШтрихКод" type="xs:string" lowerBound="0" nillable="false"/>
 		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Товары" type="d3p1:Документы.ЗаказНаПриемку.Товары" lowerBound="0"/>
 	</objectType>
 	<objectType name="Документы.ЗаказНаПриемку.Товары">
@@ -156,6 +158,7 @@
 		<property name="ЗаказВидДокумента" type="xs:string" lowerBound="0"/>
 		<property name="СкладСсылка" type="xs:string" lowerBound="0"/>
 		<property name="ДатаНачалаПриемки" type="xs:dateTime" lowerBound="0"/>
+		<property name="КодВозврата" type="xs:int" lowerBound="0" nillable="false"/>
 		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Товары" type="d3p1:РезультатПриемки.Товары" lowerBound="0"/>
 	</objectType>
 	<objectType name="РезультатПриемки.Товары">
