@@ -214,6 +214,12 @@
 							<ContextMenu name="ТоварыАртикулКонтекстноеМеню" id="72"/>
 							<ExtendedTooltip name="ТоварыАртикулРасширеннаяПодсказка" id="73"/>
 						</InputField>
+						<InputField name="ТоварыКомментарий" id="89">
+							<DataPath>Товары.Комментарий</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ТоварыКомментарийКонтекстноеМеню" id="90"/>
+							<ExtendedTooltip name="ТоварыКомментарийРасширеннаяПодсказка" id="91"/>
+						</InputField>
 					</ChildItems>
 				</ColumnGroup>
 				<ColumnGroup name="ТоварыГруппа1" id="50">
@@ -507,6 +513,21 @@
 						<v8:Type>xs:boolean</v8:Type>
 					</Type>
 				</Column>
+				<Column name="Комментарий" id="15">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Комментарий</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>150</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
 			</Columns>
 		</Attribute>
 		<Attribute name="ЦенаВключаетНДС" id="2">
@@ -563,6 +584,17 @@
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Только различия</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЕстьКомментарий" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Есть комментарий</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
