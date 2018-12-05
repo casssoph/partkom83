@@ -612,17 +612,40 @@
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
-								<InputField name="ТоварыКоличество" id="113">
-									<DataPath>Объект.Товары.Количество</DataPath>
-									<EditMode>EnterOnInput</EditMode>
-									<Width>10</Width>
-									<HorizontalStretch>false</HorizontalStretch>
-									<ContextMenu name="ТоварыКоличествоКонтекстноеМеню" id="114"/>
-									<ExtendedTooltip name="ТоварыКоличествоРасширеннаяПодсказка" id="115"/>
-									<Events>
-										<Event name="OnChange">ТоварыКоличествоПриИзменении</Event>
-									</Events>
-								</InputField>
+								<ColumnGroup name="ТоварыГруппаКоличество" id="446">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Товары группа количество</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Количество</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ТоварыГруппаКоличествоРасширеннаяПодсказка" id="447"/>
+									<ChildItems>
+										<InputField name="ТоварыКоличествоПлан" id="443">
+											<DataPath>Объект.Товары.КоличествоПлан</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ТоварыКоличествоПланКонтекстноеМеню" id="444"/>
+											<ExtendedTooltip name="ТоварыКоличествоПланРасширеннаяПодсказка" id="445"/>
+										</InputField>
+										<InputField name="ТоварыКоличество" id="113">
+											<DataPath>Объект.Товары.Количество</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>10</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="ТоварыКоличествоКонтекстноеМеню" id="114"/>
+											<ExtendedTooltip name="ТоварыКоличествоРасширеннаяПодсказка" id="115"/>
+											<Events>
+												<Event name="OnChange">ТоварыКоличествоПриИзменении</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
 								<InputField name="ТоварыЦена" id="116">
 									<DataPath>Объект.Товары.Цена</DataPath>
 									<EditMode>EnterOnInput</EditMode>
