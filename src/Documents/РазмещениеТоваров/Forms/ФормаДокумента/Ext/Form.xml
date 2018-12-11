@@ -156,14 +156,17 @@
 					<ChildItems>
 						<Table name="Товары" id="10">
 							<Representation>List</Representation>
-							<ReadOnly>true</ReadOnly>
+							<ChangeRowSet>false</ChangeRowSet>
+							<ChangeRowOrder>false</ChangeRowOrder>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
 							<DataPath>Объект.Товары</DataPath>
 							<RowFilter xsi:nil="true"/>
 							<ContextMenu name="ТоварыКонтекстноеМеню" id="11"/>
-							<AutoCommandBar name="ТоварыКоманднаяПанель" id="12"/>
+							<AutoCommandBar name="ТоварыКоманднаяПанель" id="12">
+								<Autofill>false</Autofill>
+							</AutoCommandBar>
 							<ExtendedTooltip name="ТоварыРасширеннаяПодсказка" id="13"/>
 							<SearchStringAddition name="ТоварыСтрокаПоиска" id="14">
 								<AdditionSource>
@@ -199,6 +202,7 @@
 								<InputField name="ТоварыДокументОснование" id="26">
 									<DataPath>Объект.Товары.ДокументОснование</DataPath>
 									<EditMode>EnterOnInput</EditMode>
+									<OpenButton>true</OpenButton>
 									<ContextMenu name="ТоварыДокументОснованиеКонтекстноеМеню" id="27"/>
 									<ExtendedTooltip name="ТоварыДокументОснованиеРасширеннаяПодсказка" id="28"/>
 								</InputField>
@@ -223,9 +227,18 @@
 								<InputField name="ТоварыСтрокаЗаявки" id="44">
 									<DataPath>Объект.Товары.СтрокаЗаявки</DataPath>
 									<EditMode>EnterOnInput</EditMode>
+									<OpenButton>true</OpenButton>
 									<ContextMenu name="ТоварыСтрокаЗаявкиКонтекстноеМеню" id="45"/>
 									<ExtendedTooltip name="ТоварыСтрокаЗаявкиРасширеннаяПодсказка" id="46"/>
 								</InputField>
+								<LabelField name="ТоварыСтрокаЗаявкиIDSite" id="116">
+									<DataPath>Объект.Товары.СтрокаЗаявки.IDSite</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>15</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="ТоварыСтрокаЗаявкиIDSiteКонтекстноеМеню" id="117"/>
+									<ExtendedTooltip name="ТоварыСтрокаЗаявкиIDSiteРасширеннаяПодсказка" id="118"/>
+								</LabelField>
 								<InputField name="ТоварыСклад" id="59">
 									<DataPath>Объект.Товары.Склад</DataPath>
 									<EditMode>EnterOnInput</EditMode>
@@ -388,11 +401,6 @@
 				<MainTable>InformationRegister.ИсторияОбменаСТопЛогПоОбъектам</MainTable>
 				<ListSettings>
 					<dcsset:filter>
-						<dcsset:item xsi:type="dcsset:FilterItemComparison">
-							<dcsset:left xsi:type="dcscor:Field">Объект</dcsset:left>
-							<dcsset:comparisonType>Equal</dcsset:comparisonType>
-							<dcsset:right xsi:type="dcscor:Field"/>
-						</dcsset:item>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
 						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
 					</dcsset:filter>
