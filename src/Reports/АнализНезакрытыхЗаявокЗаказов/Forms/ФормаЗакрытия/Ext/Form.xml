@@ -128,6 +128,19 @@
 					<ExtendedTooltip name="ДеревоДанныхЗаявкаРасширеннаяПодсказка" id="38"/>
 					<Events>
 						<Event name="OnChange">ДеревоДанныхЗаявкаПриИзменении</Event>
+						<Event name="StartListChoice">ДеревоДанныхЗаявкаНачалоВыбораИзСписка</Event>
+						<Event name="ChoiceProcessing">ДеревоДанныхЗаявкаОбработкаВыбора</Event>
+					</Events>
+				</InputField>
+				<InputField name="ДеревоДанныхДокумент" id="26">
+					<DataPath>ДеревоДанных.Заказ</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДеревоДанныхДокументКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ДеревоДанныхДокументРасширеннаяПодсказка" id="28"/>
+					<Events>
+						<Event name="OnChange">ДеревоДанныхДокументПриИзменении</Event>
+						<Event name="ChoiceProcessing">ДеревоДанныхДокументОбработкаВыбора</Event>
 					</Events>
 				</InputField>
 				<InputField name="ДеревоДанныхСтрокаЗаявки" id="33">
@@ -136,13 +149,6 @@
 					<EditMode>EnterOnInput</EditMode>
 					<ContextMenu name="ДеревоДанныхСтрокаЗаявкиКонтекстноеМеню" id="34"/>
 					<ExtendedTooltip name="ДеревоДанныхСтрокаЗаявкиРасширеннаяПодсказка" id="35"/>
-				</InputField>
-				<InputField name="ДеревоДанныхДокумент" id="26">
-					<DataPath>ДеревоДанных.Заказ</DataPath>
-					<Visible>false</Visible>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="ДеревоДанныхДокументКонтекстноеМеню" id="27"/>
-					<ExtendedTooltip name="ДеревоДанныхДокументРасширеннаяПодсказка" id="28"/>
 				</InputField>
 				<InputField name="ДеревоДанныхОстатокПоЗаявке" id="42">
 					<DataPath>ДеревоДанных.ОстатокПоЗаявке</DataPath>
@@ -384,6 +390,20 @@
 			</Picture>
 			<Action>СнятьФлажки</Action>
 			<Representation>Picture</Representation>
+		</Command>
+		<Command name="Подбор" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подбор</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подбор</v8:content>
+				</v8:item>
+			</ToolTip>
 		</Command>
 	</Commands>
 </Form>
