@@ -494,6 +494,28 @@
 										<CommandName>Form.Command.ЗаполнитьПартииПоДокументуПродажи</CommandName>
 										<ExtendedTooltip name="ТоварыЗаполнитьПартииПоДокументуПродажиРасширеннаяПодсказка" id="370"/>
 									</Button>
+									<Popup name="ОбновитьКоличество" id="454">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Обновить количество</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Обновить количество</v8:content>
+											</v8:item>
+										</ToolTip>
+										<ExtendedTooltip name="ОбновитьКоличествоРасширеннаяПодсказка" id="455"/>
+										<ChildItems>
+											<Button name="ТоварыОбновитьКоличествоПоВозвратуОтПокупателя" id="456">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ОбновитьКоличествоПоВозвратуОтПокупателя</CommandName>
+												<ExtendedTooltip name="ТоварыОбновитьКоличествоПоВозвратуОтПокупателяРасширеннаяПодсказка" id="457"/>
+											</Button>
+										</ChildItems>
+									</Popup>
 								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="ТоварыРасширеннаяПодсказка" id="91"/>
@@ -649,6 +671,18 @@
 												<Event name="OnChange">ТоварыКоличествоПриИзменении</Event>
 											</Events>
 										</InputField>
+										<InputField name="ТоварыКоличествоРазмещено" id="451">
+											<DataPath>Объект.Товары.КоличествоРазмещено</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Количество размещено</v8:content>
+												</v8:item>
+											</Title>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ТоварыКоличествоРазмещеноКонтекстноеМеню" id="452"/>
+											<ExtendedTooltip name="ТоварыКоличествоРазмещеноРасширеннаяПодсказка" id="453"/>
+										</InputField>
 									</ChildItems>
 								</ColumnGroup>
 								<InputField name="ТоварыЦена" id="116">
@@ -714,6 +748,12 @@
 									</ToolTip>
 									<ExtendedTooltip name="ТоварыГруппаНДСРасширеннаяПодсказка" id="349"/>
 									<ChildItems>
+										<InputField name="ТоварыСуммаНДСПлан" id="463">
+											<DataPath>Объект.Товары.СуммаНДСПлан</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ТоварыСуммаНДСПланКонтекстноеМеню" id="464"/>
+											<ExtendedTooltip name="ТоварыСуммаНДСПланРасширеннаяПодсказка" id="465"/>
+										</InputField>
 										<InputField name="ТоварыСуммаНДС" id="296">
 											<DataPath>Объект.Товары.СуммаНДС</DataPath>
 											<EditMode>EnterOnInput</EditMode>
@@ -728,16 +768,39 @@
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
-								<InputField name="ТоварыСумма" id="119">
-									<DataPath>Объект.Товары.Сумма</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="ТоварыСуммаКонтекстноеМеню" id="120"/>
-									<ExtendedTooltip name="ТоварыСуммаРасширеннаяПодсказка" id="121"/>
-									<Events>
-										<Event name="OnChange">ТоварыСуммаПриИзменении</Event>
-									</Events>
-								</InputField>
+								<ColumnGroup name="ТоварыГруппаСумма" id="458">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Товары группа сумма</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Товары группа сумма</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ТоварыГруппаСуммаРасширеннаяПодсказка" id="459"/>
+									<ChildItems>
+										<InputField name="ТоварыСуммаПлан" id="460">
+											<DataPath>Объект.Товары.СуммаПлан</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ТоварыСуммаПланКонтекстноеМеню" id="461"/>
+											<ExtendedTooltip name="ТоварыСуммаПланРасширеннаяПодсказка" id="462"/>
+										</InputField>
+										<InputField name="ТоварыСумма" id="119">
+											<DataPath>Объект.Товары.Сумма</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ТоварыСуммаКонтекстноеМеню" id="120"/>
+											<ExtendedTooltip name="ТоварыСуммаРасширеннаяПодсказка" id="121"/>
+											<Events>
+												<Event name="OnChange">ТоварыСуммаПриИзменении</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
 								<ColumnGroup name="ТоварыГруппаСтрокаЗаявки" id="342">
 									<Title>
 										<v8:item>
@@ -1793,6 +1856,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СоздатьЭлектронноеПисьмоПоставщику</Action>
+		</Command>
+		<Command name="ОбновитьКоличествоПоВозвратуОтПокупателя" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить количество по возврату от покупателя</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновляет принятое и размещенное количество по данным из документа возврата от покупателя</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОбновитьКоличествоПоВозвратуОтПокупателя</Action>
 		</Command>
 	</Commands>
 	<CommandInterface>
