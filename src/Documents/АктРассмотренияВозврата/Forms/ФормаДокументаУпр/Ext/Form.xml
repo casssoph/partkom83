@@ -20,6 +20,16 @@
 				</ToolTip>
 				<ExtendedTooltip name="ГруппаКомандыПроцесса_ПодменюРасширеннаяПодсказка" id="162"/>
 			</Popup>
+			<Button name="ФормаФайлы" id="474">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.Command.Файлы</CommandName>
+				<Picture>
+					<xr:Ref>CommonPicture.ТолькоСкрепка</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ФормаФайлыРасширеннаяПодсказка" id="475"/>
+			</Button>
 			<Popup name="ФормаГруппаОтправитьЭлПисьмо" id="426">
 				<Title>
 					<v8:item>
@@ -469,6 +479,11 @@
 											<DataPath>Объект.ПричинаВозврата</DataPath>
 											<ContextMenu name="ПричинаВозвратаКонтекстноеМеню" id="362"/>
 											<ExtendedTooltip name="ПричинаВозвратаРасширеннаяПодсказка" id="363"/>
+										</InputField>
+										<InputField name="ПричинаОтказаКлиента" id="471">
+											<DataPath>Объект.ПричинаОтказаКлиента</DataPath>
+											<ContextMenu name="ПричинаОтказаКлиентаКонтекстноеМеню" id="472"/>
+											<ExtendedTooltip name="ПричинаОтказаКлиентаРасширеннаяПодсказка" id="473"/>
 										</InputField>
 										<InputField name="Поставщик" id="448">
 											<DataPath>Объект.Поставщик</DataPath>
@@ -1790,6 +1805,31 @@
 					</dcscor:item>
 				</dcsset:appearance>
 			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПричинаОтказаКлиента</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ПричинаВозврата</dcsset:left>
+						<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.ПричиныВозврата.ОтказОтДетали</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Отображать</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
 		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
@@ -1943,6 +1983,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ОбновитьКоличествоПоВозвратуОтПокупателя</Action>
+		</Command>
+		<Command name="Файлы" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Файлы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Файлы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Файлы</Action>
 		</Command>
 	</Commands>
 	<CommandInterface>
