@@ -721,16 +721,46 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ContextMenu name="ТоварыВидУценкиКонтекстноеМеню" id="324"/>
 											<ExtendedTooltip name="ТоварыВидУценкиРасширеннаяПодсказка" id="325"/>
-										</InputField>
-										<InputField name="ТоварыПроцентУценки" id="317">
-											<DataPath>Объект.Товары.ПроцентУценки</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<ContextMenu name="ТоварыПроцентУценкиКонтекстноеМеню" id="318"/>
-											<ExtendedTooltip name="ТоварыПроцентУценкиРасширеннаяПодсказка" id="319"/>
 											<Events>
-												<Event name="OnChange">ТоварыПроцентУценкиПриИзменении</Event>
+												<Event name="OnChange">ТоварыВидУценкиПриИзменении</Event>
 											</Events>
 										</InputField>
+										<ColumnGroup name="ТоварыГруппаСуммаПроцентУценки" id="466">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Товары группа сумма процент уценки</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Товары группа сумма процент уценки</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Horizontal</Group>
+											<ExtendedTooltip name="ТоварыГруппаСуммаПроцентУценкиРасширеннаяПодсказка" id="467"/>
+											<ChildItems>
+												<InputField name="ТоварыПроцентУценки" id="317">
+													<DataPath>Объект.Товары.ПроцентУценки</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ТоварыПроцентУценкиКонтекстноеМеню" id="318"/>
+													<ExtendedTooltip name="ТоварыПроцентУценкиРасширеннаяПодсказка" id="319"/>
+													<Events>
+														<Event name="OnChange">ТоварыПроцентУценкиПриИзменении</Event>
+													</Events>
+												</InputField>
+												<InputField name="ТоварыСуммаУценки" id="468">
+													<DataPath>Объект.Товары.СуммаУценки</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ТоварыСуммаУценкиКонтекстноеМеню" id="469"/>
+													<ExtendedTooltip name="ТоварыСуммаУценкиРасширеннаяПодсказка" id="470"/>
+													<Events>
+														<Event name="OnChange">ТоварыСуммаУценкиПриИзменении</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</ColumnGroup>
 									</ChildItems>
 								</ColumnGroup>
 								<ColumnGroup name="ТоварыГруппаНДС" id="348">
@@ -1719,6 +1749,48 @@
 				<v8:Type>v8:ValueListType</v8:Type>
 			</Type>
 		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТоварыПроцентУценки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.Товары.ВидУценки</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыУценки.ОбработкаОднойДетали</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТоварыСуммаУценки</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.Товары.ВидУценки</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыУценки.УценкаЗаТовар</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Доступность</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
 		<Command name="СоздатьЭлектронноеПисьмоКлиенту" id="1">
