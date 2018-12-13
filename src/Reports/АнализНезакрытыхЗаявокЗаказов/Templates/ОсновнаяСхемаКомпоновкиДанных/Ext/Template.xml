@@ -287,6 +287,16 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СрокГарантированныйЗаказа</dataPath>
+			<field>СрокГарантированныйЗаказа</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Срок гарантированный заказа</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	СУММА(СгрупированыеРазмещения.ОстатокПоЗаказу) КАК ОстатокПоЗаказу,
@@ -630,7 +640,8 @@
 	ВтОстаткиСКОмментарием.МенеджерКлиентаСнабжение КАК МенеджерКлиентаСнабжение,
 	ВтОстаткиСКОмментарием.Поставщик КАК Поставщик,
 	ВтОстаткиСКОмментарием.Заказ.СтатусДокумента,
-	СостояниеЗаявокПокупателя.Состояние КАК СостояниеСтрокиЗаявки
+	СостояниеЗаявокПокупателя.Состояние КАК СостояниеСтрокиЗаявки,
+	ВтОстаткиСКОмментарием.СтрокаЗаявки.СрокГарантированныйЗаказа КАК СрокГарантированныйЗаказа
 {ВЫБРАТЬ
 	Номенклатура.*,
 	Качество.*,
@@ -655,7 +666,8 @@
 	МенеджерКлиентаСнабжение.*,
 	КомментарийЗаказа,
 	Поставщик.*,
-	СостояниеСтрокиЗаявки.*}
+	СостояниеСтрокиЗаявки.*,
+	СрокГарантированныйЗаказа}
 ИЗ
 	ВтОстаткиСКОмментарием КАК ВтОстаткиСКОмментарием
 		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ПоступлениеТоваровУслуг.АктПриемки КАК ПоступлениеТоваровУслугАктПриемки
@@ -717,33 +729,6 @@
 			</v8:item>
 		</title>
 	</calculatedField>
-	<calculatedField>
-		<dataPath>СрокГарантированый</dataPath>
-		<expression/>
-		<title xsi:type="v8:LocalStringType">
-			<v8:item>
-				<v8:lang>ru</v8:lang>
-				<v8:content>Срок гарантированый</v8:content>
-			</v8:item>
-		</title>
-		<appearance>
-			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-				<dcscor:parameter>Формат</dcscor:parameter>
-				<dcscor:value xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>ДФ=dd.MM.yy</v8:content>
-					</v8:item>
-				</dcscor:value>
-			</dcscor:item>
-		</appearance>
-		<valueType>
-			<v8:Type>xs:dateTime</v8:Type>
-			<v8:DateQualifiers>
-				<v8:DateFractions>Date</v8:DateFractions>
-			</v8:DateQualifiers>
-		</valueType>
-	</calculatedField>
 	<totalField>
 		<dataPath>ОстатокПоЗаказу</dataPath>
 		<expression>Сумма(ОстатокПоЗаказу)</expression>
@@ -765,8 +750,8 @@
 		<expression>Выбор  когда Сумма(ОстатокПоЗаказу)&lt;=0 тогда Значение(Справочник.СтатусыДокументов.ЗаказПоставщикуЗакрыт) иначе  СтатусЗаказа конец</expression>
 	</totalField>
 	<totalField>
-		<dataPath>СрокГарантированый</dataPath>
-		<expression>Максимум(СтрокаЗаявки.СрокГарантированный)</expression>
+		<dataPath>СрокГарантированныйЗаказа</dataPath>
+		<expression>Максимум(СрокГарантированныйЗаказа)</expression>
 	</totalField>
 	<parameter>
 		<name>Период</name>
@@ -888,7 +873,7 @@
 					</dcsset:lwsTitle>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>СрокГарантированый</dcsset:field>
+					<dcsset:field>СрокГарантированныйЗаказа</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>ОстатокПоЗаявке</dcsset:field>
@@ -927,7 +912,12 @@
 					<dcsset:left xsi:type="dcscor:Field">СостояниеСтрокиЗаявки</dcsset:left>
 					<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
 					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.СостоянияСтрокДокументов.ВРезерве</dcsset:right>
-					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:presentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Не отображать ссид в резерве</v8:content>
+						</v8:item>
+					</dcsset:presentation>
 					<dcsset:userSettingID>a83d2790-2dae-42b2-9604-43d60dd89861</dcsset:userSettingID>
 					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
 						<v8:item>
@@ -975,16 +965,21 @@
 				<dcsset:item>
 					<dcsset:selection>
 						<dcsset:item>
-							<dcsset:field>СрокГарантированый</dcsset:field>
+							<dcsset:field>СрокГарантированныйЗаказа</dcsset:field>
 						</dcsset:item>
 					</dcsset:selection>
 					<dcsset:filter>
 						<dcsset:item xsi:type="dcsset:FilterItemComparison">
-							<dcsset:left xsi:type="dcscor:Field">СрокГарантированый</dcsset:left>
-							<dcsset:comparisonType>GreaterOrEqual</dcsset:comparisonType>
+							<dcsset:left xsi:type="dcscor:Field">СрокГарантированныйЗаказа</dcsset:left>
+							<dcsset:comparisonType>LessOrEqual</dcsset:comparisonType>
 							<dcsset:right xsi:type="v8:StandardBeginningDate">
 								<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
 							</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">СуммаОстатокПоЗаказу</dcsset:left>
+							<dcsset:comparisonType>Greater</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
 						</dcsset:item>
 					</dcsset:filter>
 					<dcsset:appearance>
