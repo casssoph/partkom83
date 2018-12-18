@@ -225,6 +225,7 @@
 							</ToolTip>
 							<Group>Horizontal</Group>
 							<ShowTitle>false</ShowTitle>
+							<ThroughAlign>Use</ThroughAlign>
 							<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="168"/>
 							<ChildItems>
 								<UsualGroup name="ГруппаШапкаЛево" id="163">
@@ -259,9 +260,11 @@
 													<v8:content>Группа номер дата</v8:content>
 												</v8:item>
 											</ToolTip>
+											<GroupHorizontalAlign>Right</GroupHorizontalAlign>
 											<Group>Horizontal</Group>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
+											<ThroughAlign>Use</ThroughAlign>
 											<ExtendedTooltip name="ГруппаНомерДатаРасширеннаяПодсказка" id="147"/>
 											<ChildItems>
 												<InputField name="Номер" id="1">
@@ -403,12 +406,38 @@
 											<ContextMenu name="БезоговорочныйВозвратКонтекстноеМеню" id="154"/>
 											<ExtendedTooltip name="БезоговорочныйВозвратРасширеннаяПодсказка" id="155"/>
 										</CheckBoxField>
-										<CheckBoxField name="ОтправленоСообщениеНаСайт" id="156">
-											<DataPath>Объект.ОтправленоСообщениеНаСайт</DataPath>
-											<CheckBoxType>Auto</CheckBoxType>
-											<ContextMenu name="ОтправленоСообщениеНаСайтКонтекстноеМеню" id="157"/>
-											<ExtendedTooltip name="ОтправленоСообщениеНаСайтРасширеннаяПодсказка" id="158"/>
-										</CheckBoxField>
+										<UsualGroup name="ГруппаОтправкаНаСайт" id="485">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа отправка на сайт</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа отправка на сайт</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаОтправкаНаСайтРасширеннаяПодсказка" id="486"/>
+											<ChildItems>
+												<CheckBoxField name="ОтправленоСообщениеНаСайт" id="156">
+													<DataPath>Объект.ОтправленБланкНаСайт</DataPath>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="ОтправленоСообщениеНаСайтКонтекстноеМеню" id="157"/>
+													<ExtendedTooltip name="ОтправленоСообщениеНаСайтРасширеннаяПодсказка" id="158"/>
+												</CheckBoxField>
+												<CheckBoxField name="ОтправленыПечатныеФормыНаСайт" id="482">
+													<DataPath>Объект.ОтправленыПечатныеФормыНаСайт</DataPath>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="ОтправленыПечатныеФормыНаСайтКонтекстноеМеню" id="483"/>
+													<ExtendedTooltip name="ОтправленыПечатныеФормыНаСайтРасширеннаяПодсказка" id="484"/>
+												</CheckBoxField>
+											</ChildItems>
+										</UsualGroup>
 									</ChildItems>
 								</UsualGroup>
 								<UsualGroup name="ГруппаШапкаПраво" id="165">
