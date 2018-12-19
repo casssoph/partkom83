@@ -117,6 +117,7 @@
 					<ExtendedTooltip name="ГруппаАктыРассмотренияВозвратаРасширеннаяПодсказка" id="45"/>
 					<ChildItems>
 						<Table name="АктыРассмотренияВозврата" id="1">
+							<Representation>Tree</Representation>
 							<UseAlternationRowColor>true</UseAlternationRowColor>
 							<InitialTreeView>ExpandAllLevels</InitialTreeView>
 							<EnableStartDrag>true</EnableStartDrag>
@@ -137,7 +138,19 @@
 							<UpdateOnDataChange>Auto</UpdateOnDataChange>
 							<UserSettingsGroup>КомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 							<ContextMenu name="АктыРассмотренияВозвратаКонтекстноеМеню" id="2"/>
-							<AutoCommandBar name="АктыРассмотренияВозвратаКоманднаяПанель" id="3"/>
+							<AutoCommandBar name="АктыРассмотренияВозвратаКоманднаяПанель" id="3">
+								<ChildItems>
+									<Button name="АктыРассмотренияВозвратаОбновить" id="105">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.Обновить</CommandName>
+										<Picture>
+											<xr:Ref>CommonPicture.СинхронизацияДанных</xr:Ref>
+											<xr:LoadTransparent>true</xr:LoadTransparent>
+										</Picture>
+										<ExtendedTooltip name="АктыРассмотренияВозвратаОбновитьРасширеннаяПодсказка" id="106"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
 							<ExtendedTooltip name="АктыРассмотренияВозвратаРасширеннаяПодсказка" id="4"/>
 							<SearchStringAddition name="АктыРассмотренияВозвратаСтрокаПоиска" id="5">
 								<AdditionSource>
@@ -438,6 +451,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>АктыБезОтветственного</Action>
+		</Command>
+		<Command name="Обновить" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Обновить</Action>
 		</Command>
 	</Commands>
 </Form>
