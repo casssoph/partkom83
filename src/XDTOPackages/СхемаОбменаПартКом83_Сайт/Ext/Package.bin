@@ -374,6 +374,8 @@
 		<property name="date_statement" type="xs:dateTime" nillable="true"/>
 		<property name="date_arrival" type="xs:dateTime" nillable="true"/>
 		<property name="client_name" type="xs:string" nillable="false"/>
+		<property name="delivery_cost" type="xs:int"/>
+		<property name="type_cost" type="xs:int"/>
 	</objectType>
 	<objectType name="ExpressDelivery.Add" ordered="false">
 		<property name="express_delivery_request_id" type="xs:string"/>
@@ -382,6 +384,8 @@
 		<property name="client_phone" type="xs:string"/>
 		<property name="date_statement" type="xs:dateTime" nillable="true"/>
 		<property name="date_arrival" type="xs:dateTime" nillable="true"/>
+		<property name="delivery_cost" type="xs:int"/>
+		<property name="type_cost" type="xs:int"/>
 	</objectType>
 	<objectType name="ExpressDelivery.DeletePart" ordered="false">
 		<property name="express_delivery_request_id" type="xs:string"/>
@@ -397,6 +401,7 @@
 		<property name="route_code" type="xs:int"/>
 		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="driver_code" type="d3p1:UUID"/>
 		<property name="delivery_cost" type="xs:int"/>
+		<property name="type_cost" type="xs:int"/>
 	</objectType>
 	<objectType name="ExpressDelivery.Items" ordered="false">
 		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="item" type="d3p1:ExpressDelivery.Item" lowerBound="0" upperBound="-1"/>
@@ -639,5 +644,21 @@
 				</property>
 			</typeDef>
 		</property>
+	</objectType>
+	<objectType name="ExpressDelivery.1cConfirm" ordered="false">
+		<property name="express_delivery_request_id" type="xs:string"/>
+		<property name="type_cost" type="xs:int"/>
+		<property name="invoice_number" type="xs:string"/>
+		<property name="delivery_cost" type="xs:int"/>
+	</objectType>
+	<objectType name="ExpressDelivery.1cCancel" ordered="false">
+		<property name="express_delivery_request_id" type="xs:string"/>
+	</objectType>
+	<objectType name="ExpressDelivery.1cChange" ordered="false">
+		<property name="express_delivery_request_id" type="xs:string"/>
+		<property name="type_cost" type="xs:int"/>
+		<property name="invoice_number" type="xs:string"/>
+		<property name="delivery_cost" type="xs:int"/>
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="items" type="d3p1:ExpressDelivery.Items"/>
 	</objectType>
 </package>
