@@ -507,16 +507,35 @@
 										</InputField>
 										<InputField name="ПричинаВозврата" id="361">
 											<DataPath>Объект.ПричинаВозврата</DataPath>
+											<ChoiceParameters>
+												<app:item name="Отбор.Родитель">
+													<app:value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation/>
+														<Value xsi:type="xr:DesignTimeRef">Catalog.ПричиныВозврата.EmptyRef</Value>
+													</app:value>
+												</app:item>
+											</ChoiceParameters>
 											<ContextMenu name="ПричинаВозвратаКонтекстноеМеню" id="362"/>
 											<ExtendedTooltip name="ПричинаВозвратаРасширеннаяПодсказка" id="363"/>
 											<Events>
 												<Event name="OnChange">ПричинаВозвратаПриИзменении</Event>
+												<Event name="StartChoice">ПричинаВозвратаНачалоВыбора</Event>
 											</Events>
 										</InputField>
 										<InputField name="ПричинаОтказаКлиента" id="471">
-											<DataPath>Объект.ПричинаОтказаКлиента</DataPath>
+											<DataPath>Объект.ПодпричинаВозврата</DataPath>
+											<ChoiceParameterLinks>
+												<xr:Link>
+													<xr:Name>Отбор.Родитель</xr:Name>
+													<xr:DataPath xsi:type="xs:string">Объект.ПричинаВозврата</xr:DataPath>
+													<xr:ValueChange>Clear</xr:ValueChange>
+												</xr:Link>
+											</ChoiceParameterLinks>
 											<ContextMenu name="ПричинаОтказаКлиентаКонтекстноеМеню" id="472"/>
 											<ExtendedTooltip name="ПричинаОтказаКлиентаРасширеннаяПодсказка" id="473"/>
+											<Events>
+												<Event name="StartChoice">ПричинаОтказаКлиентаНачалоВыбора</Event>
+											</Events>
 										</InputField>
 										<InputField name="Поставщик" id="448">
 											<DataPath>Объект.Поставщик</DataPath>
@@ -1543,6 +1562,11 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаКомандыПроцесса_ВнизуФормыРасширеннаяПодсказка" id="152"/>
 		</UsualGroup>
+		<InputField name="VIN" id="496">
+			<DataPath>Объект.VIN</DataPath>
+			<ContextMenu name="VINКонтекстноеМеню" id="497"/>
+			<ExtendedTooltip name="VINРасширеннаяПодсказка" id="498"/>
+		</InputField>
 		<InputField name="КомментарийСайт" id="85">
 			<DataPath>Объект.КомментарийСайт</DataPath>
 			<EditMode>EnterOnInput</EditMode>
