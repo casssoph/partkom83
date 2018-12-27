@@ -1758,21 +1758,21 @@
 	ТипСписок = ФабрикаXDTO.Тип(URIПространстваИмен, "ExpressDelivery.Items");
 	ТипДетальнаяЗапись = ФабрикаXDTO.Тип(URIПространстваИмен, "ExpressDelivery.Item");
 
-	ОбъектXDTO = ФабрикаXDTO.Создать(ВыгружаемыйОбъект.operation_type);    
+	ОбъектXDTO = ФабрикаXDTO.Создать(ТипОбъекта);    
 	
 	ЗаполнитьЗначенияСвойств(ОбъектXDTO, ВыгружаемыйОбъект, "express_delivery_request_id");
 	
 	ДанныеПакета = ЗначениеИзСтрокиВнутр(ВыгружаемыйОбъект.ДанныеПакета);
 	
-	Если		ОбъектXDTO.operation_type = ПолучитьКоманду1сЭД(1) Тогда
+	Если		ВыгружаемыйОбъект.operation_type = ПолучитьКоманду1сЭД(1) Тогда
 		
 		ОбъектXDTO.type_cost = ДанныеПакета.type_cost;
 		ОбъектXDTO.delivery_cost = ДанныеПакета.delivery_cost;
 		ОбъектXDTO.invoice_number = ДанныеПакета.invoice_number;
 		
-	ИначеЕсли	ОбъектXDTO.operation_type = ПолучитьКоманду1сЭД(2) Тогда
+	ИначеЕсли	ВыгружаемыйОбъект.operation_type = ПолучитьКоманду1сЭД(2) Тогда
 		
-	ИначеЕсли	ОбъектXDTO.operation_type = ПолучитьКоманду1сЭД(3) Тогда
+	ИначеЕсли	ВыгружаемыйОбъект.operation_type = ПолучитьКоманду1сЭД(3) Тогда
 		
 		ОбъектXDTO.type_cost = ДанныеПакета.type_cost;
 		ОбъектXDTO.delivery_cost = ДанныеПакета.delivery_cost;
