@@ -434,17 +434,29 @@
 											<ShowTitle>false</ShowTitle>
 											<ExtendedTooltip name="ГруппаОтправкаНаСайтРасширеннаяПодсказка" id="486"/>
 											<ChildItems>
-												<CheckBoxField name="ОтправленБланкНаСайт" id="156">
-													<DataPath>Объект.ОтправленБланкНаСайт</DataPath>
+												<CheckBoxField name="АктПриемаПередачиОтправленНаСайт" id="156">
+													<DataPath>Объект.АктПриемаПередачиОтправленНаСайт</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Акт отправлен на сайт</v8:content>
+														</v8:item>
+													</Title>
 													<CheckBoxType>Auto</CheckBoxType>
-													<ContextMenu name="ОтправленБланкНаСайтКонтекстноеМеню" id="157"/>
-													<ExtendedTooltip name="ОтправленБланкНаСайтРасширеннаяПодсказка" id="158"/>
+													<ContextMenu name="АктПриемаПередачиОтправленНаСайтКонтекстноеМеню" id="157"/>
+													<ExtendedTooltip name="АктПриемаПередачиОтправленНаСайтРасширеннаяПодсказка" id="158"/>
 												</CheckBoxField>
-												<CheckBoxField name="ОтправленыПечатныеФормыНаСайт" id="482">
-													<DataPath>Объект.ОтправленыПечатныеФормыНаСайт</DataPath>
+												<CheckBoxField name="АктПриемаПередачиОтправленКлиенту" id="482">
+													<DataPath>Объект.АктПриемаПередачиОтправленКлиенту</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Акт отправлен на почту</v8:content>
+														</v8:item>
+													</Title>
 													<CheckBoxType>Auto</CheckBoxType>
-													<ContextMenu name="ОтправленыПечатныеФормыНаСайтКонтекстноеМеню" id="483"/>
-													<ExtendedTooltip name="ОтправленыПечатныеФормыНаСайтРасширеннаяПодсказка" id="484"/>
+													<ContextMenu name="АктПриемаПередачиОтправленКлиентуКонтекстноеМеню" id="483"/>
+													<ExtendedTooltip name="АктПриемаПередачиОтправленКлиентуРасширеннаяПодсказка" id="484"/>
 												</CheckBoxField>
 											</ChildItems>
 										</UsualGroup>
@@ -1183,7 +1195,7 @@
 									<ExtendedTooltip name="ГруппаНакладнаяКлиентаРасширеннаяПодсказка" id="393"/>
 									<ChildItems>
 										<InputField name="НомерНакладнойКлиента" id="380">
-											<DataPath>Объект.НомерНакладнойКлиента</DataPath>
+											<DataPath>Объект.удалитьНомерНакладнойКлиента</DataPath>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -1194,7 +1206,7 @@
 											<ExtendedTooltip name="НомерНакладнойКлиентаРасширеннаяПодсказка" id="382"/>
 										</InputField>
 										<InputField name="ДатаНакладнойКлиента" id="383">
-											<DataPath>Объект.ДатаНакладнойКлиента</DataPath>
+											<DataPath>Объект.удалитьДатаНакладнойКлиента</DataPath>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -1227,7 +1239,7 @@
 									<ExtendedTooltip name="ГруппаСчетФактураКлиентаРасширеннаяПодсказка" id="395"/>
 									<ChildItems>
 										<InputField name="НомерСчетаФактурыКлиента" id="386">
-											<DataPath>Объект.НомерСчетаФактурыКлиента</DataPath>
+											<DataPath>Объект.удалитьНомерСчетаФактурыКлиента</DataPath>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -1238,7 +1250,7 @@
 											<ExtendedTooltip name="НомерСчетаФактурыКлиентаРасширеннаяПодсказка" id="388"/>
 										</InputField>
 										<InputField name="ДатаСчетаФактурыКлиента" id="389">
-											<DataPath>Объект.ДатаСчетаФактурыКлиента</DataPath>
+											<DataPath>Объект.удалитьДатаСчетаФактурыКлиента</DataPath>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -2158,7 +2170,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Печать акта приема передачи</v8:content>
+					<v8:content>Акт приема передачи</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
