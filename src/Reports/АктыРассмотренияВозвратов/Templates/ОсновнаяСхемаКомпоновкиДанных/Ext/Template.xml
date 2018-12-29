@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АктРассмотренияВозврата</dataPath>
+			<field>АктРассмотренияВозврата</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ответственный</dataPath>
+			<field>Ответственный</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Изменил</dataPath>
+			<field>Изменил</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаИзменения</dataPath>
+			<field>ДатаИзменения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата изменения</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НахождениеВСтатусеМинут</dataPath>
+			<field>НахождениеВСтатусеМинут</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Нахождение в статусе (минут)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СледующийСтатус</dataPath>
+			<field>СледующийСтатус</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Следующий статус</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаУстановкиСтатуса</dataPath>
+			<field>ДатаУстановкиСтатуса</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата установки статуса</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статус</dataPath>
+			<field>Статус</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НахождениеВСтатусеЧасов</dataPath>
+			<field>НахождениеВСтатусеЧасов</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Нахождение в статусе (часов)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	СобытияАктовРассмотренияВозврата.Период,
+	СобытияАктовРассмотренияВозврата.АктРассмотренияВозврата,
+	СобытияАктовРассмотренияВозврата.ИдентификаторСобытия,
+	СобытияАктовРассмотренияВозврата.СтатусДокумента,
+	СобытияАктовРассмотренияВозврата.Ответственный,
+	СобытияАктовРассмотренияВозврата.Изменил,
+	СобытияАктовРассмотренияВозврата.ИдентификаторСобытияПрошлойСменыСтатуса
+ПОМЕСТИТЬ СобытияАктовРассмотренияВозврата
+ИЗ
+	РегистрСведений.СобытияАктовРассмотренияВозврата.СрезПоследних(, НЕ ИдентификаторСобытияПрошлойСменыСтатуса = "") КАК СобытияАктовРассмотренияВозврата
+
+ИНДЕКСИРОВАТЬ ПО
+	СобытияАктовРассмотренияВозврата.ИдентификаторСобытияПрошлойСменыСтатуса,
+	СобытияАктовРассмотренияВозврата.ИдентификаторСобытия
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СобытияАктовРассмотренияВозврата.АктРассмотренияВозврата,
+	СобытияАктовРассмотренияВозврата.СтатусДокумента КАК СледующийСтатус,
+	СобытияАктовРассмотренияВозврата.Период КАК ДатаИзменения,
+	СобытияАктовРассмотренияВозвратаПрошлыйСтатус.СтатусДокумента КАК Статус,
+	СобытияАктовРассмотренияВозвратаПрошлыйСтатус.Период КАК ДатаУстановкиСтатуса,
+	РАЗНОСТЬДАТ(СобытияАктовРассмотренияВозвратаПрошлыйСтатус.Период, СобытияАктовРассмотренияВозврата.Период, МИНУТА) КАК НахождениеВСтатусеМинут,
+	ВЫРАЗИТЬ(РАЗНОСТЬДАТ(СобытияАктовРассмотренияВозвратаПрошлыйСтатус.Период, СобытияАктовРассмотренияВозврата.Период, МИНУТА) / 60 КАК ЧИСЛО(15, 1)) КАК НахождениеВСтатусеЧасов,
+	СобытияАктовРассмотренияВозврата.Изменил,
+	СобытияАктовРассмотренияВозврата.Ответственный
+ИЗ
+	СобытияАктовРассмотренияВозврата КАК СобытияАктовРассмотренияВозврата
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ СобытияАктовРассмотренияВозврата КАК СобытияАктовРассмотренияВозвратаПрошлыйСтатус
+		ПО СобытияАктовРассмотренияВозврата.ИдентификаторСобытияПрошлойСменыСтатуса = СобытияАктовРассмотренияВозвратаПрошлыйСтатус.ИдентификаторСобытия
+ГДЕ
+	НЕ СобытияАктовРассмотренияВозврата.Период = СобытияАктовРассмотренияВозвратаПрошлыйСтатус.Период
+	И СобытияАктовРассмотренияВозврата.СтатусДокумента = СобытияАктовРассмотренияВозврата.АктРассмотренияВозврата.СтатусДокумента</query>
+	</dataSet>
+	<totalField>
+		<dataPath>НахождениеВСтатусеМинут</dataPath>
+		<expression>Среднее(НахождениеВСтатусеМинут)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НахождениеВСтатусеЧасов</dataPath>
+		<expression>Сумма(НахождениеВСтатусеЧасов)</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаИзменения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АктРассмотренияВозврата</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СледующийСтатус</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Изменил</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НахождениеВСтатусеЧасов</dcsset:field>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>e054b0d0-0238-4f65-a5ea-86de441e6baa</dcsset:userSettingID>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">АктРассмотренияВозврата.СтатусДокумента</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>1c27c44d-1784-434d-a862-61f6ffcb6e8a</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">АктРассмотренияВозврата.Контрагент</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>45b16337-2810-442b-aeb8-9e245b39d92d</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">НахождениеВСтатусеЧасов</dcsset:left>
+					<dcsset:comparisonType>Greater</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:decimal">5</dcsset:right>
+					<dcsset:userSettingID>2a2d9245-e30a-4a1e-b532-a9738fd33c2f</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>b7595b38-c2a2-4dd1-a433-3f6244b03577</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>НахождениеВСтатусеМинут</dcsset:field>
+					<dcsset:orderType>Desc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Статус</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+			<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+			<dcsset:itemsUserSettingID>e51b7eb1-e58c-4764-9b4c-3568d1a59f46</dcsset:itemsUserSettingID>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>
