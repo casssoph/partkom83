@@ -15,10 +15,6 @@
 			<field>Ответственный</field>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>Изменил</dataPath>
-			<field>Изменил</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>ДатаИзменения</dataPath>
 			<field>ДатаИзменения</field>
 			<title xsi:type="v8:LocalStringType">
@@ -50,36 +46,6 @@
 			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>СледующийСтатус</dataPath>
-			<field>СледующийСтатус</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Следующий статус</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>ДатаУстановкиСтатуса</dataPath>
-			<field>ДатаУстановкиСтатуса</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Дата установки статуса</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Статус</dataPath>
-			<field>Статус</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Статус</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>НахождениеВСтатусеЧасов</dataPath>
 			<field>НахождениеВСтатусеЧасов</field>
 			<title xsi:type="v8:LocalStringType">
@@ -88,6 +54,10 @@
 					<v8:content>Нахождение в статусе (часов)</v8:content>
 				</v8:item>
 			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатусДокумента</dataPath>
+			<field>СтатусДокумента</field>
 		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
@@ -101,6 +71,9 @@
 ПОМЕСТИТЬ СобытияАктовРассмотренияВозврата
 ИЗ
 	РегистрСведений.СобытияАктовРассмотренияВозврата.СрезПоследних(, НЕ ИдентификаторСобытияПрошлойСменыСтатуса = "") КАК СобытияАктовРассмотренияВозврата
+ГДЕ
+	НЕ СобытияАктовРассмотренияВозврата.ИдентификаторСобытияПрошлойСменыСтатуса = ""
+	И СобытияАктовРассмотренияВозврата.СтатусДокумента = СобытияАктовРассмотренияВозврата.АктРассмотренияВозврата.СтатусДокумента
 
 ИНДЕКСИРОВАТЬ ПО
 	СобытияАктовРассмотренияВозврата.ИдентификаторСобытияПрошлойСменыСтатуса,
@@ -109,22 +82,29 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 ВЫБРАТЬ
-	СобытияАктовРассмотренияВозврата.АктРассмотренияВозврата,
-	СобытияАктовРассмотренияВозврата.СтатусДокумента КАК СледующийСтатус,
-	СобытияАктовРассмотренияВозврата.Период КАК ДатаИзменения,
-	СобытияАктовРассмотренияВозвратаПрошлыйСтатус.СтатусДокумента КАК Статус,
-	СобытияАктовРассмотренияВозвратаПрошлыйСтатус.Период КАК ДатаУстановкиСтатуса,
-	РАЗНОСТЬДАТ(СобытияАктовРассмотренияВозвратаПрошлыйСтатус.Период, СобытияАктовРассмотренияВозврата.Период, МИНУТА) КАК НахождениеВСтатусеМинут,
-	ВЫРАЗИТЬ(РАЗНОСТЬДАТ(СобытияАктовРассмотренияВозвратаПрошлыйСтатус.Период, СобытияАктовРассмотренияВозврата.Период, МИНУТА) / 60 КАК ЧИСЛО(15, 1)) КАК НахождениеВСтатусеЧасов,
-	СобытияАктовРассмотренияВозврата.Изменил,
-	СобытияАктовРассмотренияВозврата.Ответственный
+	МАКСИМУМ(СобытияАктовРассмотренияВозврата.Период) КАК МаксДата,
+	СобытияАктовРассмотренияВозврата.АктРассмотренияВозврата
+ПОМЕСТИТЬ ПоследниеЗаписи
 ИЗ
 	СобытияАктовРассмотренияВозврата КАК СобытияАктовРассмотренияВозврата
-		ВНУТРЕННЕЕ СОЕДИНЕНИЕ СобытияАктовРассмотренияВозврата КАК СобытияАктовРассмотренияВозвратаПрошлыйСтатус
-		ПО СобытияАктовРассмотренияВозврата.ИдентификаторСобытияПрошлойСменыСтатуса = СобытияАктовРассмотренияВозвратаПрошлыйСтатус.ИдентификаторСобытия
-ГДЕ
-	НЕ СобытияАктовРассмотренияВозврата.Период = СобытияАктовРассмотренияВозвратаПрошлыйСтатус.Период
-	И СобытияАктовРассмотренияВозврата.СтатусДокумента = СобытияАктовРассмотренияВозврата.АктРассмотренияВозврата.СтатусДокумента</query>
+
+СГРУППИРОВАТЬ ПО
+	СобытияАктовРассмотренияВозврата.АктРассмотренияВозврата
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СобытияАктовРассмотренияВозврата.АктРассмотренияВозврата,
+	СобытияАктовРассмотренияВозврата.СтатусДокумента КАК СтатусДокумента,
+	СобытияАктовРассмотренияВозврата.Период КАК ДатаИзменения,
+	РАЗНОСТЬДАТ(СобытияАктовРассмотренияВозврата.Период, &amp;ТекущаяДата, МИНУТА) КАК НахождениеВСтатусеМинут,
+	ВЫРАЗИТЬ(РАЗНОСТЬДАТ(СобытияАктовРассмотренияВозврата.Период, &amp;ТекущаяДата, МИНУТА) / 60 КАК ЧИСЛО(15, 1)) КАК НахождениеВСтатусеЧасов,
+	СобытияАктовРассмотренияВозврата.Ответственный
+	ИЗ
+	СобытияАктовРассмотренияВозврата КАК СобытияАктовРассмотренияВозврата
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ПоследниеЗаписи КАК ПоследниеЗаписи
+		ПО (ПоследниеЗаписи.МаксДата = СобытияАктовРассмотренияВозврата.Период)
+</query>
 	</dataSet>
 	<totalField>
 		<dataPath>НахождениеВСтатусеМинут</dataPath>
@@ -149,7 +129,26 @@
 			</v8:DateQualifiers>
 		</valueType>
 		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
-		<useRestriction>false</useRestriction>
+		<useRestriction>true</useRestriction>
+		<expression>ТекущаяДата()</expression>
+	</parameter>
+	<parameter>
+		<name>ТекущаяДата</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Текущая дата</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>ТекущаяДата()</expression>
 	</parameter>
 	<settingsVariant>
 		<dcsset:name>Основной</dcsset:name>
@@ -161,12 +160,6 @@
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>АктРассмотренияВозврата</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>СледующийСтатус</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>Изменил</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>НахождениеВСтатусеЧасов</dcsset:field>
@@ -206,7 +199,7 @@
 			<dcsset:item xsi:type="dcsset:StructureItemGroup">
 				<dcsset:groupItems>
 					<dcsset:item xsi:type="dcsset:GroupItemField">
-						<dcsset:field>Статус</dcsset:field>
+						<dcsset:field>СтатусДокумента</dcsset:field>
 						<dcsset:groupType>Items</dcsset:groupType>
 						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
