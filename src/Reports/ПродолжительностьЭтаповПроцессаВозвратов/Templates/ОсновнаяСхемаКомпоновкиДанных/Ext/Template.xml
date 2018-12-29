@@ -82,6 +82,16 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НахождениеВСтатусеЧасов</dataPath>
+			<field>НахождениеВСтатусеЧасов</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Нахождение в статусе (часов)</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	СобытияАктовРассмотренияВозврата.Период,
@@ -110,6 +120,7 @@
 	СобытияАктовРассмотренияВозвратаПрошлыйСтатус.СтатусДокумента КАК Статус,
 	СобытияАктовРассмотренияВозвратаПрошлыйСтатус.Период КАК ДатаУстановкиСтатуса,
 	РАЗНОСТЬДАТ(СобытияАктовРассмотренияВозвратаПрошлыйСтатус.Период, СобытияАктовРассмотренияВозврата.Период, МИНУТА) КАК НахождениеВСтатусеМинут,
+	ВЫРАЗИТЬ(РАЗНОСТЬДАТ(СобытияАктовРассмотренияВозвратаПрошлыйСтатус.Период, СобытияАктовРассмотренияВозврата.Период, МИНУТА) / 60 КАК ЧИСЛО(15, 1)) КАК НахождениеВСтатусеЧасов,
 	СобытияАктовРассмотренияВозврата.Изменил,
 	СобытияАктовРассмотренияВозврата.Ответственный
 ИЗ
@@ -122,6 +133,10 @@
 	<totalField>
 		<dataPath>НахождениеВСтатусеМинут</dataPath>
 		<expression>Среднее(НахождениеВСтатусеМинут)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НахождениеВСтатусеЧасов</dataPath>
+		<expression>Сумма(НахождениеВСтатусеЧасов)</expression>
 	</totalField>
 	<settingsVariant>
 		<dcsset:name>Основной</dcsset:name>
@@ -141,9 +156,34 @@
 					<dcsset:field>Изменил</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>НахождениеВСтатусеМинут</dcsset:field>
+					<dcsset:field>НахождениеВСтатусеЧасов</dcsset:field>
 				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>e054b0d0-0238-4f65-a5ea-86de441e6baa</dcsset:userSettingID>
 			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">АктРассмотренияВозврата.СтатусДокумента</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>1c27c44d-1784-434d-a862-61f6ffcb6e8a</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">АктРассмотренияВозврата.Контрагент</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>45b16337-2810-442b-aeb8-9e245b39d92d</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">НахождениеВСтатусеЧасов</dcsset:left>
+					<dcsset:comparisonType>Greater</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:decimal">5</dcsset:right>
+					<dcsset:userSettingID>2a2d9245-e30a-4a1e-b532-a9738fd33c2f</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>b7595b38-c2a2-4dd1-a433-3f6244b03577</dcsset:userSettingID>
+			</dcsset:filter>
 			<dcsset:order>
 				<dcsset:item xsi:type="dcsset:OrderItemField">
 					<dcsset:field>НахождениеВСтатусеМинут</dcsset:field>
@@ -175,6 +215,8 @@
 					</dcsset:selection>
 				</dcsset:item>
 			</dcsset:item>
+			<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+			<dcsset:itemsUserSettingID>e51b7eb1-e58c-4764-9b4c-3568d1a59f46</dcsset:itemsUserSettingID>
 		</dcsset:settings>
 	</settingsVariant>
 </DataCompositionSchema>
