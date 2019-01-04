@@ -1136,6 +1136,50 @@
 								</LabelDecoration>
 							</ChildItems>
 						</UsualGroup>
+						<UsualGroup name="ГруппаОтказВВозврате" id="506">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отказ в возврате:</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отказ в возврате</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>StrongSeparation</Representation>
+							<ExtendedTooltip name="ГруппаОтказВВозвратеРасширеннаяПодсказка" id="507"/>
+							<ChildItems>
+								<InputField name="ПричинаОтказаВВозврате" id="503">
+									<DataPath>Объект.ПричинаОтказаВВозврате</DataPath>
+									<ContextMenu name="ПричинаОтказаВВозвратеКонтекстноеМеню" id="504"/>
+									<ExtendedTooltip name="ПричинаОтказаВВозвратеРасширеннаяПодсказка" id="505"/>
+									<Events>
+										<Event name="OnChange">ПричинаОтказаВВозвратеПриИзменении</Event>
+									</Events>
+								</InputField>
+								<LabelField name="МенеджерОтказаВВозврате" id="508">
+									<DataPath>Объект.МенеджерОтказаВВозврате</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Менеджер</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="МенеджерОтказаВВозвратеКонтекстноеМеню" id="509"/>
+									<ExtendedTooltip name="МенеджерОтказаВВозвратеРасширеннаяПодсказка" id="510"/>
+								</LabelField>
+								<CheckBoxField name="ОтправленаПричинаОтказаВВозврате" id="511">
+									<DataPath>Объект.ОтправленаПричинаОтказаВВозврате</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ОтправленаПричинаОтказаВВозвратеКонтекстноеМеню" id="512"/>
+									<ExtendedTooltip name="ОтправленаПричинаОтказаВВозвратеРасширеннаяПодсказка" id="513"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
 					</ChildItems>
 				</Page>
 				<Page name="Дополнительно" id="378">
