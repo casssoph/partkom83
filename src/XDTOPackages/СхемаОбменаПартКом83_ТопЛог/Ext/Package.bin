@@ -67,6 +67,20 @@
 		<property name="НомерРозничнойЗаявки" type="xs:string" lowerBound="0"/>
 		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Товары" type="d3p1:Документы.ЗаказНаОтгрузку.Товары" lowerBound="0"/>
 		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Услуги" type="d3p1:Документы.ЗаказНаОтгрузку.Услуги" lowerBound="0"/>
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Перестикеровка" type="d3p1:Документы.ЗаказНаОтгрузку.Перестикеровка" lowerBound="0"/>
+	</objectType>
+	<objectType name="Документы.ЗаказНаОтгрузку.Перестикеровка">
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="СтрокаПерестикеровка" type="d3p1:Документы.ЗаказНаОтгрузку.Перестикеровка.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Документы.ЗаказНаОтгрузку.Перестикеровка.Строка" ordered="false" sequenced="true">
+		<property name="НоменклатураИсходнаяСсылка" type="xs:string"/>
+		<property name="НоменклатураИсходнаяНаименование" type="xs:string"/>
+		<property name="НоменклатураИсходнаяАртикул" type="xs:string"/>
+		<property name="Партия" type="xs:string"/>
+		<property name="Количество" type="xs:int"/>
+		<property name="НоменклатураЗаменыСсылка" type="xs:string"/>
+		<property name="НоменклатураЗаменыНаименование" type="xs:string"/>
+		<property name="НоменклатураЗаменыАртикул" type="xs:string"/>
 	</objectType>
 	<objectType name="Документы.ЗаказНаОтгрузку.Товары">
 		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="СтрокаТовары" type="d3p1:Документы.ЗаказНаОтгрузку.Товары.Строка" lowerBound="0" upperBound="-1"/>
