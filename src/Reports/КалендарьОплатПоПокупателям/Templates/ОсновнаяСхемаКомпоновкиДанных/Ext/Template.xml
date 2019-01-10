@@ -181,7 +181,7 @@
 	КОНЕЦ КАК ВидЗадолженности,
 	МенеджерыТорговыхТочекСрезПоследних.Менеджер КАК Менеджер
 ИЗ
-	РегистрНакопления.Взаиморасчеты.Остатки({(&amp;НачалоПериода)}, ) КАК ВзаиморасчетыОстатки
+	РегистрНакопления.Взаиморасчеты.Остатки(, ) КАК ВзаиморасчетыОстатки
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.МенеджерыТорговыхТочек.СрезПоследних({(&amp;ТекущаяДата)}, ВидМенеджера = ЗНАЧЕНИЕ(Перечисление.ВидыМенеджеров.Продажи)) КАК МенеджерыТорговыхТочекСрезПоследних
 		ПО ВзаиморасчетыОстатки.ДоговорКонтрагента.Владелец.ОсновнаяТорговаяТочка = МенеджерыТорговыхТочекСрезПоследних.ТорговаяТочка
 ГДЕ
@@ -234,6 +234,23 @@
 		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
 		<useRestriction>true</useRestriction>
 		<expression>НачалоПериода(ТекущаяДата(), "День")</expression>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
 	</parameter>
 	<settingsVariant>
 		<dcsset:name>Основной</dcsset:name>
