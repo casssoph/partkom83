@@ -322,6 +322,7 @@
 													</Events>
 												</InputField>
 												<LabelDecoration name="ПродолжительностьНахожденияВСтатусе" id="437">
+													<HorizontalStretch>true</HorizontalStretch>
 													<TextColor>win:Highlight</TextColor>
 													<ToolTip>
 														<v8:item>
@@ -329,8 +330,7 @@
 															<v8:content>Время нахождения в текущем статусе</v8:content>
 														</v8:item>
 													</ToolTip>
-													<GroupHorizontalAlign>Right</GroupHorizontalAlign>
-													<HorizontalAlign>Right</HorizontalAlign>
+													<HorizontalAlign>Center</HorizontalAlign>
 													<ContextMenu name="ПродолжительностьНахожденияВСтатусеКонтекстноеМеню" id="438"/>
 													<ExtendedTooltip name="ПродолжительностьНахожденияВСтатусеРасширеннаяПодсказка" id="439"/>
 												</LabelDecoration>
@@ -412,50 +412,6 @@
 											<ContextMenu name="БезоговорочныйВозвратКонтекстноеМеню" id="154"/>
 											<ExtendedTooltip name="БезоговорочныйВозвратРасширеннаяПодсказка" id="155"/>
 										</CheckBoxField>
-										<UsualGroup name="ГруппаОтправкаНаСайт" id="485">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Группа отправка на сайт</v8:content>
-												</v8:item>
-											</Title>
-											<ToolTip>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Группа отправка на сайт</v8:content>
-												</v8:item>
-											</ToolTip>
-											<Group>Horizontal</Group>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаОтправкаНаСайтРасширеннаяПодсказка" id="486"/>
-											<ChildItems>
-												<CheckBoxField name="АктПриемаПередачиОтправленНаСайт" id="156">
-													<DataPath>Объект.АктПриемаПередачиОтправленНаСайт</DataPath>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Акт отправлен на сайт</v8:content>
-														</v8:item>
-													</Title>
-													<CheckBoxType>Auto</CheckBoxType>
-													<ContextMenu name="АктПриемаПередачиОтправленНаСайтКонтекстноеМеню" id="157"/>
-													<ExtendedTooltip name="АктПриемаПередачиОтправленНаСайтРасширеннаяПодсказка" id="158"/>
-												</CheckBoxField>
-												<CheckBoxField name="АктПриемаПередачиОтправленКлиенту" id="482">
-													<DataPath>Объект.АктПриемаПередачиОтправленКлиенту</DataPath>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Акт отправлен на почту</v8:content>
-														</v8:item>
-													</Title>
-													<CheckBoxType>Auto</CheckBoxType>
-													<ContextMenu name="АктПриемаПередачиОтправленКлиентуКонтекстноеМеню" id="483"/>
-													<ExtendedTooltip name="АктПриемаПередачиОтправленКлиентуРасширеннаяПодсказка" id="484"/>
-												</CheckBoxField>
-											</ChildItems>
-										</UsualGroup>
 									</ChildItems>
 								</UsualGroup>
 								<UsualGroup name="ГруппаШапкаПраво" id="165">
@@ -476,41 +432,11 @@
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="ГруппаШапкаПравоРасширеннаяПодсказка" id="166"/>
 									<ChildItems>
-										<InputField name="СтатусПроверкиБухгалтерией" id="143">
-											<DataPath>Объект.СтатусПроверкиБухгалтерией</DataPath>
-											<ContextMenu name="СтатусПроверкиБухгалтериейКонтекстноеМеню" id="144"/>
-											<ExtendedTooltip name="СтатусПроверкиБухгалтериейРасширеннаяПодсказка" id="145"/>
-										</InputField>
-										<InputField name="СтатусПроверкиДокументовПоставщика" id="140">
-											<DataPath>Объект.СтатусПроверкиДокументовПоставщика</DataPath>
-											<ContextMenu name="СтатусПроверкиДокументовПоставщикаКонтекстноеМеню" id="141"/>
-											<ExtendedTooltip name="СтатусПроверкиДокументовПоставщикаРасширеннаяПодсказка" id="142"/>
-											<Events>
-												<Event name="OnChange">СтатусПроверкиДокументовПоставщикаПриИзменении</Event>
-											</Events>
-										</InputField>
-										<InputField name="СтатусПроверкиДокументовПокупателя" id="137">
-											<DataPath>Объект.СтатусПроверкиДокументовПокупателя</DataPath>
-											<ContextMenu name="СтатусПроверкиДокументовПокупателяКонтекстноеМеню" id="138"/>
-											<ExtendedTooltip name="СтатусПроверкиДокументовПокупателяРасширеннаяПодсказка" id="139"/>
-											<Events>
-												<Event name="OnChange">СтатусПроверкиДокументовПокупателяПриИзменении</Event>
-											</Events>
-										</InputField>
 										<InputField name="ШтрихКод" id="22">
 											<DataPath>Объект.Штрихкод</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<ContextMenu name="ШтрихКодКонтекстноеМеню" id="23"/>
 											<ExtendedTooltip name="ШтрихКодРасширеннаяПодсказка" id="24"/>
-										</InputField>
-										<InputField name="ДоговорКонтрагента" id="16">
-											<DataPath>Объект.ДоговорКонтрагента</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<ContextMenu name="ДоговорКонтрагентаКонтекстноеМеню" id="17"/>
-											<ExtendedTooltip name="ДоговорКонтрагентаРасширеннаяПодсказка" id="18"/>
-											<Events>
-												<Event name="OnChange">ДоговорКонтрагентаПриИзменении</Event>
-											</Events>
 										</InputField>
 										<InputField name="Склад" id="311">
 											<DataPath>Объект.Склад</DataPath>
@@ -555,6 +481,15 @@
 												<Event name="StartChoice">ПричинаОтказаКлиентаНачалоВыбора</Event>
 											</Events>
 										</InputField>
+										<InputField name="ДоговорКонтрагента" id="16">
+											<DataPath>Объект.ДоговорКонтрагента</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ДоговорКонтрагентаКонтекстноеМеню" id="17"/>
+											<ExtendedTooltip name="ДоговорКонтрагентаРасширеннаяПодсказка" id="18"/>
+											<Events>
+												<Event name="OnChange">ДоговорКонтрагентаПриИзменении</Event>
+											</Events>
+										</InputField>
 										<InputField name="Поставщик" id="448">
 											<DataPath>Объект.Поставщик</DataPath>
 											<ContextMenu name="ПоставщикКонтекстноеМеню" id="449"/>
@@ -584,6 +519,7 @@
 						</UsualGroup>
 						<Table name="Товары" id="88">
 							<Representation>List</Representation>
+							<HeightInTableRows>2</HeightInTableRows>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
@@ -1021,6 +957,7 @@
 										<InputField name="ТоварыСтрокаПрихода" id="364">
 											<DataPath>Объект.Товары.СтрокаПрихода</DataPath>
 											<EditMode>EnterOnInput</EditMode>
+											<OpenButton>true</OpenButton>
 											<ContextMenu name="ТоварыСтрокаПриходаКонтекстноеМеню" id="365"/>
 											<ExtendedTooltip name="ТоварыСтрокаПриходаРасширеннаяПодсказка" id="366"/>
 										</InputField>
@@ -1234,6 +1171,90 @@
 							<ContextMenu name="КодВозвратаОбновленИзТоплогКонтекстноеМеню" id="441"/>
 							<ExtendedTooltip name="КодВозвратаОбновленИзТоплогРасширеннаяПодсказка" id="442"/>
 						</CheckBoxField>
+						<UsualGroup name="ГруппаОтправкаНаСайт" id="485">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отправка на сайт</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отправка на сайт</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаОтправкаНаСайтРасширеннаяПодсказка" id="486"/>
+							<ChildItems>
+								<CheckBoxField name="АктПриемаПередачиОтправленНаСайт" id="156">
+									<DataPath>Объект.АктПриемаПередачиОтправленНаСайт</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Акт отправлен на сайт</v8:content>
+										</v8:item>
+									</Title>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="АктПриемаПередачиОтправленНаСайтКонтекстноеМеню" id="157"/>
+									<ExtendedTooltip name="АктПриемаПередачиОтправленНаСайтРасширеннаяПодсказка" id="158"/>
+								</CheckBoxField>
+								<CheckBoxField name="АктПриемаПередачиОтправленКлиенту" id="482">
+									<DataPath>Объект.АктПриемаПередачиОтправленКлиенту</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Акт отправлен на почту</v8:content>
+										</v8:item>
+									</Title>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="АктПриемаПередачиОтправленКлиентуКонтекстноеМеню" id="483"/>
+									<ExtendedTooltip name="АктПриемаПередачиОтправленКлиентуРасширеннаяПодсказка" id="484"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаСтатусПроверкиБухгалтерией" id="514">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа статус проверки бухгалтерией</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа статус проверки бухгалтерией</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаСтатусПроверкиБухгалтериейРасширеннаяПодсказка" id="515"/>
+							<ChildItems>
+								<InputField name="СтатусПроверкиБухгалтерией" id="143">
+									<DataPath>Объект.СтатусПроверкиБухгалтерией</DataPath>
+									<ContextMenu name="СтатусПроверкиБухгалтериейКонтекстноеМеню" id="144"/>
+									<ExtendedTooltip name="СтатусПроверкиБухгалтериейРасширеннаяПодсказка" id="145"/>
+								</InputField>
+								<InputField name="СтатусПроверкиДокументовПоставщика" id="140">
+									<DataPath>Объект.СтатусПроверкиДокументовПоставщика</DataPath>
+									<ContextMenu name="СтатусПроверкиДокументовПоставщикаКонтекстноеМеню" id="141"/>
+									<ExtendedTooltip name="СтатусПроверкиДокументовПоставщикаРасширеннаяПодсказка" id="142"/>
+									<Events>
+										<Event name="OnChange">СтатусПроверкиДокументовПоставщикаПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="СтатусПроверкиДокументовПокупателя" id="137">
+									<DataPath>Объект.СтатусПроверкиДокументовПокупателя</DataPath>
+									<ContextMenu name="СтатусПроверкиДокументовПокупателяКонтекстноеМеню" id="138"/>
+									<ExtendedTooltip name="СтатусПроверкиДокументовПокупателяРасширеннаяПодсказка" id="139"/>
+									<Events>
+										<Event name="OnChange">СтатусПроверкиДокументовПокупателяПриИзменении</Event>
+									</Events>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
 					</ChildItems>
 				</Page>
 				<Page name="ПисьмаПоДокументу" id="173">
