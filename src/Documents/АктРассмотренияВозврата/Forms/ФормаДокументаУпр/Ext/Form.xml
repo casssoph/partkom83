@@ -334,10 +334,15 @@
 										</UsualGroup>
 										<InputField name="КодВозврата" id="148">
 											<DataPath>Объект.КодВозврата</DataPath>
+											<ClearButton>true</ClearButton>
+											<ListChoiceMode>true</ListChoiceMode>
 											<ContextMenu name="КодВозвратаКонтекстноеМеню" id="149"/>
 											<ExtendedTooltip name="КодВозвратаРасширеннаяПодсказка" id="150"/>
 											<Events>
 												<Event name="OnChange">КодВозвратаПриИзменении</Event>
+												<Event name="StartChoice">КодВозвратаНачалоВыбора</Event>
+												<Event name="StartListChoice">КодВозвратаНачалоВыбораИзСписка</Event>
+												<Event name="ChoiceProcessing">КодВозвратаОбработкаВыбора</Event>
 											</Events>
 										</InputField>
 										<InputField name="Организация" id="290">
