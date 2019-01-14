@@ -1141,92 +1141,11 @@
 					</ToolTip>
 					<ExtendedTooltip name="ДополнительноРасширеннаяПодсказка" id="379"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаУчетНДС" id="406">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Учет НДС</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа учет НДС</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Group>Horizontal</Group>
-							<Representation>StrongSeparation</Representation>
-							<ExtendedTooltip name="ГруппаУчетНДСРасширеннаяПодсказка" id="407"/>
-							<ChildItems>
-								<CheckBoxField name="УчитыватьНДС" id="400">
-									<DataPath>Объект.УчитыватьНДС</DataPath>
-									<CheckBoxType>Auto</CheckBoxType>
-									<ContextMenu name="УчитыватьНДСКонтекстноеМеню" id="401"/>
-									<ExtendedTooltip name="УчитыватьНДСРасширеннаяПодсказка" id="402"/>
-								</CheckBoxField>
-								<CheckBoxField name="СуммаВключаетНДС" id="403">
-									<DataPath>Объект.СуммаВключаетНДС</DataPath>
-									<CheckBoxType>Auto</CheckBoxType>
-									<ContextMenu name="СуммаВключаетНДСКонтекстноеМеню" id="404"/>
-									<ExtendedTooltip name="СуммаВключаетНДСРасширеннаяПодсказка" id="405"/>
-								</CheckBoxField>
-							</ChildItems>
-						</UsualGroup>
-						<CheckBoxField name="КодВозвратаОбновленИзТоплог" id="440">
-							<DataPath>Объект.КодВозвратаОбновленИзТоплог</DataPath>
-							<CheckBoxType>Auto</CheckBoxType>
-							<ContextMenu name="КодВозвратаОбновленИзТоплогКонтекстноеМеню" id="441"/>
-							<ExtendedTooltip name="КодВозвратаОбновленИзТоплогРасширеннаяПодсказка" id="442"/>
-						</CheckBoxField>
-						<UsualGroup name="ГруппаОтправкаНаСайт" id="485">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа отправка на сайт</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа отправка на сайт</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Group>Horizontal</Group>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаОтправкаНаСайтРасширеннаяПодсказка" id="486"/>
-							<ChildItems>
-								<CheckBoxField name="АктПриемаПередачиОтправленНаСайт" id="156">
-									<DataPath>Объект.АктПриемаПередачиОтправленНаСайт</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Акт отправлен на сайт</v8:content>
-										</v8:item>
-									</Title>
-									<CheckBoxType>Auto</CheckBoxType>
-									<ContextMenu name="АктПриемаПередачиОтправленНаСайтКонтекстноеМеню" id="157"/>
-									<ExtendedTooltip name="АктПриемаПередачиОтправленНаСайтРасширеннаяПодсказка" id="158"/>
-								</CheckBoxField>
-								<CheckBoxField name="АктПриемаПередачиОтправленКлиенту" id="482">
-									<DataPath>Объект.АктПриемаПередачиОтправленКлиенту</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Акт отправлен на почту</v8:content>
-										</v8:item>
-									</Title>
-									<CheckBoxType>Auto</CheckBoxType>
-									<ContextMenu name="АктПриемаПередачиОтправленКлиентуКонтекстноеМеню" id="483"/>
-									<ExtendedTooltip name="АктПриемаПередачиОтправленКлиентуРасширеннаяПодсказка" id="484"/>
-								</CheckBoxField>
-							</ChildItems>
-						</UsualGroup>
 						<UsualGroup name="ГруппаСтатусПроверкиБухгалтерией" id="514">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа статус проверки бухгалтерией</v8:content>
+									<v8:content>Статус проверки бухгалтерией</v8:content>
 								</v8:item>
 							</Title>
 							<ToolTip>
@@ -1235,8 +1154,7 @@
 									<v8:content>Группа статус проверки бухгалтерией</v8:content>
 								</v8:item>
 							</ToolTip>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
+							<Representation>StrongSeparation</Representation>
 							<ExtendedTooltip name="ГруппаСтатусПроверкиБухгалтериейРасширеннаяПодсказка" id="515"/>
 							<ChildItems>
 								<InputField name="СтатусПроверкиБухгалтерией" id="143">
@@ -1260,6 +1178,109 @@
 										<Event name="OnChange">СтатусПроверкиДокументовПокупателяПриИзменении</Event>
 									</Events>
 								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаПрочее" id="518">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Прочее</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа прочее</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>StrongSeparation</Representation>
+							<ExtendedTooltip name="ГруппаПрочееРасширеннаяПодсказка" id="519"/>
+							<ChildItems>
+								<InputField name="Филиал" id="520">
+									<DataPath>Объект.Филиал</DataPath>
+									<ContextMenu name="ФилиалКонтекстноеМеню" id="521"/>
+									<ExtendedTooltip name="ФилиалРасширеннаяПодсказка" id="522"/>
+								</InputField>
+								<UsualGroup name="ГруппаОтправкаНаСайт" id="485">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа отправка на сайт</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа отправка на сайт</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаОтправкаНаСайтРасширеннаяПодсказка" id="486"/>
+									<ChildItems>
+										<CheckBoxField name="АктПриемаПередачиОтправленНаСайт" id="156">
+											<DataPath>Объект.АктПриемаПередачиОтправленНаСайт</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Акт отправлен на сайт</v8:content>
+												</v8:item>
+											</Title>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="АктПриемаПередачиОтправленНаСайтКонтекстноеМеню" id="157"/>
+											<ExtendedTooltip name="АктПриемаПередачиОтправленНаСайтРасширеннаяПодсказка" id="158"/>
+										</CheckBoxField>
+										<CheckBoxField name="АктПриемаПередачиОтправленКлиенту" id="482">
+											<DataPath>Объект.АктПриемаПередачиОтправленКлиенту</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Акт отправлен на почту</v8:content>
+												</v8:item>
+											</Title>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="АктПриемаПередачиОтправленКлиентуКонтекстноеМеню" id="483"/>
+											<ExtendedTooltip name="АктПриемаПередачиОтправленКлиентуРасширеннаяПодсказка" id="484"/>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
+								<CheckBoxField name="КодВозвратаОбновленИзТоплог" id="440">
+									<DataPath>Объект.КодВозвратаОбновленИзТоплог</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="КодВозвратаОбновленИзТоплогКонтекстноеМеню" id="441"/>
+									<ExtendedTooltip name="КодВозвратаОбновленИзТоплогРасширеннаяПодсказка" id="442"/>
+								</CheckBoxField>
+								<UsualGroup name="ГруппаУчетНДС" id="406">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Учет НДС</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа учет НДС</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<ExtendedTooltip name="ГруппаУчетНДСРасширеннаяПодсказка" id="407"/>
+									<ChildItems>
+										<CheckBoxField name="УчитыватьНДС" id="400">
+											<DataPath>Объект.УчитыватьНДС</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="УчитыватьНДСКонтекстноеМеню" id="401"/>
+											<ExtendedTooltip name="УчитыватьНДСРасширеннаяПодсказка" id="402"/>
+										</CheckBoxField>
+										<CheckBoxField name="СуммаВключаетНДС" id="403">
+											<DataPath>Объект.СуммаВключаетНДС</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="СуммаВключаетНДСКонтекстноеМеню" id="404"/>
+											<ExtendedTooltip name="СуммаВключаетНДСРасширеннаяПодсказка" id="405"/>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>

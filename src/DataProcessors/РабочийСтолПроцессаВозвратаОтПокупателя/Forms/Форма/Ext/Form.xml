@@ -201,15 +201,15 @@
 									<ContextMenu name="АктыРассмотренияВозвратаСсылкаКонтекстноеМеню" id="15"/>
 									<ExtendedTooltip name="АктыРассмотренияВозвратаСсылкаРасширеннаяПодсказка" id="16"/>
 								</LabelField>
+								<LabelField name="АктыРассмотренияВозвратаФилиал" id="110">
+									<DataPath>АктыРассмотренияВозврата.Филиал</DataPath>
+									<ContextMenu name="АктыРассмотренияВозвратаФилиалКонтекстноеМеню" id="111"/>
+									<ExtendedTooltip name="АктыРассмотренияВозвратаФилиалРасширеннаяПодсказка" id="112"/>
+								</LabelField>
 								<LabelField name="АктыРассмотренияВозвратаКонтрагент" id="17">
 									<DataPath>АктыРассмотренияВозврата.Контрагент</DataPath>
 									<ContextMenu name="АктыРассмотренияВозвратаКонтрагентКонтекстноеМеню" id="18"/>
 									<ExtendedTooltip name="АктыРассмотренияВозвратаКонтрагентРасширеннаяПодсказка" id="19"/>
-								</LabelField>
-								<LabelField name="АктыРассмотренияВозвратаКонтрагентОсновнаяТорговаяТочкаРегион" id="102">
-									<DataPath>АктыРассмотренияВозврата.Контрагент.ОсновнаяТорговаяТочка.Регион</DataPath>
-									<ContextMenu name="АктыРассмотренияВозвратаКонтрагентОсновнаяТорговаяТочкаРегионКонтекстноеМеню" id="103"/>
-									<ExtendedTooltip name="АктыРассмотренияВозвратаКонтрагентОсновнаяТорговаяТочкаРегионРасширеннаяПодсказка" id="104"/>
 								</LabelField>
 								<LabelField name="АктыРассмотренияВозвратаОтветственный" id="20">
 									<DataPath>АктыРассмотренияВозврата.Ответственный</DataPath>
@@ -226,6 +226,11 @@
 									</Title>
 									<ContextMenu name="АктыРассмотренияВозвратаСтатусДокументаКонтекстноеМеню" id="24"/>
 									<ExtendedTooltip name="АктыРассмотренияВозвратаСтатусДокументаРасширеннаяПодсказка" id="25"/>
+								</LabelField>
+								<LabelField name="АктыРассмотренияВозвратаВозвратТоваровОтПокупателя" id="107">
+									<DataPath>АктыРассмотренияВозврата.ВозвратТоваровОтПокупателя</DataPath>
+									<ContextMenu name="АктыРассмотренияВозвратаВозвратТоваровОтПокупателяКонтекстноеМеню" id="108"/>
+									<ExtendedTooltip name="АктыРассмотренияВозвратаВозвратТоваровОтПокупателяРасширеннаяПодсказка" id="109"/>
 								</LabelField>
 								<LabelField name="АктыРассмотренияВозвратаВозвратТоваровОтПокупателяСтатусДокумента" id="99">
 									<DataPath>АктыРассмотренияВозврата.ВозвратТоваровОтПокупателя.СтатусДокумента</DataPath>
@@ -310,7 +315,8 @@
 	ДокументАктРассмотренияВозврата.КомментарийСайт,
 	ДокументАктРассмотренияВозврата.КодВозвратаОбновленИзТоплог,
 	ДокументАктРассмотренияВозврата.Поставщик,
-	ВозвратТоваровОтПокупателя.Ссылка КАК ВозвратТоваровОтПокупателя
+	ВозвратТоваровОтПокупателя.Ссылка КАК ВозвратТоваровОтПокупателя,
+	ДокументАктРассмотренияВозврата.Филиал
 ИЗ
 	Документ.АктРассмотренияВозврата КАК ДокументАктРассмотренияВозврата
 		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ВозвратТоваровОтПокупателя КАК ВозвратТоваровОтПокупателя
@@ -326,7 +332,7 @@
 						</dcsset:item>
 						<dcsset:item xsi:type="dcsset:FilterItemComparison">
 							<dcsset:use>false</dcsset:use>
-							<dcsset:left xsi:type="dcscor:Field">Контрагент.ОсновнаяТорговаяТочка.Регион</dcsset:left>
+							<dcsset:left xsi:type="dcscor:Field">Филиал</dcsset:left>
 							<dcsset:comparisonType>Equal</dcsset:comparisonType>
 							<dcsset:userSettingID>8fb06cb5-007f-4c2b-a334-d6e45f4fd624</dcsset:userSettingID>
 						</dcsset:item>
@@ -349,6 +355,25 @@
 							<dcsset:comparisonType>Equal</dcsset:comparisonType>
 							<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.СтатусыДокументов.ВозвратТоваровОтПокупателяНовый</dcsset:right>
 							<dcsset:userSettingID>a053affc-3fdf-4f25-97ec-161241c95dd9</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">ВозвратТоваровОтПокупателя</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:userSettingID>07e55e1b-6442-433f-a38b-ccfc88ebb9aa</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Штрихкод</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:string"/>
+							<dcsset:userSettingID>e2613eda-024d-4460-978a-c90c081a19c7</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Ссылка.Товары.Номенклатура</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:userSettingID>4cc32818-cc04-4f47-bcc5-db6a79818b00</dcsset:userSettingID>
 						</dcsset:item>
 						<dcsset:item xsi:type="dcsset:FilterItemComparison">
 							<dcsset:use>false</dcsset:use>
