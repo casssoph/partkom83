@@ -956,13 +956,19 @@
 											<OpenButton>true</OpenButton>
 											<ContextMenu name="ТоварыСтрокаПриходаКонтекстноеМеню" id="365"/>
 											<ExtendedTooltip name="ТоварыСтрокаПриходаРасширеннаяПодсказка" id="366"/>
+											<Events>
+												<Event name="OnChange">ТоварыСтрокаПриходаПриИзменении</Event>
+											</Events>
 										</InputField>
-										<InputField name="ТоварыСтрокаПриходаПриход" id="525">
-											<DataPath>Объект.Товары.СтрокаПрихода.Приход</DataPath>
+										<InputField name="ТоварыПриход" id="525">
+											<DataPath>Объект.Товары.Приход</DataPath>
 											<EditMode>EnterOnInput</EditMode>
+											<ChoiceButton>false</ChoiceButton>
 											<OpenButton>true</OpenButton>
-											<ContextMenu name="ТоварыСтрокаПриходаПриходКонтекстноеМеню" id="526"/>
-											<ExtendedTooltip name="ТоварыСтрокаПриходаПриходРасширеннаяПодсказка" id="527"/>
+											<ChooseType>false</ChooseType>
+											<TextEdit>false</TextEdit>
+											<ContextMenu name="ТоварыПриходКонтекстноеМеню" id="526"/>
+											<ExtendedTooltip name="ТоварыПриходРасширеннаяПодсказка" id="527"/>
 										</InputField>
 										<ColumnGroup name="ТоварыГруппаСебестоимость" id="523">
 											<Title>
@@ -1609,7 +1615,22 @@
 				<Field>Объект.RegisterRecords</Field>
 			</UseAlways>
 			<Columns>
-				<AdditionalColumns table="Объект.Товары"/>
+				<AdditionalColumns table="Объект.Товары">
+					<Column name="Приход" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Приход</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:DocumentRef.ОприходованиеТоваров</v8:Type>
+							<v8:Type>cfg:DocumentRef.ПерестикеровкаПереоценка</v8:Type>
+							<v8:Type>cfg:DocumentRef.ВозвратТоваровОтПокупателя</v8:Type>
+							<v8:Type>cfg:DocumentRef.ПоступлениеТоваровУслуг</v8:Type>
+						</Type>
+					</Column>
+				</AdditionalColumns>
 			</Columns>
 		</Attribute>
 		<Attribute name="ТаблицаКоманд" id="2">
