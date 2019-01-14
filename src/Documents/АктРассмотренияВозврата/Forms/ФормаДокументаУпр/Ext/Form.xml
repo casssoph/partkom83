@@ -1325,6 +1325,22 @@
 							<EnableStartDrag>true</EnableStartDrag>
 							<DataPath>СписокЭП</DataPath>
 							<RowPictureDataPath>СписокЭП.DefaultPicture</RowPictureDataPath>
+							<CommandSet>
+								<ExcludedCommand>UndoPosting</ExcludedCommand>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>LoadDynamicListSettings</ExcludedCommand>
+								<ExcludedCommand>DynamicListStandardSettings</ExcludedCommand>
+								<ExcludedCommand>OutputList</ExcludedCommand>
+								<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+								<ExcludedCommand>Choose</ExcludedCommand>
+								<ExcludedCommand>SaveDynamicListSettings</ExcludedCommand>
+								<ExcludedCommand>SetDeletionMark</ExcludedCommand>
+								<ExcludedCommand>SearchHistory</ExcludedCommand>
+								<ExcludedCommand>SetDateInterval</ExcludedCommand>
+								<ExcludedCommand>Post</ExcludedCommand>
+								<ExcludedCommand>ShowMultipleSelection</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+							</CommandSet>
 							<AutoRefresh>false</AutoRefresh>
 							<AutoRefreshPeriod>60</AutoRefreshPeriod>
 							<Period>
@@ -1339,7 +1355,17 @@
 							<AllowRootChoice>false</AllowRootChoice>
 							<UpdateOnDataChange>Auto</UpdateOnDataChange>
 							<ContextMenu name="СписокЭПКонтекстноеМеню" id="176"/>
-							<AutoCommandBar name="СписокЭПКоманднаяПанель" id="177"/>
+							<AutoCommandBar name="СписокЭПКоманднаяПанель" id="177">
+								<ChildItems>
+									<Button name="СписокЭПОбновить" id="528">
+										<Type>CommandBarButton</Type>
+										<Representation>Picture</Representation>
+										<OnlyInAllActions>true</OnlyInAllActions>
+										<CommandName>Form.Item.СписокЭП.StandardCommand.Refresh</CommandName>
+										<ExtendedTooltip name="СписокЭПОбновитьРасширеннаяПодсказка" id="529"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
 							<ExtendedTooltip name="СписокЭПРасширеннаяПодсказка" id="178"/>
 							<SearchStringAddition name="СписокЭПСтрокаПоиска" id="179">
 								<AdditionSource>
