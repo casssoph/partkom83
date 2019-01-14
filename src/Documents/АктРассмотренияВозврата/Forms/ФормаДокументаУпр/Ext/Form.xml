@@ -957,26 +957,51 @@
 											<ContextMenu name="ТоварыСтрокаПриходаКонтекстноеМеню" id="365"/>
 											<ExtendedTooltip name="ТоварыСтрокаПриходаРасширеннаяПодсказка" id="366"/>
 										</InputField>
-										<InputField name="ТоварыСебестоимостьЦена" id="128">
-											<DataPath>Объект.Товары.СебестоимостьЦена</DataPath>
-											<ReadOnly>true</ReadOnly>
+										<InputField name="ТоварыСтрокаПриходаПриход" id="525">
+											<DataPath>Объект.Товары.СтрокаПрихода.Приход</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<OpenButton>true</OpenButton>
+											<ContextMenu name="ТоварыСтрокаПриходаПриходКонтекстноеМеню" id="526"/>
+											<ExtendedTooltip name="ТоварыСтрокаПриходаПриходРасширеннаяПодсказка" id="527"/>
+										</InputField>
+										<ColumnGroup name="ТоварыГруппаСебестоимость" id="523">
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Себестоимость (цена)</v8:content>
+													<v8:content>Себестоимость</v8:content>
 												</v8:item>
 											</Title>
-											<EditMode>EnterOnInput</EditMode>
-											<ContextMenu name="ТоварыСебестоимостьЦенаКонтекстноеМеню" id="129"/>
-											<ExtendedTooltip name="ТоварыСебестоимостьЦенаРасширеннаяПодсказка" id="130"/>
-										</InputField>
-										<InputField name="ТоварыСебестоимость" id="375">
-											<DataPath>Объект.Товары.Себестоимость</DataPath>
-											<ReadOnly>true</ReadOnly>
-											<EditMode>EnterOnInput</EditMode>
-											<ContextMenu name="ТоварыСебестоимостьКонтекстноеМеню" id="376"/>
-											<ExtendedTooltip name="ТоварыСебестоимостьРасширеннаяПодсказка" id="377"/>
-										</InputField>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Товары группа себестоимость</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Horizontal</Group>
+											<ExtendedTooltip name="ТоварыГруппаСебестоимостьРасширеннаяПодсказка" id="524"/>
+											<ChildItems>
+												<InputField name="ТоварыСебестоимостьЦена" id="128">
+													<DataPath>Объект.Товары.СебестоимостьЦена</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Себестоимость (цена)</v8:content>
+														</v8:item>
+													</Title>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ТоварыСебестоимостьЦенаКонтекстноеМеню" id="129"/>
+													<ExtendedTooltip name="ТоварыСебестоимостьЦенаРасширеннаяПодсказка" id="130"/>
+												</InputField>
+												<InputField name="ТоварыСебестоимость" id="375">
+													<DataPath>Объект.Товары.Себестоимость</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ТоварыСебестоимостьКонтекстноеМеню" id="376"/>
+													<ExtendedTooltip name="ТоварыСебестоимостьРасширеннаяПодсказка" id="377"/>
+												</InputField>
+											</ChildItems>
+										</ColumnGroup>
 									</ChildItems>
 								</ColumnGroup>
 							</ChildItems>
