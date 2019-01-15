@@ -442,17 +442,38 @@
 									<ThroughAlign>Use</ThroughAlign>
 									<ExtendedTooltip name="ГруппаШапкаПравоРасширеннаяПодсказка" id="166"/>
 									<ChildItems>
-										<InputField name="ШтрихКод" id="22">
-											<DataPath>Объект.Штрихкод</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<ContextMenu name="ШтрихКодКонтекстноеМеню" id="23"/>
-											<ExtendedTooltip name="ШтрихКодРасширеннаяПодсказка" id="24"/>
-										</InputField>
-										<InputField name="СрокВозвратаКлиента" id="314">
-											<DataPath>Объект.СрокВозвратаКлиента</DataPath>
-											<ContextMenu name="СрокВозвратаКлиентаКонтекстноеМеню" id="315"/>
-											<ExtendedTooltip name="СрокВозвратаКлиентаРасширеннаяПодсказка" id="316"/>
-										</InputField>
+										<UsualGroup name="ГруппаШКСрокВозврата" id="547">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа ШКСрок возврата</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа ШКСрок возврата</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ThroughAlign>Use</ThroughAlign>
+											<ExtendedTooltip name="ГруппаШКСрокВозвратаРасширеннаяПодсказка" id="548"/>
+											<ChildItems>
+												<InputField name="СрокВозвратаКлиента" id="314">
+													<DataPath>Объект.СрокВозвратаКлиента</DataPath>
+													<ContextMenu name="СрокВозвратаКлиентаКонтекстноеМеню" id="315"/>
+													<ExtendedTooltip name="СрокВозвратаКлиентаРасширеннаяПодсказка" id="316"/>
+												</InputField>
+												<InputField name="ШтрихКод" id="22">
+													<DataPath>Объект.Штрихкод</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ШтрихКодКонтекстноеМеню" id="23"/>
+													<ExtendedTooltip name="ШтрихКодРасширеннаяПодсказка" id="24"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
 										<InputField name="ПричинаВозврата" id="361">
 											<DataPath>Объект.ПричинаВозврата</DataPath>
 											<ChoiceParameters>
