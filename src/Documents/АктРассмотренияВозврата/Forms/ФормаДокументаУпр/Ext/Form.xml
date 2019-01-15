@@ -363,15 +363,47 @@
 											<ContextMenu name="КонтрагентКонтекстноеМеню" id="14"/>
 											<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="15"/>
 										</InputField>
-										<InputField name="Ответственный" id="10">
-											<DataPath>Объект.Ответственный</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<ContextMenu name="ОтветственныйКонтекстноеМеню" id="11"/>
-											<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="12"/>
-											<Events>
-												<Event name="OnChange">ОтветственныйПриИзменении</Event>
-											</Events>
-										</InputField>
+										<UsualGroup name="ГруппаОтветственный" id="551">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа ответственный</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа ответственный</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаОтветственныйРасширеннаяПодсказка" id="552"/>
+											<ChildItems>
+												<InputField name="Ответственный" id="10">
+													<DataPath>Объект.Ответственный</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<DropListWidth>40</DropListWidth>
+													<ContextMenu name="ОтветственныйКонтекстноеМеню" id="11"/>
+													<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="12"/>
+													<Events>
+														<Event name="OnChange">ОтветственныйПриИзменении</Event>
+														<Event name="StartChoice">ОтветственныйНачалоВыбора</Event>
+													</Events>
+												</InputField>
+												<Button name="ВыбратьПользователяГруппыДоступности" id="553">
+													<Type>UsualButton</Type>
+													<Representation>Picture</Representation>
+													<CommandName>Form.Command.ВыбратьПользователяГруппыДоступности</CommandName>
+													<Picture>
+														<xr:Ref>CommonPicture.СостояниеПользователя02</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+													</Picture>
+													<ExtendedTooltip name="ВыбратьПользователяГруппыДоступностиРасширеннаяПодсказка" id="554"/>
+												</Button>
+											</ChildItems>
+										</UsualGroup>
 										<UsualGroup name="ГруппаДокументПродажи" id="371">
 											<Title>
 												<v8:item>
@@ -2364,6 +2396,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗагрузитьДокументИзБазы77</Action>
+		</Command>
+		<Command name="ВыбратьПользователяГруппыДоступности" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать пользователя группы доступности</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать ответственного из своей группы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыбратьПользователяГруппыДоступности</Action>
 		</Command>
 	</Commands>
 	<CommandInterface>
