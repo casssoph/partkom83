@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<ScalingMode>Compact</ScalingMode>
 	<AutoTime>CurrentOrLast</AutoTime>
 	<UsePostingMode>Auto</UsePostingMode>
 	<RepostOnWrite>true</RepostOnWrite>
@@ -413,6 +414,16 @@
 											<ContextMenu name="БезоговорочныйВозвратКонтекстноеМеню" id="154"/>
 											<ExtendedTooltip name="БезоговорочныйВозвратРасширеннаяПодсказка" id="155"/>
 										</CheckBoxField>
+										<LabelDecoration name="ВозвратТоваровОтПокупателяНадпись" id="538">
+											<HorizontalStretch>true</HorizontalStretch>
+											<TextColor>style:FieldSelectionBackColor</TextColor>
+											<Hyperlink>true</Hyperlink>
+											<ContextMenu name="ВозвратТоваровОтПокупателяНадписьКонтекстноеМеню" id="539"/>
+											<ExtendedTooltip name="ВозвратТоваровОтПокупателяНадписьРасширеннаяПодсказка" id="540"/>
+											<Events>
+												<Event name="Click">ВозвратТоваровОтПокупателяНадписьНажатие</Event>
+											</Events>
+										</LabelDecoration>
 									</ChildItems>
 								</UsualGroup>
 								<UsualGroup name="ГруппаШапкаПраво" id="165">
@@ -1967,6 +1978,17 @@
 					<v8:FractionDigits>2</v8:FractionDigits>
 					<v8:AllowedSign>Any</v8:AllowedSign>
 				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВозвратТоваровОтПокупателя" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возврат товаров от покупателя</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.ВозвратТоваровОтПокупателя</v8:Type>
 			</Type>
 		</Attribute>
 		<ConditionalAppearance>
