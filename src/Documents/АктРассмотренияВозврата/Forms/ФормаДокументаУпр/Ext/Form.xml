@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<VerticalSpacing>Half</VerticalSpacing>
 	<ScalingMode>Compact</ScalingMode>
 	<AutoTime>CurrentOrLast</AutoTime>
 	<UsePostingMode>Auto</UsePostingMode>
@@ -211,6 +212,7 @@
 							<v8:content>Основное</v8:content>
 						</v8:item>
 					</ToolTip>
+					<ScrollOnCompress>true</ScrollOnCompress>
 					<ExtendedTooltip name="ОсновноеРасширеннаяПодсказка" id="172"/>
 					<ChildItems>
 						<UsualGroup name="ГруппаШапка" id="167">
@@ -227,6 +229,7 @@
 								</v8:item>
 							</ToolTip>
 							<Group>Horizontal</Group>
+							<ChildItemsWidth>Equal</ChildItemsWidth>
 							<ShowTitle>false</ShowTitle>
 							<ThroughAlign>Use</ThroughAlign>
 							<ExtendedTooltip name="ГруппаШапкаРасширеннаяПодсказка" id="168"/>
@@ -408,12 +411,6 @@
 												</Button>
 											</ChildItems>
 										</UsualGroup>
-										<CheckBoxField name="БезоговорочныйВозврат" id="153">
-											<DataPath>Объект.БезоговорочныйВозврат</DataPath>
-											<CheckBoxType>Auto</CheckBoxType>
-											<ContextMenu name="БезоговорочныйВозвратКонтекстноеМеню" id="154"/>
-											<ExtendedTooltip name="БезоговорочныйВозвратРасширеннаяПодсказка" id="155"/>
-										</CheckBoxField>
 										<LabelDecoration name="ВозвратТоваровОтПокупателяНадпись" id="538">
 											<HorizontalStretch>true</HorizontalStretch>
 											<TextColor>style:FieldSelectionBackColor</TextColor>
@@ -442,6 +439,7 @@
 									<Group>Vertical</Group>
 									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
+									<ThroughAlign>Use</ThroughAlign>
 									<ExtendedTooltip name="ГруппаШапкаПравоРасширеннаяПодсказка" id="166"/>
 									<ChildItems>
 										<InputField name="ШтрихКод" id="22">
@@ -449,12 +447,6 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ContextMenu name="ШтрихКодКонтекстноеМеню" id="23"/>
 											<ExtendedTooltip name="ШтрихКодРасширеннаяПодсказка" id="24"/>
-										</InputField>
-										<InputField name="Склад" id="311">
-											<DataPath>Объект.Склад</DataPath>
-											<Visible>false</Visible>
-											<ContextMenu name="СкладКонтекстноеМеню" id="312"/>
-											<ExtendedTooltip name="СкладРасширеннаяПодсказка" id="313"/>
 										</InputField>
 										<InputField name="СрокВозвратаКлиента" id="314">
 											<DataPath>Объект.СрокВозвратаКлиента</DataPath>
@@ -502,11 +494,6 @@
 												<Event name="OnChange">ДоговорКонтрагентаПриИзменении</Event>
 											</Events>
 										</InputField>
-										<InputField name="Поставщик" id="448">
-											<DataPath>Объект.Поставщик</DataPath>
-											<ContextMenu name="ПоставщикКонтекстноеМеню" id="449"/>
-											<ExtendedTooltip name="ПоставщикРасширеннаяПодсказка" id="450"/>
-										</InputField>
 										<InputField name="ВариантСписания" id="487">
 											<DataPath>Объект.ВариантСписания</DataPath>
 											<ContextMenu name="ВариантСписанияКонтекстноеМеню" id="488"/>
@@ -529,9 +516,53 @@
 								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
+						<UsualGroup name="ГруппаОтказВВозврате" id="506">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отказ в возврате:</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа отказ в возврате</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Representation>StrongSeparation</Representation>
+							<ExtendedTooltip name="ГруппаОтказВВозвратеРасширеннаяПодсказка" id="507"/>
+							<ChildItems>
+								<InputField name="ПричинаОтказаВВозврате" id="503">
+									<DataPath>Объект.ПричинаОтказаВВозврате</DataPath>
+									<ContextMenu name="ПричинаОтказаВВозвратеКонтекстноеМеню" id="504"/>
+									<ExtendedTooltip name="ПричинаОтказаВВозвратеРасширеннаяПодсказка" id="505"/>
+									<Events>
+										<Event name="OnChange">ПричинаОтказаВВозвратеПриИзменении</Event>
+									</Events>
+								</InputField>
+								<LabelField name="МенеджерОтказаВВозврате" id="508">
+									<DataPath>Объект.МенеджерОтказаВВозврате</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Менеджер</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="МенеджерОтказаВВозвратеКонтекстноеМеню" id="509"/>
+									<ExtendedTooltip name="МенеджерОтказаВВозвратеРасширеннаяПодсказка" id="510"/>
+								</LabelField>
+								<CheckBoxField name="ОтправленаПричинаОтказаВВозврате" id="511">
+									<DataPath>Объект.ОтправленаПричинаОтказаВВозврате</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ОтправленаПричинаОтказаВВозвратеКонтекстноеМеню" id="512"/>
+									<ExtendedTooltip name="ОтправленаПричинаОтказаВВозвратеРасширеннаяПодсказка" id="513"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
 						<Table name="Товары" id="88">
 							<Representation>List</Representation>
-							<HeightInTableRows>2</HeightInTableRows>
+							<HeightInTableRows>3</HeightInTableRows>
 							<AutoInsertNewRow>true</AutoInsertNewRow>
 							<EnableStartDrag>true</EnableStartDrag>
 							<EnableDrag>true</EnableDrag>
@@ -1116,50 +1147,6 @@
 								</LabelDecoration>
 							</ChildItems>
 						</UsualGroup>
-						<UsualGroup name="ГруппаОтказВВозврате" id="506">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Отказ в возврате:</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа отказ в возврате</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Representation>StrongSeparation</Representation>
-							<ExtendedTooltip name="ГруппаОтказВВозвратеРасширеннаяПодсказка" id="507"/>
-							<ChildItems>
-								<InputField name="ПричинаОтказаВВозврате" id="503">
-									<DataPath>Объект.ПричинаОтказаВВозврате</DataPath>
-									<ContextMenu name="ПричинаОтказаВВозвратеКонтекстноеМеню" id="504"/>
-									<ExtendedTooltip name="ПричинаОтказаВВозвратеРасширеннаяПодсказка" id="505"/>
-									<Events>
-										<Event name="OnChange">ПричинаОтказаВВозвратеПриИзменении</Event>
-									</Events>
-								</InputField>
-								<LabelField name="МенеджерОтказаВВозврате" id="508">
-									<DataPath>Объект.МенеджерОтказаВВозврате</DataPath>
-									<ReadOnly>true</ReadOnly>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Менеджер</v8:content>
-										</v8:item>
-									</Title>
-									<ContextMenu name="МенеджерОтказаВВозвратеКонтекстноеМеню" id="509"/>
-									<ExtendedTooltip name="МенеджерОтказаВВозвратеРасширеннаяПодсказка" id="510"/>
-								</LabelField>
-								<CheckBoxField name="ОтправленаПричинаОтказаВВозврате" id="511">
-									<DataPath>Объект.ОтправленаПричинаОтказаВВозврате</DataPath>
-									<CheckBoxType>Auto</CheckBoxType>
-									<ContextMenu name="ОтправленаПричинаОтказаВВозвратеКонтекстноеМеню" id="512"/>
-									<ExtendedTooltip name="ОтправленаПричинаОтказаВВозвратеРасширеннаяПодсказка" id="513"/>
-								</CheckBoxField>
-							</ChildItems>
-						</UsualGroup>
 					</ChildItems>
 				</Page>
 				<Page name="Дополнительно" id="378">
@@ -1177,6 +1164,97 @@
 					</ToolTip>
 					<ExtendedTooltip name="ДополнительноРасширеннаяПодсказка" id="379"/>
 					<ChildItems>
+						<UsualGroup name="ГруппаШапкаДополнительно" id="541">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа шапка дополнительно</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа шапка дополнительно</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаШапкаДополнительноРасширеннаяПодсказка" id="542"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаШапкаДополнительноЛево" id="543">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа шапка дополнительно лево</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа шапка дополнительно лево</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаШапкаДополнительноЛевоРасширеннаяПодсказка" id="544"/>
+									<ChildItems>
+										<InputField name="Поставщик" id="448">
+											<DataPath>Объект.Поставщик</DataPath>
+											<ContextMenu name="ПоставщикКонтекстноеМеню" id="449"/>
+											<ExtendedTooltip name="ПоставщикРасширеннаяПодсказка" id="450"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаШапкаДополнительноПраво" id="545">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа шапка дополнительно право</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа шапка дополнительно лево</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаШапкаДополнительноПравоРасширеннаяПодсказка" id="546"/>
+									<ChildItems>
+										<CheckBoxField name="БезоговорочныйВозврат" id="153">
+											<DataPath>Объект.БезоговорочныйВозврат</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="БезоговорочныйВозвратКонтекстноеМеню" id="154"/>
+											<ExtendedTooltip name="БезоговорочныйВозвратРасширеннаяПодсказка" id="155"/>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="VIN" id="496">
+							<DataPath>Объект.VIN</DataPath>
+							<ContextMenu name="VINКонтекстноеМеню" id="497"/>
+							<ExtendedTooltip name="VINРасширеннаяПодсказка" id="498"/>
+						</InputField>
+						<InputField name="КомментарийСайт" id="85">
+							<DataPath>Объект.КомментарийСайт</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="КомментарийСайтКонтекстноеМеню" id="86"/>
+							<ExtendedTooltip name="КомментарийСайтРасширеннаяПодсказка" id="87"/>
+						</InputField>
+						<InputField name="КомментарийГПРК" id="530">
+							<DataPath>Объект.КомментарийГПРК</DataPath>
+							<ContextMenu name="КомментарийГПРККонтекстноеМеню" id="531"/>
+							<ExtendedTooltip name="КомментарийГПРКРасширеннаяПодсказка" id="532"/>
+						</InputField>
+						<InputField name="Комментарий" id="25">
+							<DataPath>Объект.Комментарий</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="КомментарийКонтекстноеМеню" id="26"/>
+							<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="27"/>
+						</InputField>
 						<UsualGroup name="ГруппаСтатусПроверкиБухгалтерией" id="514">
 							<Title>
 								<v8:item>
@@ -1628,28 +1706,6 @@
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="ГруппаКомандыПроцесса_ВнизуФормыРасширеннаяПодсказка" id="152"/>
 		</UsualGroup>
-		<InputField name="VIN" id="496">
-			<DataPath>Объект.VIN</DataPath>
-			<ContextMenu name="VINКонтекстноеМеню" id="497"/>
-			<ExtendedTooltip name="VINРасширеннаяПодсказка" id="498"/>
-		</InputField>
-		<InputField name="КомментарийСайт" id="85">
-			<DataPath>Объект.КомментарийСайт</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<ContextMenu name="КомментарийСайтКонтекстноеМеню" id="86"/>
-			<ExtendedTooltip name="КомментарийСайтРасширеннаяПодсказка" id="87"/>
-		</InputField>
-		<InputField name="КомментарийГПРК" id="530">
-			<DataPath>Объект.КомментарийГПРК</DataPath>
-			<ContextMenu name="КомментарийГПРККонтекстноеМеню" id="531"/>
-			<ExtendedTooltip name="КомментарийГПРКРасширеннаяПодсказка" id="532"/>
-		</InputField>
-		<InputField name="Комментарий" id="25">
-			<DataPath>Объект.Комментарий</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<ContextMenu name="КомментарийКонтекстноеМеню" id="26"/>
-			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="27"/>
-		</InputField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
