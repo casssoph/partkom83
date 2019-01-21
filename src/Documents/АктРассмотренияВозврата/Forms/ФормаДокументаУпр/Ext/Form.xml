@@ -1548,7 +1548,19 @@
 							<UpdateOnDataChange>Auto</UpdateOnDataChange>
 							<ContextMenu name="СписокЭПКонтекстноеМеню" id="176"/>
 							<AutoCommandBar name="СписокЭПКоманднаяПанель" id="177">
+								<Autofill>false</Autofill>
 								<ChildItems>
+									<Button name="СписокЭПСоздатьЭлектронноеПисьмо" id="560">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СоздатьЭлектронноеПисьмо</CommandName>
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Создать</v8:content>
+											</v8:item>
+										</Title>
+										<ExtendedTooltip name="СписокЭПСоздатьЭлектронноеПисьмоРасширеннаяПодсказка" id="561"/>
+									</Button>
 									<Button name="СписокЭПОбновить" id="528">
 										<Type>CommandBarButton</Type>
 										<Representation>Picture</Representation>
@@ -2439,6 +2451,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ВыбратьПользователяГруппыДоступности</Action>
+		</Command>
+		<Command name="СоздатьЭлектронноеПисьмо" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать электронное письмо</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать электронное письмо</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СоздатьЭлектронноеПисьмо1</Action>
 		</Command>
 	</Commands>
 	<CommandInterface>
