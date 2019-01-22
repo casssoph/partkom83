@@ -139,6 +139,16 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Исключен</dataPath>
+			<field>Исключен</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исключен</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	ВзаиморасчетыОстатки.ДоговорКонтрагента.Владелец КАК Контрагент,
@@ -158,13 +168,16 @@
 			ТОГДА "Просроченная"
 		ИНАЧЕ "Непросроченная"
 	КОНЕЦ КАК ВидЗадолженности,
-	1 КАК ОтборПоДоговору
+	1 КАК ОтборПоДоговору,
+	НЕ ИсключаемыеПоставщикиИзКалендаряОплат.Контрагент ЕСТЬ NULL КАК Исключен
 ИЗ
 	РегистрНакопления.Взаиморасчеты.Остатки(
 			{(&amp;НачалоПериода)},
 			ДоговорКонтрагента.ВидДоговора = ЗНАЧЕНИЕ(Перечисление.ВидыДоговоровКонтрагентов.ОтветХранение)
 				И ВЫРАЗИТЬ(ДокументРасчетов КАК Документ.ПоступлениеТоваровУслуг).ВидОперацииПоступления = ЗНАЧЕНИЕ(Перечисление.ВидыПоступленияТоваров.ЗачетТовараVMI)
 				И ВЫРАЗИТЬ(ДокументРасчетов КАК Документ.ПоступлениеТоваровУслуг).ДатаОплаты &lt;= &amp;ОкончаниеПериода {(ДоговорКонтрагента).*, (ДокументРасчетов).*}) КАК ВзаиморасчетыОстатки
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ИсключаемыеПоставщикиИзКалендаряОплат КАК ИсключаемыеПоставщикиИзКалендаряОплат
+		ПО ВзаиморасчетыОстатки.ДоговорКонтрагента.Владелец = ИсключаемыеПоставщикиИзКалендаряОплат.Контрагент
 
 ОБЪЕДИНИТЬ ВСЕ
 
@@ -190,13 +203,16 @@
 		КОГДА ВзаиморасчетыОстатки.ДоговорКонтрагента.ДоговорНаОферту
 			ТОГДА 2
 		ИНАЧЕ 3
-	КОНЕЦ
+	КОНЕЦ,
+	НЕ ИсключаемыеПоставщикиИзКалендаряОплат.Контрагент ЕСТЬ NULL
 ИЗ
 	РегистрНакопления.Взаиморасчеты.Остатки(
 			{(&amp;НачалоПериода)},
 			НЕ ДоговорКонтрагента.ВидДоговора = ЗНАЧЕНИЕ(Перечисление.ВидыДоговоровКонтрагентов.ОтветХранение)
 				И НЕ ВЫРАЗИТЬ(ДокументРасчетов КАК Документ.ПоступлениеТоваровУслуг).ВидОперацииПоступления = ЗНАЧЕНИЕ(Перечисление.ВидыПоступленияТоваров.ЗачетТовараVMI)
-				И ВЫРАЗИТЬ(ДокументРасчетов КАК Документ.ПоступлениеТоваровУслуг).ДатаОплаты &lt;= &amp;ОкончаниеПериода {(ДоговорКонтрагента).*, (ДокументРасчетов).*}) КАК ВзаиморасчетыОстатки</query>
+				И ВЫРАЗИТЬ(ДокументРасчетов КАК Документ.ПоступлениеТоваровУслуг).ДатаОплаты &lt;= &amp;ОкончаниеПериода {(ДоговорКонтрагента).*, (ДокументРасчетов).*}) КАК ВзаиморасчетыОстатки
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ИсключаемыеПоставщикиИзКалендаряОплат КАК ИсключаемыеПоставщикиИзКалендаряОплат
+		ПО ВзаиморасчетыОстатки.ДоговорКонтрагента.Владелец = ИсключаемыеПоставщикиИзКалендаряОплат.Контрагент</query>
 	</dataSet>
 	<dataSet xsi:type="DataSetQuery">
 		<name>ОстаткиПоКонтрагентам</name>
@@ -385,6 +401,30 @@
 					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
 					<dcsset:userSettingID>b9335aa4-160c-464c-a438-b92bd09a4559</dcsset:userSettingID>
 				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Контрагент.Организация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Организации.ПустаяСсылка</dcsset:right>
+					<dcsset:presentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исключать собственные организации</v8:content>
+						</v8:item>
+					</dcsset:presentation>
+					<dcsset:userSettingID>bea2c370-0a9b-48ea-a42c-297a436b7288</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Исключен</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:presentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исключать поставщиков из регистра </v8:content>
+						</v8:item>
+					</dcsset:presentation>
+					<dcsset:userSettingID>07a15f26-2e73-4c6d-b782-eede97eccaa4</dcsset:userSettingID>
+				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemGroup">
 					<dcsset:groupType>OrGroup</dcsset:groupType>
 					<dcsset:item xsi:type="dcsset:FilterItemComparison">
@@ -397,7 +437,7 @@
 								<v8:content>Договоры VMI</v8:content>
 							</v8:item>
 						</dcsset:presentation>
-						<dcsset:userSettingID>4d4517ea-61af-43f3-953a-bb33c5edcba0</dcsset:userSettingID>
+						<dcsset:userSettingID>c17d7fd6-b725-4072-bc74-ac2c38455e85</dcsset:userSettingID>
 					</dcsset:item>
 					<dcsset:item xsi:type="dcsset:FilterItemComparison">
 						<dcsset:left xsi:type="dcscor:Field">ОтборПоДоговору</dcsset:left>
@@ -409,7 +449,7 @@
 								<v8:content>Договоры оферты</v8:content>
 							</v8:item>
 						</dcsset:presentation>
-						<dcsset:userSettingID>5e9f7d42-d349-4169-9f89-a3740c8cba54</dcsset:userSettingID>
+						<dcsset:userSettingID>3fc5628d-7916-4a85-94e3-b99ddf6ce178</dcsset:userSettingID>
 					</dcsset:item>
 					<dcsset:item xsi:type="dcsset:FilterItemComparison">
 						<dcsset:left xsi:type="dcscor:Field">ОтборПоДоговору</dcsset:left>
@@ -421,10 +461,10 @@
 								<v8:content>Обычные договоры</v8:content>
 							</v8:item>
 						</dcsset:presentation>
-						<dcsset:userSettingID>c102e182-ba15-4220-99f2-c92cfc470168</dcsset:userSettingID>
+						<dcsset:userSettingID>b63127db-ee0f-4881-91ee-5c8c25ea9fb4</dcsset:userSettingID>
 					</dcsset:item>
 					<dcsset:viewMode>Normal</dcsset:viewMode>
-					<dcsset:userSettingID>84147f37-694c-4581-be73-8259b8511451</dcsset:userSettingID>
+					<dcsset:userSettingID>415cb621-36c3-4f89-99ee-778c3fbfdc16</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>121b9ad6-9979-46b8-a528-9322c791a665</dcsset:userSettingID>
