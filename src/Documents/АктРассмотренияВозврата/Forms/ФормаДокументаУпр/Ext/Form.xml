@@ -217,6 +217,12 @@
 					<ScrollOnCompress>true</ScrollOnCompress>
 					<ExtendedTooltip name="ОсновноеРасширеннаяПодсказка" id="172"/>
 					<ChildItems>
+						<LabelDecoration name="ТекстОшибкиОбработки" id="562">
+							<HorizontalStretch>true</HorizontalStretch>
+							<TextColor>#E40000</TextColor>
+							<ContextMenu name="ТекстОшибкиОбработкиКонтекстноеМеню" id="563"/>
+							<ExtendedTooltip name="ТекстОшибкиОбработкиРасширеннаяПодсказка" id="564"/>
+						</LabelDecoration>
 						<UsualGroup name="ГруппаШапка" id="167">
 							<Title>
 								<v8:item>
@@ -552,6 +558,22 @@
 													<ContextMenu name="ШтрихКодКонтекстноеМеню" id="23"/>
 													<ExtendedTooltip name="ШтрихКодРасширеннаяПодсказка" id="24"/>
 												</InputField>
+												<PictureDecoration name="КартинкаОшибки" id="565">
+													<Width>3</Width>
+													<Height>1</Height>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Картинка ошибки</v8:content>
+														</v8:item>
+													</Title>
+													<Picture>
+														<xr:Ref>CommonPicture.СостояниеОбменаДаннымиОшибка</xr:Ref>
+														<xr:LoadTransparent>true</xr:LoadTransparent>
+													</Picture>
+													<ContextMenu name="КартинкаОшибкиКонтекстноеМеню" id="566"/>
+													<ExtendedTooltip name="КартинкаОшибкиРасширеннаяПодсказка" id="567"/>
+												</PictureDecoration>
 											</ChildItems>
 										</UsualGroup>
 										<InputField name="ПричинаВозврата" id="361">
