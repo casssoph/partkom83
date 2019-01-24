@@ -629,11 +629,17 @@
 											<DataPath>Объект.ВиновноеЛицоДляСписания</DataPath>
 											<ContextMenu name="ВиновноеЛицоДляСписанияКонтекстноеМеню" id="491"/>
 											<ExtendedTooltip name="ВиновноеЛицоДляСписанияРасширеннаяПодсказка" id="492"/>
+											<Events>
+												<Event name="OnChange">ВиновноеЛицоДляСписанияПриИзменении</Event>
+											</Events>
 										</InputField>
 										<InputField name="КодСписания" id="493">
 											<DataPath>Объект.КодСписания</DataPath>
 											<ContextMenu name="КодСписанияКонтекстноеМеню" id="494"/>
 											<ExtendedTooltip name="КодСписанияРасширеннаяПодсказка" id="495"/>
+											<Events>
+												<Event name="OnChange">КодСписанияПриИзменении</Event>
+											</Events>
 										</InputField>
 										<InputField name="Поставщик" id="448">
 											<DataPath>Объект.Поставщик</DataPath>
