@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Схема процесса возвратов</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаПример" id="28">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Command.Пример</CommandName>
+				<ExtendedTooltip name="ФормаПримерРасширеннаяПодсказка" id="29"/>
+			</Button>
+			<Button name="ФормаВозвраты" id="34">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Возвраты</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Обновить</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаВозвратыРасширеннаяПодсказка" id="35"/>
+			</Button>
+			<Button name="ФормаСохранитьИзменения" id="36">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.СохранитьИзменения</CommandName>
+				<ExtendedTooltip name="ФормаСохранитьИзмененияРасширеннаяПодсказка" id="37"/>
+			</Button>
+			<Button name="ФормаУдалить" id="26">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Command.Удалить</CommandName>
+				<ExtendedTooltip name="ФормаУдалитьРасширеннаяПодсказка" id="27"/>
+			</Button>
+			<Button name="ФормаВставитьВариант" id="30">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Command.ВставитьВариант</CommandName>
+				<ExtendedTooltip name="ФормаВставитьВариантРасширеннаяПодсказка" id="31"/>
+			</Button>
+			<Button name="ФормаУдалитьВариант" id="32">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Command.УдалитьВариант</CommandName>
+				<ExtendedTooltip name="ФормаУдалитьВариантРасширеннаяПодсказка" id="33"/>
+			</Button>
+			<Button name="ФормаВставитьЭлементСтарт" id="4">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Item.ГрафСхема.StandardCommand.InsertItemStart</CommandName>
+				<ExtendedTooltip name="ФормаВставитьЭлементСтартРасширеннаяПодсказка" id="5"/>
+			</Button>
+			<Button name="ФормаВставитьЭлементЗавершение" id="6">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Item.ГрафСхема.StandardCommand.InsertItemCompletion</CommandName>
+				<ExtendedTooltip name="ФормаВставитьЭлементЗавершениеРасширеннаяПодсказка" id="7"/>
+			</Button>
+			<Button name="ФормаВставитьЭлементДействие" id="8">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Item.ГрафСхема.StandardCommand.InsertItemActivity</CommandName>
+				<ExtendedTooltip name="ФормаВставитьЭлементДействиеРасширеннаяПодсказка" id="9"/>
+			</Button>
+			<Button name="ФормаВставитьЭлементУсловие" id="10">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Item.ГрафСхема.StandardCommand.InsertItemCondition</CommandName>
+				<ExtendedTooltip name="ФормаВставитьЭлементУсловиеРасширеннаяПодсказка" id="11"/>
+			</Button>
+			<Button name="ФормаВставитьЭлементВыборВарианта" id="12">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Item.ГрафСхема.StandardCommand.InsertItemSwitch</CommandName>
+				<ExtendedTooltip name="ФормаВставитьЭлементВыборВариантаРасширеннаяПодсказка" id="13"/>
+			</Button>
+			<Button name="ФормаВставитьЭлементРазделение" id="14">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Item.ГрафСхема.StandardCommand.InsertItemSplit</CommandName>
+				<ExtendedTooltip name="ФормаВставитьЭлементРазделениеРасширеннаяПодсказка" id="15"/>
+			</Button>
+			<Button name="ФормаВставитьЭлементСлияние" id="16">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Item.ГрафСхема.StandardCommand.InsertItemJoin</CommandName>
+				<ExtendedTooltip name="ФормаВставитьЭлементСлияниеРасширеннаяПодсказка" id="17"/>
+			</Button>
+			<Button name="ФормаВставитьЭлементОбработка" id="18">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Item.ГрафСхема.StandardCommand.InsertItemProcessing</CommandName>
+				<ExtendedTooltip name="ФормаВставитьЭлементОбработкаРасширеннаяПодсказка" id="19"/>
+			</Button>
+			<Button name="ФормаВставитьЭлементВложенныйБизнесПроцесс" id="20">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Item.ГрафСхема.StandardCommand.InsertItemSubBusinessProcess</CommandName>
+				<ExtendedTooltip name="ФормаВставитьЭлементВложенныйБизнесПроцессРасширеннаяПодсказка" id="21"/>
+			</Button>
+			<Button name="ФормаВставитьЭлементДекоративнаяЛиния" id="22">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Item.ГрафСхема.StandardCommand.InsertItemDecorativeLine</CommandName>
+				<ExtendedTooltip name="ФормаВставитьЭлементДекоративнаяЛинияРасширеннаяПодсказка" id="23"/>
+			</Button>
+			<Button name="ФормаВставитьЭлементДекорация" id="24">
+				<Type>CommandBarButton</Type>
+				<Visible>false</Visible>
+				<CommandName>Form.Item.ГрафСхема.StandardCommand.InsertItemDecoration</CommandName>
+				<ExtendedTooltip name="ФормаВставитьЭлементДекорацияРасширеннаяПодсказка" id="25"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+	</Events>
+	<ChildItems>
+		<GraphicalSchemaField name="ГрафСхема" id="1">
+			<DataPath>ГрафСхема</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<ContextMenu name="ГрафСхемаКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ГрафСхемаРасширеннаяПодсказка" id="3"/>
+			<Events>
+				<Event name="Selection">ГрафСхемаВыбор</Event>
+			</Events>
+		</GraphicalSchemaField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ГрафСхема" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Граф схема</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.2/data/graphscheme">d5p1:FlowchartContextType</v8:Type>
+			</Type>
+			<Settings xmlns:d4p1="http://v8.1c.ru/8.2/data/graphscheme" xsi:type="d4p1:FlowchartContextType">
+				<d4p1:backColor>style:FieldBackColor</d4p1:backColor>
+				<d4p1:enableGrid>false</d4p1:enableGrid>
+				<d4p1:drawGridMode>Lines</d4p1:drawGridMode>
+				<d4p1:gridHorizontalStep>20</d4p1:gridHorizontalStep>
+				<d4p1:gridVerticalStep>20</d4p1:gridVerticalStep>
+				<d4p1:bpUUID>00000000-0000-0000-0000-000000000000</d4p1:bpUUID>
+				<d4p1:useOutput>Auto</d4p1:useOutput>
+				<d4p1:printPropItem>
+					<d4p1:key>6</d4p1:key>
+					<d4p1:val>10</d4p1:val>
+				</d4p1:printPropItem>
+				<d4p1:printPropItem>
+					<d4p1:key>7</d4p1:key>
+					<d4p1:val>10</d4p1:val>
+				</d4p1:printPropItem>
+				<d4p1:printPropItem>
+					<d4p1:key>8</d4p1:key>
+					<d4p1:val>10</d4p1:val>
+				</d4p1:printPropItem>
+				<d4p1:printPropItem>
+					<d4p1:key>9</d4p1:key>
+					<d4p1:val>10</d4p1:val>
+				</d4p1:printPropItem>
+				<d4p1:printPropItem>
+					<d4p1:key>13</d4p1:key>
+					<d4p1:val>0</d4p1:val>
+				</d4p1:printPropItem>
+				<d4p1:printPropItem>
+					<d4p1:key>16</d4p1:key>
+					<d4p1:val>0</d4p1:val>
+				</d4p1:printPropItem>
+			</Settings>
+		</Attribute>
+		<Attribute name="ИдентификаторыЭтапов" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификаторы этапов</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Удалить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить выделенный элемент</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Удалить</Action>
+		</Command>
+		<Command name="Пример" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пример</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пример</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Пример</Action>
+		</Command>
+		<Command name="ВставитьВариант" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вставить вариант</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вставить вариант в начало элемента "Выбор варианта"</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВставитьВариант</Action>
+		</Command>
+		<Command name="УдалитьВариант" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить вариант</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить вариант с первой позиции элемента "Выбор варианта"</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>УдалитьВариант</Action>
+		</Command>
+		<Command name="Возвраты" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возвраты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возвраты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Возвраты</Action>
+		</Command>
+		<Command name="СохранитьИзменения" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить изменения</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить изменения</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СохранитьИзменения</Action>
+		</Command>
+	</Commands>
+</Form>
