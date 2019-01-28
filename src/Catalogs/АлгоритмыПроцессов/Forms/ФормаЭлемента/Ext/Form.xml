@@ -87,10 +87,19 @@
 							<ExtendedTooltip name="ГруппаЛокальныеИменованныеКонстантыРасширеннаяПодсказка" id="41"/>
 							<ChildItems>
 								<LabelDecoration name="ДекорацияПодсказка" id="37">
+									<Visible>false</Visible>
 									<Height>12</Height>
 									<ContextMenu name="ДекорацияПодсказкаКонтекстноеМеню" id="38"/>
 									<ExtendedTooltip name="ДекорацияПодсказкаРасширеннаяПодсказка" id="39"/>
 								</LabelDecoration>
+								<InputField name="ТекстПодсказки" id="113">
+									<DataPath>ТекстПодсказки</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<TitleLocation>None</TitleLocation>
+									<MultiLine>true</MultiLine>
+									<ContextMenu name="ТекстПодсказкиКонтекстноеМеню" id="114"/>
+									<ExtendedTooltip name="ТекстПодсказкиРасширеннаяПодсказка" id="115"/>
+								</InputField>
 								<Table name="ЛокальныеИменованныеКонстанты" id="13">
 									<AutoInsertNewRow>true</AutoInsertNewRow>
 									<EnableStartDrag>true</EnableStartDrag>
@@ -540,6 +549,21 @@
 					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
 				</ListSettings>
 			</Settings>
+		</Attribute>
+		<Attribute name="ТекстПодсказки" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текст подсказки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
 		</Attribute>
 	</Attributes>
 </Form>
