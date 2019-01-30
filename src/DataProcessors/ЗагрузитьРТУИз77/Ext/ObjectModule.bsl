@@ -543,11 +543,6 @@
 			Об.Склад = ПолучитьСклад(RS.Fields("warehouse").Value);
 		КонецЕсли;
 		
-		ВариантУчетаНДС = УчетНДСПовтИсп.ВариантУчетаНДСОрганизации(Об.Организация);
-		ВидОплаты = ОбщегоНазначения.ЗначениеРеквизитаОбъекта(Об.ДоговорКонтрагента,"ВидОплаты");
-		Об.УчитыватьНДС = УчетНДСПовтИсп.УчитыватьНДСПоВариантуУчета(ВариантУчетаНДС, ВидОплаты);
-		Об.СуммаВключаетНДС = Истина;
-		
 		Об.Источник = Перечисления.ИсточникиРеализаций.База77;
 		Об.Комментарий = "загружен из sql 77";
 		
@@ -613,40 +608,105 @@
 	
 	Если база = "нн" Тогда
 		
-		ТекстЗапроса =  "SELECT 
-		|RA.LINENO_ AS LINENO_,
-		|SprNom.SP13121 AS NomenklaturaID,
-		|RA.SP331 AS SP331, 
-		|f.Code As firm, 
-		|RA.SP341 AS PartyID,
-		|SprParty.SP586 AS StranaID,
-		|SprStrany.CODE AS StranaCODE,
-		|SprStrany.DESCR AS StranaDESCR,
-		|SprStrany.SP12401 AS StranaAlpha2,
-		|SprStrany.SP12717 AS StranaFullName,	
-		|SprParty.SP585 AS GTDID,
-		|SprGTD.DESCR AS GTDName,
-		|SprParty.ID AS SprPartyID,
-		|SprParty.SP436 AS PostavshikID,
-		|SprKontr.SP13668 AS PostavshikUID, 
-		|SprKontr.DESCR AS PostavshikDESCR,
-		|SprParty.SP2796 AS ZakupPrice,
-		|TabSootvet._Id AS StrokaPrihoda1c8,
-		|RA.SP343 AS SummaRUB,  
-		|RA.SP344 As SummaBesNDS,
-		|RA.SP342 As Kolvo
-		|from RA328 AS RA
-		|INNER JOIN _1SJOURN as j on RA.IDDOC = j.IDDOC and j.IDDOCDEF = 1611 and j.DOCNO = %1 and left(j.DATE_TIME_IDDOC,4) = %2
-		|LEFT JOIN SC84 AS SprNom on SprNom.ID = RA.SP331
-		|LEFT JOIN SC4014 AS f on f.ID = RA.SP4061
-		|LEFT JOIN SC214 AS SprParty on SprParty.ID = RA.SP341
-		|LEFT JOIN SC568 AS SprGTD on SprGTD.ID = SprParty.SP585
-		|LEFT JOIN SC566 AS SprStrany on SprStrany.ID = SprParty.SP586
-		|LEFT JOIN SC172 AS SprKontr on SprKontr.ID = SprParty.SP436
-		|LEFT JOIN adoURBD_Guids AS TabSootvet on SprParty.ID = TabSootvet._Object and TabSootvet._MetaType = 11 and TabSootvet._MetaId = 214";
-		//|WHERE j.DOCNO = %1 and left(j.DATE_TIME_IDDOC,4) = %2";
-		ТекстЗапроса = СтрШаблон(ТекстЗапроса, "'" + Структура.DOCNO + "'", Формат(Структура.Дата,"ДФ=yyyy") );
+		//ТекстЗапроса =  "SELECT 
+		//|RA.LINENO_ AS LINENO_,
+		//|SprNom.SP13121 AS NomenklaturaID,
+		//|RA.SP331 AS SP331, 
+		//|f.Code As firm, 
+		//|RA.SP341 AS PartyID,
+		//|SprParty.SP586 AS StranaID,
+		//|SprStrany.CODE AS StranaCODE,
+		//|SprStrany.DESCR AS StranaDESCR,
+		//|SprStrany.SP12401 AS StranaAlpha2,
+		//|SprStrany.SP12717 AS StranaFullName,	
+		//|SprParty.SP585 AS GTDID,
+		//|SprGTD.DESCR AS GTDName,
+		//|SprParty.ID AS SprPartyID,
+		//|SprParty.SP436 AS PostavshikID,
+		//|SprKontr.SP13668 AS PostavshikUID, 
+		//|SprKontr.DESCR AS PostavshikDESCR,
+		//|SprParty.SP2796 AS ZakupPrice,
+		//|TabSootvet._Id AS StrokaPrihoda1c8,
+		//|RA.SP343 AS SummaRUB,  
+		//|RA.SP344 As SummaBesNDS,
+		//|RA.SP342 As Kolvo
+		//|from RA328 AS RA
+		//|INNER JOIN _1SJOURN as j on RA.IDDOC = j.IDDOC and j.IDDOCDEF = 1611 and j.DOCNO = %1 and left(j.DATE_TIME_IDDOC,4) = %2
+		//|LEFT JOIN SC84 AS SprNom on SprNom.ID = RA.SP331
+		//|LEFT JOIN SC4014 AS f on f.ID = RA.SP4061
+		//|LEFT JOIN SC214 AS SprParty on SprParty.ID = RA.SP341
+		//|LEFT JOIN SC568 AS SprGTD on SprGTD.ID = SprParty.SP585
+		//|LEFT JOIN SC566 AS SprStrany on SprStrany.ID = SprParty.SP586
+		//|LEFT JOIN SC172 AS SprKontr on SprKontr.ID = SprParty.SP436
+		//|LEFT JOIN adoURBD_Guids AS TabSootvet on SprParty.ID = TabSootvet._Object and TabSootvet._MetaType = 11 and TabSootvet._MetaId = 214";
 		
+		ТекстЗапроса =  "SET NOCOUNT ON
+		|;
+		|IF OBJECT_ID('tempdb..#TEMP_j') IS NOT NULL
+    	|DROP TABLE #TEMP_j
+		|;
+		|IF OBJECT_ID('tempdb..#TEMP_RA') IS NOT NULL
+    	|DROP TABLE #TEMP_RA
+		|;
+		|SELECT 
+		|j.IDDOC
+		|Into #TEMP_j
+		|From _1SJOURN as J
+		|Where j.DOCNO = %1 and left(j.DATE_TIME_IDDOC,4) = %2
+		|
+		|;
+		|
+		|SELECT 
+		|RA.LINENO_,
+		| RA.SP331,
+		| RA.SP341,
+		| RA.SP343,  
+		| RA.SP344,
+		| RA.SP342,
+		| RA.SP4061
+		| 
+		| Into #TEMP_RA
+		| From RA328 as RA
+		| INNER JOIN #TEMP_j as j on RA.IDDOC = j.IDDOC
+		| 
+		| ;
+		| 
+		| SELECT 
+		| RA.LINENO_ AS LINENO_,
+		| SprNom.SP13121 AS NomenklaturaID,
+		| RA.SP331 AS SP331, 
+		| f.Code As firm, 
+		| RA.SP341 AS PartyID,
+		| SprParty.SP586 AS StranaID,
+		| SprStrany.CODE AS StranaCODE,
+		| SprStrany.DESCR AS StranaDESCR,
+		| SprStrany.SP12401 AS StranaAlpha2,
+		| SprStrany.SP12717 AS StranaFullName,	
+		| SprParty.SP585 AS GTDID,
+		| SprGTD.DESCR AS GTDName,
+		| SprParty.ID AS SprPartyID,
+		| SprParty.SP436 AS PostavshikID,
+		| SprKontr.SP13668 AS PostavshikUID, 
+		| SprKontr.DESCR AS PostavshikDESCR,
+		| SprParty.SP2796 AS ZakupPrice,
+		| TabSootvet._Id AS StrokaPrihoda1c8,
+		| RA.SP343 AS SummaRUB,  
+		| RA.SP344 As SummaBesNDS,
+		| RA.SP342 As Kolvo
+		| from #TEMP_RA AS RA
+		//--INNER JOIN _1SJOURN as j on RA.IDDOC = j.IDDOC and j.IDDOCDEF = 1611 and j.DOCNO = %1 and left(j.DATE_TIME_IDDOC,4) = %2
+		| LEFT JOIN SC84 AS SprNom on SprNom.ID = RA.SP331
+		| LEFT JOIN SC4014 AS f on f.ID = RA.SP4061
+		| LEFT JOIN SC214 AS SprParty on SprParty.ID = RA.SP341
+		| LEFT JOIN SC568 AS SprGTD on SprGTD.ID = SprParty.SP585
+		| LEFT JOIN SC566 AS SprStrany on SprStrany.ID = SprParty.SP586
+		| LEFT JOIN SC172 AS SprKontr on SprKontr.ID = SprParty.SP436
+		| LEFT JOIN adoURBD_Guids AS TabSootvet on SprParty.ID = TabSootvet._Object and TabSootvet._MetaType = 11 and TabSootvet._MetaId = 214";
+		
+		
+		ТекстЗапроса = СтрШаблон(ТекстЗапроса, "'" + Структура.DOCNO + "'", "'" + Формат(Структура.Дата,"ДФ=yyyy")+ "'" );
+		
+		//Сообщить("ТекстЗапроса: "+ТекстЗапроса);
 	Иначе
 		
 		ТекстЗапроса =  "SELECT 
