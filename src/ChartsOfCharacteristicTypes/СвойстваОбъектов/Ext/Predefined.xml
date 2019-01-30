@@ -1,5 +1,73 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <PredefinedData xmlns="http://v8.1c.ru/8.3/xcf/predef" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PlanOfCharacteristicKindPredefinedItems" version="2.4">
+	<Item id="798352cc-8b83-4fd4-86b2-693ca95758ec">
+		<Name>Бонус2_Комментарий</Name>
+		<Code>000000027</Code>
+		<Description>[Бонус 2%] Комментарий</Description>
+		<Type>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>50</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</Type>
+		<IsFolder>false</IsFolder>
+	</Item>
+	<Item id="1479bf98-bcad-400b-a3f4-83f9f4e1f8a8">
+		<Name>Бонус2_ПериодПредоставленияПремии</Name>
+		<Code>000000026</Code>
+		<Description>[Бонус 2%] Период предоставления премии</Description>
+		<Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ЗначенияСвойствОбъектов</v8:Type>
+		</Type>
+		<IsFolder>false</IsFolder>
+	</Item>
+	<Item id="5a23ff53-6d7d-4019-ad84-9bd8a379a0f7">
+		<Name>Бонус2_ПремияНаСпецУсловиях</Name>
+		<Code>000000025</Code>
+		<Description>[Бонус 2%] Премия на спец условиях</Description>
+		<Type>
+			<v8:Type>xs:boolean</v8:Type>
+		</Type>
+		<IsFolder>false</IsFolder>
+	</Item>
+	<Item id="2e9a3e9c-03a2-42ea-b044-96be43087760">
+		<Name>Бонус2_РазмерОборотаТовара</Name>
+		<Code>000000024</Code>
+		<Description>[Бонус 2%] Размер оборота товара</Description>
+		<Type>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>14</v8:Digits>
+				<v8:FractionDigits>2</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</Type>
+		<IsFolder>false</IsFolder>
+	</Item>
+	<Item id="fc527bce-354d-4733-870c-1a17f83ad9e3">
+		<Name>Бонус2_РазмерПремии</Name>
+		<Code>000000022</Code>
+		<Description>[Бонус 2%] Размер премии</Description>
+		<Type>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>14</v8:Digits>
+				<v8:FractionDigits>2</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</Type>
+		<IsFolder>false</IsFolder>
+	</Item>
+	<Item id="620963af-f0e7-40cb-ad63-64b3ef1e7cb3">
+		<Name>Бонус2_УчитыватьВозвраты</Name>
+		<Code>000000023</Code>
+		<Description>[Бонус 2%] Учитывать возвраты</Description>
+		<Type>
+			<v8:Type>xs:boolean</v8:Type>
+		</Type>
+		<IsFolder>false</IsFolder>
+	</Item>
 	<Item id="5a06f632-4438-4a08-b7a8-31f0ea773609">
 		<Name>ВремяОбновленияПрайсЛистаПоставщика</Name>
 		<Code>000000001</Code>
@@ -89,6 +157,15 @@
 		<Description>Количество наименований на складе поставщика</Description>
 		<Type>
 			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ЗначенияСвойствОбъектов</v8:Type>
+		</Type>
+		<IsFolder>false</IsFolder>
+	</Item>
+	<Item id="aa299e59-fc54-4fe3-b3a6-ff0ede7b1735">
+		<Name>НеактивныйКонтрагент</Name>
+		<Code>000000028</Code>
+		<Description>Неактивный контрагент</Description>
+		<Type>
+			<v8:Type>xs:boolean</v8:Type>
 		</Type>
 		<IsFolder>false</IsFolder>
 	</Item>
