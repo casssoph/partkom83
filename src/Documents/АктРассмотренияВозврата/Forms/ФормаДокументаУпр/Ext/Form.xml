@@ -555,6 +555,9 @@
 													<DataPath>Объект.СрокВозвратаКлиента</DataPath>
 													<ContextMenu name="СрокВозвратаКлиентаКонтекстноеМеню" id="315"/>
 													<ExtendedTooltip name="СрокВозвратаКлиентаРасширеннаяПодсказка" id="316"/>
+													<Events>
+														<Event name="OnChange">СрокВозвратаКлиентаПриИзменении</Event>
+													</Events>
 												</InputField>
 												<InputField name="ШтрихКод" id="22">
 													<DataPath>Объект.Штрихкод</DataPath>
@@ -2209,6 +2212,17 @@
 					<v8:Length>0</v8:Length>
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИзмененныеРеквизиты" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Измененные реквизиты</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
 			</Type>
 		</Attribute>
 		<ConditionalAppearance>
