@@ -4,6 +4,7 @@
 		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
@@ -29,7 +30,7 @@
 			</CommandSet>
 			<SearchStringLocation>None</SearchStringLocation>
 			<AutoRefresh>false</AutoRefresh>
-			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<AutoRefreshPeriod>30</AutoRefreshPeriod>
 			<Period>
 				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
 				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
@@ -365,7 +366,7 @@
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.МенеджерыТорговыхТочек.СрезПоследних(, ВидМенеджера = ЗНАЧЕНИЕ(Перечисление.ВидыМенеджеров.Снабжения)) КАК МенеджерыТорговыхТочекСрезПоследних
 		ПО ДокументПоступлениеТоваровУслуг.ТорговаяТочка = МенеджерыТорговыхТочекСрезПоследних.ТорговаяТочка
 			И ДокументПоступлениеТоваровУслуг.Контрагент = МенеджерыТорговыхТочекСрезПоследних.Контрагент
-		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ ПЕРВЫЕ 1
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
 			Р.Период КАК ДатаПроверки,
 			Р.ПризнакПроверен КАК ПризнакПроверен,
 			Р.Объект КАК Объект
