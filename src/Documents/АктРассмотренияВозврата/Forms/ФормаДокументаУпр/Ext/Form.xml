@@ -436,44 +436,74 @@
 											</ToolTip>
 											<Group>Horizontal</Group>
 											<Representation>None</Representation>
+											<United>false</United>
 											<ShowTitle>false</ShowTitle>
 											<ExtendedTooltip name="ГруппаДокументПродажиРасширеннаяПодсказка" id="372"/>
 											<ChildItems>
 												<InputField name="ДокументПродажи" id="358">
 													<DataPath>Объект.ДокументПродажи</DataPath>
 													<TitleLocation>Left</TitleLocation>
+													<MaxWidth>5</MaxWidth>
 													<ContextMenu name="ДокументПродажиКонтекстноеМеню" id="359"/>
 													<ExtendedTooltip name="ДокументПродажиРасширеннаяПодсказка" id="360"/>
 													<Events>
 														<Event name="OnChange">ДокументПродажиПриИзменении</Event>
 													</Events>
 												</InputField>
-												<Button name="ПодборДокументаПродажи" id="373">
-													<Type>UsualButton</Type>
-													<Representation>Picture</Representation>
-													<CommandName>Form.Command.ПодборДокументаПродажи</CommandName>
-													<Picture>
-														<xr:Ref>CommonPicture.Поиск</xr:Ref>
-														<xr:LoadTransparent>true</xr:LoadTransparent>
-													</Picture>
-													<ExtendedTooltip name="ПодборДокументаПродажиРасширеннаяПодсказка" id="374"/>
-												</Button>
-												<Button name="ЗагрузитьДокументИзБазы77" id="549">
-													<Type>UsualButton</Type>
-													<Representation>PictureAndText</Representation>
-													<CommandName>Form.Command.ЗагрузитьДокументИзБазы77</CommandName>
-													<Picture>
-														<xr:Ref>StdPicture.MoveDown</xr:Ref>
-														<xr:LoadTransparent>true</xr:LoadTransparent>
-													</Picture>
+												<UsualGroup name="ГруппаДокументПродажиДоп" id="573">
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>7.7</v8:content>
+															<v8:content>Группа документ продажи доп</v8:content>
 														</v8:item>
 													</Title>
-													<ExtendedTooltip name="ЗагрузитьДокументИзБазы77РасширеннаяПодсказка" id="550"/>
-												</Button>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа документ продажи доп</v8:content>
+														</v8:item>
+													</ToolTip>
+													<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+													<Group>Horizontal</Group>
+													<Representation>None</Representation>
+													<United>false</United>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаДокументПродажиДопРасширеннаяПодсказка" id="574"/>
+													<ChildItems>
+														<Button name="ПодборДокументаПродажи" id="373">
+															<Type>UsualButton</Type>
+															<Representation>Picture</Representation>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<MaxWidth>5</MaxWidth>
+															<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+															<CommandName>Form.Command.ПодборДокументаПродажи</CommandName>
+															<Picture>
+																<xr:Ref>CommonPicture.Поиск</xr:Ref>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
+															</Picture>
+															<ExtendedTooltip name="ПодборДокументаПродажиРасширеннаяПодсказка" id="374"/>
+														</Button>
+														<Button name="ЗагрузитьДокументИзБазы77" id="549">
+															<Type>UsualButton</Type>
+															<Representation>PictureAndText</Representation>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<MaxWidth>5</MaxWidth>
+															<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+															<CommandName>Form.Command.ЗагрузитьДокументИзБазы77</CommandName>
+															<Picture>
+																<xr:Ref>StdPicture.MoveDown</xr:Ref>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
+															</Picture>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>7.7</v8:content>
+																</v8:item>
+															</Title>
+															<ExtendedTooltip name="ЗагрузитьДокументИзБазы77РасширеннаяПодсказка" id="550"/>
+														</Button>
+													</ChildItems>
+												</UsualGroup>
 											</ChildItems>
 										</UsualGroup>
 										<UsualGroup name="ГруппаДоп1" id="558">
