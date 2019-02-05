@@ -286,6 +286,43 @@
 								</LabelField>
 							</ChildItems>
 						</Table>
+						<InputField name="ПериодПоискаВозвратовПоШтрихкодуУКД" id="125">
+							<DataPath>ПериодПоискаВозвратовПоШтрихкодуУКД</DataPath>
+							<Width>13</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ListChoiceMode>true</ListChoiceMode>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Текущий год</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">ТекущийГод</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Прошлый год</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">ПрошлыйГод</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ПериодПоискаВозвратовПоШтрихкодуУКДКонтекстноеМеню" id="126"/>
+							<ExtendedTooltip name="ПериодПоискаВозвратовПоШтрихкодуУКДРасширеннаяПодсказка" id="127"/>
+						</InputField>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
@@ -474,6 +511,21 @@
 					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
 				</ListSettings>
 			</Settings>
+		</Attribute>
+		<Attribute name="ПериодПоискаВозвратовПоШтрихкодуУКД" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период поиска возвратов по штрихкоду УКД</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
 		</Attribute>
 	</Attributes>
 	<Commands>
