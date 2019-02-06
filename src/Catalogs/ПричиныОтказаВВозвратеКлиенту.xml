@@ -2,33 +2,33 @@
 <MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
 	<Catalog uuid="bf364029-6223-4b01-a87d-4618287c3cca">
 		<InternalInfo>
-			<xr:GeneratedType name="CatalogObject.УсловияПроцессов" category="Object">
+			<xr:GeneratedType name="CatalogObject.ПричиныОтказаВВозвратеКлиенту" category="Object">
 				<xr:TypeId>6507390b-dbf8-4120-acb1-a1227bec5fed</xr:TypeId>
 				<xr:ValueId>6a0ab357-0e77-4b44-90ef-e7e2c493cd4f</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="CatalogRef.УсловияПроцессов" category="Ref">
+			<xr:GeneratedType name="CatalogRef.ПричиныОтказаВВозвратеКлиенту" category="Ref">
 				<xr:TypeId>673d9cce-ed83-4974-b517-80c117ae5309</xr:TypeId>
 				<xr:ValueId>3971e818-ae08-4aa8-afdc-873d9cce7cb8</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="CatalogSelection.УсловияПроцессов" category="Selection">
+			<xr:GeneratedType name="CatalogSelection.ПричиныОтказаВВозвратеКлиенту" category="Selection">
 				<xr:TypeId>3069d05e-740a-4348-a641-ae385b6df7dc</xr:TypeId>
 				<xr:ValueId>6224c934-7b22-4d65-b556-e1b5ded9c05d</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="CatalogList.УсловияПроцессов" category="List">
+			<xr:GeneratedType name="CatalogList.ПричиныОтказаВВозвратеКлиенту" category="List">
 				<xr:TypeId>f83cde39-defd-494d-9bab-0c9bcac37d88</xr:TypeId>
 				<xr:ValueId>75f1b6b5-1257-4330-99a8-c0c09ab40f3e</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="CatalogManager.УсловияПроцессов" category="Manager">
+			<xr:GeneratedType name="CatalogManager.ПричиныОтказаВВозвратеКлиенту" category="Manager">
 				<xr:TypeId>a9410ad7-628d-4955-8da7-364806a1f1f8</xr:TypeId>
 				<xr:ValueId>a08ae3b3-5532-4eb4-a85b-0c6897e58abf</xr:ValueId>
 			</xr:GeneratedType>
 		</InternalInfo>
 		<Properties>
-			<Name>УсловияПроцессов</Name>
+			<Name>ПричиныОтказаВВозвратеКлиенту</Name>
 			<Synonym>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Условия процессов</v8:content>
+					<v8:content>Причины отказа в возврате клиенту</v8:content>
 				</v8:item>
 			</Synonym>
 			<Comment/>
@@ -41,7 +41,7 @@
 			<Owners/>
 			<SubordinationUse>ToItems</SubordinationUse>
 			<CodeLength>9</CodeLength>
-			<DescriptionLength>75</DescriptionLength>
+			<DescriptionLength>150</DescriptionLength>
 			<CodeType>String</CodeType>
 			<CodeAllowedLength>Variable</CodeAllowedLength>
 			<CodeSeries>WholeCatalog</CodeSeries>
@@ -281,13 +281,13 @@
 			<QuickChoice>false</QuickChoice>
 			<ChoiceMode>BothWays</ChoiceMode>
 			<InputByString>
-				<xr:Field>Catalog.УсловияПроцессов.StandardAttribute.Description</xr:Field>
-				<xr:Field>Catalog.УсловияПроцессов.StandardAttribute.Code</xr:Field>
+				<xr:Field>Catalog.ПричиныОтказаВВозвратеКлиенту.StandardAttribute.Description</xr:Field>
+				<xr:Field>Catalog.ПричиныОтказаВВозвратеКлиенту.StandardAttribute.Code</xr:Field>
 			</InputByString>
 			<SearchStringModeOnInputByString>Begin</SearchStringModeOnInputByString>
 			<FullTextSearchOnInputByString>DontUse</FullTextSearchOnInputByString>
 			<ChoiceDataGetModeOnInputByString>Directly</ChoiceDataGetModeOnInputByString>
-			<DefaultObjectForm>Catalog.УсловияПроцессов.Form.ФормаЭлемента</DefaultObjectForm>
+			<DefaultObjectForm>Catalog.ПричиныОтказаВВозвратеКлиенту.Form.ФормаЭлемента</DefaultObjectForm>
 			<DefaultFolderForm/>
 			<DefaultListForm/>
 			<DefaultChoiceForm/>
@@ -311,63 +311,20 @@
 			<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
 		</Properties>
 		<ChildObjects>
-			<Attribute uuid="685d993c-f5c8-4b25-8951-55708cf79892">
+			<Attribute uuid="5e30c442-f793-4504-b704-0bf652e6aa44">
 				<Properties>
-					<Name>Условие</Name>
+					<Name>НаименованиеТоплог</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Условие</v8:content>
+							<v8:content>Наименование топлог</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
 					<Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:StringQualifiers>
-							<v8:Length>0</v8:Length>
-							<v8:AllowedLength>Variable</v8:AllowedLength>
-						</v8:StringQualifiers>
-					</Type>
-					<PasswordMode>false</PasswordMode>
-					<Format/>
-					<EditFormat/>
-					<ToolTip/>
-					<MarkNegatives>false</MarkNegatives>
-					<Mask/>
-					<MultiLine>true</MultiLine>
-					<ExtendedEdit>true</ExtendedEdit>
-					<MinValue xsi:nil="true"/>
-					<MaxValue xsi:nil="true"/>
-					<FillFromFillingValue>false</FillFromFillingValue>
-					<FillValue xsi:type="xs:string"/>
-					<FillChecking>DontCheck</FillChecking>
-					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-					<ChoiceParameterLinks/>
-					<ChoiceParameters/>
-					<QuickChoice>Auto</QuickChoice>
-					<CreateOnInput>Auto</CreateOnInput>
-					<ChoiceForm/>
-					<LinkByType/>
-					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
-					<Use>ForItem</Use>
-					<Indexing>DontIndex</Indexing>
-					<FullTextSearch>Use</FullTextSearch>
-				</Properties>
-			</Attribute>
-			<Attribute uuid="a3b8dafd-2c93-4ec2-8784-3d963b0a4030">
-				<Properties>
-					<Name>Комментарий</Name>
-					<Synonym>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Комментарий</v8:content>
-						</v8:item>
-					</Synonym>
-					<Comment/>
-					<Type>
-						<v8:Type>xs:string</v8:Type>
-						<v8:StringQualifiers>
-							<v8:Length>0</v8:Length>
+							<v8:Length>250</v8:Length>
 							<v8:AllowedLength>Variable</v8:AllowedLength>
 						</v8:StringQualifiers>
 					</Type>
@@ -397,13 +354,13 @@
 					<FullTextSearch>Use</FullTextSearch>
 				</Properties>
 			</Attribute>
-			<Attribute uuid="7b8bbb39-2467-4c42-8e41-9dec01534b65">
+			<Attribute uuid="00e6f522-f3b0-4a79-9617-a56767df2a2e">
 				<Properties>
-					<Name>СообщениеПриНевыполнении</Name>
+					<Name>ТекстСообщенияНаСайт</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Сообщение при невыполнении</v8:content>
+							<v8:content>Текст сообщения на сайт</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -421,7 +378,7 @@
 					<MarkNegatives>false</MarkNegatives>
 					<Mask/>
 					<MultiLine>true</MultiLine>
-					<ExtendedEdit>true</ExtendedEdit>
+					<ExtendedEdit>false</ExtendedEdit>
 					<MinValue xsi:nil="true"/>
 					<MaxValue xsi:nil="true"/>
 					<FillFromFillingValue>false</FillFromFillingValue>

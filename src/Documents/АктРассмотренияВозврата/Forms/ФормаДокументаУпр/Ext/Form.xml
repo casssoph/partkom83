@@ -722,10 +722,12 @@
 							<ChildItems>
 								<InputField name="ПричинаОтказаВВозврате" id="503">
 									<DataPath>Объект.ПричинаОтказаВВозврате</DataPath>
+									<ChoiceButton>true</ChoiceButton>
 									<ContextMenu name="ПричинаОтказаВВозвратеКонтекстноеМеню" id="504"/>
 									<ExtendedTooltip name="ПричинаОтказаВВозвратеРасширеннаяПодсказка" id="505"/>
 									<Events>
 										<Event name="OnChange">ПричинаОтказаВВозвратеПриИзменении</Event>
+										<Event name="StartChoice">ПричинаОтказаВВозвратеНачалоВыбора</Event>
 									</Events>
 								</InputField>
 								<LabelField name="МенеджерОтказаВВозврате" id="508">
