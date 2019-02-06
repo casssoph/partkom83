@@ -1402,9 +1402,10 @@
 									<v8:content>Группа шапка дополнительно</v8:content>
 								</v8:item>
 							</ToolTip>
-							<Group>Horizontal</Group>
+							<Group>Vertical</Group>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
+							<ThroughAlign>Use</ThroughAlign>
 							<ExtendedTooltip name="ГруппаШапкаДополнительноРасширеннаяПодсказка" id="542"/>
 							<ChildItems>
 								<UsualGroup name="ГруппаШапкаДополнительноЛево" id="543">
@@ -1443,25 +1444,51 @@
 								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
-						<InputField name="Комментарий" id="25">
-							<DataPath>Объект.Комментарий</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<ContextMenu name="КомментарийКонтекстноеМеню" id="26"/>
-							<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="27"/>
-						</InputField>
-						<InputField name="КомментарийГПРК" id="530">
-							<DataPath>Объект.КомментарийГПРК</DataPath>
+						<UsualGroup name="ГруппаКомментарии" id="580">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Комментарий ГПРК для акта приема-передачи</v8:content>
+									<v8:content>Группа комментарии</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>Top</TitleLocation>
-							<MaxWidth>3</MaxWidth>
-							<ContextMenu name="КомментарийГПРККонтекстноеМеню" id="531"/>
-							<ExtendedTooltip name="КомментарийГПРКРасширеннаяПодсказка" id="532"/>
-						</InputField>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа комментарии</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ThroughAlign>Use</ThroughAlign>
+							<ExtendedTooltip name="ГруппаКомментарииРасширеннаяПодсказка" id="581"/>
+							<ChildItems>
+								<InputField name="Комментарий" id="25">
+									<DataPath>Объект.Комментарий</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<AutoMaxHeight>false</AutoMaxHeight>
+									<MaxHeight>5</MaxHeight>
+									<VerticalStretch>false</VerticalStretch>
+									<ContextMenu name="КомментарийКонтекстноеМеню" id="26"/>
+									<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="27"/>
+								</InputField>
+								<InputField name="КомментарийГПРК" id="530">
+									<DataPath>Объект.КомментарийГПРК</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Комментарий ГПРК для акта приема-передачи</v8:content>
+										</v8:item>
+									</Title>
+									<MaxWidth>6</MaxWidth>
+									<AutoMaxHeight>false</AutoMaxHeight>
+									<MaxHeight>5</MaxHeight>
+									<VerticalStretch>false</VerticalStretch>
+									<ContextMenu name="КомментарийГПРККонтекстноеМеню" id="531"/>
+									<ExtendedTooltip name="КомментарийГПРКРасширеннаяПодсказка" id="532"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
 						<UsualGroup name="ГруппаСтатусПроверкиБухгалтерией" id="514">
 							<Title>
 								<v8:item>
