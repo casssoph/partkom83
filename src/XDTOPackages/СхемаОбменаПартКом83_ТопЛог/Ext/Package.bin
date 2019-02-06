@@ -173,23 +173,25 @@
 		<property name="СкладСсылка" type="xs:string" lowerBound="0"/>
 		<property name="ДатаНачалаПриемки" type="xs:dateTime" lowerBound="0"/>
 		<property name="КодВозврата" type="xs:int" lowerBound="0"/>
+		<property name="КлиентскаяПрограмма" type="xs:string" lowerBound="0"/>
 		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Товары" type="d3p1:РезультатПриемки.Товары" lowerBound="0"/>
 	</objectType>
 	<objectType name="РезультатПриемки.Товары">
 		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="СтрокаТовары" type="d3p1:РезультатПриемки.Товары.Строка" lowerBound="0" upperBound="-1"/>
 	</objectType>
 	<objectType name="РезультатПриемки.Товары.Строка" ordered="false" sequenced="true">
-		<property name="ДатаПриемки" type="xs:dateTime"/>
-		<property name="НоменклатураСсылка" type="xs:string"/>
-		<property name="НоменклатураНаименование" type="xs:string"/>
-		<property name="НоменклатураАртикул" type="xs:string"/>
-		<property name="НоменклатураШтрихкод" type="xs:string"/>
-		<property name="SSID" type="xs:string"/>
-		<property name="КоличествоПринято" type="xs:int"/>
-		<property name="КоличествоВозвращено" type="xs:int"/>
-		<property name="Качество" type="xs:string"/>
-		<property name="ЭтоБрак" type="xs:boolean"/>
-		<property name="Комментарий" type="xs:string"/>
+		<property name="ДатаПриемки" type="xs:dateTime" lowerBound="0"/>
+		<property name="НоменклатураСсылка" type="xs:string" lowerBound="0"/>
+		<property name="НоменклатураНаименование" type="xs:string" lowerBound="0"/>
+		<property name="НоменклатураАртикул" type="xs:string" lowerBound="0"/>
+		<property name="НоменклатураШтрихкод" type="xs:string" lowerBound="0"/>
+		<property name="SSID" type="xs:string" lowerBound="0"/>
+		<property name="КоличествоПринято" type="xs:int" lowerBound="0"/>
+		<property name="КоличествоВозвращено" type="xs:int" lowerBound="0"/>
+		<property name="Качество" type="xs:string" lowerBound="0"/>
+		<property name="ЭтоБрак" type="xs:boolean" lowerBound="0"/>
+		<property name="Комментарий" type="xs:string" lowerBound="0"/>
+		<property name="БезУпаковки" type="xs:boolean" lowerBound="0"/>
 	</objectType>
 	<objectType name="РезультатРазмещения" ordered="false" sequenced="true">
 		<property name="РазмещениеСсылка" type="xs:string"/>
@@ -213,16 +215,16 @@
 		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="СтрокаТовары" type="d3p1:РезультатРазмещения.Заказы.Товары.Строка" lowerBound="0" upperBound="-1"/>
 	</objectType>
 	<objectType name="РезультатРазмещения.Заказы.Товары.Строка" ordered="false" sequenced="true">
-		<property name="ДатаРазмещения" type="xs:dateTime"/>
-		<property name="НоменклатураСсылка" type="xs:string"/>
-		<property name="НоменклатураНаименование" type="xs:string"/>
-		<property name="НоменклатураАртикул" type="xs:string"/>
-		<property name="SSID" type="xs:string"/>
-		<property name="КоличествоРазмещено" type="xs:int"/>
-		<property name="Качество" type="xs:string"/>
-		<property name="Комментарий" type="xs:string"/>
-		<property name="РазмещениеЯчейкаСкладСсылка" type="xs:string"/>
-		<property name="РазмещениеЯчейкаСкладНаименование" type="xs:string"/>
+		<property name="ДатаРазмещения" type="xs:dateTime" lowerBound="0"/>
+		<property name="НоменклатураСсылка" type="xs:string" lowerBound="0"/>
+		<property name="НоменклатураНаименование" type="xs:string" lowerBound="0"/>
+		<property name="НоменклатураАртикул" type="xs:string" lowerBound="0"/>
+		<property name="SSID" type="xs:string" lowerBound="0"/>
+		<property name="КоличествоРазмещено" type="xs:int" lowerBound="0"/>
+		<property name="Качество" type="xs:string" lowerBound="0"/>
+		<property name="Комментарий" type="xs:string" lowerBound="0"/>
+		<property name="РазмещениеЯчейкаСкладСсылка" type="xs:string" lowerBound="0"/>
+		<property name="РазмещениеЯчейкаСкладНаименование" type="xs:string" lowerBound="0"/>
 		<property name="ШтрихКод" type="xs:string" lowerBound="0"/>
 	</objectType>
 	<objectType name="РезультатСборки" ordered="false" sequenced="true">
@@ -237,14 +239,14 @@
 		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="СтрокаТовары" type="d3p1:РезультатСборки.Товары.Строка" lowerBound="0" upperBound="-1"/>
 	</objectType>
 	<objectType name="РезультатСборки.Товары.Строка" ordered="false" sequenced="true">
-		<property name="НоменклатураСсылка" type="xs:string"/>
-		<property name="НоменклатураНаименование" type="xs:string"/>
-		<property name="НоменклатураАртикул" type="xs:string"/>
-		<property name="SSID" type="xs:string"/>
-		<property name="План" type="xs:int"/>
-		<property name="Факт" type="xs:int"/>
-		<property name="Недостача" type="xs:int"/>
-		<property name="Отказ" type="xs:int"/>
+		<property name="НоменклатураСсылка" type="xs:string" lowerBound="0"/>
+		<property name="НоменклатураНаименование" type="xs:string" lowerBound="0"/>
+		<property name="НоменклатураАртикул" type="xs:string" lowerBound="0"/>
+		<property name="SSID" type="xs:string" lowerBound="0"/>
+		<property name="План" type="xs:int" lowerBound="0"/>
+		<property name="Факт" type="xs:int" lowerBound="0"/>
+		<property name="Недостача" type="xs:int" lowerBound="0"/>
+		<property name="Отказ" type="xs:int" lowerBound="0"/>
 		<property name="ШтрихКод" type="xs:string" lowerBound="0"/>
 	</objectType>
 	<objectType name="СменаВодителяСЗ" ordered="false" sequenced="true">
