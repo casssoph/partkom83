@@ -1358,9 +1358,9 @@
 ГДЕ
 	МенеджерыТорговыхТочек.Контрагент В
 			(ВЫБРАТЬ
-				СТРОКИ_ПРИХОДА_2.Поставщик
+				НОРМАТИВ_ЦЕПОЧКИ.Поставщик
 			ИЗ
-				СТРОКИ_ПРИХОДА_2)
+				НОРМАТИВ_ЦЕПОЧКИ)				
 	И МенеджерыТорговыхТочек.ВидМенеджера = ЗНАЧЕНИЕ(Перечисление.ВидыМенеджеров.Снабжения)
 	И НЕ МенеджерыТорговыхТочек.Менеджер = ЗНАЧЕНИЕ(Справочник.Менеджеры.ПустаяСсылка)
 	И НЕ МенеджерыТорговыхТочек.Контрагент = ЗНАЧЕНИЕ(Справочник.Контрагенты.ПустаяСсылка)
@@ -1423,7 +1423,7 @@
 			И (НАЧАЛОПЕРИОДА(СТРОКИ_ЗАЯВОК_2.Заявка.Дата, ДЕНЬ) &gt; НОРМАТИВЫ_56.Период)
 		ЛЕВОЕ СОЕДИНЕНИЕ МЕНЕДЖЕРЫ_СНАБЖЕНИЯ КАК МЕНЕДЖЕРЫ_СНАБЖЕНИЯ
 		ПО СТРОКИ_ЗАЯВОК_2.Поставщик = МЕНЕДЖЕРЫ_СНАБЖЕНИЯ.Контрагент
-			И (НАЧАЛОПЕРИОДА(СТРОКИ_ЗАЯВОК_2.Заявка.Дата, ДЕНЬ) &gt; МЕНЕДЖЕРЫ_СНАБЖЕНИЯ.Период)
+			И (НАЧАЛОПЕРИОДА(СТРОКИ_ЗАЯВОК_2.Заявка.Дата, ДЕНЬ) &gt;= МЕНЕДЖЕРЫ_СНАБЖЕНИЯ.Период)
 
 СГРУППИРОВАТЬ ПО
 	СТРОКИ_ЗАЯВОК_2.Ссылка
@@ -2370,13 +2370,13 @@
 					<dcsset:field>Менеджер</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:use>false</dcsset:use>
 					<dcsset:field>Поставщик</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Бренд</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
 					<dcsset:field>КА</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
@@ -2565,6 +2565,14 @@
 			</dcsset:dataParameters>
 			<dcsset:order>
 				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>СчЗ</dcsset:field>
+					<dcsset:orderType>Desc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Менеджер</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
 					<dcsset:field>Поставщик</dcsset:field>
 					<dcsset:orderType>Asc</dcsset:orderType>
 				</dcsset:item>
@@ -2573,21 +2581,17 @@
 					<dcsset:orderType>Asc</dcsset:orderType>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Заявка</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:use>false</dcsset:use>
 					<dcsset:field>КА</dcsset:field>
 					<dcsset:orderType>Asc</dcsset:orderType>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:OrderItemField">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:field>Склад</dcsset:field>
-					<dcsset:orderType>Asc</dcsset:orderType>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:OrderItemField">
-					<dcsset:field>Заявка</dcsset:field>
-					<dcsset:orderType>Asc</dcsset:orderType>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:OrderItemField">
-					<dcsset:use>false</dcsset:use>
-					<dcsset:field>Менеджер</dcsset:field>
 					<dcsset:orderType>Asc</dcsset:orderType>
 				</dcsset:item>
 			</dcsset:order>
@@ -2808,7 +2812,7 @@
 				<dcsset:item xsi:type="dcsset:StructureItemGroup">
 					<dcsset:groupItems>
 						<dcsset:item xsi:type="dcsset:GroupItemField">
-							<dcsset:field>Бренд</dcsset:field>
+							<dcsset:field>Поставщик</dcsset:field>
 							<dcsset:groupType>Items</dcsset:groupType>
 							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
@@ -2824,7 +2828,7 @@
 					<dcsset:item xsi:type="dcsset:StructureItemGroup">
 						<dcsset:groupItems>
 							<dcsset:item xsi:type="dcsset:GroupItemField">
-								<dcsset:field>КА</dcsset:field>
+								<dcsset:field>Бренд</dcsset:field>
 								<dcsset:groupType>Items</dcsset:groupType>
 								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
