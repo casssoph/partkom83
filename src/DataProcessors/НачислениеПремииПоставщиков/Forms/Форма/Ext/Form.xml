@@ -37,6 +37,26 @@
 					</ToolTip>
 					<ExtendedTooltip name="СтраницаНастройкиРасширеннаяПодсказка" id="20"/>
 					<ChildItems>
+						<UsualGroup name="Группа7" id="202">
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа7РасширеннаяПодсказка" id="203"/>
+							<ChildItems>
+								<Button name="СохранитьНастройку" id="191">
+									<Type>UsualButton</Type>
+									<OnlyInAllActions>false</OnlyInAllActions>
+									<CommandName>Form.Command.СохранитьНастройку</CommandName>
+									<ExtendedTooltip name="СохранитьНастройкуРасширеннаяПодсказка" id="192"/>
+								</Button>
+								<Button name="ВосстановитьНастройку" id="193">
+									<Type>UsualButton</Type>
+									<OnlyInAllActions>false</OnlyInAllActions>
+									<CommandName>Form.Command.ВосстановитьНастройку</CommandName>
+									<ExtendedTooltip name="ВосстановитьНастройкуРасширеннаяПодсказка" id="194"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
 						<UsualGroup name="ГруппаНастройки" id="3">
 							<Title>
 								<v8:item>
@@ -119,6 +139,7 @@
 											<ChildItems>
 												<InputField name="Период" id="7">
 													<DataPath>Период</DataPath>
+													<HorizontalStretch>false</HorizontalStretch>
 													<ContextMenu name="ПериодКонтекстноеМеню" id="8"/>
 													<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="9"/>
 													<Events>
@@ -137,20 +158,34 @@
 													<ContextMenu name="НомерКварталаКонтекстноеМеню" id="125"/>
 													<ExtendedTooltip name="НомерКварталаРасширеннаяПодсказка" id="126"/>
 												</LabelField>
-												<InputField name="СуммаОборота" id="44">
-													<DataPath>СуммаОборота</DataPath>
-													<ReadOnly>true</ReadOnly>
-													<AutoMarkIncomplete>true</AutoMarkIncomplete>
-													<ContextMenu name="СуммаОборотаКонтекстноеМеню" id="45"/>
-													<ExtendedTooltip name="СуммаОборотаРасширеннаяПодсказка" id="46"/>
-												</InputField>
-												<InputField name="ПроцентПремии" id="39">
-													<DataPath>ПроцентПремии</DataPath>
-													<ReadOnly>true</ReadOnly>
-													<AutoMarkIncomplete>true</AutoMarkIncomplete>
-													<ContextMenu name="ПроцентПремииКонтекстноеМеню" id="40"/>
-													<ExtendedTooltip name="ПроцентПремииРасширеннаяПодсказка" id="41"/>
-												</InputField>
+												<LabelDecoration name="Декорация3" id="204">
+													<Width>25</Width>
+													<HorizontalStretch>true</HorizontalStretch>
+													<ContextMenu name="Декорация3КонтекстноеМеню" id="205"/>
+													<ExtendedTooltip name="Декорация3РасширеннаяПодсказка" id="206"/>
+												</LabelDecoration>
+												<UsualGroup name="Группа5" id="207">
+													<Group>Horizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="208"/>
+													<ChildItems>
+														<InputField name="СуммаОборота" id="44">
+															<DataPath>СуммаОборота</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<AutoMarkIncomplete>true</AutoMarkIncomplete>
+															<ContextMenu name="СуммаОборотаКонтекстноеМеню" id="45"/>
+															<ExtendedTooltip name="СуммаОборотаРасширеннаяПодсказка" id="46"/>
+														</InputField>
+														<InputField name="ПроцентПремии" id="39">
+															<DataPath>ПроцентПремии</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<AutoMarkIncomplete>true</AutoMarkIncomplete>
+															<ContextMenu name="ПроцентПремииКонтекстноеМеню" id="40"/>
+															<ExtendedTooltip name="ПроцентПремииРасширеннаяПодсказка" id="41"/>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
 											</ChildItems>
 										</UsualGroup>
 										<UsualGroup name="ЧисловыеНастройки" id="42">
@@ -260,6 +295,19 @@
 												<Value xsi:type="xs:decimal">2</Value>
 											</xr:Value>
 										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Все, кроме «оферта»</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">3</Value>
+											</xr:Value>
+										</xr:Item>
 									</ChoiceList>
 									<ContextMenu name="ФильтрОфертаКонтекстноеМеню" id="114"/>
 									<ExtendedTooltip name="ФильтрОфертаРасширеннаяПодсказка" id="115"/>
@@ -289,7 +337,20 @@
 												<Presentation>
 													<v8:item>
 														<v8:lang>ru</v8:lang>
-														<v8:content>Все, кроме «VMI»</v8:content>
+														<v8:content>Только «VMI»      </v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:decimal">2</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Все, кроме «VMI»    </v8:content>
 													</v8:item>
 												</Presentation>
 												<Value xsi:type="xs:decimal">3</Value>
@@ -341,24 +402,6 @@
 											<ShowTitle>false</ShowTitle>
 											<ExtendedTooltip name="ГруппаПоставщикиРасширеннаяПодсказка" id="100"/>
 											<ChildItems>
-												<UsualGroup name="Группа5" id="195">
-													<Group>Horizontal</Group>
-													<Representation>None</Representation>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="196"/>
-													<ChildItems>
-														<Button name="СохранитьНастройку" id="191">
-															<Type>UsualButton</Type>
-															<CommandName>Form.Command.СохранитьНастройку</CommandName>
-															<ExtendedTooltip name="СохранитьНастройкуРасширеннаяПодсказка" id="192"/>
-														</Button>
-														<Button name="ВосстановитьНастройку" id="193">
-															<Type>UsualButton</Type>
-															<CommandName>Form.Command.ВосстановитьНастройку</CommandName>
-															<ExtendedTooltip name="ВосстановитьНастройкуРасширеннаяПодсказка" id="194"/>
-														</Button>
-													</ChildItems>
-												</UsualGroup>
 												<Table name="Поставщики" id="23">
 													<Representation>List</Representation>
 													<TitleLocation>Top</TitleLocation>
@@ -438,6 +481,7 @@
 											<ExtendedTooltip name="ГруппаПоставщикиИсключенияРасширеннаяПодсказка" id="130"/>
 											<ChildItems>
 												<UsualGroup name="Группа6" id="197">
+													<Visible>false</Visible>
 													<Representation>None</Representation>
 													<ShowTitle>false</ShowTitle>
 													<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="198"/>
