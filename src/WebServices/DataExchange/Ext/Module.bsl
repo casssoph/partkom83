@@ -73,6 +73,12 @@
 	
 КонецФункции
 
+Функция RTYControl()
+	
+	Возврат DataExchangeModule.ПолучитьСписокРТУ();
+	
+КонецФункции
+
 Функция RegisterToExchange(ObjectType, ObjectKey)
 	
 	Возврат DataExchangeModule.RegisterToExchange(ObjectType, ObjectKey);
