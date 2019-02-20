@@ -1585,6 +1585,38 @@
 									<ContextMenu name="ФилиалКонтекстноеМеню" id="521"/>
 									<ExtendedTooltip name="ФилиалРасширеннаяПодсказка" id="522"/>
 								</InputField>
+								<UsualGroup name="ГруппаПрайсПоставщика" id="599">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа прайс поставщика</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа прайс поставщика</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаПрайсПоставщикаРасширеннаяПодсказка" id="600"/>
+									<ChildItems>
+										<CheckBoxField name="ДоставкаДоКлиента" id="593">
+											<DataPath>Объект.ДоставкаДоКлиента</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ДоставкаДоКлиентаКонтекстноеМеню" id="594"/>
+											<ExtendedTooltip name="ДоставкаДоКлиентаРасширеннаяПодсказка" id="595"/>
+										</CheckBoxField>
+										<CheckBoxField name="БезДосмотра" id="596">
+											<DataPath>Объект.БезДосмотра</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="БезДосмотраКонтекстноеМеню" id="597"/>
+											<ExtendedTooltip name="БезДосмотраРасширеннаяПодсказка" id="598"/>
+										</CheckBoxField>
+									</ChildItems>
+								</UsualGroup>
 								<UsualGroup name="ГруппаОтправкаНаСайт" id="485">
 									<Title>
 										<v8:item>
