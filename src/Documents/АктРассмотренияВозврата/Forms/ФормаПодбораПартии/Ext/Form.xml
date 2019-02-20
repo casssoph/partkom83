@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Поставщик" id="26">
+			<DataPath>Поставщик</DataPath>
+			<ClearButton>true</ClearButton>
+			<ContextMenu name="ПоставщикКонтекстноеМеню" id="27"/>
+			<ExtendedTooltip name="ПоставщикРасширеннаяПодсказка" id="28"/>
+			<Events>
+				<Event name="OnChange">ПоставщикПриИзменении</Event>
+			</Events>
+		</InputField>
+		<Table name="ТаблицаПартий" id="1">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>ТаблицаПартий</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ТаблицаПартийКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="ТаблицаПартийКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ТаблицаПартийРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="ТаблицаПартийСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>ТаблицаПартий</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаПартийСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="ТаблицаПартийСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ТаблицаПартийСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>ТаблицаПартий</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаПартийСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="ТаблицаПартийСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ТаблицаПартийУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>ТаблицаПартий</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаПартийУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="ТаблицаПартийУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">ТаблицаПартийВыбор</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="ТаблицаПартийСтрокаПриходаДата" id="23">
+					<DataPath>ТаблицаПартий.СтрокаПрихода.Дата</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаПартийСтрокаПриходаДатаКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ТаблицаПартийСтрокаПриходаДатаРасширеннаяПодсказка" id="25"/>
+				</InputField>
+				<InputField name="ТаблицаПартийЦенаСебестоимости" id="29">
+					<DataPath>ТаблицаПартий.ЦенаСебестоимости</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Цена</v8:content>
+						</v8:item>
+					</Title>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаПартийЦенаСебестоимостиКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ТаблицаПартийЦенаСебестоимостиРасширеннаяПодсказка" id="31"/>
+				</InputField>
+				<InputField name="ТаблицаПартийКоличество" id="32">
+					<DataPath>ТаблицаПартий.Количество</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаПартийКоличествоКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="ТаблицаПартийКоличествоРасширеннаяПодсказка" id="34"/>
+				</InputField>
+				<InputField name="ТаблицаПартийСтрокаПриходаПриход" id="17">
+					<DataPath>ТаблицаПартий.СтрокаПрихода.Приход</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаПартийСтрокаПриходаПриходКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ТаблицаПартийСтрокаПриходаПриходРасширеннаяПодсказка" id="19"/>
+				</InputField>
+				<InputField name="ТаблицаПартийСтрокаПрихода" id="14">
+					<DataPath>ТаблицаПартий.СтрокаПрихода</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаПартийСтрокаПриходаКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="ТаблицаПартийСтрокаПриходаРасширеннаяПодсказка" id="16"/>
+				</InputField>
+				<InputField name="ТаблицаПартийСтрокаПриходаТорговаяТочкаВладелец" id="20">
+					<DataPath>ТаблицаПартий.СтрокаПрихода.ТорговаяТочка.Owner</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаПартийСтрокаПриходаТорговаяТочкаВладелецКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ТаблицаПартийСтрокаПриходаТорговаяТочкаВладелецРасширеннаяПодсказка" id="22"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ТаблицаПартий" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Таблица партий</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="СтрокаПрихода" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Строка прихода</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ИдентификаторыСтрокПриходов</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ЦенаСебестоимости" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Цена себестоимости</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Количество" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Количество</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>3</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="СтрокаЗаявки" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Строка заявки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ИдентификаторыСтрокПриходов</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Поставщик" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поставщик</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>
