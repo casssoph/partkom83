@@ -1326,6 +1326,7 @@
 									<ChildItems>
 										<InputField name="ТоварыЦенаПоставщикуПослеУценки" id="603">
 											<DataPath>Объект.Товары.ЦенаПоставщикуПослеУценки</DataPath>
+											<ReadOnly>true</ReadOnly>
 											<EditMode>EnterOnInput</EditMode>
 											<ContextMenu name="ТоварыЦенаПоставщикуПослеУценкиКонтекстноеМеню" id="604"/>
 											<ExtendedTooltip name="ТоварыЦенаПоставщикуПослеУценкиРасширеннаяПодсказка" id="605"/>
@@ -1351,12 +1352,18 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="ТоварыПроцентУценкиПоставщикуКонтекстноеМеню" id="607"/>
 													<ExtendedTooltip name="ТоварыПроцентУценкиПоставщикуРасширеннаяПодсказка" id="608"/>
+													<Events>
+														<Event name="OnChange">ТоварыПроцентУценкиПоставщикуПриИзменении</Event>
+													</Events>
 												</InputField>
 												<InputField name="ТоварыСуммаУценкиПоставщику" id="609">
 													<DataPath>Объект.Товары.СуммаУценкиПоставщику</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="ТоварыСуммаУценкиПоставщикуКонтекстноеМеню" id="610"/>
 													<ExtendedTooltip name="ТоварыСуммаУценкиПоставщикуРасширеннаяПодсказка" id="611"/>
+													<Events>
+														<Event name="OnChange">ТоварыСуммаУценкиПоставщикуПриИзменении</Event>
+													</Events>
 												</InputField>
 											</ChildItems>
 										</ColumnGroup>
