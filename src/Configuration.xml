@@ -47,7 +47,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Role.Пользователь</xr:Item>
 			</DefaultRoles>
 			<Vendor/>
-			<Version>1.0.4.13</Version>
+			<Version>1.0.4.23</Version>
 			<UpdateCatalogAddress/>
 			<IncludeHelpInContents>false</IncludeHelpInContents>
 			<UseManagedFormInOrdinaryApplication>true</UseManagedFormInOrdinaryApplication>
@@ -141,6 +141,7 @@
 			<Subsystem>ОкноПоставщика</Subsystem>
 			<Subsystem>Алгоритмы</Subsystem>
 			<Subsystem>ГрафическиеСхемы</Subsystem>
+			<Subsystem>ЗагрузкаЗаявокПокупателя</Subsystem>
 			<StyleItem>ЗаблокированныйРеквизитЦвет</StyleItem>
 			<StyleItem>НедоступныеДанныеЦвет</StyleItem>
 			<StyleItem>НепринятаяВерсия</StyleItem>
@@ -804,6 +805,7 @@
 			<SessionParameter>КэшАлгоритмов</SessionParameter>
 			<SessionParameter>ТекущиеДанныеОбменаПоОбъектам</SessionParameter>
 			<SessionParameter>ВключенаЗаписьИсторииОбменаПоОбъектам</SessionParameter>
+			<SessionParameter>APDEX_АктивныеКлючевыеОперации</SessionParameter>
 			<Role>внАдминистраторЖурналаРегистрации</Role>
 			<Role>внНеФиксироватьСобытияЖурналаРегистарции</Role>
 			<Role>внПросмотрЖурналаРегистрации</Role>
@@ -1294,6 +1296,7 @@
 			<Constant>СтрокаСоединенияИнформационнойБазы</Constant>
 			<Constant>ТипЦен_дляСайта</Constant>
 			<Constant>УслугаЭкспрессДоставка</Constant>
+			<Constant>УслугаДоставкаРозница</Constant>
 			<Constant>УчетнаяЗаписьДляОтправкиПочтыПоставщикам</Constant>
 			<Constant>ФирмаДляФизЛиц</Constant>
 			<Constant>ФирмаДляЮрЛиц</Constant>
@@ -1367,6 +1370,10 @@
 			<Constant>ДатаНачалаПодбораПартийПоРазмещениямВВозвратахОтПокупателя</Constant>
 			<Constant>EMEX_СервисДвижений_TimeStamp</Constant>
 			<Constant>ДатаДокументОснованиеПартииТоваров</Constant>
+			<Constant>ДатаНачалаИспользованияКомиссииМФП</Constant>
+			<Constant>EMEX_ОбменВключен</Constant>
+			<Constant>ДатаНачалаВыгрузкиМЛВТоплог</Constant>
+			<Constant>ДатаНовогоПроведенияПоПартиям_Апрель2019</Constant>
 			<CommonForm>ВводЗначенийСпискомСФлажками</CommonForm>
 			<CommonForm>НастройкаОтправкиОтчета</CommonForm>
 			<CommonForm>НастройкаПараметровОбращенияВОтделТехническойПоддержки</CommonForm>
@@ -1400,6 +1407,8 @@
 			<CommonForm>МегаЛогист_ФормаКонстантАвтограф</CommonForm>
 			<CommonForm>МегаЛогист_ОПрограмме</CommonForm>
 			<CommonForm>АлгоритмыНастройка</CommonForm>
+			<CommonForm>ИсторияОбменовПоОбъекту</CommonForm>
+			<CommonForm>ФормаРедактированияОбщедоступныхРеквизитов</CommonForm>
 			<Catalog>Автомобили</Catalog>
 			<Catalog>АукционПоставщиков</Catalog>
 			<Catalog>Банки</Catalog>
@@ -1546,6 +1555,7 @@
 			<Catalog>ПричиныОтказаКлиента</Catalog>
 			<Catalog>Алгоритмы</Catalog>
 			<Catalog>СтатьиЗатратИмпорт</Catalog>
+			<Catalog>ПричиныОтменыВозвратаОтПокупателя</Catalog>
 			<Document>АвансовыйОтчет</Document>
 			<Document>АктРассмотренияВозврата</Document>
 			<Document>ВводНачальныхДанныхПоПродажам</Document>
@@ -1612,6 +1622,7 @@
 			<Document>МегаЛогист_МаршрутныйЛист</Document>
 			<Document>ЭлектронноеПисьмо</Document>
 			<Document>РазмещениеТоваров</Document>
+			<Document>ОтказПоставщикаВВозврате</Document>
 			<DocumentNumerator>НумераторЗаявокКорректировокЗаявок</DocumentNumerator>
 			<DocumentNumerator>НумераторЗаказовКорретировокЗаказов</DocumentNumerator>
 			<Sequence>ПартионныйУчет</Sequence>
@@ -1773,6 +1784,7 @@
 			<Enum>ВидыПечатныхДокументов</Enum>
 			<Enum>ОграниченияВыполненияУсловийПроцессов</Enum>
 			<Enum>Приоритеты</Enum>
+			<Enum>СостоянияОтменыЗаказаНаПриемкуВТоплог</Enum>
 			<Report>АктСверкиВзаиморасчетов</Report>
 			<Report>АнализЗаказовПоставщикам</Report>
 			<Report>АнализЗаявокПокупателей</Report>
@@ -1855,6 +1867,8 @@
 			<Report>ЛогистическиеЦепочки_Мотивация</Report>
 			<Report>ОтчетПоПричинамОтказаРТУ</Report>
 			<Report>ОтчетПоПродажамМФП</Report>
+			<Report>Приход_по_изготовителю_для_ОУТЗ</Report>
+			<Report>АктивныеЗаказыПоставщику</Report>
 			<DataProcessor>_ОбработкаОбновления</DataProcessor>
 			<DataProcessor>АдреснаяКнига</DataProcessor>
 			<DataProcessor>БлокировкаКонтрагентов</DataProcessor>
@@ -1976,6 +1990,19 @@
 			<DataProcessor>РассылкаПочты_SMS_ВыполнитьРассылку</DataProcessor>
 			<DataProcessor>РассылкаПочты_SMS_ОчиститьОчередь</DataProcessor>
 			<DataProcessor>ПолучитьГеоКоординаты</DataProcessor>
+			<DataProcessor>РасчетОборотовПоВзаиморасчетамПоПоставщику</DataProcessor>
+			<DataProcessor>СинхронизацияДанныхССайтом</DataProcessor>
+			<DataProcessor>ФормированиеТекущегоСостоянияЗаявок</DataProcessor>
+			<DataProcessor>ВыгрузкаОплат</DataProcessor>
+			<DataProcessor>ЗакрытиеЗаказовПоставщику</DataProcessor>
+			<DataProcessor>СверкаОстатковССайтом</DataProcessor>
+			<DataProcessor>ПросмотрИсторииОбменов</DataProcessor>
+			<DataProcessor>ЗагрузкаВГХ</DataProcessor>
+			<DataProcessor>ЗагрузкаАРВССайта</DataProcessor>
+			<DataProcessor>ГенераторСобытийПроцессаВозвратов</DataProcessor>
+			<DataProcessor>АвтополучениеПочты</DataProcessor>
+			<DataProcessor>СозданиеКорректировокПоПодчиненнымКонтрагентам</DataProcessor>
+			<DataProcessor>ПривязкаОткреплениеГоловногоКонтрагента</DataProcessor>
 			<InformationRegister>_ДляПереносаВзаиморасчеты</InformationRegister>
 			<InformationRegister>_ДляПереносаДанных</InformationRegister>
 			<InformationRegister>_ИсторияОбмена_1С7_1С8</InformationRegister>
@@ -2155,6 +2182,12 @@
 			<InformationRegister>ИсторияОбменовПоОбъектам</InformationRegister>
 			<InformationRegister>НормативыСписанияТоваров</InformationRegister>
 			<InformationRegister>УдалениеСостоянийЗаявок</InformationRegister>
+			<InformationRegister>КомментарииАктовРассмотренияВозврата</InformationRegister>
+			<InformationRegister>СоответствиеДокументовМФП</InformationRegister>
+			<InformationRegister>РегистрацияОбъектовДляВыгрузкиВБухгалтерию</InformationRegister>
+			<InformationRegister>БезоговорочныйВозвратПрайсовПоставщика</InformationRegister>
+			<InformationRegister>ОшибкиЗагрузкиВГХ</InformationRegister>
+			<InformationRegister>ИсторияПривязкиПодчиненныхКонтрагентов</InformationRegister>
 			<AccumulationRegister>БюджетыЦФО</AccumulationRegister>
 			<AccumulationRegister>Взаиморасчеты</AccumulationRegister>
 			<AccumulationRegister>ВзаиморасчетыПриСборкеОтгрузки</AccumulationRegister>

@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Код</dataPath>
+			<field>Код</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регистратор</dataPath>
+			<field>Регистратор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОбщОстаток</dataPath>
+			<field>ОбщОстаток</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Общ остаток</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаРегистратора</dataPath>
+			<field>СуммаРегистратора</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма регистратора</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧРД=.; ЧГ=0</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период</dataPath>
+			<field>Период</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yy</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	УчетныеЗаписиСайта.Код,
+	ДоговорыКонтрагентов.Ссылка КАК Договор
+ПОМЕСТИТЬ ТчКонтрагентов
+ИЗ
+	Справочник.Контрагенты КАК Контрагенты
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.УчетныеЗаписиСайта КАК УчетныеЗаписиСайта
+		ПО (Контрагенты.Покупатель = ИСТИНА)
+			И Контрагенты.ОсновнаяТорговаяТочка = УчетныеЗаписиСайта.Владелец
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.ДоговорыКонтрагентов КАК ДоговорыКонтрагентов
+		ПО Контрагенты.Ссылка = ДоговорыКонтрагентов.Владелец
+			И (ДоговорыКонтрагентов.ВидДоговора = ЗНАЧЕНИЕ(Перечисление.ВидыДоговоровКонтрагентов.СПокупателем))
+			И (ДоговорыКонтрагентов.ПометкаУдаления = ЛОЖЬ)
+			И Контрагенты.ОсновнойДоговорКонтрагента = ДоговорыКонтрагентов.Ссылка
+ГДЕ
+	Контрагенты.Покупатель = ИСТИНА
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТчКонтрагентов.Код,
+	ТчКонтрагентов.Договор КАК Договор,
+	ВзаиморасчетыОстатки.ДокументРасчетов,
+	ВзаиморасчетыОстатки.СуммаУпрОстаток
+ПОМЕСТИТЬ ТчОстатков
+ИЗ
+	ТчКонтрагентов КАК ТчКонтрагентов
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрНакопления.Взаиморасчеты.Остатки(
+				&amp;ДатаКонца,
+				ДоговорКонтрагента В
+					(ВЫБРАТЬ
+						тчконтрагентов.Договор
+					ИЗ
+						тчконтрагентов)) КАК ВзаиморасчетыОстатки
+		ПО ТчКонтрагентов.Договор = ВзаиморасчетыОстатки.ДоговорКонтрагента
+
+ИНДЕКСИРОВАТЬ ПО
+	Договор
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СУММА(ТчОстатков.СуммаУпрОстаток) КАК СуммаУпрОстаток,
+	ТчОстатков.Код
+ПОМЕСТИТЬ ТчОбщийОстаток
+ИЗ
+	ТчОстатков КАК ТчОстатков
+
+СГРУППИРОВАТЬ ПО
+	ТчОстатков.Код
+
+ИМЕЮЩИЕ
+	СУММА(ТчОстатков.СуммаУпрОстаток) &gt; 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТчОстатков.Код,
+	ТчОстатков.Договор КАК Договор,
+	ТчОстатков.ДокументРасчетов КАК ДокументРасчетов,
+	ТчОбщийОстаток.СуммаУпрОстаток КАК ОбщОстаток
+ПОМЕСТИТЬ ТчВзаиморасчетыКФормированию
+ИЗ
+	ТчОстатков КАК ТчОстатков
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ТчОбщийОстаток КАК ТчОбщийОстаток
+		ПО ТчОстатков.Код = ТчОбщийОстаток.Код
+
+ИНДЕКСИРОВАТЬ ПО
+	Договор,
+	ДокументРасчетов
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВЫБОР
+		КОГДА НЕ Взаиморасчеты.Регистратор ССЫЛКА Документ.РеализацияТоваровУслуг
+			ТОГДА Взаиморасчеты.ДокументРасчетов
+		ИНАЧЕ Взаиморасчеты.Регистратор
+	КОНЕЦ КАК Регистратор,
+	ТчВзаиморасчетыКФормированию.Код КАК Код,
+	ТчВзаиморасчетыКФормированию.ОбщОстаток КАК ОбщОстаток,
+	ЕСТЬNULL(ТчОстатков.СуммаУпрОстаток, 0) КАК СуммаРегистратора,
+	ВЫБОР
+		КОГДА Взаиморасчеты.Регистратор ССЫЛКА Документ.РеализацияТоваровУслуг
+			ТОГДА ВЫРАЗИТЬ(Взаиморасчеты.Регистратор КАК Документ.РеализацияТоваровУслуг).ДатаОплаты
+		ИНАЧЕ ДАТАВРЕМЯ(1, 1, 1, 0, 0, 0)
+	КОНЕЦ КАК Период
+{ВЫБРАТЬ
+	Регистратор,
+	Код,
+	СуммаРегистратора,
+	ОбщОстаток,
+	Период}
+ИЗ
+	РегистрНакопления.Взаиморасчеты КАК Взаиморасчеты
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ТчВзаиморасчетыКФормированию КАК ТчВзаиморасчетыКФормированию
+		ПО Взаиморасчеты.ДоговорКонтрагента = ТчВзаиморасчетыКФормированию.Договор
+			И Взаиморасчеты.ДокументРасчетов = ТчВзаиморасчетыКФормированию.ДокументРасчетов
+			И (Взаиморасчеты.ДокументРасчетов ССЫЛКА Документ.РеализацияТоваровУслуг)
+			И (Взаиморасчеты.Период &gt; ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(&amp;ДатаКонца КАК ДАТА), ГОД, -1))
+		ЛЕВОЕ СОЕДИНЕНИЕ ТчОстатков КАК ТчОстатков
+		ПО Взаиморасчеты.ДоговорКонтрагента = ТчОстатков.Договор
+			И Взаиморасчеты.ДокументРасчетов = ТчОстатков.ДокументРасчетов
+ГДЕ
+	Взаиморасчеты.Период &lt;= &amp;ДатаКонца
+	И Взаиморасчеты.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход)
+
+УПОРЯДОЧИТЬ ПО
+	Код,
+	Период УБЫВ</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<calculatedField>
+		<dataPath>ОстатокВзаиморасчетов</dataPath>
+		<expression>Выбор  когда ОбщОстаток -ВычислитьВыражение("Сумма(СуммаРегистратора)" ,,"Группировка","Первая","Текущая",) &lt;= 0 и ОбщОстаток -ВычислитьВыражение("Сумма(СуммаРегистратора)" ,,"Группировка","Первая","Предыдущая",) &lt;= 0 тогда  Ложь иначе истина конец</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Остаток взаиморасчетов</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+	</calculatedField>
+	<totalField>
+		<dataPath>ОбщОстаток</dataPath>
+		<expression>ОбщОстаток</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаРегистратора</dataPath>
+		<expression>Сумма(СуммаРегистратора)</expression>
+		<group>Регистратор</group>
+	</totalField>
+	<totalField>
+		<dataPath>ОстатокВзаиморасчетов</dataPath>
+		<expression>0</expression>
+		<group>Код</group>
+	</totalField>
+	<totalField>
+		<dataPath>ОстатокВзаиморасчетов</dataPath>
+		<expression>ОстатокВзаиморасчетов</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Период</dataPath>
+		<expression>Период</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаКонца</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата конца</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Код</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Период</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Регистратор</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОбщОстаток</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаРегистратора</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОстатокВзаиморасчетов</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>РасположениеГруппировки</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionGroupPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Together</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Код</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>РасположениеГруппировки</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionGroupPlacement">None</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ОстатокВзаиморасчетов</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+							<dcsset:application>Hierarchy</dcsset:application>
+						</dcsset:item>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto">
+							<dcsset:use>false</dcsset:use>
+						</dcsset:item>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Код</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Регистратор</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>СуммаРегистратора</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Период</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:field>ОбщОстаток</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:field>ОстатокВзаиморасчетов</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:outputParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+						</dcscor:item>
+					</dcsset:outputParameters>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

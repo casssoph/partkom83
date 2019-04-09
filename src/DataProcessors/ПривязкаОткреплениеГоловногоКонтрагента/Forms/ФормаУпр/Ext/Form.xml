@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="10">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="11"/>
+			<ChildItems>
+				<InputField name="Контрагент" id="1">
+					<DataPath>Объект.Контрагент</DataPath>
+					<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КонтрагентКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="КонтрагентГоловнойКонтрагент" id="7">
+					<DataPath>Объект.Контрагент.ГоловнойКонтрагент</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Текущий головной контрагент</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="КонтрагентГоловнойКонтрагентКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="КонтрагентГоловнойКонтрагентРасширеннаяПодсказка" id="9"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<RadioButtonField name="Режим" id="12">
+			<DataPath>Режим</DataPath>
+			<TitleLocation>None</TitleLocation>
+			<RadioButtonType>Auto</RadioButtonType>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Прикрепить</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:decimal">0</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Открепить</v8:content>
+							</v8:item>
+						</Presentation>
+						<Value xsi:type="xs:decimal">1</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="РежимКонтекстноеМеню" id="13"/>
+			<ExtendedTooltip name="РежимРасширеннаяПодсказка" id="14"/>
+		</RadioButtonField>
+		<InputField name="ГоловнойКонтрагент" id="4">
+			<DataPath>Объект.ГоловнойКонтрагент</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<HorizontalStretch>false</HorizontalStretch>
+			<ContextMenu name="ГоловнойКонтрагентКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="ГоловнойКонтрагентРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<CheckBoxField name="ИННСовпадают" id="15">
+			<DataPath>ИННСовпадают</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ИНН совпадают</v8:content>
+				</v8:item>
+			</Title>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ИННСовпадаютКонтекстноеМеню" id="16"/>
+			<ExtendedTooltip name="ИННСовпадаютРасширеннаяПодсказка" id="17"/>
+		</CheckBoxField>
+		<CheckBoxField name="ВидыОплатСовпадаютВОсновныхДоговорах" id="18">
+			<DataPath>ВидыОплатСовпадаютВОсновныхДоговорах</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ВидыОплатСовпадаютВОсновныхДоговорахКонтекстноеМеню" id="19"/>
+			<ExtendedTooltip name="ВидыОплатСовпадаютВОсновныхДоговорахРасширеннаяПодсказка" id="20"/>
+		</CheckBoxField>
+		<CheckBoxField name="ОрганизацииСовпадаютВОсновныхДоговорах" id="21">
+			<DataPath>ОрганизацииСовпадаютВОсновныхДоговорах</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ОрганизацииСовпадаютВОсновныхДоговорахКонтекстноеМеню" id="22"/>
+			<ExtendedTooltip name="ОрганизацииСовпадаютВОсновныхДоговорахРасширеннаяПодсказка" id="23"/>
+		</CheckBoxField>
+		<Table name="РеализацииВСтатусеСборка" id="24">
+			<Representation>List</Representation>
+			<TitleLocation>Top</TitleLocation>
+			<ChangeRowSet>false</ChangeRowSet>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>РеализацииВСтатусеСборка</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="РеализацииВСтатусеСборкаКонтекстноеМеню" id="25"/>
+			<AutoCommandBar name="РеализацииВСтатусеСборкаКоманднаяПанель" id="26">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="РеализацииВСтатусеСборкаРасширеннаяПодсказка" id="27"/>
+			<SearchStringAddition name="РеализацииВСтатусеСборкаСтрокаПоиска" id="28">
+				<AdditionSource>
+					<Item>РеализацииВСтатусеСборка</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РеализацииВСтатусеСборкаСтрокаПоискаКонтекстноеМеню" id="29"/>
+				<ExtendedTooltip name="РеализацииВСтатусеСборкаСтрокаПоискаРасширеннаяПодсказка" id="30"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="РеализацииВСтатусеСборкаСостояниеПросмотра" id="31">
+				<AdditionSource>
+					<Item>РеализацииВСтатусеСборка</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РеализацииВСтатусеСборкаСостояниеПросмотраКонтекстноеМеню" id="32"/>
+				<ExtendedTooltip name="РеализацииВСтатусеСборкаСостояниеПросмотраРасширеннаяПодсказка" id="33"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="РеализацииВСтатусеСборкаУправлениеПоиском" id="34">
+				<AdditionSource>
+					<Item>РеализацииВСтатусеСборка</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="РеализацииВСтатусеСборкаУправлениеПоискомКонтекстноеМеню" id="35"/>
+				<ExtendedTooltip name="РеализацииВСтатусеСборкаУправлениеПоискомРасширеннаяПодсказка" id="36"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<InputField name="РеализацииВСтатусеСборкаДокумент" id="37">
+					<DataPath>РеализацииВСтатусеСборка.Документ</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="РеализацииВСтатусеСборкаДокументКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="РеализацииВСтатусеСборкаДокументРасширеннаяПодсказка" id="39"/>
+				</InputField>
+				<InputField name="РеализацииВСтатусеСборкаДокументДоговорКонтрагентаВзаиморасчетов" id="43">
+					<DataPath>РеализацииВСтатусеСборка.Документ.ДоговорКонтрагентаВзаиморасчетов</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="РеализацииВСтатусеСборкаДокументДоговорКонтрагентаВзаиморасчетовКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="РеализацииВСтатусеСборкаДокументДоговорКонтрагентаВзаиморасчетовРасширеннаяПодсказка" id="45"/>
+				</InputField>
+				<InputField name="РеализацииВСтатусеСборкаДокументКонтрагентВзаиморасчетов" id="40">
+					<DataPath>РеализацииВСтатусеСборка.Документ.КонтрагентВзаиморасчетов</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="РеализацииВСтатусеСборкаДокументКонтрагентВзаиморасчетовКонтекстноеМеню" id="41"/>
+					<ExtendedTooltip name="РеализацииВСтатусеСборкаДокументКонтрагентВзаиморасчетовРасширеннаяПодсказка" id="42"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ПривязкаОткреплениеГоловногоКонтрагента</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="Режим" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Режим</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИННСовпадают" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ИННСовпадают</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВидыОплатСовпадаютВОсновныхДоговорах" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Виды оплат совпадают в основных договорах</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОрганизацииСовпадаютВОсновныхДоговорах" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организации совпадают в основных договорах</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РеализацииВСтатусеСборка" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реализации в статусе "Сборка"</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Документ" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документ</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.РеализацияТоваровУслуг</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+</Form>
