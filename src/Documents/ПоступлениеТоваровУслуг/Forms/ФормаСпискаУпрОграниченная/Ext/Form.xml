@@ -303,6 +303,12 @@
 					<ContextMenu name="СтандартнаяКартинкаКонтекстноеМеню" id="65"/>
 					<ExtendedTooltip name="СтандартнаяКартинкаРасширеннаяПодсказка" id="66"/>
 				</LabelField>
+				<CheckBoxField name="Проверен" id="125">
+					<DataPath>Список.Проверен</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПроверенКонтекстноеМеню" id="126"/>
+					<ExtendedTooltip name="ПроверенРасширеннаяПодсказка" id="127"/>
+				</CheckBoxField>
 			</ChildItems>
 		</Table>
 	</ChildItems>
@@ -347,12 +353,23 @@
 		КОГДА ДокументПоступлениеТоваровУслуг.СтатусДокумента = ЗНАЧЕНИЕ(Справочник.СтатусыДокументов.ПоступлениеТоваровРазмещен)
 			ТОГДА 16
 	КОНЕЦ КАК Картинка,
+		ЕСТЬNULL(ВложенныйЗапрос1.ПризнакПроверен, ЛОЖЬ) КАК Проверен,
 	ДокументПоступлениеТоваровУслуг.ДокументОснование,
 	ДокументПоступлениеТоваровУслуг.Комментарий,
 	ДокументПоступлениеТоваровУслуг.НомерВходящегоДокументаСФ,
 	ДокументПоступлениеТоваровУслуг.ДатаВходящегоДокументаСФ
 ИЗ
-	Документ.ПоступлениеТоваровУслуг КАК ДокументПоступлениеТоваровУслуг</QueryText>
+	Документ.ПоступлениеТоваровУслуг КАК ДокументПоступлениеТоваровУслуг
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.МенеджерыТорговыхТочек.СрезПоследних(, ВидМенеджера = ЗНАЧЕНИЕ(Перечисление.ВидыМенеджеров.Снабжения)) КАК МенеджерыТорговыхТочекСрезПоследних
+		ПО ДокументПоступлениеТоваровУслуг.ТорговаяТочка = МенеджерыТорговыхТочекСрезПоследних.ТорговаяТочка
+			И ДокументПоступлениеТоваровУслуг.Контрагент = МенеджерыТорговыхТочекСрезПоследних.Контрагент
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			Р.Период КАК ДатаПроверки,
+			Р.ПризнакПроверен КАК ПризнакПроверен,
+			Р.Объект КАК Объект
+		ИЗ
+			РегистрСведений.СведенияОПроверкеДокументов.СрезПоследних(, ) КАК Р) КАК ВложенныйЗапрос1
+		ПО (ВложенныйЗапрос1.Объект = ДокументПоступлениеТоваровУслуг.Ссылка)</QueryText>
 				<MainTable>Document.ПоступлениеТоваровУслуг</MainTable>
 				<GetInvisibleFieldPresentations>false</GetInvisibleFieldPresentations>
 				<ListSettings>
@@ -412,6 +429,22 @@
 								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 									<dcscor:parameter>Формат</dcscor:parameter>
 									<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Проверен</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветФона</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">#00FF00</dcscor:value>
 								</dcscor:item>
 							</dcsset:appearance>
 						</dcsset:item>
