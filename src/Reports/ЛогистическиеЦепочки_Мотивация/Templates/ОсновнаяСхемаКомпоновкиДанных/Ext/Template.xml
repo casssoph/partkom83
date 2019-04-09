@@ -180,23 +180,6 @@
 			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>Бренд</dataPath>
-			<field>Бренд</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Бренд</v8:content>
-				</v8:item>
-			</title>
-			<appearance>
-				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:use>false</dcscor:use>
-					<dcscor:parameter>ЦветФона</dcscor:parameter>
-					<dcscor:value xmlns:d6p1="http://v8.1c.ru/8.1/data/ui/colors/web" xsi:type="v8ui:Color">d6p1:Khaki</dcscor:value>
-				</dcscor:item>
-			</appearance>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>Склад</dataPath>
 			<field>Склад</field>
 			<title xsi:type="v8:LocalStringType">
@@ -1463,7 +1446,13 @@
 	МАКСИМУМ(ЕСТЬNULL(КорректировкаЗаявкиПокупателяТовары.Номенклатура.Артикул, ЗаявкаПокупателяТовары.Номенклатура.Артикул)) КАК Артикул,
 	МАКСИМУМ(ЕСТЬNULL(КорректировкаЗаявкиПокупателяТовары.Номенклатура.Изготовитель, ЗаявкаПокупателяТовары.Номенклатура.Изготовитель)) КАК Бренд,
 	МАКСИМУМ(ЗаказПоставщику.Дата) КАК ЗаказДата,
+	
 	МАКСИМУМ(ЗаказПоставщику.ДатаПодтверждения) КАК ЗаказДатаПодтверждения,
+	//ВЫБОР
+	//	КОГДА МАКСИМУМ(ЗаказПоставщику.ДатаПодтверждения) = ДАТАВРЕМЯ(1,1,1) ТОГДА МИНИМУМ(СТРОКИ_ПРИХОДА.ПТУДата)
+	//	ИНАЧЕ МАКСИМУМ(ЗаказПоставщику.ДатаПодтверждения)
+	//КОНЕЦ КАК ЗаказДатаПодтверждения,
+	
 	МАКСИМУМ(СТРОКИ_ПРИХОДА.ДатаПроверки) КАК ПТУДатаПроверки,
 	МАКСИМУМ(СТРОКИ_ПРИХОДА.ПТУДатаДок) КАК ПТУДатаДок,
 	МИНИМУМ(СТРОКИ_ПРИХОДА.ПТУДата) КАК ПТУДата,
@@ -1688,7 +1677,15 @@
 	НАЧАЛОПЕРИОДА(ДОБАВИТЬКДАТЕ(НАЧАЛОПЕРИОДА(СТРОКИ_ЗАЯВОК_2.Заявка.Дата, ДЕНЬ), ДЕНЬ, ЕСТЬNULL(НОРМАТИВЫ_01.Срок, 0) + ЕСТЬNULL(НОРМАТИВЫ_12.Срок, 0) + ЕСТЬNULL(НОРМАТИВЫ_23.Срок, 0) + ЕСТЬNULL(НОРМАТИВЫ_34.Срок, 0) + ЕСТЬNULL(НОРМАТИВЫ_45.Срок, 0) + ЕСТЬNULL(НОРМАТИВЫ_56.Срок, 0)), ДЕНЬ) КАК Дата_6_План,
 	НАЧАЛОПЕРИОДА(ЕСТЬNULL(СТРОКИ_ЗАЯВОК_2.ЗаявкаДата, ДАТАВРЕМЯ(1, 1, 1)), ДЕНЬ) КАК Дата_0,
 	НАЧАЛОПЕРИОДА(ЕСТЬNULL(СТРОКИ_ЗАЯВОК_2.ЗаказДата, ДАТАВРЕМЯ(1, 1, 1)), ДЕНЬ) КАК Дата_1,
-	НАЧАЛОПЕРИОДА(ЕСТЬNULL(СТРОКИ_ЗАЯВОК_2.ЗаказДатаПодтверждения, ДАТАВРЕМЯ(1, 1, 1)), ДЕНЬ) КАК Дата_2,
+	
+	//НАЧАЛОПЕРИОДА(ЕСТЬNULL(СТРОКИ_ЗАЯВОК_2.ЗаказДатаПодтверждения, ДАТАВРЕМЯ(1, 1, 1)), ДЕНЬ) КАК Дата_2,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(СТРОКИ_ЗАЯВОК_2.ЗаказДатаПодтверждения, ДАТАВРЕМЯ(1, 1, 1)) = ДАТАВРЕМЯ(1, 1, 1) И 
+		      ЕСТЬNULL(СТРОКИ_ЗАЯВОК_2.ПТУДата, ДАТАВРЕМЯ(1, 1, 1)) &gt; ДАТАВРЕМЯ(1, 1, 1) ТОГДА
+			  НАЧАЛОПЕРИОДА(ДОБАВИТЬКДАТЕ(НАЧАЛОПЕРИОДА(СТРОКИ_ЗАЯВОК_2.Заявка.Дата, ДЕНЬ), ДЕНЬ, ЕСТЬNULL(НОРМАТИВЫ_01.Срок, 0) + ЕСТЬNULL(НОРМАТИВЫ_12.Срок, 0)), ДЕНЬ)	      
+		ИНАЧЕ НАЧАЛОПЕРИОДА(ЕСТЬNULL(СТРОКИ_ЗАЯВОК_2.ЗаказДатаПодтверждения, ДАТАВРЕМЯ(1, 1, 1)), ДЕНЬ)
+	КОНЕЦ КАК Дата_2,
+	
 	НАЧАЛОПЕРИОДА(ЕСТЬNULL(СТРОКИ_ЗАЯВОК_2.ПТУДата, ДАТАВРЕМЯ(1, 1, 1)), ДЕНЬ) КАК Дата_3,
 	НАЧАЛОПЕРИОДА(ЕСТЬNULL(СТРОКИ_ЗАЯВОК_2.ПТУДатаПроверки, ДАТАВРЕМЯ(1, 1, 1)), ДЕНЬ) КАК Дата_4,
 	НАЧАЛОПЕРИОДА(ЕСТЬNULL(СТРОКИ_ЗАЯВОК_2.ПТУДатаПриемки, ДАТАВРЕМЯ(1, 1, 1)), ДЕНЬ) КАК Дата_5,
@@ -2194,8 +2191,8 @@
 	СТРОКИ_ЗАЯВОК_5.Поставщик,
 	СТРОКИ_ЗАЯВОК_5.КА,
 	СТРОКИ_ЗАЯВОК_5.Менеджер,
-	СТРОКИ_ЗАЯВОК_5.Склад,
-	СТРОКИ_ЗАЯВОК_5.Бренд,
+	//СТРОКИ_ЗАЯВОК_5.Склад,
+	//СТРОКИ_ЗАЯВОК_5.Бренд,
 	МАКСИМУМ(естьNULL(СТРОКИ_ЗАЯВОК_51.Заказ,СТРОКИ_ЗАЯВОК_5.Заказ)) КАК Заказ,
 	МАКСИМУМ(естьNULL(СТРОКИ_ЗАЯВОК_53.ПТУ,СТРОКИ_ЗАЯВОК_5.ПТУ)) КАК ПТУ,
 	МАКСИМУМ(естьNULL(СТРОКИ_ЗАЯВОК_56.ВП,СТРОКИ_ЗАЯВОК_5.ВП)) КАК ВП,
@@ -2306,9 +2303,9 @@
 	СТРОКИ_ЗАЯВОК_5.Заявка,
 	СТРОКИ_ЗАЯВОК_5.Поставщик,
 	СТРОКИ_ЗАЯВОК_5.КА,
-	СТРОКИ_ЗАЯВОК_5.Менеджер,
-	СТРОКИ_ЗАЯВОК_5.Склад,
-	СТРОКИ_ЗАЯВОК_5.Бренд</query>
+	СТРОКИ_ЗАЯВОК_5.Менеджер
+	//СТРОКИ_ЗАЯВОК_5.Склад,
+	//СТРОКИ_ЗАЯВОК_5.Бренд</query>
 	</dataSet>
 	<totalField>
 		<dataPath>Сч</dataPath>
@@ -2496,15 +2493,8 @@
 					<dcsset:field>Поставщик</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>Бренд</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:field>КА</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:use>false</dcsset:use>
-					<dcsset:field>Склад</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Заявка</dcsset:field>
@@ -2627,21 +2617,6 @@
 			<dcsset:filter>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
-					<dcsset:left xsi:type="dcscor:Field">Бренд</dcsset:left>
-					<dcsset:comparisonType>Equal</dcsset:comparisonType>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:FilterItemComparison">
-					<dcsset:use>false</dcsset:use>
-					<dcsset:left xsi:type="dcscor:Field">КА</dcsset:left>
-					<dcsset:comparisonType>Equal</dcsset:comparisonType>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:FilterItemComparison">
-					<dcsset:use>false</dcsset:use>
-					<dcsset:left xsi:type="dcscor:Field">Склад</dcsset:left>
-					<dcsset:comparisonType>Equal</dcsset:comparisonType>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:FilterItemComparison">
-					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">Менеджер</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 				</dcsset:item>
@@ -2652,20 +2627,8 @@
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
-					<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+					<dcsset:left xsi:type="dcscor:Field">КА</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:FilterItemComparison">
-					<dcsset:use>false</dcsset:use>
-					<dcsset:left xsi:type="dcscor:Field">IDSite</dcsset:left>
-					<dcsset:comparisonType>Contains</dcsset:comparisonType>
-					<dcsset:right xsi:type="xs:string"/>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:FilterItemComparison">
-					<dcsset:use>false</dcsset:use>
-					<dcsset:left xsi:type="dcscor:Field">Артикул</dcsset:left>
-					<dcsset:comparisonType>Contains</dcsset:comparisonType>
-					<dcsset:right xsi:type="xs:string"/>
 				</dcsset:item>
 			</dcsset:filter>
 			<dcsset:dataParameters>
@@ -2949,29 +2912,12 @@
 						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 					</dcsset:selection>
 					<dcsset:item xsi:type="dcsset:StructureItemGroup">
-						<dcsset:groupItems>
-							<dcsset:item xsi:type="dcsset:GroupItemField">
-								<dcsset:field>Бренд</dcsset:field>
-								<dcsset:groupType>Items</dcsset:groupType>
-								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
-								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
-								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
-							</dcsset:item>
-						</dcsset:groupItems>
 						<dcsset:order>
 							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 						</dcsset:order>
 						<dcsset:selection>
 							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 						</dcsset:selection>
-						<dcsset:item xsi:type="dcsset:StructureItemGroup">
-							<dcsset:order>
-								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
-							</dcsset:order>
-							<dcsset:selection>
-								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
-							</dcsset:selection>
-						</dcsset:item>
 					</dcsset:item>
 				</dcsset:item>
 			</dcsset:item>

@@ -62,10 +62,22 @@
 				<Description>ГВ.Ждем товар</Description>
 				<IsFolder>false</IsFolder>
 			</Item>
+			<Item id="f211b277-aad6-4b24-9f72-af0f232d1a98">
+				<Name>АРВ_ГВОтветГПРК</Name>
+				<Code>000000101</Code>
+				<Description>ГВ.Ответ ГПРК</Description>
+				<IsFolder>false</IsFolder>
+			</Item>
 			<Item id="8cb100ff-8b0b-426d-b075-9d4a77216185">
 				<Name>АРВ_ГВОтказ</Name>
 				<Code>000000067</Code>
 				<Description>ГВ.Отказ</Description>
+				<IsFolder>false</IsFolder>
+			</Item>
+			<Item id="fb23ab1a-3461-4a06-a5e6-03b76862b726">
+				<Name>АРВ_ГВРешениеКРО</Name>
+				<Code>000000102</Code>
+				<Description>ГВ.Решение КРО</Description>
 				<IsFolder>false</IsFolder>
 			</Item>
 			<Item id="853f765d-bdd3-42e0-9e7d-9a8dd310f7b8">
@@ -116,6 +128,18 @@
 				<Description>ГПРК.Рассмотрение</Description>
 				<IsFolder>false</IsFolder>
 			</Item>
+			<Item id="9b70c7fc-4bcf-4a0b-bd8d-45fee35e4e02">
+				<Name>АРВ_ГПРКЭкспертизаОдобрена</Name>
+				<Code>000000109</Code>
+				<Description>ГПРК.Экспертиза одобрена</Description>
+				<IsFolder>false</IsFolder>
+			</Item>
+			<Item id="7dd65dc8-93ca-4f9f-bd01-78522d6a6390">
+				<Name>АРВ_ГПРКЭкспертизаУПоставщика</Name>
+				<Code>000000108</Code>
+				<Description>ГПРК.Экспертиза у поставщика</Description>
+				<IsFolder>false</IsFolder>
+			</Item>
 			<Item id="6a36d77a-0a35-484d-8d41-3db754f9709c">
 				<Name>АРВ_ЗакрытоСкладом</Name>
 				<Code>000000072</Code>
@@ -162,6 +186,12 @@
 				<Name>АРВ_Отменен</Name>
 				<Code>000000081</Code>
 				<Description>Отменен</Description>
+				<IsFolder>false</IsFolder>
+			</Item>
+			<Item id="8b35d9c8-4c1f-4a25-8134-7da828c15a65">
+				<Name>АРВ_ПопыткаОтмены</Name>
+				<Code>000000099</Code>
+				<Description>Попытка отмены</Description>
 				<IsFolder>false</IsFolder>
 			</Item>
 			<Item id="5b81d8e7-93a4-41da-a6ed-3669670d52c8">
@@ -220,16 +250,72 @@
 				<Description>Отказано в возврате</Description>
 				<IsFolder>false</IsFolder>
 			</Item>
+			<Item id="13815bc4-2349-40f8-bb1d-a0a900ba15c9">
+				<Name>ВозвратТоваровОтПокупателяОтменен</Name>
+				<Code>000000100</Code>
+				<Description>Отменен</Description>
+				<IsFolder>false</IsFolder>
+			</Item>
 			<Item id="dadcf2aa-eec6-4b1e-8947-9c0d34a90719">
 				<Name>ВозвратТоваровОтПокупателяПринят</Name>
 				<Code>000000041</Code>
 				<Description>Принят</Description>
 				<IsFolder>false</IsFolder>
 			</Item>
+			<Item id="7ec7ffac-a6fa-4d92-904b-a50bd321af36">
+				<Name>ВозвратТоваровОтПокупателяПринятДляЭкспертизы</Name>
+				<Code>000000103</Code>
+				<Description>Принят для экспертизы</Description>
+				<IsFolder>false</IsFolder>
+			</Item>
 			<Item id="6cda50d9-bc22-4250-be27-936f46d4e0c5">
 				<Name>ВозвратТоваровОтПокупателяРазмещен</Name>
 				<Code>000000092</Code>
 				<Description>Размещен</Description>
+				<IsFolder>false</IsFolder>
+			</Item>
+			<Item id="1754b53d-7a59-47a7-a95f-5ca418a05209">
+				<Name>ВозвратТоваровОтПокупателяРазмещенДляЭкспертизы</Name>
+				<Code>000000104</Code>
+				<Description>Размещен для экспертизы</Description>
+				<IsFolder>false</IsFolder>
+			</Item>
+		</ChildItems>
+	</Item>
+	<Item id="3b7d22a2-540d-4ce1-b4cb-7aed8e72fb98">
+		<Name>ВозвратТоваровПоставщику</Name>
+		<Code>000000096</Code>
+		<Description>Возврат товаров поставщику</Description>
+		<IsFolder>true</IsFolder>
+		<ChildItems>
+			<Item id="343a17d4-9bc1-465f-8d19-d01120fc1cd2">
+				<Name>ВозвратТоваровПоставщикуНовый</Name>
+				<Code>000000097</Code>
+				<Description>Новый</Description>
+				<IsFolder>false</IsFolder>
+			</Item>
+			<Item id="1f865119-85c5-48e5-b336-7fefb52ff240">
+				<Name>ВозвратТоваровПоставщикуНовыйНаЭкспертизу</Name>
+				<Code>000000105</Code>
+				<Description>Новый (на экспертизу)</Description>
+				<IsFolder>false</IsFolder>
+			</Item>
+			<Item id="da9deb4e-2a2c-4dac-9c69-c7a3b41b347a">
+				<Name>ВозвратТоваровПоставщикуОтгружен</Name>
+				<Code>000000098</Code>
+				<Description>Отгружен</Description>
+				<IsFolder>false</IsFolder>
+			</Item>
+			<Item id="ec2241d1-e180-45e8-85b3-0d386ce8e67a">
+				<Name>ВозвратТоваровПоставщикуОтгруженНаЭкспертизу</Name>
+				<Code>000000106</Code>
+				<Description>Отгружен (на экспертизу)</Description>
+				<IsFolder>false</IsFolder>
+			</Item>
+			<Item id="4a73134b-ea6c-447d-89af-4fa192c63816">
+				<Name>ВозвратТоваровПоставщикуОтменен</Name>
+				<Code>000000107</Code>
+				<Description>Отменен</Description>
 				<IsFolder>false</IsFolder>
 			</Item>
 		</ChildItems>
@@ -336,6 +422,32 @@
 				<Name>ЗаявкаПокупателяПодтвержден</Name>
 				<Code>000000045</Code>
 				<Description>Подтвержден</Description>
+				<IsFolder>false</IsFolder>
+			</Item>
+		</ChildItems>
+	</Item>
+	<Item id="c3105496-b071-4a94-81cc-336ae623c87e">
+		<Name>ОтказПоставщикаВВозврате</Name>
+		<Code>000000110</Code>
+		<Description>Отказ поставщика в возврате</Description>
+		<IsFolder>true</IsFolder>
+		<ChildItems>
+			<Item id="25235214-6397-47d3-9abe-13531ed69d42">
+				<Name>ОтказПоставщикаВВозвратеНовый</Name>
+				<Code>000000111</Code>
+				<Description>Новый</Description>
+				<IsFolder>false</IsFolder>
+			</Item>
+			<Item id="e9e79242-2556-4ff4-afe3-09a9f1f8da3d">
+				<Name>ОтказПоставщикаВВозвратеПринят</Name>
+				<Code>000000112</Code>
+				<Description>Принят</Description>
+				<IsFolder>false</IsFolder>
+			</Item>
+			<Item id="5d0d66d4-e0cc-4f29-a327-686958d3c3ce">
+				<Name>ОтказПоставщикаВВозвратеРазмещен</Name>
+				<Code>000000113</Code>
+				<Description>Размещен</Description>
 				<IsFolder>false</IsFolder>
 			</Item>
 		</ChildItems>

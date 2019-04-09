@@ -7,30 +7,6 @@
 	<dataSet xsi:type="DataSetQuery">
 		<name>НаборДанных1</name>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>СуммаОборот</dataPath>
-			<field>СуммаОборот</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Сумма оборот</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>ДокументРасчетов</dataPath>
-			<field>ДокументРасчетов</field>
-			<role>
-				<dcscom:dimension>true</dcscom:dimension>
-			</role>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>ДоговорКонтрагента</dataPath>
-			<field>ДоговорКонтрагента</field>
-			<role>
-				<dcscom:dimension>true</dcscom:dimension>
-			</role>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>Контрагент</dataPath>
 			<field>Контрагент</field>
 			<title xsi:type="v8:LocalStringType">
@@ -41,19 +17,40 @@
 			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>СуммаКонечныйОстаток</dataPath>
-			<field>СуммаКонечныйОстаток</field>
+			<dataPath>Регистратор</dataPath>
+			<field>Регистратор</field>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период</dataPath>
+			<field>Период</field>
+			<role>
+				<dcscom:periodNumber>2</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Продажи</dataPath>
+			<field>Продажи</field>
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сумма конечный остаток</v8:content>
+					<v8:content>Продажи</v8:content>
 				</v8:item>
 			</title>
-			<role>
-				<dcscom:balance>true</dcscom:balance>
-				<dcscom:balanceGroupName>Сумма</dcscom:balanceGroupName>
-				<dcscom:balanceType>ClosingBalance</dcscom:balanceType>
-			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Договор</dataPath>
+			<field>Договор</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Договор</v8:content>
+				</v8:item>
+			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Организация</dataPath>
@@ -65,86 +62,33 @@
 				</v8:item>
 			</title>
 		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>СуммаНачальныйОстаток</dataPath>
-			<field>СуммаНачальныйОстаток</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Сумма начальный остаток</v8:content>
-				</v8:item>
-			</title>
-			<role>
-				<dcscom:balance>true</dcscom:balance>
-				<dcscom:balanceGroupName>Сумма</dcscom:balanceGroupName>
-				<dcscom:balanceType>OpeningBalance</dcscom:balanceType>
-			</role>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>СуммаПриход</dataPath>
-			<field>СуммаПриход</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Сумма приход</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>СуммаРасход</dataPath>
-			<field>СуммаРасход</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Сумма расход</v8:content>
-				</v8:item>
-			</title>
-		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
-	ВзаиморасчетыОстаткиИОбороты.ДоговорКонтрагента,
-	ВзаиморасчетыОстаткиИОбороты.ДокументРасчетов,
-	СУММА(ВзаиморасчетыОстаткиИОбороты.СуммаУпрНачальныйОстаток) КАК СуммаНачальныйОстаток,
-	СУММА(ВзаиморасчетыОстаткиИОбороты.СуммаУпрПриход) КАК СуммаПриход,
-	СУММА(ВзаиморасчетыОстаткиИОбороты.СуммаУпрРасход) КАК СуммаРасход,
-	СУММА(ВзаиморасчетыОстаткиИОбороты.СуммаУпрОборот) КАК СуммаОборот,
-	СУММА(ВзаиморасчетыОстаткиИОбороты.СуммаУпрКонечныйОстаток) КАК СуммаКонечныйОстаток,
-	ВзаиморасчетыОстаткиИОбороты.ДоговорКонтрагента.Владелец КАК Контрагент,
-	ВзаиморасчетыОстаткиИОбороты.ДоговорКонтрагента.Организация КАК Организация
+	СУММА(Взаиморасчеты.СуммаУпр) КАК Продажи,
+	Взаиморасчеты.Период,
+	Взаиморасчеты.Регистратор,
+	Взаиморасчеты.ДоговорКонтрагента КАК Договор,
+	Взаиморасчеты.ДоговорКонтрагента.Владелец КАК Контрагент,
+	Взаиморасчеты.ДоговорКонтрагента.Организация КАК Организация
 ИЗ
-	РегистрНакопления.Взаиморасчеты.ОстаткиИОбороты(, , , , ) КАК ВзаиморасчетыОстаткиИОбороты
+	РегистрНакопления.Взаиморасчеты КАК Взаиморасчеты
 ГДЕ
-	(ВзаиморасчетыОстаткиИОбороты.ДоговорКонтрагента.Владелец.Родитель.Код = "00000005"
-			ИЛИ ВзаиморасчетыОстаткиИОбороты.ДоговорКонтрагента.Владелец.Родитель.Код = "М0000001")
-	И (ТИПЗНАЧЕНИЯ(ВзаиморасчетыОстаткиИОбороты.ДокументРасчетов) = ТИП(Документ.РеализацияТоваровУслуг)
-			ИЛИ ТИПЗНАЧЕНИЯ(ВзаиморасчетыОстаткиИОбороты.ДокументРасчетов) = ТИП(Документ.ВозвратТоваровОтПокупателя))
-	И ВзаиморасчетыОстаткиИОбороты.ДокументРасчетов.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+	(Взаиморасчеты.ДоговорКонтрагента.Владелец.Родитель.Код = "00000005"
+			ИЛИ Взаиморасчеты.ДоговорКонтрагента.Владелец.Родитель.Код = "М0000001")
+	И (ТИПЗНАЧЕНИЯ(Взаиморасчеты.Регистратор) = ТИП(Документ.РеализацияТоваровУслуг)
+			ИЛИ ТИПЗНАЧЕНИЯ(Взаиморасчеты.Регистратор) = ТИП(Документ.ВозвратТоваровОтПокупателя))
+	И Взаиморасчеты.Регистратор.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
 
 СГРУППИРОВАТЬ ПО
-	ВзаиморасчетыОстаткиИОбороты.ДокументРасчетов,
-	ВзаиморасчетыОстаткиИОбороты.ДоговорКонтрагента,
-	ВзаиморасчетыОстаткиИОбороты.ДоговорКонтрагента.Владелец,
-	ВзаиморасчетыОстаткиИОбороты.ДоговорКонтрагента.Организация</query>
+	Взаиморасчеты.Период,
+	Взаиморасчеты.ДоговорКонтрагента,
+	Взаиморасчеты.Регистратор,
+	Взаиморасчеты.ДоговорКонтрагента.Владелец,
+	Взаиморасчеты.ДоговорКонтрагента.Организация</query>
 	</dataSet>
 	<totalField>
-		<dataPath>СуммаКонечныйОстаток</dataPath>
-		<expression>Сумма(СуммаКонечныйОстаток)</expression>
-	</totalField>
-	<totalField>
-		<dataPath>СуммаНачальныйОстаток</dataPath>
-		<expression>Сумма(СуммаНачальныйОстаток)</expression>
-	</totalField>
-	<totalField>
-		<dataPath>СуммаОборот</dataPath>
-		<expression>Сумма(СуммаОборот)</expression>
-	</totalField>
-	<totalField>
-		<dataPath>СуммаПриход</dataPath>
-		<expression>Сумма(СуммаПриход)</expression>
-	</totalField>
-	<totalField>
-		<dataPath>СуммаРасход</dataPath>
-		<expression>Сумма(СуммаРасход)</expression>
+		<dataPath>Продажи</dataPath>
+		<expression>Сумма(Продажи)</expression>
 	</totalField>
 	<parameter>
 		<name>НачалоПериода</name>
@@ -186,19 +130,7 @@
 		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
 			<dcsset:selection>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>СуммаНачальныйОстаток</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>СуммаПриход</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>СуммаРасход</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>СуммаКонечныйОстаток</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>СуммаОборот</dcsset:field>
+					<dcsset:field>Продажи</dcsset:field>
 				</dcsset:item>
 			</dcsset:selection>
 			<dcsset:filter>
@@ -214,14 +146,13 @@
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
-					<dcsset:left xsi:type="dcscor:Field">ДоговорКонтрагента</dcsset:left>
+					<dcsset:left xsi:type="dcscor:Field">Договор</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
-					<dcsset:left xsi:type="dcscor:Field">ДоговорКонтрагента.Владелец</dcsset:left>
-					<dcsset:comparisonType>InHierarchy</dcsset:comparisonType>
-					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Контрагенты.ПустаяСсылка</dcsset:right>
+					<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 				</dcsset:item>
 			</dcsset:filter>
 			<dcsset:dataParameters>

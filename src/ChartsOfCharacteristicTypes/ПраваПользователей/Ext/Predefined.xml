@@ -212,6 +212,15 @@
 						</Type>
 						<IsFolder>false</IsFolder>
 					</Item>
+					<Item id="b62ce660-cdb5-48a2-859a-56821bd1fe5a">
+						<Name>РазрешитьПроводитьДокументСПустойЦеной</Name>
+						<Code>000000091</Code>
+						<Description>Разрешить проводить документ с пустой ценой</Description>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+						<IsFolder>false</IsFolder>
+					</Item>
 					<Item id="6138e2ca-7263-4208-b05d-1c649c1c06b5">
 						<Name>РазрешитьРазмещениеЗаявокВПТУ</Name>
 						<Code>000000046</Code>
@@ -268,6 +277,51 @@
 					</Item>
 				</ChildItems>
 			</Item>
+			<Item id="3543cef6-bfed-4eee-a3d5-f3abf6bd1162">
+				<Name>РеализацияТоваровУслуг</Name>
+				<Code>000000089</Code>
+				<Description>Реализация товаров услуг</Description>
+				<Type/>
+				<IsFolder>true</IsFolder>
+				<ChildItems>
+					<Item id="5d55078c-4e52-4bd0-9761-4d158680d79a">
+						<Name>РазрешитьИзменениеРТУПослеВозвратаОтПокупателя</Name>
+						<Code>000000090</Code>
+						<Description>Разрешить изменение РТУ после возврата от покупателя</Description>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+						<IsFolder>false</IsFolder>
+					</Item>
+					<Item id="5eda087f-3b93-4c82-98db-71cd4c1c9db5">
+						<Name>РазрешитьИзменениеСкладаОтказаВРТУ</Name>
+						<Code>000000072</Code>
+						<Description>Разрешить изменение склада отказа в РТУ</Description>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+						<IsFolder>false</IsFolder>
+					</Item>
+					<Item id="046341d9-466d-433a-84ab-c8dd4e3bd8bd">
+						<Name>РазрешитьМентятьТипДоствакиВРТУ</Name>
+						<Code>000000086</Code>
+						<Description>Разрешить ментять тип достваки в РТУ</Description>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+						<IsFolder>false</IsFolder>
+					</Item>
+					<Item id="fd0747fc-f2ba-49a3-a65e-fb96f7e7aeda">
+						<Name>РедактироватьРТУНеограниченно</Name>
+						<Code>000000057</Code>
+						<Description>Редактировать РТУ неограниченно</Description>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+						<IsFolder>false</IsFolder>
+					</Item>
+				</ChildItems>
+			</Item>
 			<Item id="4f31be64-90dc-407d-8abd-7bc89b748692">
 				<Name>ДоступностьНевыгружатьВТоплог</Name>
 				<Code>000000085</Code>
@@ -313,28 +367,19 @@
 				</Type>
 				<IsFolder>false</IsFolder>
 			</Item>
+			<Item id="f83323de-00cb-4699-867d-f6290efcda75">
+				<Name>РаботатьСАналитикойВПлатежныхДокументах</Name>
+				<Code>000000095</Code>
+				<Description>Работать с аналитикой в платежных документах</Description>
+				<Type>
+					<v8:Type>xs:boolean</v8:Type>
+				</Type>
+				<IsFolder>false</IsFolder>
+			</Item>
 			<Item id="fb4ff273-c58e-4942-b720-d37f336c4120">
 				<Name>РазрешитьГрупповуюПечатьДокументов</Name>
 				<Code>000000066</Code>
 				<Description>Разрешить групповую печать документов</Description>
-				<Type>
-					<v8:Type>xs:boolean</v8:Type>
-				</Type>
-				<IsFolder>false</IsFolder>
-			</Item>
-			<Item id="5eda087f-3b93-4c82-98db-71cd4c1c9db5">
-				<Name>РазрешитьИзменениеСкладаОтказаВРТУ</Name>
-				<Code>000000072</Code>
-				<Description>Разрешить изменение склада отказа в РТУ</Description>
-				<Type>
-					<v8:Type>xs:boolean</v8:Type>
-				</Type>
-				<IsFolder>false</IsFolder>
-			</Item>
-			<Item id="046341d9-466d-433a-84ab-c8dd4e3bd8bd">
-				<Name>РазрешитьМентятьТипДоствакиВРТУ</Name>
-				<Code>000000086</Code>
-				<Description>Разрешить ментять тип достваки в РТУ</Description>
 				<Type>
 					<v8:Type>xs:boolean</v8:Type>
 				</Type>
@@ -403,6 +448,15 @@
 				<Name>РедактированиеРеквизитовВозвратТоваровОтПокупателя</Name>
 				<Code>000000078</Code>
 				<Description>Редактирование реквизитов возврата товаров от покупателя</Description>
+				<Type>
+					<v8:Type>xs:boolean</v8:Type>
+				</Type>
+				<IsFolder>false</IsFolder>
+			</Item>
+			<Item id="eb4ef3ef-fa84-44d3-9433-2260792051f5">
+				<Name>РедактированиеРеквизитовОтказПоставщикаВВозврате</Name>
+				<Code>000000093</Code>
+				<Description>Редактирование реквизитов отказ поставщика в возврате</Description>
 				<Type>
 					<v8:Type>xs:boolean</v8:Type>
 				</Type>
@@ -622,6 +676,15 @@
 						</Type>
 						<IsFolder>false</IsFolder>
 					</Item>
+					<Item id="d1010256-cfdb-439d-bef0-8ec1f59ddbfc">
+						<Name>СервисПятьПлюс</Name>
+						<Code>000000092</Code>
+						<Description>Сервис на 5+</Description>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+						<IsFolder>false</IsFolder>
+					</Item>
 				</ChildItems>
 			</Item>
 			<Item id="ea2763d9-88ce-4d98-b7f8-bbb7a094761a">
@@ -707,6 +770,15 @@
 			</Item>
 		</ChildItems>
 	</Item>
+	<Item id="e456df6f-abd6-45cf-8687-614f3e4fffed">
+		<Name>ДоступностьКнопкиПерепровести</Name>
+		<Code>000000094</Code>
+		<Description>Доступность кнопки "Перепровести" в документах</Description>
+		<Type>
+			<v8:Type>xs:boolean</v8:Type>
+		</Type>
+		<IsFolder>false</IsFolder>
+	</Item>
 	<Item id="67548606-c887-4023-90ad-016fece19639">
 		<Name>МожноМенятьМаршутВОбработкеФормСЗ</Name>
 		<Code>000000047</Code>
@@ -774,15 +846,6 @@
 		<Name>РазрешитьРаботуВБазе</Name>
 		<Code>000000016</Code>
 		<Description>Разрешить работу в базе</Description>
-		<Type>
-			<v8:Type>xs:boolean</v8:Type>
-		</Type>
-		<IsFolder>false</IsFolder>
-	</Item>
-	<Item id="fd0747fc-f2ba-49a3-a65e-fb96f7e7aeda">
-		<Name>РедактироватьРТУНеограниченно</Name>
-		<Code>000000057</Code>
-		<Description>Редактировать РТУ неограниченно</Description>
 		<Type>
 			<v8:Type>xs:boolean</v8:Type>
 		</Type>

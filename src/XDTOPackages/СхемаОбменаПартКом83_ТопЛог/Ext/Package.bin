@@ -54,6 +54,7 @@
 		<property name="ПечататьСчетНаОплату" type="xs:boolean" lowerBound="0"/>
 		<property name="ПечататьТОРГ12" type="xs:boolean" lowerBound="0"/>
 		<property name="ПечататьСФ" type="xs:boolean" lowerBound="0"/>
+		<property name="ПечататьТОРГ2" type="xs:boolean" lowerBound="0"/>
 		<property name="МаршрутДоставкиСЗ" type="xs:string" lowerBound="0"/>
 		<property name="МаршрутДоставкиСФ" type="xs:string" lowerBound="0"/>
 		<property name="ФирмаОплаты" type="xs:string" lowerBound="0"/>
@@ -65,6 +66,7 @@
 		<property name="КоличествоДокументовСЗ" type="xs:int" lowerBound="0"/>
 		<property name="КомментарийСЗ" type="xs:string" lowerBound="0"/>
 		<property name="НомерРозничнойЗаявки" type="xs:string" lowerBound="0"/>
+		<property name="ДокументОснованиеСсылка" type="xs:string" lowerBound="0"/>
 		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Товары" type="d3p1:Документы.ЗаказНаОтгрузку.Товары" lowerBound="0"/>
 		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Услуги" type="d3p1:Документы.ЗаказНаОтгрузку.Услуги" lowerBound="0"/>
 		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Перестикеровка" type="d3p1:Документы.ЗаказНаОтгрузку.Перестикеровка" lowerBound="0"/>
@@ -126,6 +128,7 @@
 		<property name="ОтветХранение" type="xs:boolean" lowerBound="0"/>
 		<property name="КодВозврата" type="xs:int" lowerBound="0"/>
 		<property name="ШтрихКод" type="xs:string" lowerBound="0"/>
+		<property name="СрочнаяПоставка" type="xs:boolean" lowerBound="0"/>
 		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Товары" type="d3p1:Документы.ЗаказНаПриемку.Товары" lowerBound="0"/>
 	</objectType>
 	<objectType name="Документы.ЗаказНаПриемку.Товары">
@@ -161,6 +164,22 @@
 		<property name="SSID" type="xs:string"/>
 		<property name="План" type="xs:int"/>
 		<property name="Факт" type="xs:int"/>
+	</objectType>
+	<objectType name="МаршрутныйЛист">
+		<property name="Ссылка" type="xs:string" lowerBound="0"/>
+		<property name="Номер" type="xs:string" lowerBound="0"/>
+		<property name="Дата" type="xs:dateTime" lowerBound="0"/>
+		<property name="СкладСсылка" type="xs:string" lowerBound="0"/>
+		<property name="ВодительСсылка" type="xs:string" lowerBound="0"/>
+		<property name="ДатаДоставки" type="xs:dateTime" lowerBound="0"/>
+		<property name="ЭкспрессДоставка" type="xs:boolean" lowerBound="0"/>
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Заказы" type="d3p1:МаршрутныйЛист.Заказы" lowerBound="0"/>
+	</objectType>
+	<objectType name="МаршрутныйЛист.Заказы">
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="СтрокаЗаказы" type="d3p1:МаршрутныйЛист.Заказы.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="МаршрутныйЛист.Заказы.Строка" ordered="false" sequenced="true">
+		<property name="ЗаказСсылка" type="xs:string" lowerBound="0"/>
 	</objectType>
 	<objectType name="Объекты">
 		<property name="Объект" type="xs:anyType" lowerBound="0" upperBound="-1"/>
@@ -279,6 +298,23 @@
 		<property name="НомерПринятого" type="xs:int"/>
 		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Объекты" type="d3p1:Объекты"/>
 	</objectType>
+	<objectType name="СписаниеВозвратныхПартий" ordered="false" sequenced="true">
+		<property name="Ссылка" type="xs:string" lowerBound="0"/>
+		<property name="Номер" type="xs:string" lowerBound="0"/>
+		<property name="Дата" type="xs:dateTime" lowerBound="0"/>
+		<property name="СкладСсылка" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Товары" type="d3p1:СписаниеВозвратныхПартий.Товары" lowerBound="0"/>
+	</objectType>
+	<objectType name="СписаниеВозвратныхПартий.Товары">
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="СтрокаТовары" type="d3p1:СписаниеВозвратныхПартий.Товары.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СписаниеВозвратныхПартий.Товары.Строка" ordered="false" sequenced="true">
+		<property name="НоменклатураСсылка" type="xs:string"/>
+		<property name="НоменклатураНаименование" type="xs:string"/>
+		<property name="НоменклатураАртикул" type="xs:string"/>
+		<property name="SSID" type="xs:string"/>
+		<property name="Количество" type="xs:int"/>
+	</objectType>
 	<objectType name="Справочники.Водители" ordered="false" sequenced="true">
 		<property name="Ссылка" type="xs:string"/>
 		<property name="Наименование" type="xs:string"/>
@@ -327,31 +363,33 @@
 		<property name="Услуга" type="xs:boolean" lowerBound="0"/>
 	</objectType>
 	<objectType name="Справочники.Организации" ordered="false" sequenced="true">
-		<property name="Ссылка" type="xs:string"/>
-		<property name="Код" type="xs:string"/>
-		<property name="Наименование" type="xs:string"/>
-		<property name="НаименованиеПолное" type="xs:string"/>
-		<property name="ИНН" type="xs:string"/>
-		<property name="КПП" type="xs:string"/>
-		<property name="Префикс" type="xs:string"/>
-		<property name="КодПоОКПО" type="xs:string"/>
-		<property name="ЮридическийАдрес" type="xs:string"/>
-		<property name="ФактическийАдрес" type="xs:string"/>
-		<property name="НомерСчета" type="xs:string"/>
-		<property name="Банк" type="xs:string"/>
-		<property name="БИКБанка" type="xs:string"/>
-		<property name="КоррСчет" type="xs:string"/>
-		<property name="Руководитель" type="xs:string"/>
-		<property name="ДолжностьРуководителя" type="xs:string"/>
-		<property name="ГлавныйБухгалтер" type="xs:string"/>
-		<property name="УчитыватьНДС" type="xs:boolean"/>
-		<property name="ПометкаУдаления" type="xs:boolean"/>
-		<property name="ЭтоЮридическоеЛицо" type="xs:boolean"/>
-		<property name="Телефон" type="xs:string"/>
-		<property name="НаименованиеПлательщикаПриПеречисленииНалогов" type="xs:string"/>
-		<property name="СвидетельствоСерияНомер" type="xs:string"/>
-		<property name="СвидетельствоДатаВыдачи" type="xs:dateTime"/>
-		<property name="КодИМНС" type="xs:string"/>
+		<property name="Ссылка" type="xs:string" lowerBound="0"/>
+		<property name="Код" type="xs:string" lowerBound="0"/>
+		<property name="Наименование" type="xs:string" lowerBound="0"/>
+		<property name="НаименованиеПолное" type="xs:string" lowerBound="0"/>
+		<property name="ИНН" type="xs:string" lowerBound="0"/>
+		<property name="КПП" type="xs:string" lowerBound="0"/>
+		<property name="Префикс" type="xs:string" lowerBound="0"/>
+		<property name="КодПоОКПО" type="xs:string" lowerBound="0"/>
+		<property name="ЮридическийАдрес" type="xs:string" lowerBound="0"/>
+		<property name="ФактическийАдрес" type="xs:string" lowerBound="0"/>
+		<property name="НомерСчета" type="xs:string" lowerBound="0"/>
+		<property name="Банк" type="xs:string" lowerBound="0"/>
+		<property name="БИКБанка" type="xs:string" lowerBound="0"/>
+		<property name="КоррСчет" type="xs:string" lowerBound="0"/>
+		<property name="Руководитель" type="xs:string" lowerBound="0"/>
+		<property name="ДолжностьРуководителя" type="xs:string" lowerBound="0"/>
+		<property name="ГлавныйБухгалтер" type="xs:string" lowerBound="0"/>
+		<property name="УчитыватьНДС" type="xs:boolean" lowerBound="0"/>
+		<property name="ПометкаУдаления" type="xs:boolean" lowerBound="0"/>
+		<property name="ЭтоЮридическоеЛицо" type="xs:boolean" lowerBound="0"/>
+		<property name="Телефон" type="xs:string" lowerBound="0"/>
+		<property name="НаименованиеПлательщикаПриПеречисленииНалогов" type="xs:string" lowerBound="0"/>
+		<property name="СвидетельствоСерияНомер" type="xs:string" lowerBound="0"/>
+		<property name="СвидетельствоДатаВыдачи" type="xs:dateTime" lowerBound="0"/>
+		<property name="КодИМНС" type="xs:string" lowerBound="0"/>
+		<property name="ОГРН" type="xs:string" lowerBound="0"/>
+		<property name="ОГРНДатаВыдачи" type="xs:dateTime" lowerBound="0"/>
 	</objectType>
 	<objectType name="Справочники.Склады" ordered="false" sequenced="true">
 		<property name="Ссылка" type="xs:string"/>

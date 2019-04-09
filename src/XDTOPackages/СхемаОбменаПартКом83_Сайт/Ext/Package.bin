@@ -72,6 +72,8 @@
 		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="UUID77" type="d3p1:UUID"/>
 		<property name="СлужебныйДоговор" type="xs:boolean"/>
 		<property name="БанковскийСчетОрганизацииДляПлатежей" type="xs:string"/>
+		<property name="БлокировкаСозданияЗаявокНаСайте" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="ОсновнойДоговор" type="xs:boolean" lowerBound="0" nillable="true"/>
 	</objectType>
 	<objectType name="Справочники.Организации">
 		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
@@ -130,6 +132,7 @@
 		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Состояние" type="d3p1:UUID"/>
 		<property name="Розница" type="xs:boolean" lowerBound="0" nillable="true"/>
 		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="IDHistory" type="d3p1:UUID"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="ТипДоставки" type="d3p1:UUID" lowerBound="0" nillable="true"/>
 	</objectType>
 	<objectType name="Справочники.СостоянияСтрокДокументов" mixed="false" ordered="false">
 		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
@@ -316,6 +319,7 @@
 		<property name="СрокОжидаемыйЗаказа" type="xs:dateTime" lowerBound="0" nillable="true" fixed="false"/>
 		<property name="ДнейДоставкиДоДомашнегоСклада" type="xs:int" lowerBound="0" nillable="true"/>
 		<property name="КомментарийИзСайта" type="xs:string" nillable="true"/>
+		<property name="PriceLogo" type="xs:string" lowerBound="0" upperBound="1" nillable="true" fixed="false"/>
 	</objectType>
 	<objectType name="Документы.ЗаявкаПокупателя.Товары">
 		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="item" type="d3p1:Документы.ЗаявкаПокупателя.Товары.Строка" lowerBound="0" upperBound="-1"/>
@@ -473,6 +477,9 @@
 		<property name="СтоимостьУслугиЭДрубли" type="xs:int" lowerBound="0" nillable="true"/>
 		<property name="СтоимостьУслугиЭДбонусы" type="xs:int" lowerBound="0" nillable="true"/>
 		<property name="СуммаБесплатнойЭД" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="УдаленноеРасположение" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="ГоловнойКонтрагент" type="d3p1:UUID" lowerBound="0"/>
+		<property name="СервисНа5" type="xs:boolean" lowerBound="0" nillable="true"/>
 	</objectType>
 	<objectType name="Справочник.Покупатели.КонтактныеЛица" ordered="false">
 		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="КонтактноеЛицо" type="d3p1:Справочник.Покупатели.КонтактноеЛицо" lowerBound="0" upperBound="-1"/>
@@ -612,6 +619,7 @@
 		<property name="Цена" type="xs:double" nillable="true"/>
 		<property name="ЗакупочнаяЦена" type="xs:double" nillable="true"/>
 		<property name="Розница" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="ТипДоставки" type="d3p1:UUID" lowerBound="0" nillable="true"/>
 	</objectType>
 	<objectType name="Справочники.Филиалы" ordered="false">
 		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
@@ -628,6 +636,7 @@
 		<property name="user_comment" type="xs:string" lowerBound="0" nillable="true"/>
 		<property name="phone" type="xs:string" lowerBound="0" nillable="true"/>
 		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="shop_uuid" type="d3p1:UUID" lowerBound="0" nillable="true"/>
+		<property name="delivery_price" type="xs:int" lowerBound="0" nillable="true"/>
 		<property name="items" lowerBound="1" upperBound="1">
 			<typeDef xsi:type="ObjectType" ordered="false">
 				<property name="item" lowerBound="0" upperBound="-1">
@@ -648,6 +657,7 @@
 				</property>
 			</typeDef>
 		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="manager_uuid" type="d3p1:UUID" lowerBound="0" nillable="true"/>
 	</objectType>
 	<objectType name="ExpressDelivery.1cConfirm" ordered="false">
 		<property name="express_delivery_request_id" type="xs:string"/>
@@ -664,5 +674,12 @@
 		<property name="invoice_number" type="xs:string"/>
 		<property name="delivery_cost" type="xs:int"/>
 		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="items" type="d3p1:ExpressDelivery.Items"/>
+	</objectType>
+	<objectType name="CatalogObject.ТипыДоставки">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ref" type="d3p1:UUID"/>
+		<property name="DeletionMark" type="xs:boolean"/>
+		<property name="Description" type="xs:string"/>
+		<property name="КодПеремещения" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="Code" type="xs:string"/>
 	</objectType>
 </package>

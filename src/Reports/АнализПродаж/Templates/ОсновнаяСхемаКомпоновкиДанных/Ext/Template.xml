@@ -405,6 +405,20 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПричинаВозврата</dataPath>
+			<field>ПричинаВозврата</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Причина возврата</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	ВЫБОР
@@ -541,40 +555,76 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 ВЫБРАТЬ
-	ТаблицаПродаж.ДокументДвижения,
+	ТаблицаПродаж.ДокументДвижения КАК ДокументДвижения,
 	СУММА(ТаблицаПродаж.СуммаПродажи) КАК СуммаПродажи,
 	СУММА(ТаблицаПродаж.КоличествоПродажи) КАК КоличествоПродажи,
-	ТаблицаПродаж.Номенклатура,
-	ТаблицаПродаж.Склад,
-	ТаблицаПродаж.Покупатель,
-	ТаблицаПродаж.ПериодДень,
-	ТаблицаПродаж.ПериодНеделя,
-	ТаблицаПродаж.ПериодДекада,
-	ТаблицаПродаж.ПериодМесяц,
-	ТаблицаПродаж.ПериодКвартал,
-	ТаблицаПродаж.ПериодПолугодие,
-	ТаблицаПродаж.ПериодГод,
-	ТаблицаПродаж.Филиал,
-	ТаблицаПродаж.ТорговаяТочка,
+	ТаблицаПродаж.Номенклатура КАК Номенклатура,
+	ТаблицаПродаж.Склад КАК Склад,
+	ТаблицаПродаж.Покупатель КАК Покупатель,
+	ТаблицаПродаж.ПериодДень КАК ПериодДень,
+	ТаблицаПродаж.ПериодНеделя КАК ПериодНеделя,
+	ТаблицаПродаж.ПериодДекада КАК ПериодДекада,
+	ТаблицаПродаж.ПериодМесяц КАК ПериодМесяц,
+	ТаблицаПродаж.ПериодКвартал КАК ПериодКвартал,
+	ТаблицаПродаж.ПериодПолугодие КАК ПериодПолугодие,
+	ТаблицаПродаж.ПериодГод КАК ПериодГод,
+	ТаблицаПродаж.Филиал КАК Филиал,
+	ТаблицаПродаж.ТорговаяТочка КАК ТорговаяТочка,
 	СУММА(ТаблицаПродаж.КоличествоВозврат) КАК КоличествоВозврат,
 	СУММА(ТаблицаПродаж.СуммаВозврат) КАК СуммаВозврат,
-	ТаблицаПродаж.ВидСписания,
-	ТаблицаПродаж.Организация,
-	ТаблицаПродаж.МенеджерПродажи,
-	ТаблицаПродаж.ИсточникДокументаПродажи,
+	ТаблицаПродаж.ВидСписания КАК ВидСписания,
+	ТаблицаПродаж.Организация КАК Организация,
+	ТаблицаПродаж.МенеджерПродажи КАК МенеджерПродажи,
+	ТаблицаПродаж.ИсточникДокументаПродажи КАК ИсточникДокументаПродажи,
 	СУММА(ТаблицаПродаж.Себестоимость) КАК Себестоимость,
-	ТаблицаПродаж.МенеджерСнабжения,
-	ТаблицаПродаж.Поставщик,
-	ТаблицаПродаж.МенеджерКлиента,
-	ТаблицаПродаж.ТипДоставки,
-	ТаблицаПродаж.Регион,
-	ТаблицаПродаж.СтрокаЗаявки,
-	ТаблицаПродаж.Заявка,
+	ТаблицаПродаж.МенеджерСнабжения КАК МенеджерСнабжения,
+	ТаблицаПродаж.Поставщик КАК Поставщик,
+	ТаблицаПродаж.МенеджерКлиента КАК МенеджерКлиента,
+	ТаблицаПродаж.ТипДоставки КАК ТипДоставки,
+	ТаблицаПродаж.Регион КАК Регион,
+	ТаблицаПродаж.СтрокаЗаявки КАК СтрокаЗаявки,
+	ТаблицаПродаж.Заявка КАК Заявка,
 	ТаблицаПродаж.ЗаявкаОтветственный КАК Ответственный,
-	ТаблицаПродаж.Изготовитель,
-	ТаблицаПродаж.УчетнаяЗаписьСайта,
-	ТаблицаПродаж.УчетнаяЗаписьСайта.Код КАК ЛогинСайта,
-	ТаблицаПродаж.ЭтоУслуга
+	ТаблицаПродаж.Изготовитель КАК Изготовитель,
+	МАКСИМУМ(ТаблицаПродаж.УчетнаяЗаписьСайта) КАК УчетнаяЗаписьСайта,
+	МАКСИМУМ(ТаблицаПродаж.УчетнаяЗаписьСайта.Код) КАК ЛогинСайта,
+	ТаблицаПродаж.ЭтоУслуга КАК ЭтоУслуга,
+	ТаблицаПродаж.ПричинаВозврата
+{ВЫБРАТЬ
+	ДокументДвижения.*,
+	СуммаПродажи,
+	КоличествоПродажи,
+	Номенклатура.*,
+	Склад.*,
+	Покупатель.*,
+	ПериодДень,
+	ПериодНеделя,
+	ПериодДекада,
+	ПериодМесяц,
+	ПериодКвартал,
+	ПериодПолугодие,
+	ПериодГод,
+	Филиал.*,
+	ТорговаяТочка.*,
+	КоличествоВозврат,
+	СуммаВозврат,
+	ВидСписания.*,
+	Организация.*,
+	МенеджерПродажи.*,
+	ИсточникДокументаПродажи.*,
+	Себестоимость,
+	МенеджерСнабжения.*,
+	Поставщик.*,
+	МенеджерКлиента.*,
+	ТипДоставки.*,
+	Регион.*,
+	СтрокаЗаявки.*,
+	Заявка.*,
+	Ответственный.*,
+	Изготовитель.*,
+	УчетнаяЗаписьСайта.*,
+	ЛогинСайта,
+	ЭтоУслуга}
 ИЗ
 	(ВЫБРАТЬ
 		ВТПродажи.ДокументДвижения КАК ДокументДвижения,
@@ -621,7 +671,12 @@
 		ВТПродажи.ЗаявкаОтветственный КАК ЗаявкаОтветственный,
 		ВТПродажи.Изготовитель КАК Изготовитель,
 		УчетныеЗаписиСайта.Ссылка КАК УчетнаяЗаписьСайта,
-		ВТПродажи.ЭтоУслуга КАК ЭтоУслуга
+		ВТПродажи.ЭтоУслуга КАК ЭтоУслуга,
+		ВЫБОР
+			КОГДА ВТПродажи.ДокументДвижения ССЫЛКА Документ.ВозвратТоваровОтПокупателя
+				ТОГДА ВЫРАЗИТЬ(ВТПродажи.ДокументДвижения КАК Документ.ВозвратТоваровОтПокупателя).АктРассмотренияВозврата.ПричинаВозврата
+			ИНАЧЕ ЗНАЧЕНИЕ(Справочник.ПричиныВозврата.Пустаяссылка)
+		КОНЕЦ КАК ПричинаВозврата
 	{ВЫБРАТЬ
 		ДокументДвижения.*,
 		СуммаПродажи,
@@ -665,9 +720,56 @@
 			ПО ВТПродажи.ТорговаяТочка = МенеджерыТорговыхТочекСрезПоследних.ТорговаяТочка
 				И ВТПродажи.Покупатель = МенеджерыТорговыхТочекСрезПоследних.Контрагент}
 			{ЛЕВОЕ СОЕДИНЕНИЕ Справочник.УчетныеЗаписиСайта КАК УчетныеЗаписиСайта
-			ПО ВТПродажи.ТорговаяТочка = УчетныеЗаписиСайта.Владелец}
+			ПО ВТПродажи.ТорговаяТочка = УчетныеЗаписиСайта.Владелец
+				И (УчетныеЗаписиСайта.ПометкаУдаления = ЛОЖЬ)}
 	{ГДЕ
-		МенеджерыТорговыхТочекСрезПоследних.Менеджер.* КАК МенеджерКлиента}) КАК ТаблицаПродаж
+		МенеджерыТорговыхТочекСрезПоследних.Менеджер.* КАК МенеджерКлиента,
+		ВТПродажи.ДокументДвижения.*,
+		ВТПродажи.СуммаПродажи,
+		ВТПродажи.КоличествоПродажи,
+		ВТПродажи.Номенклатура.*,
+		ВТПродажи.Склад.*,
+		ВТПродажи.Покупатель.*,
+		ВТПродажи.ПериодДень,
+		ВТПродажи.ПериодНеделя,
+		ВТПродажи.ПериодДекада,
+		ВТПродажи.ПериодМесяц,
+		ВТПродажи.ПериодКвартал,
+		ВТПродажи.ПериодПолугодие,
+		ВТПродажи.ПериодГод,
+		ВТПродажи.Филиал.*,
+		ВТПродажи.ТорговаяТочка.*,
+		ВТПродажи.КоличествоВозврат,
+		ВТПродажи.СуммаВозврат,
+		ВТПродажи.ВидСписания.*,
+		ВТПродажи.Организация.*,
+		ВТПродажи.МенеджерПродажи.*,
+		ВТПродажи.ИсточникДокументаПродажи.*,
+		ВТПродажи.Себестоимость,
+		(ВЫБОР
+				КОГДА ВТПартии.СтрокаПрихода.Приход ССЫЛКА Документ.ПоступлениеТоваровУслуг
+					ТОГДА ВЫРАЗИТЬ(ВТПартии.СтрокаПрихода.Приход КАК Документ.ПоступлениеТоваровУслуг).Менеджер
+				КОГДА ВТПартии.СтрокаПрихода.Приход ССЫЛКА Документ.ВозвратТоваровОтПокупателя
+					ТОГДА ВЫРАЗИТЬ(ВТПартии.СтрокаПрихода.Приход КАК Документ.ВозвратТоваровОтПокупателя).Менеджер
+				ИНАЧЕ ЗНАЧЕНИЕ(Справочник.Менеджеры.ПустаяСсылка)
+			КОНЕЦ).* КАК МенеджерСнабжения,
+		(ВЫБОР
+				КОГДА ВТПартии.СтрокаПрихода.Приход ССЫЛКА Документ.ПоступлениеТоваровУслуг
+					ТОГДА ВЫРАЗИТЬ(ВТПартии.СтрокаПрихода.Приход КАК Документ.ПоступлениеТоваровУслуг).Контрагент
+				КОГДА ВТПартии.СтрокаПрихода.Приход ССЫЛКА Документ.ВозвратТоваровОтПокупателя
+					ТОГДА ВЫРАЗИТЬ(ВТПартии.СтрокаПрихода.Приход КАК Документ.ВозвратТоваровОтПокупателя).Контрагент
+				ИНАЧЕ ЗНАЧЕНИЕ(Справочник.Контрагенты.ПустаяСсылка)
+			КОНЕЦ).* КАК Поставщик,
+		ВТПродажи.ТипДоставки.*,
+		ВТПродажи.Регион.*,
+		ВТПродажи.СтрокаЗаявки.*,
+		ВТПродажи.Заявка.*,
+		ВТПродажи.ЗаявкаОтветственный.* КАК Ответственный,
+		ВТПродажи.Изготовитель.*,
+		УчетныеЗаписиСайта.Ссылка.*,
+		ВТПродажи.ЭтоУслуга}) КАК ТаблицаПродаж
+{ГДЕ
+	ТаблицаПродаж.УчетнаяЗаписьСайта.*}
 
 СГРУППИРОВАТЬ ПО
 	ТаблицаПродаж.МенеджерСнабжения,
@@ -696,9 +798,8 @@
 	ТаблицаПродаж.Заявка,
 	ТаблицаПродаж.ЗаявкаОтветственный,
 	ТаблицаПродаж.Изготовитель,
-	ТаблицаПродаж.УчетнаяЗаписьСайта,
-	ТаблицаПродаж.УчетнаяЗаписьСайта.Код,
-	ТаблицаПродаж.ЭтоУслуга</query>
+	ТаблицаПродаж.ЭтоУслуга,
+	ТаблицаПродаж.ПричинаВозврата</query>
 	</dataSet>
 	<calculatedField>
 		<dataPath>Сумма</dataPath>
@@ -1903,6 +2004,66 @@
 			</v8:item>
 		</dcsset:presentation>
 		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:userFields>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле3</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>СуммаВозвратОтказОтДетали</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда СуммаВозврат &lt;&gt; 0 И ДокументДвижения.АктРассмотренияВозврата.ПричинаВозврата = Значение(Справочник.ПричиныВозврата.ОтказОтДетали)
+		Тогда СуммаВозврат
+	Иначе 0
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда [Сумма возврат] &lt;&gt; 0 И [Документ движения.Акт рассмотрения возврата.Причина возврата] = Значение(Справочник.ПричиныВозврата.ОтказОтДетали)
+		Тогда [Сумма возврат]
+	Иначе 0
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Сумма(Выбор
+		Когда СуммаВозврат &lt;&gt; 0 И ДокументДвижения.АктРассмотренияВозврата.ПричинаВозврата = Значение(Справочник.ПричиныВозврата.ОтказОтДетали)
+			Тогда СуммаВозврат
+		Иначе 0
+	Конец)</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Сумма(Выбор
+		Когда [Сумма возврат] &lt;&gt; 0 И [Документ движения.Акт рассмотрения возврата.Причина возврата] = Значение(Справочник.ПричиныВозврата.ОтказОтДетали)
+			Тогда [Сумма возврат]
+		Иначе 0
+	Конец)</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле1</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>СуммаВозвратовПрочее</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда СуммаВозврат &lt;&gt; 0 И (Не ДокументДвижения.АктРассмотренияВозврата.ПричинаВозврата = Значение(Справочник.ПричиныВозврата.ОтказОтДетали))
+		Тогда СуммаВозврат
+	Иначе 0
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда [Сумма возврат] &lt;&gt; 0 И (Не [Документ движения.Акт рассмотрения возврата.Причина возврата] = Значение(Справочник.ПричиныВозврата.ОтказОтДетали))
+		Тогда [Сумма возврат]
+	Иначе 0
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Сумма(Выбор
+		Когда СуммаВозврат &lt;&gt; 0 И (Не ДокументДвижения.АктРассмотренияВозврата.ПричинаВозврата = Значение(Справочник.ПричиныВозврата.ОтказОтДетали))
+			Тогда СуммаВозврат
+		Иначе 0
+	Конец)</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Сумма(Выбор
+		Когда [Сумма возврат] &lt;&gt; 0 И (Не [Документ движения.Акт рассмотрения возврата.Причина возврата] = Значение(Справочник.ПричиныВозврата.ОтказОтДетали))
+			Тогда [Сумма возврат]
+		Иначе 0
+	Конец)</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+			</dcsset:userFields>
 			<dcsset:selection>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>ЛогинСайта</dcsset:field>
@@ -1914,7 +2075,14 @@
 					<dcsset:field>Сумма</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
 					<dcsset:field>СуммаВозврат</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПользовательскиеПоля.Поле1</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПользовательскиеПоля.Поле3</dcsset:field>
 				</dcsset:item>
 			</dcsset:selection>
 			<dcsset:filter>
@@ -1925,6 +2093,7 @@
 						<v8:valueType/>
 						<v8:lastId xsi:type="xs:decimal">-1</v8:lastId>
 					</dcsset:right>
+					<dcsset:userSettingID>bc2190b2-f4d5-4e9b-8a35-00670853b66a</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:left xsi:type="dcscor:Field">УчетнаяЗаписьСайта</dcsset:left>
@@ -1952,12 +2121,21 @@
 						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
 						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
 					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ТорговаяТочка</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
 				</dcsset:groupItems>
 				<dcsset:order>
 					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 				</dcsset:order>
 				<dcsset:selection>
-					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ЛогинСайта</dcsset:field>
+					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:item xsi:type="dcsset:StructureItemGroup">
 					<dcsset:groupItems>
@@ -1973,10 +2151,159 @@
 						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 					</dcsset:order>
 					<dcsset:selection>
-						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ПериодМесяц</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>СуммаПродажи</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ПользовательскиеПоля.Поле1</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ПользовательскиеПоля.Поле3</dcsset:field>
+						</dcsset:item>
 					</dcsset:selection>
 				</dcsset:item>
 			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>ПродажиПоМесяцам</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Продажи по месяцам</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Покупатель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МенеджерКлиента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Сумма</dcsset:field>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>3b42241a-588a-498c-a451-b9f9da3002be</dcsset:userSettingID>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Филиал</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>0875b2f9-bafa-4d25-a61b-2e54685a5f36</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>522aeabe-aa09-4fd5-b008-1514721d7a87</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ТолькоВозвраты</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					<dcsset:userSettingID>184fb73b-66d8-4ec0-bab5-0796288417d3</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">ThisWeek</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>9cdc6d23-26c4-4f68-975b-c9e4bad4a9a9</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+			</dcsset:conditionalAppearance>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:column>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ПериодМесяц</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ПериодМесяц</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Сумма</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>ПериодМесяц</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter/>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>Формат</dcscor:parameter>
+									<dcscor:value xsi:type="v8:LocalStringType">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=ММММ</v8:content>
+										</v8:item>
+									</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+					</dcsset:conditionalAppearance>
+				</dcsset:column>
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Покупатель</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>МенеджерКлиента</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+					</dcsset:selection>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+					</dcsset:conditionalAppearance>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+				</dcsset:row>
+				<dcsset:selection>
+					<dcsset:userSettingID>e28c34aa-466b-46cb-869b-994134985a17</dcsset:userSettingID>
+				</dcsset:selection>
+				<dcsset:rowsUserSettingID>109e6e1a-da6d-4654-a62b-9723edcb441b</dcsset:rowsUserSettingID>
+			</dcsset:item>
+			<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
 		</dcsset:settings>
 	</settingsVariant>
 </DataCompositionSchema>

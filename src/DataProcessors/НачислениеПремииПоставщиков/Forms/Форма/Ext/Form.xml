@@ -679,6 +679,11 @@
 												</Title>
 												<ExtendedTooltip name="ДанныеВыгрузитьВОкноПоставщикаРасширеннаяПодсказка" id="168"/>
 											</Button>
+											<Button name="ДанныеОтгрузкиСПБ" id="209">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ОтгрузкиСПБ</CommandName>
+												<ExtendedTooltip name="ДанныеОтгрузкиСПБРасширеннаяПодсказка" id="210"/>
+											</Button>
 										</ChildItems>
 									</AutoCommandBar>
 									<ExtendedTooltip name="ДанныеРасширеннаяПодсказка" id="60"/>
@@ -1324,6 +1329,21 @@
 				</Column>
 			</Columns>
 		</Attribute>
+		<Attribute name="АдресТаблицыДанных" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес таблицы данных</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="СформироватьСписокПремий" id="1">
@@ -1475,6 +1495,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ВосстановитьНастройку</Action>
+		</Command>
+		<Command name="ОтгрузкиСПБ" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отгрузки СПБ</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отгрузки СПБ</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтгрузкиСПБ</Action>
 		</Command>
 	</Commands>
 </Form>

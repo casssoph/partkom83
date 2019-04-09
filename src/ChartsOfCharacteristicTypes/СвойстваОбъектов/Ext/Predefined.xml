@@ -68,6 +68,32 @@
 		</Type>
 		<IsFolder>false</IsFolder>
 	</Item>
+	<Item id="65772911-c097-4ebb-a8b1-a3fe79d9439f">
+		<Name>EMEX_Barcode</Name>
+		<Code>000000037</Code>
+		<Description>EMEX barcode</Description>
+		<Type>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>50</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</Type>
+		<IsFolder>false</IsFolder>
+	</Item>
+	<Item id="37854969-4439-41e0-9746-8c3115a83edb">
+		<Name>EMEX_Boxbarcode</Name>
+		<Code>000000038</Code>
+		<Description>EMEX boxbarcode</Description>
+		<Type>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>50</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</Type>
+		<IsFolder>false</IsFolder>
+	</Item>
 	<Item id="9f175a9c-a093-4334-9e56-8c290c53b0f8">
 		<Name>EMEX_GlobalId</Name>
 		<Code>000000031</Code>
@@ -91,6 +117,56 @@
 				<v8:Length>4</v8:Length>
 				<v8:AllowedLength>Fixed</v8:AllowedLength>
 			</v8:StringQualifiers>
+		</Type>
+		<IsFolder>false</IsFolder>
+	</Item>
+	<Item id="031eb521-14f9-4628-9441-526afe323632">
+		<Name>EMEX_ДоступноеКоличество</Name>
+		<Code>000000035</Code>
+		<Description>EMEX доступное количество</Description>
+		<Type>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>10</v8:Digits>
+				<v8:FractionDigits>2</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</Type>
+		<IsFolder>false</IsFolder>
+	</Item>
+	<Item id="2ea9b4bc-72a8-4662-8235-a448790555e3">
+		<Name>EMEX_СтатусЗаказа</Name>
+		<Code>000000036</Code>
+		<Description>EMEX статус заказа</Description>
+		<Type>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>10</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</Type>
+		<IsFolder>false</IsFolder>
+	</Item>
+	<Item id="8910f997-91ac-4494-b8b5-f1f24d07aaeb">
+		<Name>АдресДоставкиДляРозницы</Name>
+		<Code>000000033</Code>
+		<Description>Адрес доставки для розницы</Description>
+		<Type>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>50</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</Type>
+		<IsFolder>false</IsFolder>
+	</Item>
+	<Item id="1b69c714-0c9e-49d8-ac08-9cc19292fbec">
+		<Name>БезУпаковки</Name>
+		<Code>000000034</Code>
+		<Description>Без упаковки</Description>
+		<Type>
+			<v8:Type>xs:boolean</v8:Type>
 		</Type>
 		<IsFolder>false</IsFolder>
 	</Item>
@@ -189,6 +265,15 @@
 		</Type>
 		<IsFolder>false</IsFolder>
 	</Item>
+	<Item id="14a6d31c-d61c-49b9-8316-9905981bfc77">
+		<Name>КлиентскаяПрограмма</Name>
+		<Code>000000032</Code>
+		<Description>Клиентская программа</Description>
+		<Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ЗначенияСвойствОбъектов</v8:Type>
+		</Type>
+		<IsFolder>false</IsFolder>
+	</Item>
 	<Item id="2f7d1d7c-db15-4e1d-80b6-bcb2361065ee">
 		<Name>КоличествоНаименованийНаСкладеПоставщика</Name>
 		<Code>000000012</Code>
@@ -258,6 +343,15 @@
 		<Description>Размер склада поставщика</Description>
 		<Type>
 			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ЗначенияСвойствОбъектов</v8:Type>
+		</Type>
+		<IsFolder>false</IsFolder>
+	</Item>
+	<Item id="cc026e88-ad48-4972-a17c-da4ff7358fb1">
+		<Name>РазмещениеАстор</Name>
+		<Code>000000039</Code>
+		<Description>Размещение астор</Description>
+		<Type>
+			<v8:Type>xs:boolean</v8:Type>
 		</Type>
 		<IsFolder>false</IsFolder>
 	</Item>

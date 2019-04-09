@@ -29,15 +29,15 @@
 				<ExcludedCommand>Create</ExcludedCommand>
 			</CommandSet>
 			<SearchStringLocation>None</SearchStringLocation>
-			<AutoRefresh>false</AutoRefresh>
-			<AutoRefreshPeriod>30</AutoRefreshPeriod>
+			<AutoRefresh>true</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
 			<Period>
 				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
 				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
 				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
 			</Period>
 			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<RestoreCurrentRow>true</RestoreCurrentRow>
 			<TopLevelParent xsi:nil="true"/>
 			<ShowRoot>true</ShowRoot>
 			<AllowRootChoice>false</AllowRootChoice>
@@ -261,6 +261,12 @@
 				</LabelField>
 				<LabelField name="СуммаДокумента" id="61">
 					<DataPath>Список.СуммаДокумента</DataPath>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</Format>
 					<ContextMenu name="СуммаДокументаКонтекстноеМеню" id="62"/>
 					<ExtendedTooltip name="СуммаДокументаРасширеннаяПодсказка" id="63"/>
 				</LabelField>
@@ -311,6 +317,9 @@
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
 			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>Список.СуммаДокумента</Field>
+			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
