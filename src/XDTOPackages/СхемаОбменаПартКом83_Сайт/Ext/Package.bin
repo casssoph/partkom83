@@ -687,4 +687,15 @@
 		<property name="КодПеремещения" type="xs:int" lowerBound="0" nillable="true"/>
 		<property name="Code" type="xs:string"/>
 	</objectType>
+	<objectType name="ОтгрузочныеДокументыЗапрос" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Клиент" type="d3p1:UUID"/>
+		<property name="ДатаДокументов" type="xs:date"/>
+		<property name="EMail" type="xs:string"/>
+	</objectType>
+	<objectType name="ОтгрузочныеДокументы" ordered="false">
+		<property name="ID" type="xs:string"/>
+		<property name="ОтчетBase64" type="xs:string"/>
+		<property name="Ошибка" type="xs:boolean"/>
+		<property name="ТекстОшибки" type="xs:string"/>
+	</objectType>
 </package>
