@@ -125,23 +125,24 @@
 		</Properties>
 		<ChildObjects>
 			<Language>Русский</Language>
-			<Subsystem>СвойстваИКатегорииОбъектов</Subsystem>
-			<Subsystem>СтандартныеПодсистемы</Subsystem>
-			<Subsystem>УниверсальныеМеханизмы</Subsystem>
-			<Subsystem>внЖурналРегистрации</Subsystem>
-			<Subsystem>СправочнаяСистема</Subsystem>
 			<Subsystem>APDEX</Subsystem>
-			<Subsystem>МегаЛогист</Subsystem>
-			<Subsystem>ИнтеграцияWEB</Subsystem>
-			<Subsystem>Администрирование</Subsystem>
 			<Subsystem>SMSоповещение</Subsystem>
-			<Subsystem>ОтправкаПочтыПоставщикам</Subsystem>
-			<Subsystem>СостоянияЗаявок</Subsystem>
-			<Subsystem>ПроцессВозвратаОтПокупателей</Subsystem>
-			<Subsystem>ОкноПоставщика</Subsystem>
+			<Subsystem>Администрирование</Subsystem>
 			<Subsystem>Алгоритмы</Subsystem>
+			<Subsystem>внЖурналРегистрации</Subsystem>
 			<Subsystem>ГрафическиеСхемы</Subsystem>
 			<Subsystem>ЗагрузкаЗаявокПокупателя</Subsystem>
+			<Subsystem>ИнтеграцияWEB</Subsystem>
+			<Subsystem>ИнтеграцияСоСтороннимиБД</Subsystem>
+			<Subsystem>МегаЛогист</Subsystem>
+			<Subsystem>ОкноПоставщика</Subsystem>
+			<Subsystem>ОтправкаПочтыПоставщикам</Subsystem>
+			<Subsystem>ПроцессВозвратаОтПокупателей</Subsystem>
+			<Subsystem>СвойстваИКатегорииОбъектов</Subsystem>
+			<Subsystem>СостоянияЗаявок</Subsystem>
+			<Subsystem>СправочнаяСистема</Subsystem>
+			<Subsystem>СтандартныеПодсистемы</Subsystem>
+			<Subsystem>УниверсальныеМеханизмы</Subsystem>
 			<StyleItem>ЗаблокированныйРеквизитЦвет</StyleItem>
 			<StyleItem>НедоступныеДанныеЦвет</StyleItem>
 			<StyleItem>НепринятаяВерсия</StyleItem>
@@ -767,12 +768,17 @@
 			<Interface>МенюОперации</Interface>
 			<Interface>МенюАдминистрирование</Interface>
 			<Interface>АссистентРегиона</Interface>
+			<SessionParameter>APDEX_АктивныеКлючевыеОперации</SessionParameter>
+			<SessionParameter>APDEX_НастройкиЗамеров</SessionParameter>
+			<SessionParameter>APDEX_ТекущийЗамерВремени</SessionParameter>
 			<SessionParameter>АдресСвойствРасширений</SessionParameter>
+			<SessionParameter>АктивныеЗадачиJIRA</SessionParameter>
 			<SessionParameter>ВалютаДоллар</SessionParameter>
 			<SessionParameter>ВалютаЕвро</SessionParameter>
 			<SessionParameter>ВалютаРубль</SessionParameter>
 			<SessionParameter>ВариантПроведенияДокументов</SessionParameter>
 			<SessionParameter>ВерсияРасширений</SessionParameter>
+			<SessionParameter>ВключенаЗаписьИсторииОбменаПоОбъектам</SessionParameter>
 			<SessionParameter>внАдресСоединения</SessionParameter>
 			<SessionParameter>внПараметрыКлиентаНаСервере</SessionParameter>
 			<SessionParameter>ВсеУзлыДляОбменаССайтомЗаказами</SessionParameter>
@@ -785,6 +791,7 @@
 			<SessionParameter>ЗагрузкаПараметровРаботыПрограммы</SessionParameter>
 			<SessionParameter>ИспользованиеРИБ</SessionParameter>
 			<SessionParameter>ИспользуемыеПланыОбмена</SessionParameter>
+			<SessionParameter>КэшАлгоритмов</SessionParameter>
 			<SessionParameter>НаличиеОбменаСРозничнойТорговлей</SessionParameter>
 			<SessionParameter>НаличиеОбменаССайтом</SessionParameter>
 			<SessionParameter>НаличиеОбменаТорговляБухгалтерия</SessionParameter>
@@ -800,56 +807,50 @@
 			<SessionParameter>СохранятьИнформациюОМестеСозданияОбъектов</SessionParameter>
 			<SessionParameter>СписокРегистровЗапрещенныхКПроведению</SessionParameter>
 			<SessionParameter>СтратегияСписанияПартий</SessionParameter>
+			<SessionParameter>ТекущиеДанныеОбменаПоОбъектам</SessionParameter>
 			<SessionParameter>ТекущийВнешнийПользователь</SessionParameter>
 			<SessionParameter>ТекущийПользователь</SessionParameter>
-			<SessionParameter>APDEX_ТекущийЗамерВремени</SessionParameter>
-			<SessionParameter>APDEX_НастройкиЗамеров</SessionParameter>
-			<SessionParameter>КэшАлгоритмов</SessionParameter>
-			<SessionParameter>ТекущиеДанныеОбменаПоОбъектам</SessionParameter>
-			<SessionParameter>ВключенаЗаписьИсторииОбменаПоОбъектам</SessionParameter>
-			<SessionParameter>APDEX_АктивныеКлючевыеОперации</SessionParameter>
-			<SessionParameter>АктивныеЗадачиJIRA</SessionParameter>
+			<Role>АссистентРегиона</Role>
+			<Role>Бухгалтерия</Role>
 			<Role>внАдминистраторЖурналаРегистрации</Role>
 			<Role>внНеФиксироватьСобытияЖурналаРегистарции</Role>
 			<Role>внПросмотрЖурналаРегистрации</Role>
+			<Role>ВЭД</Role>
 			<Role>ГлавныйБухгалтер</Role>
 			<Role>ГлавныйБухгалтерПросмотр</Role>
 			<Role>ДоверенныйПользователь</Role>
+			<Role>ДоступностьРасчетаПремии2Процента</Role>
+			<Role>ДТО</Role>
 			<Role>ЗаказыПоставщикамПросмотр</Role>
 			<Role>ЗаказыПоставщикамРедактирование</Role>
 			<Role>ЗаявкиПокупателейПросмотр</Role>
 			<Role>ЗаявкиПокупателейРедактирование</Role>
+			<Role>КоммерческаяСлужба</Role>
 			<Role>КонтрагентыПолный</Role>
 			<Role>КонтрагентыПросмотр</Role>
 			<Role>КонтрагентыСОграничением</Role>
+			<Role>Логист</Role>
+			<Role>Мегалогист</Role>
+			<Role>МегаЛогист_ПодключениеМобильноеПриложение</Role>
+			<Role>МенюАдминистрирование</Role>
+			<Role>МенюОперации</Role>
+			<Role>НастройкаПриоритетовОбработкиДокументовТопЛог</Role>
+			<Role>НепосредственноеУдаление</Role>
 			<Role>НоменклатураПолный</Role>
 			<Role>НоменклатураПросмотр</Role>
+			<Role>ОКРП</Role>
 			<Role>ПолныеПрава</Role>
 			<Role>Пользователь</Role>
-			<Role>ТестовыйПользователь</Role>
-			<Role>ТоварныйАналитик</Role>
-			<Role>ВЭД</Role>
-			<Role>ОКРП</Role>
-			<Role>Юрист</Role>
-			<Role>ДТО</Role>
-			<Role>Логист</Role>
-			<Role>Склад</Role>
-			<Role>Бухгалтерия</Role>
-			<Role>КоммерческаяСлужба</Role>
+			<Role>ПрайсыЧтение</Role>
+			<Role>РасширенныйРежимРасчетаПремии2Процента</Role>
+			<Role>РедактированиеСистемныхСправочников</Role>
 			<Role>СБ</Role>
 			<Role>СБ_КРО</Role>
 			<Role>СБ_Ревизор</Role>
-			<Role>ПрайсыЧтение</Role>
-			<Role>Мегалогист</Role>
-			<Role>МегаЛогист_ПодключениеМобильноеПриложение</Role>
-			<Role>НепосредственноеУдаление</Role>
-			<Role>ДоступностьРасчетаПремии2Процента</Role>
-			<Role>РасширенныйРежимРасчетаПремии2Процента</Role>
-			<Role>МенюОперации</Role>
-			<Role>МенюАдминистрирование</Role>
-			<Role>АссистентРегиона</Role>
-			<Role>РедактированиеСистемныхСправочников</Role>
-			<Role>НастройкаПриоритетовОбработкиДокументовТопЛог</Role>
+			<Role>Склад</Role>
+			<Role>ТестовыйПользователь</Role>
+			<Role>ТоварныйАналитик</Role>
+			<Role>Юрист</Role>
 			<CommonTemplate>внОписаниеИзменений</CommonTemplate>
 			<CommonTemplate>ЗаголовокСообщенияОбмена</CommonTemplate>
 			<CommonTemplate>ИсторияПроверкиДокумента</CommonTemplate>
@@ -886,14 +887,21 @@
 			<FilterCriterion>ДокументыПоТорговойТочкеКонтрагента</FilterCriterion>
 			<FilterCriterion>СвязанныеДокументы</FilterCriterion>
 			<FilterCriterion>ДокументыПоSiteID</FilterCriterion>
+			<CommonModule>APDEX_ОценкаПроизводительностиКлиентГлобальный</CommonModule>
+			<CommonModule>APDEX_ОценкаПроизводительностиКлиентСервер</CommonModule>
+			<CommonModule>APDEX_ОценкаПроизводительностиСерверВызовСервера</CommonModule>
 			<CommonModule>DataExchangeModule</CommonModule>
 			<CommonModule>DataExchangeПовтИсп</CommonModule>
+			<CommonModule>SMSоповещение</CommonModule>
 			<CommonModule>АдресныйКлассификатор</CommonModule>
 			<CommonModule>АдресныйКлассификаторВызовСервера</CommonModule>
 			<CommonModule>АдресныйКлассификаторКлиент</CommonModule>
 			<CommonModule>АдресныйКлассификаторКлиентСервер</CommonModule>
 			<CommonModule>АдресныйКлассификаторПовтИсп</CommonModule>
 			<CommonModule>АдресныйКлассификаторСлужебный</CommonModule>
+			<CommonModule>АлгоритмыГлобальный</CommonModule>
+			<CommonModule>АлгоритмыКлиент</CommonModule>
+			<CommonModule>БонусыПоставщиковСервер</CommonModule>
 			<CommonModule>БухгалтерскийУчетРасчетовСКонтрагентами</CommonModule>
 			<CommonModule>ВариантыОтчетов</CommonModule>
 			<CommonModule>ВариантыОтчетовВызовСервера</CommonModule>
@@ -907,21 +915,48 @@
 			<CommonModule>внЖурналРегистрацииПереопределяемый</CommonModule>
 			<CommonModule>внЖурналРегистрацииПовтИсп</CommonModule>
 			<CommonModule>внЖурналРегистрацииСервер</CommonModule>
+			<CommonModule>ВозвратыОтПокупателяВызовСервера</CommonModule>
+			<CommonModule>ВозвратыОтПокупателяКлиент</CommonModule>
+			<CommonModule>ВозвратыОтПокупателяКэшНаВызов</CommonModule>
+			<CommonModule>ВозвратыОтПокупателяСервер</CommonModule>
 			<CommonModule>ГлобальныйМодуль</CommonModule>
 			<CommonModule>ДлительныеОперации</CommonModule>
 			<CommonModule>ДлительныеОперацииКлиент</CommonModule>
 			<CommonModule>ДлительныеОперацииКлиентПовтИсп</CommonModule>
 			<CommonModule>ЖурналРегистрации</CommonModule>
 			<CommonModule>ЖурналРегистрацииКлиент</CommonModule>
+			<CommonModule>ЗадачиJiraГлобальный</CommonModule>
+			<CommonModule>ЗаказыПоставщикамКлиентСервер</CommonModule>
+			<CommonModule>ЗаказыПоставщикамСервер</CommonModule>
 			<CommonModule>ЗаполнениеДокументов</CommonModule>
+			<CommonModule>ЗаявкиПокупателяКлиентСервер</CommonModule>
+			<CommonModule>ЗаявкиПокупателяСервер</CommonModule>
 			<CommonModule>ИнтеграцияСтандартныхПодсистем</CommonModule>
 			<CommonModule>КомпоновкаДанныхКлиентСервер</CommonModule>
 			<CommonModule>КомпоновкаДанныхСервер</CommonModule>
+			<CommonModule>КонстантыГС</CommonModule>
 			<CommonModule>КорректировкаСтоимости</CommonModule>
+			<CommonModule>КритическиеСобытияПовтИсп</CommonModule>
+			<CommonModule>КритическиеСобытияСервер</CommonModule>
+			<CommonModule>Мегалогист</CommonModule>
+			<CommonModule>Мегалогист_Партком</CommonModule>
+			<CommonModule>МегаЛогист_РаботаСАвтограф</CommonModule>
+			<CommonModule>МегаЛогист_РаботаСМакоптра</CommonModule>
+			<CommonModule>МегаЛогист_Служебный</CommonModule>
+			<CommonModule>МегаЛогист_УправлениеДоставкой</CommonModule>
+			<CommonModule>МегаЛогист_УправлениеЗаказамиКлиентов</CommonModule>
+			<CommonModule>МенеджерОборудованияВызовСервера</CommonModule>
+			<CommonModule>МенеджерОборудованияВызовСервераПереопределяемый</CommonModule>
+			<CommonModule>МенеджерОборудованияКлиент</CommonModule>
+			<CommonModule>МенеджерОборудованияКлиентПереопределяемый</CommonModule>
+			<CommonModule>МенеджерОборудованияКлиентПовтИсп</CommonModule>
+			<CommonModule>МенеджерОборудованияКлиентСервер</CommonModule>
+			<CommonModule>МенеджерОборудованияСерверПовтИсп</CommonModule>
 			<CommonModule>МеханизмНумерацииОбъектов</CommonModule>
 			<CommonModule>МодульВалютногоУчета</CommonModule>
 			<CommonModule>МодульОбменаCRM</CommonModule>
 			<CommonModule>МодульПоискаВДанных</CommonModule>
+			<CommonModule>МодульРегламентныхЗаданийСервер</CommonModule>
 			<CommonModule>НалоговыйУчет</CommonModule>
 			<CommonModule>НастройкаПорядкаЭлементов</CommonModule>
 			<CommonModule>НастройкаПорядкаЭлементовКлиент</CommonModule>
@@ -935,6 +970,8 @@
 			<CommonModule>ОбменДаннымиПовтИсп</CommonModule>
 			<CommonModule>ОбменДаннымиСервер</CommonModule>
 			<CommonModule>ОбменДаннымиСобытия</CommonModule>
+			<CommonModule>ОбменССайтомСервер</CommonModule>
+			<CommonModule>ОбменССайтомСерверПовтИсп</CommonModule>
 			<CommonModule>ОбновлениеИнформационнойБазы</CommonModule>
 			<CommonModule>ОбновлениеИнформационнойБазыБСП</CommonModule>
 			<CommonModule>ОбновлениеИнформационнойБазыВызовСервера</CommonModule>
@@ -966,6 +1003,7 @@
 			<CommonModule>ОтчетыУТВызовСервераПереопределяемый</CommonModule>
 			<CommonModule>ОтчетыУТКлиентПереопределяемый</CommonModule>
 			<CommonModule>ОтчетыУТПереопределяемый</CommonModule>
+			<CommonModule>ОценкаПроизводительностиКлиентСервер</CommonModule>
 			<CommonModule>ПлатежиВБюджетКлиентСервер</CommonModule>
 			<CommonModule>ПлатежиВБюджетПереопределяемый</CommonModule>
 			<CommonModule>ПолныеПрава</CommonModule>
@@ -981,6 +1019,7 @@
 			<CommonModule>ПользователиСлужебныйВызовСервера</CommonModule>
 			<CommonModule>ПользователиСлужебныйКлиент</CommonModule>
 			<CommonModule>ПользователиСлужебныйПовтИсп</CommonModule>
+			<CommonModule>ПривилегированныйСервер</CommonModule>
 			<CommonModule>ПрисоединенныеФайлы</CommonModule>
 			<CommonModule>ПрисоединенныеФайлыПереопределяемый</CommonModule>
 			<CommonModule>ПрисоединенныеФайлыСлужебный</CommonModule>
@@ -999,10 +1038,15 @@
 			<CommonModule>РаботаВБезопасномРежиме</CommonModule>
 			<CommonModule>РаботаВБезопасномРежимеКлиент</CommonModule>
 			<CommonModule>РаботаВБезопасномРежимеСлужебный</CommonModule>
+			<CommonModule>РаботаСSQL</CommonModule>
+			<CommonModule>РаботаСSQLСервер</CommonModule>
 			<CommonModule>РаботаСБизнесПроцессами</CommonModule>
+			<CommonModule>РаботаСГС</CommonModule>
 			<CommonModule>РаботаСДиалогами</CommonModule>
 			<CommonModule>РаботаСоСтатусамиДокументов</CommonModule>
 			<CommonModule>РаботаСоСтатусамиДокументовКлиент</CommonModule>
+			<CommonModule>РаботаСоСтатусамиДокументовПовтИсп</CommonModule>
+			<CommonModule>РаботаСоСтатусамиДокументовСервер</CommonModule>
 			<CommonModule>РаботаСПоследовательностямиКлиентСервер</CommonModule>
 			<CommonModule>РаботаСПочтовымиСообщениями</CommonModule>
 			<CommonModule>РаботаСПочтовымиСообщениямиКлиент</CommonModule>
@@ -1045,6 +1089,7 @@
 			<CommonModule>УправлениеСоединениямиИБПереопределяемый</CommonModule>
 			<CommonModule>УправлениеЭлектроннойПочтой</CommonModule>
 			<CommonModule>УчетНДС</CommonModule>
+			<CommonModule>УчетНДСПовтИсп</CommonModule>
 			<CommonModule>УчетНДСФормированиеДвижений</CommonModule>
 			<CommonModule>ФайловыеФункции</CommonModule>
 			<CommonModule>ФайловыеФункцииСлужебный</CommonModule>
@@ -1070,50 +1115,6 @@
 			<CommonModule>ЭлектронныеДокументыСлужебный</CommonModule>
 			<CommonModule>ЭлектронныеДокументыСлужебныйВызовСервера</CommonModule>
 			<CommonModule>ЭлектронныеДокументыСлужебныйКлиент</CommonModule>
-			<CommonModule>РаботаСоСтатусамиДокументовСервер</CommonModule>
-			<CommonModule>РаботаСSQL</CommonModule>
-			<CommonModule>РаботаСоСтатусамиДокументовПовтИсп</CommonModule>
-			<CommonModule>APDEX_ОценкаПроизводительностиКлиентГлобальный</CommonModule>
-			<CommonModule>APDEX_ОценкаПроизводительностиКлиентСервер</CommonModule>
-			<CommonModule>APDEX_ОценкаПроизводительностиСерверВызовСервера</CommonModule>
-			<CommonModule>ОценкаПроизводительностиКлиентСервер</CommonModule>
-			<CommonModule>МегаЛогист_УправлениеДоставкой</CommonModule>
-			<CommonModule>ЗаявкиПокупателяСервер</CommonModule>
-			<CommonModule>ВозвратыОтПокупателяВызовСервера</CommonModule>
-			<CommonModule>ВозвратыОтПокупателяСервер</CommonModule>
-			<CommonModule>ВозвратыОтПокупателяКлиент</CommonModule>
-			<CommonModule>ВозвратыОтПокупателяКэшНаВызов</CommonModule>
-			<CommonModule>ЗаявкиПокупателяКлиентСервер</CommonModule>
-			<CommonModule>МегаЛогист_УправлениеЗаказамиКлиентов</CommonModule>
-			<CommonModule>Мегалогист</CommonModule>
-			<CommonModule>МегаЛогист_РаботаСМакоптра</CommonModule>
-			<CommonModule>МегаЛогист_Служебный</CommonModule>
-			<CommonModule>МегаЛогист_РаботаСАвтограф</CommonModule>
-			<CommonModule>РаботаСSQLСервер</CommonModule>
-			<CommonModule>Мегалогист_Партком</CommonModule>
-			<CommonModule>КритическиеСобытияСервер</CommonModule>
-			<CommonModule>КритическиеСобытияПовтИсп</CommonModule>
-			<CommonModule>ОбменССайтомСервер</CommonModule>
-			<CommonModule>SMSоповещение</CommonModule>
-			<CommonModule>ОбменССайтомСерверПовтИсп</CommonModule>
-			<CommonModule>УчетНДСПовтИсп</CommonModule>
-			<CommonModule>ЗаказыПоставщикамСервер</CommonModule>
-			<CommonModule>ЗаказыПоставщикамКлиентСервер</CommonModule>
-			<CommonModule>МодульРегламентныхЗаданийСервер</CommonModule>
-			<CommonModule>МенеджерОборудованияСерверПовтИсп</CommonModule>
-			<CommonModule>МенеджерОборудованияВызовСервера</CommonModule>
-			<CommonModule>МенеджерОборудованияВызовСервераПереопределяемый</CommonModule>
-			<CommonModule>МенеджерОборудованияКлиент</CommonModule>
-			<CommonModule>МенеджерОборудованияКлиентПереопределяемый</CommonModule>
-			<CommonModule>МенеджерОборудованияКлиентПовтИсп</CommonModule>
-			<CommonModule>МенеджерОборудованияКлиентСервер</CommonModule>
-			<CommonModule>АлгоритмыКлиент</CommonModule>
-			<CommonModule>АлгоритмыГлобальный</CommonModule>
-			<CommonModule>РаботаСГС</CommonModule>
-			<CommonModule>КонстантыГС</CommonModule>
-			<CommonModule>ПривилегированныйСервер</CommonModule>
-			<CommonModule>ЗадачиJiraГлобальный</CommonModule>
-			<CommonModule>БонусыПоставщиковСервер</CommonModule>
 			<ExchangePlan>ОбменПартКом77_83</ExchangePlan>
 			<ExchangePlan>ОбменПартКом83_77</ExchangePlan>
 			<ExchangePlan>ОбменПартКом83_CRM</ExchangePlan>
@@ -1164,6 +1165,7 @@
 			<EventSubscription>ОповещениеОбОтказахПриАвтоЗаписиТоварныхДокументов</EventSubscription>
 			<EventSubscription>ОповещениеОбОтказахПриАвтоПроведенииТоварныхДокументов</EventSubscription>
 			<EventSubscription>ПередЗаписьюДокументаДатаЗапретаРедактирования</EventSubscription>
+			<EventSubscription>ПередЗаписьюПартииТоваровСохранитьДатуДляМФП</EventSubscription>
 			<EventSubscription>ПередЗаписьюРегистраДатаЗапретаРедактирования</EventSubscription>
 			<EventSubscription>ПриУстановкеНовогоКодаСправочника</EventSubscription>
 			<EventSubscription>ПриУстановкеНовогоНомераДокумента</EventSubscription>
@@ -1180,7 +1182,6 @@
 			<EventSubscription>РегистрацияОтправкиНаПочту</EventSubscription>
 			<EventSubscription>СменаНомераДокументаПередЗаписью</EventSubscription>
 			<EventSubscription>СнятиеБлокировкиКонтрагентов</EventSubscription>
-			<EventSubscription>ПередЗаписьюПартииТоваровСохранитьДатуДляМФП</EventSubscription>
 			<ScheduledJob>РегламентныйЗапускОбработки</ScheduledJob>
 			<ScheduledJob>внПереносКэшаЖурналаРегистрации</ScheduledJob>
 			<ScheduledJob>ОбменCRM</ScheduledJob>
@@ -1426,7 +1427,11 @@
 			<CommonForm>ИсторияОбменовПоОбъекту</CommonForm>
 			<CommonForm>ФормаРедактированияОбщедоступныхРеквизитов</CommonForm>
 			<CommonForm>ЗадачиJiraНастройка</CommonForm>
+			<Catalog>APDEX_КлючевыеОперации</Catalog>
+			<Catalog>CDC_СтруктураВыгрузки</Catalog>
 			<Catalog>Автомобили</Catalog>
+			<Catalog>Алгоритмы</Catalog>
+			<Catalog>АлгоритмыПроцессов</Catalog>
 			<Catalog>АукционПоставщиков</Catalog>
 			<Catalog>Банки</Catalog>
 			<Catalog>БанковскиеСчета</Catalog>
@@ -1434,16 +1439,21 @@
 			<Catalog>ВариантыОтветовОпросов</Catalog>
 			<Catalog>ВариантыОтчетов</Catalog>
 			<Catalog>ВерсииРасширений</Catalog>
+			<Catalog>ВзаимосвязиСтатусовПроцессаВозвратаОтПокупателя</Catalog>
 			<Catalog>ВидыДеятельностиКонтрагентов</Catalog>
 			<Catalog>ВидыКонтактнойИнформации</Catalog>
+			<Catalog>ВидыКорректировок</Catalog>
 			<Catalog>ВидыОплатЧекаККМ</Catalog>
 			<Catalog>ВидыОтказов</Catalog>
 			<Catalog>ВидыСостоянийДляСайта</Catalog>
 			<Catalog>ВидыСостоянийСтрокДокументов</Catalog>
 			<Catalog>ВидыСписания</Catalog>
+			<Catalog>ВложенияЭлектронныхПисем</Catalog>
 			<Catalog>ВнешниеОбработки</Catalog>
 			<Catalog>Водители</Catalog>
+			<Catalog>ВременныеЗоны</Catalog>
 			<Catalog>Города</Catalog>
+			<Catalog>ГруппыДоступаКСтатусамПроцессаВозвратаОтПокупателя</Catalog>
 			<Catalog>ГруппыИзготовителей</Catalog>
 			<Catalog>ГруппыКонтрагентов</Catalog>
 			<Catalog>ГруппыПисемЭлектроннойПочты</Catalog>
@@ -1454,6 +1464,7 @@
 			<Catalog>ДокументыУдостоверяющиеЛичность</Catalog>
 			<Catalog>ДолжностиОрганизаций</Catalog>
 			<Catalog>ЕдиницыИзмерения</Catalog>
+			<Catalog>ЗадачиJira</Catalog>
 			<Catalog>ЗначенияСвойствОбъектов</Catalog>
 			<Catalog>ИдентификаторыОбъектовМетаданных</Catalog>
 			<Catalog>ИдентификаторыОбъектовРасширений</Catalog>
@@ -1461,6 +1472,7 @@
 			<Catalog>ИдентификаторыСтрокЗаявок</Catalog>
 			<Catalog>ИдентификаторыСтрокПриходов</Catalog>
 			<Catalog>Изготовители</Catalog>
+			<Catalog>ИменованныеКонстантыПроцессов</Catalog>
 			<Catalog>ИсторияСтрокЗаявок</Catalog>
 			<Catalog>Календари</Catalog>
 			<Catalog>Кассы</Catalog>
@@ -1469,15 +1481,33 @@
 			<Catalog>Качество</Catalog>
 			<Catalog>КлассификаторЕдиницИзмерения</Catalog>
 			<Catalog>КлассификаторОКОПФ</Catalog>
+			<Catalog>КодыВозврата</Catalog>
 			<Catalog>КодыСписания</Catalog>
+			<Catalog>КомандыПроцессов</Catalog>
 			<Catalog>КонтактныеЛица</Catalog>
 			<Catalog>КонтактныеЛицаКонтрагентов</Catalog>
 			<Catalog>Контрагенты</Catalog>
 			<Catalog>ЛичныеКонтакты</Catalog>
 			<Catalog>Марки</Catalog>
 			<Catalog>МаршрутыДоставки</Catalog>
+			<Catalog>МегаЛогист_ГеоЗоныДляПланирования</Catalog>
+			<Catalog>МегаЛогист_ГрафикиРаботыВодителей</Catalog>
+			<Catalog>МегаЛогист_ЗоныДоставки</Catalog>
+			<Catalog>МегаЛогист_Маркеры</Catalog>
+			<Catalog>МегаЛогист_ПреобразованиеУлицДляПоиска</Catalog>
+			<Catalog>МегаЛогист_ПричиныНевыполнения</Catalog>
+			<Catalog>МегаЛогист_СлоиДляКартыOSM</Catalog>
+			<Catalog>МегаЛогист_СокращенияУлиц</Catalog>
+			<Catalog>МегаЛогист_СоответствиеСкладов1СИMaxoptra</Catalog>
+			<Catalog>МегаЛогист_ТипыМаршрутныхЗаданий</Catalog>
+			<Catalog>МегаЛогист_ТранспортныеСредства</Catalog>
+			<Catalog>МегаЛогист_ТранспортныеСредстваКурьеров</Catalog>
+			<Catalog>МегаЛогист_ТребованияКТС</Catalog>
+			<Catalog>МегаЛогист_ХарактеристикиВодителей</Catalog>
+			<Catalog>МегаЛогист_ХарактеристикиТранспортныхСредств</Catalog>
 			<Catalog>Менеджеры</Catalog>
 			<Catalog>Модели</Catalog>
+			<Catalog>НастройкаSMSоповещения</Catalog>
 			<Catalog>НастройкиFTP</Catalog>
 			<Catalog>НастройкиБизнесПроцессов</Catalog>
 			<Catalog>НастройкиВыгрузкиВБухгалтерию</Catalog>
@@ -1486,19 +1516,26 @@
 			<Catalog>НоменклатураКонтрагентов</Catalog>
 			<Catalog>НоменклатурныеГруппы</Catalog>
 			<Catalog>НомераГТД</Catalog>
+			<Catalog>ОбменFTP_ВидыДокументов</Catalog>
+			<Catalog>ОбменFTP_НастройкиПодключений</Catalog>
 			<Catalog>ОбработкиОбслуживанияТО</Catalog>
 			<Catalog>Организации</Catalog>
 			<Catalog>ОформленияСтрокПисем</Catalog>
 			<Catalog>ПараметрыФормированияЗаказовПоставщикам</Catalog>
 			<Catalog>ПараметрыФормированияСлужебныхЗаданий</Catalog>
 			<Catalog>Подразделения</Catalog>
+			<Catalog>ПолитикиМФП</Catalog>
 			<Catalog>Пользователи</Catalog>
 			<Catalog>ПользовательскиеНастройкиОтчетов</Catalog>
 			<Catalog>ПрайсыПоставщиков</Catalog>
 			<Catalog>ПрайсыПоставщиковVMI</Catalog>
 			<Catalog>ПредопределенныеВариантыОтчетов</Catalog>
 			<Catalog>ПредопределенныеВариантыОтчетовРасширений</Catalog>
+			<Catalog>ПричиныВозврата</Catalog>
+			<Catalog>ПричиныОтказаВВозвратеКлиенту</Catalog>
+			<Catalog>ПричиныОтказаКлиента</Catalog>
 			<Catalog>ПричиныОтмен</Catalog>
+			<Catalog>ПричиныОтменыВозвратаОтПокупателя</Catalog>
 			<Catalog>ПричиныСписания</Catalog>
 			<Catalog>Проекты</Catalog>
 			<Catalog>ПроцентыПередачи</Catalog>
@@ -1506,6 +1543,7 @@
 			<Catalog>РегионыДляБюджета</Catalog>
 			<Catalog>РегистрыЗапрещенныеКПроведению</Catalog>
 			<Catalog>РегламентныеЗадания</Catalog>
+			<Catalog>Релизы</Catalog>
 			<Catalog>РолиКонтактныхЛиц</Catalog>
 			<Catalog>СегментыКонтрагентов</Catalog>
 			<Catalog>Склады</Catalog>
@@ -1514,6 +1552,7 @@
 			<Catalog>СтатусыДокументов</Catalog>
 			<Catalog>СтатьиДвиженияДенежныхСредств</Catalog>
 			<Catalog>СтатьиЗатрат</Catalog>
+			<Catalog>СтатьиЗатратИмпорт</Catalog>
 			<Catalog>СтраныМира</Catalog>
 			<Catalog>СценарииОбменовДанными</Catalog>
 			<Catalog>ТипыДоставки</Catalog>
@@ -1536,45 +1575,8 @@
 			<Catalog>ХранилищеДополнительнойИнформации</Catalog>
 			<Catalog>ЦеновыеГруппы</Catalog>
 			<Catalog>ЦФОДляБюджета</Catalog>
-			<Catalog>ШаблоныТекстовПисем</Catalog>
-			<Catalog>APDEX_КлючевыеОперации</Catalog>
-			<Catalog>ВзаимосвязиСтатусовПроцессаВозвратаОтПокупателя</Catalog>
-			<Catalog>ГруппыДоступаКСтатусамПроцессаВозвратаОтПокупателя</Catalog>
-			<Catalog>АлгоритмыПроцессов</Catalog>
-			<Catalog>ВложенияЭлектронныхПисем</Catalog>
-			<Catalog>КодыВозврата</Catalog>
-			<Catalog>ПричиныОтказаВВозвратеКлиенту</Catalog>
-			<Catalog>КомандыПроцессов</Catalog>
-			<Catalog>ИменованныеКонстантыПроцессов</Catalog>
-			<Catalog>МегаЛогист_ЗоныДоставки</Catalog>
-			<Catalog>МегаЛогист_ТипыМаршрутныхЗаданий</Catalog>
-			<Catalog>МегаЛогист_Маркеры</Catalog>
-			<Catalog>МегаЛогист_ТранспортныеСредства</Catalog>
-			<Catalog>МегаЛогист_ПричиныНевыполнения</Catalog>
-			<Catalog>МегаЛогист_ТранспортныеСредстваКурьеров</Catalog>
-			<Catalog>МегаЛогист_СокращенияУлиц</Catalog>
-			<Catalog>МегаЛогист_ПреобразованиеУлицДляПоиска</Catalog>
-			<Catalog>МегаЛогист_СлоиДляКартыOSM</Catalog>
-			<Catalog>МегаЛогист_ХарактеристикиТранспортныхСредств</Catalog>
-			<Catalog>МегаЛогист_ГеоЗоныДляПланирования</Catalog>
-			<Catalog>МегаЛогист_СоответствиеСкладов1СИMaxoptra</Catalog>
-			<Catalog>МегаЛогист_ХарактеристикиВодителей</Catalog>
-			<Catalog>МегаЛогист_ГрафикиРаботыВодителей</Catalog>
-			<Catalog>МегаЛогист_ТребованияКТС</Catalog>
-			<Catalog>ВидыКорректировок</Catalog>
-			<Catalog>ПолитикиМФП</Catalog>
-			<Catalog>ОбменFTP_ВидыДокументов</Catalog>
-			<Catalog>ОбменFTP_НастройкиПодключений</Catalog>
-			<Catalog>ВременныеЗоны</Catalog>
-			<Catalog>НастройкаSMSоповещения</Catalog>
 			<Catalog>ШаблоныSMSоповещения</Catalog>
-			<Catalog>ПричиныВозврата</Catalog>
-			<Catalog>ПричиныОтказаКлиента</Catalog>
-			<Catalog>Алгоритмы</Catalog>
-			<Catalog>СтатьиЗатратИмпорт</Catalog>
-			<Catalog>ПричиныОтменыВозвратаОтПокупателя</Catalog>
-			<Catalog>ЗадачиJira</Catalog>
-			<Catalog>Релизы</Catalog>
+			<Catalog>ШаблоныТекстовПисем</Catalog>
 			<Document>АвансовыйОтчет</Document>
 			<Document>АктРассмотренияВозврата</Document>
 			<Document>ВводНачальныхДанныхПоПродажам</Document>
@@ -1607,9 +1609,12 @@
 			<Document>КорректировкаЗаявкиПокупателя</Document>
 			<Document>КорректировкаПеремещенияТоваров</Document>
 			<Document>КорректировкаПоступленияТоваровУслуг</Document>
+			<Document>МегаЛогист_МаршрутноеЗадание</Document>
+			<Document>МегаЛогист_МаршрутныйЛист</Document>
 			<Document>НакладнаяНаОтгрузку</Document>
 			<Document>ОбъявлениеНаВзносНаличными</Document>
 			<Document>ОприходованиеТоваров</Document>
+			<Document>ОтказПоставщикаВВозврате</Document>
 			<Document>ОтчетКомиссионераОПродажах</Document>
 			<Document>ОтчетКомитентуОПродажах</Document>
 			<Document>ПеремещениеТоваров</Document>
@@ -1624,6 +1629,7 @@
 			<Document>ПоступлениеДопРасходов</Document>
 			<Document>ПоступлениеТоваровУслуг</Document>
 			<Document>ПриходныйКассовыйОрдер</Document>
+			<Document>РазмещениеТоваров</Document>
 			<Document>РасходныйКассовыйОрдер</Document>
 			<Document>РеализацияТоваровУслуг</Document>
 			<Document>СлужебноеЗадание</Document>
@@ -1637,11 +1643,7 @@
 			<Document>УстановкаТиповЦенПоГруппамНоменклатурыДляПокупателей</Document>
 			<Document>УстановкаЦенНоменклатуры</Document>
 			<Document>УстановкаЦенНоменклатурыКонтрагентов</Document>
-			<Document>МегаЛогист_МаршрутноеЗадание</Document>
-			<Document>МегаЛогист_МаршрутныйЛист</Document>
 			<Document>ЭлектронноеПисьмо</Document>
-			<Document>РазмещениеТоваров</Document>
-			<Document>ОтказПоставщикаВВозврате</Document>
 			<DocumentNumerator>НумераторЗаявокКорректировокЗаявок</DocumentNumerator>
 			<DocumentNumerator>НумераторЗаказовКорретировокЗаказов</DocumentNumerator>
 			<Sequence>ПартионныйУчет</Sequence>
@@ -1652,8 +1654,13 @@
 			<DocumentJournal>СкладскиеДокументы</DocumentJournal>
 			<DocumentJournal>Ценообразование</DocumentJournal>
 			<Enum>Акт_ОтветПоставщика</Enum>
+			<Enum>АРВ_СтатусыПроверкиБухгалтерией</Enum>
+			<Enum>АРВ_СтатусыПроверкиДокументовПокупателя</Enum>
+			<Enum>АРВ_СтатусыПроверкиДокументовПоставщика</Enum>
 			<Enum>Важность</Enum>
 			<Enum>ВариантыПроведенияДокументов</Enum>
+			<Enum>ВариантыСписанияВозврата</Enum>
+			<Enum>ВариантыУчетаНДС</Enum>
 			<Enum>ВидВыдачиДенежныхСредств</Enum>
 			<Enum>ВидПриемаРозничнойВыручки</Enum>
 			<Enum>ВидСчетаФактурыВыставленного</Enum>
@@ -1680,8 +1687,10 @@
 			<Enum>ВидыОперацийВводНачальныхОстатковПоВзаиморасчетам</Enum>
 			<Enum>ВидыОперацийВводНачОстатковНДС</Enum>
 			<Enum>ВидыОперацийВозвратаОтПокупателя</Enum>
+			<Enum>ВидыОперацийВозвратПоставщику</Enum>
 			<Enum>ВидыОперацийЗаявкаПокупателя</Enum>
 			<Enum>ВидыОперацийЗаявкиНаРасходование</Enum>
+			<Enum>ВидыОперацийИсправленияПоступленияРеализации</Enum>
 			<Enum>ВидыОперацийКорректировкаДолга</Enum>
 			<Enum>ВидыОперацийОплатаОтПокупателяПлатежнойКартой</Enum>
 			<Enum>ВидыОперацийОприходованиеТоваров</Enum>
@@ -1690,21 +1699,26 @@
 			<Enum>ВидыОперацийПланируемоеПоступлениеДС</Enum>
 			<Enum>ВидыОперацийПоступлениеБезналичныхДенежныхСредств</Enum>
 			<Enum>ВидыОперацийППИсходящее</Enum>
+			<Enum>ВидыОперацийРеализацияТоваров</Enum>
 			<Enum>ВидыОперацийРКО</Enum>
 			<Enum>ВидыОперацийСписаниеБезналичныхДенежныхСредств</Enum>
 			<Enum>ВидыОперацийУстановкаТиповЦенПоГруппамНоменклатурыДляПокупателей</Enum>
 			<Enum>ВидыОперацийУценки</Enum>
+			<Enum>ВидыОплатыЭД</Enum>
 			<Enum>ВидыПеречисленийВБюджет</Enum>
+			<Enum>ВидыПечатныхДокументов</Enum>
 			<Enum>ВидыПоступленияТоваров</Enum>
 			<Enum>ВидыПравилДляОбменаДанными</Enum>
 			<Enum>ВидыРасчетаДней</Enum>
 			<Enum>ВидыСкидок</Enum>
 			<Enum>ВидыСкладов</Enum>
 			<Enum>ВидыСобытий</Enum>
+			<Enum>ВидыСобытийКОбработкеПроцессаВозвратов</Enum>
 			<Enum>ВидыТекстовЭлектронныхПисем</Enum>
 			<Enum>ВидыТорговогоОборудования</Enum>
 			<Enum>ВидыТранспортаСообщенийОбмена</Enum>
 			<Enum>ВидыУсловийДоговоровВзаиморасчетов</Enum>
+			<Enum>ВидыУценки</Enum>
 			<Enum>внВерсияПлатформыХранителя</Enum>
 			<Enum>внМетодыРегистрацииНовыхОбъектов</Enum>
 			<Enum>внСпособОпределенияПредставления</Enum>
@@ -1719,9 +1733,21 @@
 			<Enum>ИсточникиПравилДляОбменаДанными</Enum>
 			<Enum>ИсточникиРеализаций</Enum>
 			<Enum>ЛевыйПравый</Enum>
+			<Enum>ЛогистическиеЦепочки</Enum>
+			<Enum>МегаЛогист_ВидыМаркеров</Enum>
+			<Enum>МегаЛогист_ВидыОперацияВзаиморасчетыСКурьером</Enum>
+			<Enum>МегаЛогист_ИменаГеокодера</Enum>
+			<Enum>МегаЛогист_СтатусыДоставки</Enum>
+			<Enum>МегаЛогист_СтатусыЗаказа</Enum>
+			<Enum>МегаЛогист_СтатусыМаршрутныхЗаданий</Enum>
+			<Enum>МегаЛогист_СтатусыМаршрутныхЛистов</Enum>
+			<Enum>МегаЛогист_СтатусыОплаты</Enum>
+			<Enum>МегаЛогист_СтатусыОтгрузки</Enum>
+			<Enum>МоментыВыполненияАлгоритма</Enum>
 			<Enum>МоментыОпределенияНалоговойБазыНДС</Enum>
 			<Enum>МыОни</Enum>
 			<Enum>НДСРежимУчетаРаспределенныхОплат</Enum>
+			<Enum>ОграниченияВыполненияУсловийПроцессов</Enum>
 			<Enum>ОтветственныеЛицаОрганизации</Enum>
 			<Enum>ПараметрыABCКлассификацииПокупателей</Enum>
 			<Enum>ПараметрыРаспределенияПокупателейПоСтадиямВзаимоотношений</Enum>
@@ -1732,6 +1758,10 @@
 			<Enum>ПорядкиОкругления</Enum>
 			<Enum>ПорядокРегистрацииСчетовФактурНаАванс</Enum>
 			<Enum>ПризнакиДокументов</Enum>
+			<Enum>Приоритеты</Enum>
+			<Enum>ПричиныНевыпискиРТУ</Enum>
+			<Enum>РасположенияКомандыПроцесса</Enum>
+			<Enum>СостоянияОтменыЗаказаНаПриемкуВТоплог</Enum>
 			<Enum>СостоянияПартииТовараVMI</Enum>
 			<Enum>СостоянияПотомковЭлектронныхПисем</Enum>
 			<Enum>СостоянияСобытий</Enum>
@@ -1740,10 +1770,12 @@
 			<Enum>СпособыОпределенияВремениПроведенияПлатежногоДокумента</Enum>
 			<Enum>СпособыОткрытияФайлаНаПросмотр</Enum>
 			<Enum>СпособыОценки</Enum>
+			<Enum>СпособыПередачиТоваров</Enum>
 			<Enum>СпособыПроведенияДокументов</Enum>
 			<Enum>СпособыРасчетаВознаграждения</Enum>
 			<Enum>СпособыРасчетаЦены</Enum>
 			<Enum>СтавкиНДС</Enum>
+			<Enum>СтатусыSMSоповещения</Enum>
 			<Enum>СтатусыКонтрагентов</Enum>
 			<Enum>СтатусыПартии</Enum>
 			<Enum>СтатусыПисем</Enum>
@@ -1763,48 +1795,20 @@
 			<Enum>ТипыОтчетов</Enum>
 			<Enum>ТипыПользователей</Enum>
 			<Enum>ТипыПриводов</Enum>
+			<Enum>ТипыСкладов</Enum>
 			<Enum>ТипыФайлов</Enum>
 			<Enum>ТООшибкиОбщие</Enum>
 			<Enum>ТООшибкиСШК</Enum>
+			<Enum>удалитьПричиныВозврата</Enum>
 			<Enum>УсловияФильтровЭлектронныхПисем</Enum>
 			<Enum>ФормыОбъектовДляРегистрацииFTP</Enum>
 			<Enum>ХарактерЗатрат</Enum>
 			<Enum>ЧастиЖурналаУчетаСчетовФактур</Enum>
 			<Enum>ЭтапыВыполненияРеглЗаданияАвтоФормированияДок</Enum>
 			<Enum>ЮрФизЛицо</Enum>
-			<Enum>ЛогистическиеЦепочки</Enum>
-			<Enum>ПричиныНевыпискиРТУ</Enum>
-			<Enum>ТипыСкладов</Enum>
-			<Enum>АРВ_СтатусыПроверкиДокументовПокупателя</Enum>
-			<Enum>АРВ_СтатусыПроверкиДокументовПоставщика</Enum>
-			<Enum>АРВ_СтатусыПроверкиБухгалтерией</Enum>
-			<Enum>МоментыВыполненияАлгоритма</Enum>
-			<Enum>РасположенияКомандыПроцесса</Enum>
-			<Enum>МегаЛогист_ИменаГеокодера</Enum>
-			<Enum>МегаЛогист_СтатусыМаршрутныхЗаданий</Enum>
-			<Enum>МегаЛогист_СтатусыМаршрутныхЛистов</Enum>
-			<Enum>МегаЛогист_СтатусыЗаказа</Enum>
-			<Enum>МегаЛогист_СтатусыОплаты</Enum>
-			<Enum>МегаЛогист_СтатусыОтгрузки</Enum>
-			<Enum>МегаЛогист_СтатусыДоставки</Enum>
-			<Enum>МегаЛогист_ВидыМаркеров</Enum>
-			<Enum>МегаЛогист_ВидыОперацияВзаиморасчетыСКурьером</Enum>
-			<Enum>ВидыУценки</Enum>
-			<Enum>удалитьПричиныВозврата</Enum>
-			<Enum>ВидыОперацийРеализацияТоваров</Enum>
-			<Enum>СпособыПередачиТоваров</Enum>
-			<Enum>СтатусыSMSоповещения</Enum>
-			<Enum>ВариантыУчетаНДС</Enum>
-			<Enum>ВидыОперацийВозвратПоставщику</Enum>
-			<Enum>ВидыСобытийКОбработкеПроцессаВозвратов</Enum>
-			<Enum>ВидыОплатыЭД</Enum>
-			<Enum>ВариантыСписанияВозврата</Enum>
-			<Enum>ВидыОперацийИсправленияПоступленияРеализации</Enum>
-			<Enum>ВидыПечатныхДокументов</Enum>
-			<Enum>ОграниченияВыполненияУсловийПроцессов</Enum>
-			<Enum>Приоритеты</Enum>
-			<Enum>СостоянияОтменыЗаказаНаПриемкуВТоплог</Enum>
+			<Report>АктивныеЗаказыПоставщику</Report>
 			<Report>АктСверкиВзаиморасчетов</Report>
+			<Report>АктыРассмотренияВозвратов</Report>
 			<Report>АнализЗаказовПоставщикам</Report>
 			<Report>АнализЗаявокПокупателей</Report>
 			<Report>АнализНезакрытыхЗаявокЗаказов</Report>
@@ -1817,105 +1821,137 @@
 			<Report>ВедомостьЗаказыПоставщикам</Report>
 			<Report>ВедомостьЗаявкиПокупателей</Report>
 			<Report>ВедомостьПоБДЗ</Report>
+			<Report>ВедомостьПоВзаиморасчетамУПР</Report>
 			<Report>ВедомостьПоПДЗ</Report>
 			<Report>ВМИДляПоставщика</Report>
 			<Report>внАктивностьРаботыПользователей</Report>
 			<Report>внИсторияИзмененийОбъектов</Report>
 			<Report>ДвиженияДокумента</Report>
+			<Report>ДвиженияЗаказовПоставщиков</Report>
+			<Report>ДокументыПоАктуВозврата</Report>
+			<Report>ЗависшиеПеремещенияВПути</Report>
+			<Report>ЗависшиеПеремещенияВПутиСДокументомДвижения</Report>
+			<Report>ЗависшиеПТУ</Report>
+			<Report>ЗависшиеПТУРасшифровка</Report>
 			<Report>ЗаказыПоставщикам4Срока</Report>
 			<Report>ЗаказыПоставщикамВРаботе</Report>
 			<Report>ИсторияВыгрузкиНаСайтИсторииСтрокЗаявок</Report>
+			<Report>ИсторияЗначенийПараметровЭД</Report>
+			<Report>КалендарьОплатПоVMIПоставщикам</Report>
+			<Report>КалендарьОплатПоПокупателям</Report>
+			<Report>КорректировкаДолга</Report>
+			<Report>ЛогистическиеЦепочки</Report>
+			<Report>ЛогистическиеЦепочки_Мотивация</Report>
+			<Report>МегаЛогист_ОтчетПоДоставке</Report>
+			<Report>МегаЛогист_РасширенныйАнализРейсов</Report>
+			<Report>НастройкиПроцессаВозврата</Report>
 			<Report>не_использовать_АнализПродаж</Report>
 			<Report>НеИспользовать_ОтчетМХ3МХ1</Report>
 			<Report>ОСВБанкКасса</Report>
 			<Report>ОстаткиТоваров</Report>
 			<Report>ОтчетVMI_ОкноПоставщика</Report>
+			<Report>ОтчетVMI_ОкноПоставщикаНовый</Report>
 			<Report>ОтчетМХ</Report>
 			<Report>ОтчетПДЗБДЗ</Report>
 			<Report>ОтчетПоДвижениямДокумента</Report>
 			<Report>ОтчетПоОбеспечениюПополненийСклада</Report>
 			<Report>ОтчетПоПеремещениям</Report>
 			<Report>ОтчетПоПрайсамПоставщиковИРасписанию</Report>
+			<Report>ОтчетПоПричинамОтказаРТУ</Report>
+			<Report>ОтчетПоПродажамМФП</Report>
 			<Report>ОтчетПоПродажамПомесячно</Report>
 			<Report>ОтчетПоРознице</Report>
 			<Report>ОтчетПоСостояниямЗаявок</Report>
 			<Report>ОтчетПоСписаниям</Report>
 			<Report>ОтчетРасхожденияМХ3</Report>
 			<Report>ОтчетСписокКроссТаблица</Report>
+			<Report>ОшибкиПроцессаВозвратаОтПокупателя</Report>
+			<Report>ПеремещенияПоАвтору</Report>
+			<Report>ПолнотаПоставок</Report>
+			<Report>ПравилаФормированияВозвратовМФП</Report>
+			<Report>ПравилаФормированияМФП</Report>
+			<Report>Приход_по_изготовителю_для_ОУТЗ</Report>
 			<Report>ПриходПоИзготовителям</Report>
+			<Report>ПричиныИзмененияДокументов</Report>
+			<Report>ПроверкаПечатиВозвратовОтПокупателя</Report>
 			<Report>ПродажиИПартии</Report>
+			<Report>ПродолжительностьЭтаповПроцессаВозвратов</Report>
 			<Report>РазвернутыеОстаткиПоНоменклатуре</Report>
 			<Report>РасчетыСКлиентами</Report>
 			<Report>РеестрБДЗ</Report>
+			<Report>РеестрПДЗ</Report>
 			<Report>РеестрПДЗБезДнейПросрочкиМодифицированный</Report>
 			<Report>РеестрРеализаций</Report>
 			<Report>РезервыТоваров</Report>
 			<Report>СкидкиПоставщиковVMI</Report>
+			<Report>СредняяДебиторскаяЗадолженностьЗаПериод</Report>
+			<Report>ТекущиеЗаявки</Report>
+			<Report>ТоварыКРазмещениюНаСкладах</Report>
 			<Report>ТоварыНаСкладах</Report>
 			<Report>УниверсальныйОтчет</Report>
 			<Report>УниверсальныйОтчетПартком</Report>
-			<Report>ТекущиеЗаявки</Report>
-			<Report>ЛогистическиеЦепочки</Report>
-			<Report>ЗависшиеПеремещенияВПути</Report>
-			<Report>ЗависшиеПеремещенияВПутиСДокументомДвижения</Report>
-			<Report>ЗависшиеПТУ</Report>
-			<Report>ЗависшиеПТУРасшифровка</Report>
-			<Report>ДвиженияЗаказовПоставщиков</Report>
-			<Report>ПолнотаПоставок</Report>
-			<Report>ВедомостьПоВзаиморасчетамУПР</Report>
-			<Report>ПричиныИзмененияДокументов</Report>
-			<Report>КалендарьОплатПоVMIПоставщикам</Report>
-			<Report>КалендарьОплатПоПокупателям</Report>
-			<Report>СредняяДебиторскаяЗадолженностьЗаПериод</Report>
-			<Report>МегаЛогист_ОтчетПоДоставке</Report>
-			<Report>МегаЛогист_РасширенныйАнализРейсов</Report>
-			<Report>КорректировкаДолга</Report>
-			<Report>ПродолжительностьЭтаповПроцессаВозвратов</Report>
-			<Report>РеестрПДЗ</Report>
-			<Report>ПравилаФормированияВозвратовМФП</Report>
-			<Report>ПравилаФормированияМФП</Report>
-			<Report>ДокументыПоАктуВозврата</Report>
-			<Report>НастройкиПроцессаВозврата</Report>
-			<Report>ИсторияЗначенийПараметровЭД</Report>
-			<Report>ОтчетVMI_ОкноПоставщикаНовый</Report>
-			<Report>ПроверкаПечатиВозвратовОтПокупателя</Report>
-			<Report>АктыРассмотренияВозвратов</Report>
-			<Report>ОшибкиПроцессаВозвратаОтПокупателя</Report>
-			<Report>ТоварыКРазмещениюНаСкладах</Report>
-			<Report>ПеремещенияПоАвтору</Report>
-			<Report>ЛогистическиеЦепочки_Мотивация</Report>
-			<Report>ОтчетПоПричинамОтказаРТУ</Report>
-			<Report>ОтчетПоПродажамМФП</Report>
-			<Report>Приход_по_изготовителю_для_ОУТЗ</Report>
-			<Report>АктивныеЗаказыПоставщику</Report>
 			<DataProcessor>_ОбработкаОбновления</DataProcessor>
+			<DataProcessor>SMSоповещение_Регламент</DataProcessor>
+			<DataProcessor>АвтоматическоеВыписка</DataProcessor>
+			<DataProcessor>АвтоматическоеПеремещение</DataProcessor>
+			<DataProcessor>АвтополучениеПочты</DataProcessor>
 			<DataProcessor>АдреснаяКнига</DataProcessor>
 			<DataProcessor>БлокировкаКонтрагентов</DataProcessor>
 			<DataProcessor>БлокировкаСоединенийСИнформационнойБазой</DataProcessor>
 			<DataProcessor>ВводКонтактнойИнформации</DataProcessor>
+			<DataProcessor>ВводЭталонныхСроковЛогистическойЦепочки</DataProcessor>
+			<DataProcessor>ВключениеОтключениеРегламентныхЗаданий</DataProcessor>
 			<DataProcessor>внЖурналРегистрации</DataProcessor>
 			<DataProcessor>внНастройкаЖурналаРегистрации</DataProcessor>
+			<DataProcessor>ВосстановлениеПоследовательностиВзаиморасчеты_ИсправлениеГраниц</DataProcessor>
+			<DataProcessor>ВосстановлениеПоследовательностиВзаиморасчеты_Регламент</DataProcessor>
 			<DataProcessor>Выгрузка_83_77</DataProcessor>
+			<DataProcessor>ВыгрузкаВБитФинанс</DataProcessor>
+			<DataProcessor>ВыгрузкаЗагрузкаДанныхXML</DataProcessor>
+			<DataProcessor>ВыгрузкаЗагрузкаНастроекПроцессаВозвратов</DataProcessor>
+			<DataProcessor>ВыгрузкаОплат</DataProcessor>
 			<DataProcessor>ВыпискаБанка</DataProcessor>
+			<DataProcessor>ГенераторСобытийПроцессаВозвратов</DataProcessor>
 			<DataProcessor>ГрупповаяОбработкаСправочниковИДокументов</DataProcessor>
 			<DataProcessor>ГрупповаяПечатьРеализаций</DataProcessor>
 			<DataProcessor>ДвиженияДокумента</DataProcessor>
+			<DataProcessor>ДопроведениеРезервов</DataProcessor>
 			<DataProcessor>ЖурналРегистрации</DataProcessor>
 			<DataProcessor>ЗагрузитьМХ3поДаннымПоставщика</DataProcessor>
+			<DataProcessor>ЗагрузитьРТУИз77</DataProcessor>
 			<DataProcessor>ЗагрузкаАдресногоКлассификатора</DataProcessor>
+			<DataProcessor>ЗагрузкаАРВССайта</DataProcessor>
 			<DataProcessor>ЗагрузкаБанков</DataProcessor>
+			<DataProcessor>ЗагрузкаВГХ</DataProcessor>
+			<DataProcessor>ЗагрузкаИзExcel_ПоАктам</DataProcessor>
+			<DataProcessor>ЗагрузкаИзExcel_ПоБланкам</DataProcessor>
 			<DataProcessor>ЗагрузкаНастроекОтчетов</DataProcessor>
 			<DataProcessor>ЗагрузкаПеремещенийИзИНВЕНТОРА</DataProcessor>
 			<DataProcessor>ЗагрузкаПеремещенийИзТабличногоДокумента</DataProcessor>
 			<DataProcessor>ЗагрузкаПлатежныхПоручений</DataProcessor>
+			<DataProcessor>ЗакрытиеЗаявокИЗаказов</DataProcessor>
 			<DataProcessor>ЗначенияСвойствОбъекта</DataProcessor>
 			<DataProcessor>ИсторияДокумента</DataProcessor>
 			<DataProcessor>КартаМаршрутаБизнесПроцесса</DataProcessor>
 			<DataProcessor>КатегорииОбъекта</DataProcessor>
+			<DataProcessor>КонтрольОшибокВыпискиРТУ</DataProcessor>
 			<DataProcessor>КурсыВалютРБК</DataProcessor>
+			<DataProcessor>МассоваяПечатьУКД</DataProcessor>
+			<DataProcessor>МассоваяРассылкаАктовСверок</DataProcessor>
+			<DataProcessor>МегаЛогист_АРМ_УправлениеЗаказами</DataProcessor>
+			<DataProcessor>МегаЛогист_КонтрольВыписки_Регламент</DataProcessor>
+			<DataProcessor>МегаЛогист_ОповещениеВыписки_Регламент</DataProcessor>
+			<DataProcessor>МегаЛогист_ПечатьДокументовДоставки</DataProcessor>
+			<DataProcessor>МегаЛогист_ПечатьДокументовПоЗаказуПокупателя</DataProcessor>
+			<DataProcessor>МегаЛогист_РаботаСКартамиОСМ</DataProcessor>
+			<DataProcessor>МегаЛогист_РазбитьРейс</DataProcessor>
+			<DataProcessor>МегаЛогист_ФормированиеМаршрутныхЗаданийПоЗаказамПоставщику</DataProcessor>
+			<DataProcessor>МегаЛогист_ФормированиеМаршрутныхЗаданийПоРеализациям</DataProcessor>
 			<DataProcessor>МониторОбменов</DataProcessor>
+			<DataProcessor>МониторЭД</DataProcessor>
 			<DataProcessor>НайтиПоGUID</DataProcessor>
 			<DataProcessor>НастройкиПользователей</DataProcessor>
+			<DataProcessor>НачислениеПремииПоставщиков</DataProcessor>
 			<DataProcessor>Обмен1СЭлма</DataProcessor>
 			<DataProcessor>ОбменFTP</DataProcessor>
 			<DataProcessor>ОбменДаннымиСайтом_Файлы</DataProcessor>
@@ -1924,11 +1960,25 @@
 			<DataProcessor>ОбменДаннымиССайтом_Регламент</DataProcessor>
 			<DataProcessor>ОбменДаннымиССайтом_Регламент_Заявки</DataProcessor>
 			<DataProcessor>ОбменДаннымиССайтом_Регламент_Заявки_Express</DataProcessor>
+			<DataProcessor>ОбменДаннымиССайтом_Регламент_Заявки_СозданиеДокументов</DataProcessor>
+			<DataProcessor>ОбменДаннымиСТопЛог_Регламент</DataProcessor>
+			<DataProcessor>ОбменДаннымиСТопЛог_Регламент_СозданиеДокументов</DataProcessor>
+			<DataProcessor>ОбменДаннымиСТопЛог_Регламент_Статусы</DataProcessor>
+			<DataProcessor>ОбменыДанными_ED_ВыполнитьПроверкуРасчетаУслугиЭДЦенаВТоваре</DataProcessor>
+			<DataProcessor>ОбменыДанными_ED_ЗагрузкаКоординатКА</DataProcessor>
+			<DataProcessor>ОбменыДанными_ВыгрузитьПолныеВзаиморасчеты</DataProcessor>
+			<DataProcessor>ОбменыДанными_ЗагрузкаБанка</DataProcessor>
+			<DataProcessor>ОбменыДанными_ОбменСБитФинанс</DataProcessor>
 			<DataProcessor>ОбновлениеИнформационнойБазы</DataProcessor>
 			<DataProcessor>ОбновлениеКонфигурации</DataProcessor>
 			<DataProcessor>ОбновлениеСостоянийЗаявокДляСайта</DataProcessor>
+			<DataProcessor>ОбработкаОчередиСобытийПроцессаВозвратов</DataProcessor>
+			<DataProcessor>ОтложенноеИзменениеОбъектовТопЛог</DataProcessor>
+			<DataProcessor>ОтложенноеПроведениеДокументов_Регламент</DataProcessor>
+			<DataProcessor>ОтложенноеПроведениеДокументовИзТоплог</DataProcessor>
 			<DataProcessor>ОтложенноеСнятиеБлокировкиКонтрагентов</DataProcessor>
 			<DataProcessor>ОтправкаПочтыПоставщикам</DataProcessor>
+			<DataProcessor>ОценкаПроизводительности</DataProcessor>
 			<DataProcessor>ОчисткаЖурналаВыполненияРегламентныхЗаданий</DataProcessor>
 			<DataProcessor>ОчисткаИсторииОбменаССайтом_Регламент</DataProcessor>
 			<DataProcessor>ПанельФункций</DataProcessor>
@@ -1941,15 +1991,30 @@
 			<DataProcessor>ПоискОбъектовВСпискахДанных</DataProcessor>
 			<DataProcessor>ПолучениеДанныхОтВебСервиса</DataProcessor>
 			<DataProcessor>ПолучениеФайловИзИнтернета</DataProcessor>
+			<DataProcessor>ПолучитьГеоКоординаты</DataProcessor>
 			<DataProcessor>ПредупреждениеОРазницеВоВремениССервером</DataProcessor>
+			<DataProcessor>ПрикреплениеОткреплениеГоловногоКонтрагента</DataProcessor>
+			<DataProcessor>ПросмотрИсторииОбменов</DataProcessor>
 			<DataProcessor>РабочийСтолМенеджера</DataProcessor>
+			<DataProcessor>РабочийСтолПроцессаВозвратаОтПокупателя</DataProcessor>
+			<DataProcessor>РассылкаПочты_SMS_ВыполнитьРассылку</DataProcessor>
+			<DataProcessor>РассылкаПочты_SMS_ОчиститьОчередь</DataProcessor>
+			<DataProcessor>РасчетОборотовПоВзаиморасчетамПоПоставщику</DataProcessor>
 			<DataProcessor>РегистрацияИзмененийДляОбмена</DataProcessor>
 			<DataProcessor>РедактированиеДанныхНезарегистрированныхКонтрагентов</DataProcessor>
 			<DataProcessor>СверкаДанных_77_83</DataProcessor>
+			<DataProcessor>СверкаОстатковССайтом</DataProcessor>
+			<DataProcessor>СинхронизацияДанныхССайтом</DataProcessor>
 			<DataProcessor>СменаРеквизитовНоменклатуры</DataProcessor>
+			<DataProcessor>СозданиеКорректировокПоПодчиненнымКонтрагентам</DataProcessor>
+			<DataProcessor>СозданиеКорректировокПоПриостановленнымДоговорамПокупателей</DataProcessor>
+			<DataProcessor>СозданиеМФП</DataProcessor>
 			<DataProcessor>СоздатьОповещениеПользователю</DataProcessor>
+			<DataProcessor>СписаниеЗависшихРезервов</DataProcessor>
+			<DataProcessor>СписаниеЗависшихРезервовРегламент</DataProcessor>
 			<DataProcessor>СписокПользователейИБ</DataProcessor>
 			<DataProcessor>СтартовыйПомощник</DataProcessor>
+			<DataProcessor>СхемаПроцессаВозвратовОтПокупателя</DataProcessor>
 			<DataProcessor>ТОНастройка</DataProcessor>
 			<DataProcessor>ТОСервер</DataProcessor>
 			<DataProcessor>Удалить_СозданиеСлужебногоЗадания</DataProcessor>
@@ -1957,79 +2022,18 @@
 			<DataProcessor>УниверсальныйОбменДаннымиXML</DataProcessor>
 			<DataProcessor>УниверсальныйПоискОбъектов</DataProcessor>
 			<DataProcessor>УстановитьПроверкуРеализаций</DataProcessor>
+			<DataProcessor>УстановкаВремениВключенияОтключенияРегламентныхЗаданий</DataProcessor>
 			<DataProcessor>ФормированиеЗаказовПоставщику</DataProcessor>
 			<DataProcessor>ФормированиеИсторииЗаявок</DataProcessor>
 			<DataProcessor>ФормированиеОтчетовПоставщикамТовараVMI</DataProcessor>
 			<DataProcessor>ФормированиеРеализаций</DataProcessor>
 			<DataProcessor>ФормированиеСлужебныхЗаданий</DataProcessor>
 			<DataProcessor>ФормированиеСлужебныхЗаданий_Новый</DataProcessor>
-			<DataProcessor>ФормированиеЦен</DataProcessor>
-			<DataProcessor>СписаниеЗависшихРезервов</DataProcessor>
-			<DataProcessor>ОценкаПроизводительности</DataProcessor>
-			<DataProcessor>РабочийСтолПроцессаВозвратаОтПокупателя</DataProcessor>
-			<DataProcessor>МегаЛогист_АРМ_УправлениеЗаказами</DataProcessor>
-			<DataProcessor>МегаЛогист_ПечатьДокументовДоставки</DataProcessor>
-			<DataProcessor>МегаЛогист_ПечатьДокументовПоЗаказуПокупателя</DataProcessor>
-			<DataProcessor>МегаЛогист_РаботаСКартамиОСМ</DataProcessor>
-			<DataProcessor>МегаЛогист_ФормированиеМаршрутныхЗаданийПоРеализациям</DataProcessor>
-			<DataProcessor>МегаЛогист_ФормированиеМаршрутныхЗаданийПоЗаказамПоставщику</DataProcessor>
-			<DataProcessor>АвтоматическоеПеремещение</DataProcessor>
-			<DataProcessor>ВключениеОтключениеРегламентныхЗаданий</DataProcessor>
-			<DataProcessor>УстановкаВремениВключенияОтключенияРегламентныхЗаданий</DataProcessor>
-			<DataProcessor>НачислениеПремииПоставщиков</DataProcessor>
-			<DataProcessor>СозданиеМФП</DataProcessor>
-			<DataProcessor>SMSоповещение_Регламент</DataProcessor>
-			<DataProcessor>МассоваяРассылкаАктовСверок</DataProcessor>
-			<DataProcessor>ВводЭталонныхСроковЛогистическойЦепочки</DataProcessor>
-			<DataProcessor>ОбработкаОчередиСобытийПроцессаВозвратов</DataProcessor>
-			<DataProcessor>ВыгрузкаЗагрузкаДанныхXML</DataProcessor>
-			<DataProcessor>ВыгрузкаЗагрузкаНастроекПроцессаВозвратов</DataProcessor>
-			<DataProcessor>АвтоматическоеВыписка</DataProcessor>
-			<DataProcessor>МегаЛогист_КонтрольВыписки_Регламент</DataProcessor>
-			<DataProcessor>ЗагрузитьРТУИз77</DataProcessor>
-			<DataProcessor>ЗагрузкаИзExcel_ПоАктам</DataProcessor>
-			<DataProcessor>ЗагрузкаИзExcel_ПоБланкам</DataProcessor>
-			<DataProcessor>МониторЭД</DataProcessor>
-			<DataProcessor>СхемаПроцессаВозвратовОтПокупателя</DataProcessor>
-			<DataProcessor>ВыгрузкаВБитФинанс</DataProcessor>
-			<DataProcessor>МегаЛогист_ОповещениеВыписки_Регламент</DataProcessor>
-			<DataProcessor>МассоваяПечатьУКД</DataProcessor>
-			<DataProcessor>ОбменДаннымиСТопЛог_Регламент</DataProcessor>
-			<DataProcessor>ОбменДаннымиСТопЛог_Регламент_Статусы</DataProcessor>
-			<DataProcessor>ОтложенноеПроведениеДокументовИзТоплог</DataProcessor>
-			<DataProcessor>ВосстановлениеПоследовательностиВзаиморасчеты_Регламент</DataProcessor>
-			<DataProcessor>ВосстановлениеПоследовательностиВзаиморасчеты_ИсправлениеГраниц</DataProcessor>
-			<DataProcessor>ОтложенноеИзменениеОбъектовТопЛог</DataProcessor>
-			<DataProcessor>СозданиеКорректировокПоПриостановленнымДоговорамПокупателей</DataProcessor>
-			<DataProcessor>ОбменыДанными_ED_ВыполнитьПроверкуРасчетаУслугиЭДЦенаВТоваре</DataProcessor>
-			<DataProcessor>ОбменыДанными_ED_ЗагрузкаКоординатКА</DataProcessor>
-			<DataProcessor>ОбменыДанными_ВыгрузитьПолныеВзаиморасчеты</DataProcessor>
-			<DataProcessor>ОбменыДанными_ЗагрузкаБанка</DataProcessor>
-			<DataProcessor>ОбменыДанными_ОбменСБитФинанс</DataProcessor>
-			<DataProcessor>РассылкаПочты_SMS_ВыполнитьРассылку</DataProcessor>
-			<DataProcessor>РассылкаПочты_SMS_ОчиститьОчередь</DataProcessor>
-			<DataProcessor>ПолучитьГеоКоординаты</DataProcessor>
-			<DataProcessor>РасчетОборотовПоВзаиморасчетамПоПоставщику</DataProcessor>
-			<DataProcessor>СинхронизацияДанныхССайтом</DataProcessor>
-			<DataProcessor>ФормированиеТекущегоСостоянияЗаявок</DataProcessor>
-			<DataProcessor>ВыгрузкаОплат</DataProcessor>
-			<DataProcessor>ЗакрытиеЗаявокИЗаказов</DataProcessor>
-			<DataProcessor>СверкаОстатковССайтом</DataProcessor>
-			<DataProcessor>ПросмотрИсторииОбменов</DataProcessor>
-			<DataProcessor>ЗагрузкаВГХ</DataProcessor>
-			<DataProcessor>ЗагрузкаАРВССайта</DataProcessor>
-			<DataProcessor>ГенераторСобытийПроцессаВозвратов</DataProcessor>
-			<DataProcessor>АвтополучениеПочты</DataProcessor>
-			<DataProcessor>СозданиеКорректировокПоПодчиненнымКонтрагентам</DataProcessor>
-			<DataProcessor>ПрикреплениеОткреплениеГоловногоКонтрагента</DataProcessor>
-			<DataProcessor>ОбменДаннымиСТопЛог_Регламент_СозданиеДокументов</DataProcessor>
-			<DataProcessor>ОбменДаннымиССайтом_Регламент_Заявки_СозданиеДокументов</DataProcessor>
-			<DataProcessor>ДопроведениеРезервов</DataProcessor>
-			<DataProcessor>СписаниеЗависшихРезервовРегламент</DataProcessor>
-			<DataProcessor>ОтложенноеПроведениеДокументов_Регламент</DataProcessor>
-			<DataProcessor>КонтрольОшибокВыпискиРТУ</DataProcessor>
-			<DataProcessor>МегаЛогист_РазбитьРейс</DataProcessor>
 			<DataProcessor>ФормированиеСлужебныхЗаданий_Поток</DataProcessor>
+			<DataProcessor>ФормированиеТекущегоСостоянияЗаявок</DataProcessor>
+			<DataProcessor>ФормированиеЦен</DataProcessor>
+			<InformationRegister>_Временно_КонтрагентыЗакрытияПополненияБезРазмещения</InformationRegister>
+			<InformationRegister>_Временно_СкладыНовойСхемыЗакрытияЗаказов</InformationRegister>
 			<InformationRegister>_ДляПереносаВзаиморасчеты</InformationRegister>
 			<InformationRegister>_ДляПереносаДанных</InformationRegister>
 			<InformationRegister>_ИсторияОбмена_1С7_1С8</InformationRegister>
@@ -2040,23 +2044,32 @@
 			<InformationRegister>Автоотказы_вОП</InformationRegister>
 			<InformationRegister>Адресация</InformationRegister>
 			<InformationRegister>АдресныеОбъекты</InformationRegister>
+			<InformationRegister>БезоговорочныйВозвратПрайсовПоставщика</InformationRegister>
 			<InformationRegister>ВерсииПодсистем</InformationRegister>
 			<InformationRegister>ВзаиморасчетыДляПланаОбменаССайтом</InformationRegister>
 			<InformationRegister>внКэшЖурналаРегистрации</InformationRegister>
 			<InformationRegister>внНастройкиЖурналаРегистрации</InformationRegister>
 			<InformationRegister>внРегистрируемыеОбъекты</InformationRegister>
+			<InformationRegister>ВозвратыМФП</InformationRegister>
 			<InformationRegister>ВозможныеЗаменыНоменклатуры</InformationRegister>
 			<InformationRegister>ВремяЭкспрессДоставкиФилиалов</InformationRegister>
+			<InformationRegister>ГраницаМФП</InformationRegister>
 			<InformationRegister>ГраницыЗапретаИзмененияДанных</InformationRegister>
 			<InformationRegister>ДанныеНезарегистрированныхКонтрагентов</InformationRegister>
+			<InformationRegister>ДанныеОВремениВключенияОтключенияРегламентныхЗаданий</InformationRegister>
+			<InformationRegister>ДатыВозвратаДокументов</InformationRegister>
+			<InformationRegister>ДатыЗакрытияЗаявок</InformationRegister>
+			<InformationRegister>ДатыЗакрытияЗаявокОчередьОбработки</InformationRegister>
 			<InformationRegister>ДатыКалендарей</InformationRegister>
 			<InformationRegister>ДатыОплат</InformationRegister>
+			<InformationRegister>ДатыПечатиДокументов</InformationRegister>
 			<InformationRegister>ДатыФормированияЗаказовПоставщикам</InformationRegister>
 			<InformationRegister>ДатыФормированияСлужебныхЗаданий</InformationRegister>
 			<InformationRegister>ДиапазоныЦенДляНаценки</InformationRegister>
 			<InformationRegister>ДокументыКорректировок</InformationRegister>
 			<InformationRegister>ДомаЗданияСтроения</InformationRegister>
 			<InformationRegister>ДополнительныеАдресныеСведения</InformationRegister>
+			<InformationRegister>ЖурналSMSоповещения</InformationRegister>
 			<InformationRegister>ЗагруженныеВерсииАдресныхСведений</InformationRegister>
 			<InformationRegister>ЗначенияДополнительныхПравПользователя</InformationRegister>
 			<InformationRegister>ЗначенияСвойствОбъектов</InformationRegister>
@@ -2064,33 +2077,55 @@
 			<InformationRegister>ИерархияМенеджеров</InformationRegister>
 			<InformationRegister>ИзменениеСтрокЗаявок</InformationRegister>
 			<InformationRegister>ИзменениеСтрокЗаявокОшибки</InformationRegister>
+			<InformationRegister>ИсключаемыеПоставщикиИзКалендаряОплат</InformationRegister>
 			<InformationRegister>ИсторияАдресныхОбъектов</InformationRegister>
 			<InformationRegister>ИсторияВыполненияРегламентныхЗаданий</InformationRegister>
 			<InformationRegister>ИсторияЗаявокДляПланаОбменаССайтом</InformationRegister>
 			<InformationRegister>ИсторияЗаявокПокупателя</InformationRegister>
+			<InformationRegister>ИсторияИзмененийДатыЗапретаРедактирования</InformationRegister>
+			<InformationRegister>ИсторияИзмененийСтоимостиЭД</InformationRegister>
 			<InformationRegister>ИсторияКонтактныхЛицКонтрагентов</InformationRegister>
 			<InformationRegister>ИсторияОбмена1с81с7</InformationRegister>
 			<InformationRegister>ИсторияОбмена1с8FTP</InformationRegister>
-			<InformationRegister>ОбменFTP_ИсторияРасширенная</InformationRegister>
 			<InformationRegister>ИсторияОбменаСБП</InformationRegister>
 			<InformationRegister>ИсторияОбменаССайтом</InformationRegister>
 			<InformationRegister>ИсторияОбменаССайтом_ЗаявкиПокупателей</InformationRegister>
+			<InformationRegister>ИсторияОбменаССайтомВозвраты</InformationRegister>
 			<InformationRegister>ИсторияОбменаСТопЛог</InformationRegister>
 			<InformationRegister>ИсторияОбменаСТопЛогПоОбъектам</InformationRegister>
 			<InformationRegister>ИсторияОбменов</InformationRegister>
+			<InformationRegister>ИсторияОбменовПоОбъектам</InformationRegister>
+			<InformationRegister>ИсторияОбменовПоСообщениям</InformationRegister>
 			<InformationRegister>ИсторияОтправкиПисемПоставщикам</InformationRegister>
+			<InformationRegister>ИсторияПривязкиПодчиненныхКонтрагентов</InformationRegister>
+			<InformationRegister>ИсторияРегистрацииОбъектов</InformationRegister>
 			<InformationRegister>ИсторияФормированияМХ3</InformationRegister>
 			<InformationRegister>ИсторияФормированияСлужебныхЗаданий</InformationRegister>
 			<InformationRegister>ИсторияЦенИСкидок</InformationRegister>
 			<InformationRegister>КатегорииОбъектов</InformationRegister>
 			<InformationRegister>КоличествоДнейОтсрочки</InformationRegister>
+			<InformationRegister>КомментарииАктовРассмотренияВозврата</InformationRegister>
 			<InformationRegister>КонтактнаяИнформация</InformationRegister>
 			<InformationRegister>КонтрагентыПользователейДляRLS</InformationRegister>
 			<InformationRegister>КонтрагентыПользователейПоФилиаламДляRLS</InformationRegister>
+			<InformationRegister>КритическиеСобытияСистемы</InformationRegister>
 			<InformationRegister>КурсыВалют</InformationRegister>
 			<InformationRegister>КурсыВалютПоставщиков</InformationRegister>
 			<InformationRegister>КэшПрограммныхИнтерфейсов</InformationRegister>
 			<InformationRegister>ЛогОбменовССайтом</InformationRegister>
+			<InformationRegister>Мегалогист_Автограф_ТочкиМаршрута</InformationRegister>
+			<InformationRegister>Мегалогист_АдресаОтправки</InformationRegister>
+			<InformationRegister>МегаЛогист_ДокументыМаршрутныхЗаданий</InformationRegister>
+			<InformationRegister>МегаЛогист_ДокументыМаршрутныхЛистов</InformationRegister>
+			<InformationRegister>МегаЛогист_ДополнительныеРеквизитыЗаказовПокупателей</InformationRegister>
+			<InformationRegister>МегаЛогист_ИсторияСтатусовЗаказовПокупателей</InformationRegister>
+			<InformationRegister>МегаЛогист_ИсторияСтатусовМаршрутныхЗаданий</InformationRegister>
+			<InformationRegister>МегаЛогист_НомераПриложенийКурьеров</InformationRegister>
+			<InformationRegister>Мегалогист_ПовышающийКоэффициентПогрузки</InformationRegister>
+			<InformationRegister>МегаЛогист_ПродолжительностьРазгрузкиПогрузки</InformationRegister>
+			<InformationRegister>МегаЛогист_СохраненныеАдреса</InformationRegister>
+			<InformationRegister>Мегалогист_ТребованияКЗаказам</InformationRegister>
+			<InformationRegister>МегаЛогист_ФилиалыВыписки</InformationRegister>
 			<InformationRegister>МежфирменныеПеремещенияСтроки</InformationRegister>
 			<InformationRegister>МенеджерыТорговыхТочек</InformationRegister>
 			<InformationRegister>МинимальныеНаценкиПоГруппамПользователям</InformationRegister>
@@ -2105,6 +2140,8 @@
 			<InformationRegister>НеУдаленныеСлужебныеДоговоры</InformationRegister>
 			<InformationRegister>НомераОтчетовОбработок</InformationRegister>
 			<InformationRegister>НомераСчетовФактур</InformationRegister>
+			<InformationRegister>НормативыСписанияТоваров</InformationRegister>
+			<InformationRegister>ОбменFTP_ИсторияРасширенная</InformationRegister>
 			<InformationRegister>ОбменФайламиСВнешнимиСистемами</InformationRegister>
 			<InformationRegister>ОбщиеНастройкиУзловИнформационныхБаз</InformationRegister>
 			<InformationRegister>ОбъектыОбмена</InformationRegister>
@@ -2127,26 +2164,39 @@
 			<InformationRegister>ОтложенноеПроведениеПоРегиструТоварыКРезервированию</InformationRegister>
 			<InformationRegister>ОтложенноеПроведениеПоТоварнымРегистрам</InformationRegister>
 			<InformationRegister>ОтложенноеСнятиеБлокировкиКонтрагентов</InformationRegister>
+			<InformationRegister>ОтсрочкиПоДоговорамОфертыПоставщики</InformationRegister>
+			<InformationRegister>ОчередьОтправкиДокументовОтгрузки</InformationRegister>
+			<InformationRegister>ОчередьФормированияСлужебныхЗаданий</InformationRegister>
+			<InformationRegister>ОшибкиЗагрузкиВГХ</InformationRegister>
 			<InformationRegister>ОшибкиЗагрузкиОП</InformationRegister>
 			<InformationRegister>ОшибкиЗагрузкиОПРассылка</InformationRegister>
 			<InformationRegister>ОшибкиПриОбменеСТопЛог</InformationRegister>
+			<InformationRegister>ПараметрыЭтаповСхемыПроцессаВозвратов</InformationRegister>
 			<InformationRegister>ПаспортныеДанныеФизЛиц</InformationRegister>
 			<InformationRegister>ПоставляемыеБрендыКонтрагентов</InformationRegister>
 			<InformationRegister>ПраваПользователей</InformationRegister>
+			<InformationRegister>ПраваПользователейНаВидыКорректировок</InformationRegister>
 			<InformationRegister>ПравилаДляОбменаДанными</InformationRegister>
 			<InformationRegister>ПредопределенныеВариантыОтчетовВерсийРасширений</InformationRegister>
 			<InformationRegister>ПриоритетВыгрузкиОбъектов</InformationRegister>
+			<InformationRegister>ПриоритетыОбработкиДокументовТопЛог</InformationRegister>
 			<InformationRegister>ПричиныИзмененияАдресныхСведений</InformationRegister>
+			<InformationRegister>ПричиныИзмененияДокументов</InformationRegister>
 			<InformationRegister>ПроцентыПередач</InformationRegister>
 			<InformationRegister>РасписанияОтчетовПоставщикамVMI</InformationRegister>
 			<InformationRegister>РассылкаСообщенийОНеотгруженныхКлиентах</InformationRegister>
+			<InformationRegister>РегистрацияОбъектовДляВыгрузкиВБухгалтерию</InformationRegister>
 			<InformationRegister>СведенияОПроверкеДокументов</InformationRegister>
 			<InformationRegister>СкидкиПоставщиковVMI</InformationRegister>
 			<InformationRegister>СлужебныеАдресныеСведения</InformationRegister>
 			<InformationRegister>СМСРассылка</InformationRegister>
+			<InformationRegister>СобытияАктовРассмотренияВозврата</InformationRegister>
 			<InformationRegister>СобытияКалендаряПользователя</InformationRegister>
 			<InformationRegister>СобытияКалендаряПользователяОбобщенные</InformationRegister>
+			<InformationRegister>СобытияКОбработкеАктовРассмотренияВозврата</InformationRegister>
+			<InformationRegister>СоответствиеДокументовМФП</InformationRegister>
 			<InformationRegister>СостояниеЗаявокПокупателя</InformationRegister>
+			<InformationRegister>СостояниеРозничныхЗаявокПокупателя</InformationRegister>
 			<InformationRegister>СохраненныеНастройки</InformationRegister>
 			<InformationRegister>СохраненныеПользователямиОбъектыПоиска</InformationRegister>
 			<InformationRegister>СтратегииРедактированияНомеровОбъектов</InformationRegister>
@@ -2155,6 +2205,7 @@
 			<InformationRegister>ТекстыПисемПоставщикам</InformationRegister>
 			<InformationRegister>ТипыЦенПоГруппамНоменклатурыДляПокупателей</InformationRegister>
 			<InformationRegister>ТорговоеОборудование</InformationRegister>
+			<InformationRegister>УдалениеСостоянийЗаявок</InformationRegister>
 			<InformationRegister>УровниСокращенийАдресныхСведений</InformationRegister>
 			<InformationRegister>УстановкаВидовРаспределенияДляСтатейДДС</InformationRegister>
 			<InformationRegister>УчетнаяПолитика</InformationRegister>
@@ -2166,58 +2217,9 @@
 			<InformationRegister>ЦеныНоменклатурыКонтрагентов</InformationRegister>
 			<InformationRegister>ШапкиМФП</InformationRegister>
 			<InformationRegister>ШтрихКоды</InformationRegister>
+			<InformationRegister>ШтрихкодыСтрокДокументов</InformationRegister>
 			<InformationRegister>ЭкспрессДоставкаОбмен</InformationRegister>
 			<InformationRegister>ЭталонныеСрокиЛогистическойЦепочки</InformationRegister>
-			<InformationRegister>ОчередьОтправкиДокументовОтгрузки</InformationRegister>
-			<InformationRegister>ПричиныИзмененияДокументов</InformationRegister>
-			<InformationRegister>СобытияАктовРассмотренияВозврата</InformationRegister>
-			<InformationRegister>Мегалогист_АдресаОтправки</InformationRegister>
-			<InformationRegister>МегаЛогист_ДополнительныеРеквизитыЗаказовПокупателей</InformationRegister>
-			<InformationRegister>МегаЛогист_ДокументыМаршрутныхЗаданий</InformationRegister>
-			<InformationRegister>МегаЛогист_ДокументыМаршрутныхЛистов</InformationRegister>
-			<InformationRegister>МегаЛогист_ИсторияСтатусовЗаказовПокупателей</InformationRegister>
-			<InformationRegister>МегаЛогист_ИсторияСтатусовМаршрутныхЗаданий</InformationRegister>
-			<InformationRegister>МегаЛогист_ПродолжительностьРазгрузкиПогрузки</InformationRegister>
-			<InformationRegister>МегаЛогист_НомераПриложенийКурьеров</InformationRegister>
-			<InformationRegister>МегаЛогист_СохраненныеАдреса</InformationRegister>
-			<InformationRegister>Мегалогист_Автограф_ТочкиМаршрута</InformationRegister>
-			<InformationRegister>Мегалогист_ПовышающийКоэффициентПогрузки</InformationRegister>
-			<InformationRegister>Мегалогист_ТребованияКЗаказам</InformationRegister>
-			<InformationRegister>ПраваПользователейНаВидыКорректировок</InformationRegister>
-			<InformationRegister>ДанныеОВремениВключенияОтключенияРегламентныхЗаданий</InformationRegister>
-			<InformationRegister>КритическиеСобытияСистемы</InformationRegister>
-			<InformationRegister>ГраницаМФП</InformationRegister>
-			<InformationRegister>ВозвратыМФП</InformationRegister>
-			<InformationRegister>ЖурналSMSоповещения</InformationRegister>
-			<InformationRegister>ДатыЗакрытияЗаявок</InformationRegister>
-			<InformationRegister>ДатыЗакрытияЗаявокОчередьОбработки</InformationRegister>
-			<InformationRegister>_Временно_КонтрагентыЗакрытияПополненияБезРазмещения</InformationRegister>
-			<InformationRegister>СобытияКОбработкеАктовРассмотренияВозврата</InformationRegister>
-			<InformationRegister>СостояниеРозничныхЗаявокПокупателя</InformationRegister>
-			<InformationRegister>ИсторияИзмененийСтоимостиЭД</InformationRegister>
-			<InformationRegister>_Временно_СкладыНовойСхемыЗакрытияЗаказов</InformationRegister>
-			<InformationRegister>ИсторияОбменаССайтомВозвраты</InformationRegister>
-			<InformationRegister>ИсторияРегистрацииОбъектов</InformationRegister>
-			<InformationRegister>МегаЛогист_ФилиалыВыписки</InformationRegister>
-			<InformationRegister>ДатыПечатиДокументов</InformationRegister>
-			<InformationRegister>ДатыВозвратаДокументов</InformationRegister>
-			<InformationRegister>ОтсрочкиПоДоговорамОфертыПоставщики</InformationRegister>
-			<InformationRegister>ИсключаемыеПоставщикиИзКалендаряОплат</InformationRegister>
-			<InformationRegister>ПараметрыЭтаповСхемыПроцессаВозвратов</InformationRegister>
-			<InformationRegister>ШтрихкодыСтрокДокументов</InformationRegister>
-			<InformationRegister>ИсторияОбменовПоСообщениям</InformationRegister>
-			<InformationRegister>ИсторияОбменовПоОбъектам</InformationRegister>
-			<InformationRegister>НормативыСписанияТоваров</InformationRegister>
-			<InformationRegister>УдалениеСостоянийЗаявок</InformationRegister>
-			<InformationRegister>КомментарииАктовРассмотренияВозврата</InformationRegister>
-			<InformationRegister>СоответствиеДокументовМФП</InformationRegister>
-			<InformationRegister>РегистрацияОбъектовДляВыгрузкиВБухгалтерию</InformationRegister>
-			<InformationRegister>БезоговорочныйВозвратПрайсовПоставщика</InformationRegister>
-			<InformationRegister>ОшибкиЗагрузкиВГХ</InformationRegister>
-			<InformationRegister>ИсторияПривязкиПодчиненныхКонтрагентов</InformationRegister>
-			<InformationRegister>ПриоритетыОбработкиДокументовТопЛог</InformationRegister>
-			<InformationRegister>ОчередьФормированияСлужебныхЗаданий</InformationRegister>
-			<InformationRegister>ИсторияИзмененийДатыЗапретаРедактирования</InformationRegister>
 			<AccumulationRegister>БюджетыЦФО</AccumulationRegister>
 			<AccumulationRegister>Взаиморасчеты</AccumulationRegister>
 			<AccumulationRegister>ВзаиморасчетыПриСборкеОтгрузки</AccumulationRegister>
@@ -2227,24 +2229,24 @@
 			<AccumulationRegister>ЗаказыПоставщикам</AccumulationRegister>
 			<AccumulationRegister>Закупки</AccumulationRegister>
 			<AccumulationRegister>ЗаявкиПокупателей</AccumulationRegister>
+			<AccumulationRegister>МегаЛогист_ВзаиморасчетыСКурьерами</AccumulationRegister>
 			<AccumulationRegister>ОтказыПоЗаявкам</AccumulationRegister>
 			<AccumulationRegister>ПартииТоваров</AccumulationRegister>
 			<AccumulationRegister>ПартииТоваровVMI</AccumulationRegister>
 			<AccumulationRegister>ПартииТоваровВПути</AccumulationRegister>
 			<AccumulationRegister>ПополнениеСклада</AccumulationRegister>
 			<AccumulationRegister>Продажи</AccumulationRegister>
+			<AccumulationRegister>РазмещениеТоваров</AccumulationRegister>
 			<AccumulationRegister>РазмещенияСтрокЗаказов</AccumulationRegister>
 			<AccumulationRegister>РезервыТоваров</AccumulationRegister>
 			<AccumulationRegister>СкидкиVMI</AccumulationRegister>
 			<AccumulationRegister>ТоварыВПути</AccumulationRegister>
 			<AccumulationRegister>ТоварыКОтгрузке</AccumulationRegister>
+			<AccumulationRegister>ТоварыКРазмещениюНаСкладах</AccumulationRegister>
 			<AccumulationRegister>ТоварыКРезервированию</AccumulationRegister>
 			<AccumulationRegister>ТоварыНаСкладах</AccumulationRegister>
 			<AccumulationRegister>УдалитьПартииТоваровУпр</AccumulationRegister>
 			<AccumulationRegister>Услуги</AccumulationRegister>
-			<AccumulationRegister>МегаЛогист_ВзаиморасчетыСКурьерами</AccumulationRegister>
-			<AccumulationRegister>ТоварыКРазмещениюНаСкладах</AccumulationRegister>
-			<AccumulationRegister>РазмещениеТоваров</AccumulationRegister>
 			<ChartOfCharacteristicTypes>ВопросыДляАнкетирования</ChartOfCharacteristicTypes>
 			<ChartOfCharacteristicTypes>НазначенияСвойствКатегорийОбъектов</ChartOfCharacteristicTypes>
 			<ChartOfCharacteristicTypes>НастройкиПользователей</ChartOfCharacteristicTypes>
