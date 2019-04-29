@@ -92,8 +92,14 @@
 КонецФункции
 
 Функция GetDebt(UserLoginArray,DateBegin,DateEnd)
-Возврат DataExchangeModule.ВыгрузитьОборотыПоКлиентам(UserLoginArray,DateBegin,DateEnd);
 	
+	Возврат DataExchangeModule.ВыгрузитьОборотыПоКлиентам(UserLoginArray,DateBegin,DateEnd);
+	
+КонецФункции
+
+Функция SendShippingDocs(GUID, Date, EMail)
+	
+	Возврат DataExchangeModule.ЗарегистрироватьОтправкуОтгрузочныхДокументовКлиентуПоЗапросуССайта(GUID, Date, EMail);
 	
 КонецФункции
  
