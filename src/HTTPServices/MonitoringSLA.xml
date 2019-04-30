@@ -14,6 +14,36 @@
 			<ReuseSessions>AutoUse</ReuseSessions>
 			<SessionMaxAge>20</SessionMaxAge>
 		</Properties>
-		<ChildObjects/>
+		<ChildObjects>
+			<URLTemplate uuid="0c2b8c36-6148-4ef2-b167-95407421c6aa">
+				<Properties>
+					<Name>ПолучитьОтчет</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Получить отчет</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Template>/*</Template>
+				</Properties>
+				<ChildObjects>
+					<Method uuid="5a60d684-72ff-48f9-88ea-7887d21d74a9">
+						<Properties>
+							<Name>Получить</Name>
+							<Synonym>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Получить</v8:content>
+								</v8:item>
+							</Synonym>
+							<Comment/>
+							<HTTPMethod>GET</HTTPMethod>
+							<Handler>ПолучитьОтчетПолучить</Handler>
+						</Properties>
+					</Method>
+				</ChildObjects>
+			</URLTemplate>
+		</ChildObjects>
 	</HTTPService>
 </MetaDataObject>
