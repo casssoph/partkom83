@@ -3,6 +3,9 @@
 	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+	</Events>
 	<ChildItems>
 		<InputField name="Код" id="1">
 			<DataPath>Объект.Code</DataPath>
@@ -55,6 +58,9 @@
 				<ContextMenu name="СтатусыУправлениеПоискомКонтекстноеМеню" id="21"/>
 				<ExtendedTooltip name="СтатусыУправлениеПоискомРасширеннаяПодсказка" id="22"/>
 			</SearchControlAddition>
+			<Events>
+				<Event name="OnActivateRow">СтатусыПриАктивизацииСтроки</Event>
+			</Events>
 			<ChildItems>
 				<LabelField name="СтатусыНомерСтроки" id="23">
 					<DataPath>Объект.Статусы.LineNumber</DataPath>
@@ -77,6 +83,133 @@
 					<ContextMenu name="СтатусыСтатусКонтекстноеМеню" id="27"/>
 					<ExtendedTooltip name="СтатусыСтатусРасширеннаяПодсказка" id="28"/>
 				</InputField>
+				<ColumnGroup name="СтатусыГруппаРежимОграничения" id="63">
+					<EnableContentChange>true</EnableContentChange>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статусы группа режим ограничения</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статусы группа режим ограничения</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>InCell</Group>
+					<ExtendedTooltip name="СтатусыГруппаРежимОграниченияРасширеннаяПодсказка" id="64"/>
+					<ChildItems>
+						<InputField name="СтатусыРежимОграниченияВзаимосвязей" id="35">
+							<DataPath>Объект.Статусы.РежимОграниченияВзаимосвязей</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ClearButton>true</ClearButton>
+							<ContextMenu name="СтатусыРежимОграниченияВзаимосвязейКонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="СтатусыРежимОграниченияВзаимосвязейРасширеннаяПодсказка" id="37"/>
+							<Events>
+								<Event name="OnChange">СтатусыРежимОграниченияВзаимосвязейПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="СтатусыКоличествоОграничений" id="60">
+							<DataPath>Объект.Статусы.КоличествоОграничений</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<EditMode>EnterOnInput</EditMode>
+							<ShowInHeader>false</ShowInHeader>
+							<ShowInFooter>false</ShowInFooter>
+							<Width>3</Width>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<MaxWidth>3</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="СтатусыКоличествоОграниченийКонтекстноеМеню" id="61"/>
+							<ExtendedTooltip name="СтатусыКоличествоОграниченийРасширеннаяПодсказка" id="62"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<CheckBoxField name="ЗапрещеноИзменениеРеквизитов" id="32">
+					<DataPath>Объект.Статусы.ЗапрещеноИзменениеРеквизитов</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ЗапрещеноИзменениеРеквизитовКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="ЗапрещеноИзменениеРеквизитовРасширеннаяПодсказка" id="34"/>
+				</CheckBoxField>
+			</ChildItems>
+		</Table>
+		<Table name="ТаблицаОграниченияВзаимосвязей" id="38">
+			<TitleLocation>Top</TitleLocation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.ТаблицаОграниченияВзаимосвязей</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ограничение</v8:content>
+				</v8:item>
+			</Title>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ТаблицаОграниченияВзаимосвязейКонтекстноеМеню" id="39"/>
+			<AutoCommandBar name="ТаблицаОграниченияВзаимосвязейКоманднаяПанель" id="40"/>
+			<ExtendedTooltip name="ТаблицаОграниченияВзаимосвязейРасширеннаяПодсказка" id="41"/>
+			<SearchStringAddition name="ТаблицаОграниченияВзаимосвязейСтрокаПоиска" id="42">
+				<AdditionSource>
+					<Item>ТаблицаОграниченияВзаимосвязей</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаОграниченияВзаимосвязейСтрокаПоискаКонтекстноеМеню" id="43"/>
+				<ExtendedTooltip name="ТаблицаОграниченияВзаимосвязейСтрокаПоискаРасширеннаяПодсказка" id="44"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ТаблицаОграниченияВзаимосвязейСостояниеПросмотра" id="45">
+				<AdditionSource>
+					<Item>ТаблицаОграниченияВзаимосвязей</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаОграниченияВзаимосвязейСостояниеПросмотраКонтекстноеМеню" id="46"/>
+				<ExtendedTooltip name="ТаблицаОграниченияВзаимосвязейСостояниеПросмотраРасширеннаяПодсказка" id="47"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ТаблицаОграниченияВзаимосвязейУправлениеПоиском" id="48">
+				<AdditionSource>
+					<Item>ТаблицаОграниченияВзаимосвязей</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ТаблицаОграниченияВзаимосвязейУправлениеПоискомКонтекстноеМеню" id="49"/>
+				<ExtendedTooltip name="ТаблицаОграниченияВзаимосвязейУправлениеПоискомРасширеннаяПодсказка" id="50"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnEditEnd">ТаблицаОграниченияВзаимосвязейПриОкончанииРедактирования</Event>
+				<Event name="OnStartEdit">ТаблицаОграниченияВзаимосвязейПриНачалеРедактирования</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="ТаблицаОграниченияВзаимосвязейНомерСтроки" id="51">
+					<DataPath>Объект.ТаблицаОграниченияВзаимосвязей.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаОграниченияВзаимосвязейНомерСтрокиКонтекстноеМеню" id="52"/>
+					<ExtendedTooltip name="ТаблицаОграниченияВзаимосвязейНомерСтрокиРасширеннаяПодсказка" id="53"/>
+				</LabelField>
+				<InputField name="ТаблицаОграниченияВзаимосвязейСтатус" id="54">
+					<DataPath>Объект.ТаблицаОграниченияВзаимосвязей.Статус</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТаблицаОграниченияВзаимосвязейСтатусКонтекстноеМеню" id="55"/>
+					<ExtendedTooltip name="ТаблицаОграниченияВзаимосвязейСтатусРасширеннаяПодсказка" id="56"/>
+				</InputField>
+				<InputField name="ТаблицаОграниченияВзаимосвязейВзаимосвязь" id="57">
+					<DataPath>Объект.ТаблицаОграниченияВзаимосвязей.Взаимосвязь</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<DropListButton>false</DropListButton>
+					<ChoiceParameterLinks>
+						<xr:Link>
+							<xr:Name>Отбор.ТекущийСтатус</xr:Name>
+							<xr:DataPath xsi:type="xs:string">Items.ТаблицаОграниченияВзаимосвязей.CurrentData.Статус</xr:DataPath>
+							<xr:ValueChange>Clear</xr:ValueChange>
+						</xr:Link>
+					</ChoiceParameterLinks>
+					<ContextMenu name="ТаблицаОграниченияВзаимосвязейВзаимосвязьКонтекстноеМеню" id="58"/>
+					<ExtendedTooltip name="ТаблицаОграниченияВзаимосвязейВзаимосвязьРасширеннаяПодсказка" id="59"/>
+					<Events>
+						<Event name="StartChoice">ТаблицаОграниченияВзаимосвязейВзаимосвязьНачалоВыбора</Event>
+						<Event name="ChoiceProcessing">ТаблицаОграниченияВзаимосвязейВзаимосвязьОбработкаВыбора</Event>
+					</Events>
+				</InputField>
 			</ChildItems>
 		</Table>
 		<InputField name="Комментарий" id="7">
@@ -93,6 +226,26 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<SavedData>true</SavedData>
+			<Columns>
+				<AdditionalColumns table="Объект.Статусы">
+					<Column name="КоличествоОграничений" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество ограничений</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>10</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Any</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+			</Columns>
 		</Attribute>
 	</Attributes>
 </Form>
