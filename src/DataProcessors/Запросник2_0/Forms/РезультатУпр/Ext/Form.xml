@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Просмотр результата</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="РезультатДерево" id="1">
+			<Representation>Tree</Representation>
+			<Visible>false</Visible>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>РезультатДерево</DataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<ContextMenu name="РезультатДеревоКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="РезультатДеревоКоманднаяПанель" id="3"/>
+			<ExtendedTooltip name="РезультатДеревоExtendedTooltip" id="8"/>
+			<SearchStringAddition name="РезультатДеревоСтрокаПоиска" id="10">
+				<AdditionSource>
+					<Item>РезультатДерево</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РезультатДеревоСтрокаПоискаКонтекстноеМеню" id="11"/>
+				<ExtendedTooltip name="РезультатДеревоСтрокаПоискаРасширеннаяПодсказка" id="12"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="РезультатДеревоСостояниеПросмотра" id="13">
+				<AdditionSource>
+					<Item>РезультатДерево</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РезультатДеревоСостояниеПросмотраКонтекстноеМеню" id="14"/>
+				<ExtendedTooltip name="РезультатДеревоСостояниеПросмотраРасширеннаяПодсказка" id="15"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="РезультатДеревоУправлениеПоиском" id="16">
+				<AdditionSource>
+					<Item>РезультатДерево</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="РезультатДеревоУправлениеПоискомКонтекстноеМеню" id="17"/>
+				<ExtendedTooltip name="РезультатДеревоУправлениеПоискомРасширеннаяПодсказка" id="18"/>
+			</SearchControlAddition>
+		</Table>
+		<Table name="РезультатТаблица" id="5">
+			<Representation>List</Representation>
+			<Visible>false</Visible>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>РезультатТаблица</DataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="РезультатТаблицаКонтекстноеМеню" id="6"/>
+			<AutoCommandBar name="РезультатТаблицаКоманднаяПанель" id="7"/>
+			<ExtendedTooltip name="РезультатТаблицаExtendedTooltip" id="9"/>
+			<SearchStringAddition name="РезультатТаблицаСтрокаПоиска" id="19">
+				<AdditionSource>
+					<Item>РезультатТаблица</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РезультатТаблицаСтрокаПоискаКонтекстноеМеню" id="20"/>
+				<ExtendedTooltip name="РезультатТаблицаСтрокаПоискаРасширеннаяПодсказка" id="21"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="РезультатТаблицаСостояниеПросмотра" id="22">
+				<AdditionSource>
+					<Item>РезультатТаблица</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="РезультатТаблицаСостояниеПросмотраКонтекстноеМеню" id="23"/>
+				<ExtendedTooltip name="РезультатТаблицаСостояниеПросмотраРасширеннаяПодсказка" id="24"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="РезультатТаблицаУправлениеПоиском" id="25">
+				<AdditionSource>
+					<Item>РезультатТаблица</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="РезультатТаблицаУправлениеПоискомКонтекстноеМеню" id="26"/>
+				<ExtendedTooltip name="РезультатТаблицаУправлениеПоискомРасширеннаяПодсказка" id="27"/>
+			</SearchControlAddition>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.Запросник2_0</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="РезультатТаблица" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Результат таблица</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РезультатДерево" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Результат дерево</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Parameters>
+		<Parameter name="РезультатТаблица">
+			<Type/>
+		</Parameter>
+		<Parameter name="РезультатДерево">
+			<Type/>
+		</Parameter>
+		<Parameter name="ЭтоДерево">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Parameter>
+	</Parameters>
+</Form>

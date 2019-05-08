@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Последние открытые файлы</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+	</Events>
+	<ChildItems>
+		<Table name="ПоследниеФайлыЗапросов" id="1">
+			<Representation>List</Representation>
+			<ReadOnly>true</ReadOnly>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>ПоследниеФайлыЗапросов</DataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ПоследниеФайлыЗапросовКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="ПоследниеФайлыЗапросовКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ПоследниеФайлыЗапросовExtendedTooltip" id="10"/>
+			<SearchStringAddition name="ПоследниеФайлыЗапросовСтрокаПоиска" id="13">
+				<AdditionSource>
+					<Item>ПоследниеФайлыЗапросов</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ПоследниеФайлыЗапросовСтрокаПоискаКонтекстноеМеню" id="14"/>
+				<ExtendedTooltip name="ПоследниеФайлыЗапросовСтрокаПоискаРасширеннаяПодсказка" id="15"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ПоследниеФайлыЗапросовСостояниеПросмотра" id="16">
+				<AdditionSource>
+					<Item>ПоследниеФайлыЗапросов</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ПоследниеФайлыЗапросовСостояниеПросмотраКонтекстноеМеню" id="17"/>
+				<ExtendedTooltip name="ПоследниеФайлыЗапросовСостояниеПросмотраРасширеннаяПодсказка" id="18"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ПоследниеФайлыЗапросовУправлениеПоиском" id="19">
+				<AdditionSource>
+					<Item>ПоследниеФайлыЗапросов</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ПоследниеФайлыЗапросовУправлениеПоискомКонтекстноеМеню" id="20"/>
+				<ExtendedTooltip name="ПоследниеФайлыЗапросовУправлениеПоискомРасширеннаяПодсказка" id="21"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">ПоследниеФайлыЗапросовВыбор</Event>
+			</Events>
+			<ChildItems>
+				<InputField name="ПоследниеФайлыЗапросовФайл" id="5">
+					<DataPath>ПоследниеФайлыЗапросов.Файл</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПоследниеФайлыЗапросовФайлКонтекстноеМеню" id="6"/>
+					<ExtendedTooltip name="ПоследниеФайлыЗапросовФайлExtendedTooltip" id="11"/>
+				</InputField>
+				<InputField name="ПоследниеФайлыЗапросовКаталог" id="8">
+					<DataPath>ПоследниеФайлыЗапросов.Каталог</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПоследниеФайлыЗапросовКаталогКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="ПоследниеФайлыЗапросовКаталогExtendedTooltip" id="12"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.Запросник2_0</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="ПоследниеФайлыЗапросов" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Последние файлы запросов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Файл" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Файл</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Каталог" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Каталог</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+</Form>
