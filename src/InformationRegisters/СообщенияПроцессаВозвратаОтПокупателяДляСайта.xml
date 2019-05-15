@@ -40,10 +40,10 @@
 				</v8:item>
 			</Synonym>
 			<Comment/>
-			<UseStandardCommands>false</UseStandardCommands>
+			<UseStandardCommands>true</UseStandardCommands>
 			<EditType>InDialog</EditType>
-			<DefaultRecordForm/>
-			<DefaultListForm/>
+			<DefaultRecordForm>InformationRegister.СообщенияПроцессаВозвратаОтПокупателяДляСайта.Form.ФормаЗаписи</DefaultRecordForm>
+			<DefaultListForm>InformationRegister.СообщенияПроцессаВозвратаОтПокупателяДляСайта.Form.ФормаСписка</DefaultListForm>
 			<AuxiliaryRecordForm/>
 			<AuxiliaryListForm/>
 			<InformationRegisterPeriodicity>Second</InformationRegisterPeriodicity>
@@ -84,7 +84,7 @@
 					<ToolTip/>
 					<MarkNegatives>false</MarkNegatives>
 					<Mask/>
-					<MultiLine>false</MultiLine>
+					<MultiLine>true</MultiLine>
 					<ExtendedEdit>false</ExtendedEdit>
 					<MinValue xsi:nil="true"/>
 					<MaxValue xsi:nil="true"/>
@@ -115,6 +115,44 @@
 					<Comment/>
 					<Type>
 						<v8:Type>cfg:DocumentRef.АктРассмотренияВозврата</v8:Type>
+					</Type>
+					<PasswordMode>false</PasswordMode>
+					<Format/>
+					<EditFormat/>
+					<ToolTip/>
+					<MarkNegatives>false</MarkNegatives>
+					<Mask/>
+					<MultiLine>false</MultiLine>
+					<ExtendedEdit>false</ExtendedEdit>
+					<MinValue xsi:nil="true"/>
+					<MaxValue xsi:nil="true"/>
+					<FillFromFillingValue>false</FillFromFillingValue>
+					<FillValue xsi:nil="true"/>
+					<FillChecking>DontCheck</FillChecking>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<ChoiceParameterLinks/>
+					<ChoiceParameters/>
+					<QuickChoice>Auto</QuickChoice>
+					<CreateOnInput>Auto</CreateOnInput>
+					<ChoiceForm/>
+					<LinkByType/>
+					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+					<Indexing>DontIndex</Indexing>
+					<FullTextSearch>Use</FullTextSearch>
+				</Properties>
+			</Resource>
+			<Resource uuid="ddbb97ff-0bb5-4090-9204-e9f26da6549f">
+				<Properties>
+					<Name>ДопСведения</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Доп сведения</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Type>
+						<v8:Type>v8:ValueStorage</v8:Type>
 					</Type>
 					<PasswordMode>false</PasswordMode>
 					<Format/>
@@ -221,7 +259,7 @@
 					<LinkByType/>
 					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
 					<Master>false</Master>
-					<MainFilter>true</MainFilter>
+					<MainFilter>false</MainFilter>
 					<DenyIncompleteValues>true</DenyIncompleteValues>
 					<Indexing>DontIndex</Indexing>
 					<FullTextSearch>Use</FullTextSearch>
@@ -266,12 +304,15 @@
 					<LinkByType/>
 					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
 					<Master>false</Master>
-					<MainFilter>true</MainFilter>
+					<MainFilter>false</MainFilter>
 					<DenyIncompleteValues>true</DenyIncompleteValues>
 					<Indexing>Index</Indexing>
 					<FullTextSearch>Use</FullTextSearch>
 				</Properties>
 			</Dimension>
+			<Form>ФормаСписка</Form>
+			<Form>ФормаЗаписи</Form>
+			<Template>МакетСтруктурыДопСведений</Template>
 		</ChildObjects>
 	</InformationRegister>
 </MetaDataObject>
