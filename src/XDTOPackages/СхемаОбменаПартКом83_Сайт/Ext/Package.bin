@@ -710,4 +710,31 @@
 		<property name="Штрихкод" type="xs:string" lowerBound="1" nillable="false"/>
 		<property name="ТекстовоеСообщение" type="xs:string" lowerBound="1" nillable="false"/>
 	</objectType>
+	<objectType name="return_request" ordered="false">
+		<property name="Klient" type="xs:string" lowerBound="1" nillable="false"/>
+		<property name="IDZaprosa" type="xs:string" lowerBound="1" nillable="false"/>
+		<property name="Opisanie" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="KodTovara1S8" type="xs:string" lowerBound="1" nillable="false"/>
+		<property name="KodTovara1S" type="xs:string" lowerBound="1" nillable="false"/>
+		<property name="Artikul" type="xs:string" lowerBound="1" nillable="false"/>
+		<property name="Izgotovitelj" type="xs:string" lowerBound="1" nillable="false"/>
+		<property name="NaimenovanieDetali" type="xs:string" lowerBound="1" nillable="false"/>
+		<property name="KolVo" type="xs:int" lowerBound="1" nillable="false"/>
+		<property name="SiteID" type="xs:string" lowerBound="1" nillable="false"/>
+		<property name="OtsutstvieSledovUstanovki" type="xs:boolean" lowerBound="1" nillable="false"/>
+		<property name="CelostnostjUpakovki" type="xs:boolean" lowerBound="1" nillable="false"/>
+		<property name="KompensaciyaRabotTrebovanieDenjgi" type="xs:float" lowerBound="1" nillable="true"/>
+		<property name="PrichinaVozvrata" type="xs:string" lowerBound="1" nillable="true"/>
+		<property name="BezogovorochnyyVozvrat1" type="xs:string" lowerBound="1" nillable="true"/>
+		<property name="PoNakladnoy" type="xs:string" lowerBound="1" nillable="false"/>
+		<property name="DataNakladnoy" type="xs:dateTime" lowerBound="1" nillable="false"/>
+		<property name="SsylkaNaZagruzhennyeMaterial" type="xs:string" lowerBound="1" nillable="false"/>
+		<property name="ChtoBudetSTovaromPosleVozvra" type="xs:string" lowerBound="1" nillable="true"/>
+		<property name="VINKod" type="xs:string" lowerBound="1" nillable="true"/>
+		<property name="ObrabotkaDetali" type="xs:int" lowerBound="1" nillable="true"/>
+		<property name="VidUcenki" type="xs:string" lowerBound="1" nillable="true"/>
+		<property name="ProcentUcenkiZaTovarProcentUcenkiOt" type="xs:int" lowerBound="1" nillable="true"/>
+		<property name="CenaDetaliPosleUcenki" type="xs:float" lowerBound="1" nillable="false"/>
+		<property name="VernutjNaSkladDo2" type="xs:date" lowerBound="1" nillable="false"/>
+	</objectType>
 </package>
