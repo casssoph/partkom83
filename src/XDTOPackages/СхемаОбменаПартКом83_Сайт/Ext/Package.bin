@@ -171,16 +171,16 @@
 		<property name="Код" type="xs:int"/>
 		<property name="Наименование" type="xs:string"/>
 	</objectType>
+	<objectType name="Справочники.СегментыКонтрагентов" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
+		<property name="Код" type="xs:int"/>
+		<property name="Наименование" type="xs:string"/>
+	</objectType>
 	<objectType name="Справочники.Города" ordered="false">
 		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Родитель" type="d3p1:UUID"/>
 		<property name="РодительКод" type="xs:int"/>
 		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
 		<property name="ЭтоГруппа" type="xs:boolean"/>
-		<property name="Код" type="xs:int"/>
-		<property name="Наименование" type="xs:string"/>
-	</objectType>
-	<objectType name="Справочники.СегментыКонтрагентов" ordered="false">
-		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>
 		<property name="Код" type="xs:int"/>
 		<property name="Наименование" type="xs:string"/>
 	</objectType>
@@ -686,5 +686,27 @@
 		<property name="Description" type="xs:string"/>
 		<property name="КодПеремещения" type="xs:int" lowerBound="0" nillable="true"/>
 		<property name="Code" type="xs:string"/>
+	</objectType>
+	<objectType name="ВозвратыОтПокупателя.РезультатЗагрузки" ordered="false">
+		<property name="ИдентификаторСообщения" type="xs:string" lowerBound="1" nillable="false"/>
+		<property name="Штрихкод" type="xs:string" lowerBound="1" nillable="false"/>
+		<property name="Ошибка" type="xs:boolean" lowerBound="0"/>
+		<property name="ТекстОшибки" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="ВозвратыОтПокупателя.ОтправкаФайла" ordered="false">
+		<property name="ИдентификаторСообщения" type="xs:string" lowerBound="1" nillable="false"/>
+		<property name="Штрихкод" type="xs:string" lowerBound="1" nillable="false"/>
+		<property name="Описание" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ИдентификаторФайла" type="xs:int" lowerBound="1" nillable="false"/>
+	</objectType>
+	<objectType name="ВозвратыОтПокупателя.ТекстовоеСообщение" ordered="false">
+		<property name="ИдентификаторСообщения" type="xs:string" lowerBound="1" nillable="false"/>
+		<property name="Штрихкод" type="xs:string" lowerBound="1" nillable="false"/>
+		<property name="ТекстовоеСообщение" type="xs:string" lowerBound="1" nillable="false"/>
+	</objectType>
+	<objectType name="ВозвратыОтПокупателя.ОтменаАктаВозврата" ordered="false">
+		<property name="ИдентификаторСообщения" type="xs:string" lowerBound="1" nillable="false"/>
+		<property name="Штрихкод" type="xs:string" lowerBound="1" nillable="false"/>
+		<property name="ТекстовоеСообщение" type="xs:string" lowerBound="1" nillable="false"/>
 	</objectType>
 </package>
