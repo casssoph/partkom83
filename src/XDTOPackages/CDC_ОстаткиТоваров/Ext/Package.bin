@@ -1,11 +1,12 @@
 ﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://cdc-documents.lukoil.ru/stocks.xml">
-	<objectType name="batch">
-		<property name="row" type="xs:anyType" lowerBound="0" upperBound="-1"/>
+	<objectType name="batch" ordered="false" sequenced="true">
+		<property name="descriptions" type="xs:string" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="http://cdc-documents.lukoil.ru/stocks.xml" name="row" type="d3p1:row" lowerBound="0" upperBound="-1"/>
 	</objectType>
 	<objectType name="row">
-		<property name="store" type="xs:string" lowerBound="0" form="Attribute"/>
-		<property name="date" type="xs:date" lowerBound="0" form="Attribute"/>
-		<property name="product" type="xs:string" lowerBound="0" form="Attribute"/>
-		<property name="amount" type="xs:double" lowerBound="0" form="Attribute"/>
+		<property name="store" type="xs:string"/>
+		<property name="date" type="xs:date"/>
+		<property name="product" type="xs:string"/>
+		<property name="amount" type="xs:double"/>
 	</objectType>
 </package>
