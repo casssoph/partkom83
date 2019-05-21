@@ -1,31 +1,32 @@
 ﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://cdc-documents.lukoil.ru/documents.xml">
-	<objectType name="item">
-		<property name="product" type="xs:string" lowerBound="0" form="Attribute"/>
-		<property name="amount" type="xs:double" lowerBound="0" form="Attribute"/>
-		<property name="sumnat" type="xs:double" lowerBound="0" form="Attribute"/>
-	</objectType>
-	<objectType name="items">
-		<property xmlns:d3p1="http://cdc-documents.lukoil.ru/documents.xml" name="item" type="d3p1:item" lowerBound="0" upperBound="-1"/>
+	<objectType name="batch" ordered="false" sequenced="true">
+		<property name="descriptions" lowerBound="0" form="Attribute"/>
+		<property name="row" type="xs:anyType" lowerBound="0" upperBound="-1"/>
 	</objectType>
 	<objectType name="row">
-		<property name="code" type="xs:string" lowerBound="0" form="Attribute"/>
-		<property name="type" type="xs:decimal" lowerBound="0" form="Attribute"/>
-		<property name="number" type="xs:string" lowerBound="0" form="Attribute"/>
-		<property name="client" type="xs:string" lowerBound="0" form="Attribute"/>
-		<property name="store" type="xs:string" lowerBound="0" form="Attribute"/>
-		<property name="otherstore" type="xs:string" lowerBound="0" form="Attribute"/>
-		<property name="legal" type="xs:string" lowerBound="0" form="Attribute"/>
-		<property name="curr_nat" type="xs:string" lowerBound="0" form="Attribute"/>
-		<property name="sum_nat" type="xs:double" lowerBound="0" form="Attribute"/>
-		<property name="sumdoc" type="xs:double" lowerBound="0" form="Attribute"/>
-		<property name="agent" type="xs:string" lowerBound="0" form="Attribute"/>
-		<property name="masterdoc" type="xs:string" lowerBound="0" form="Attribute"/>
-		<property name="masterdocdate" type="xs:dateTime" lowerBound="0" form="Attribute"/>
-		<property name="supplier" type="xs:string" lowerBound="0" form="Attribute"/>
-		<property name="date" type="xs:dateTime" lowerBound="0" form="Attribute"/>
-		<property xmlns:d3p1="http://cdc-documents.lukoil.ru/documents.xml" name="items" type="d3p1:items" lowerBound="0"/>
+		<property name="code" type="xs:string"/>
+		<property name="type" type="xs:integer"/>
+		<property name="number" type="xs:string"/>
+		<property name="client" type="xs:string" lowerBound="0"/>
+		<property name="store" type="xs:string" lowerBound="0"/>
+		<property name="otherstore" type="xs:string" lowerBound="0"/>
+		<property name="legal" type="xs:string" lowerBound="0"/>
+		<property name="curr_nat" type="xs:string" lowerBound="0"/>
+		<property name="sum_nat" type="xs:double" lowerBound="0"/>
+		<property name="sumdoc" type="xs:double" lowerBound="0"/>
+		<property name="agent" type="xs:string" lowerBound="0"/>
+		<property name="masterdoc" type="xs:string" lowerBound="0"/>
+		<property name="masterdocdate" type="xs:dateTime" lowerBound="0"/>
+		<property name="supplier" type="xs:string" lowerBound="0"/>
+		<property name="date" type="xs:dateTime"/>
+		<property name="items" type="xs:anyType"/>
 	</objectType>
-	<objectType name="batch" open="true">
-		<property xmlns:d3p1="http://cdc-documents.lukoil.ru/documents.xml" name="row" type="d3p1:row" lowerBound="0" upperBound="-1"/>
+	<objectType name="items" ordered="false" sequenced="true">
+		<property name="item" type="xs:anyType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="item">
+		<property name="product" type="xs:string"/>
+		<property name="amount" type="xs:double"/>
+		<property name="sumnat" type="xs:double" lowerBound="0"/>
 	</objectType>
 </package>
