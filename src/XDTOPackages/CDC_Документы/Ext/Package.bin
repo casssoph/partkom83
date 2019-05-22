@@ -1,7 +1,15 @@
 ﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://cdc-documents.lukoil.ru/documents.xml">
 	<objectType name="batch" ordered="false" sequenced="true">
-		<property name="descriptions" lowerBound="0" form="Attribute"/>
+		<property name="descriptions" type="xs:string" lowerBound="0" form="Attribute"/>
 		<property name="row" type="xs:anyType" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="item">
+		<property name="product" type="xs:string"/>
+		<property name="amount" type="xs:double"/>
+		<property name="sumnat" type="xs:double" lowerBound="0"/>
+	</objectType>
+	<objectType name="items" ordered="false" sequenced="true">
+		<property name="item" type="xs:anyType" lowerBound="0" upperBound="-1"/>
 	</objectType>
 	<objectType name="row">
 		<property name="code" type="xs:string"/>
@@ -20,13 +28,5 @@
 		<property name="supplier" type="xs:string" lowerBound="0"/>
 		<property name="date" type="xs:dateTime"/>
 		<property name="items" type="xs:anyType"/>
-	</objectType>
-	<objectType name="items" ordered="false" sequenced="true">
-		<property name="item" type="xs:anyType" lowerBound="0" upperBound="-1"/>
-	</objectType>
-	<objectType name="item">
-		<property name="product" type="xs:string"/>
-		<property name="amount" type="xs:double"/>
-		<property name="sumnat" type="xs:double" lowerBound="0"/>
 	</objectType>
 </package>
