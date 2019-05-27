@@ -981,6 +981,8 @@
 					<dcsset:comparisonType>InList</dcsset:comparisonType>
 					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.СтатусыДокументов.ВозвратТоваровОтПокупателяПринят</dcsset:right>
 					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.СтатусыДокументов.ВозвратТоваровОтПокупателяРазмещен</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>2d0d5601-9138-4a6a-89a8-3ce13b9664b6</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
@@ -1025,6 +1027,8 @@
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:userSettingID>51147cc6-0a45-4233-8ee6-71e42fb23924</dcsset:userSettingID>
 				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>59d5615c-4285-4b3c-8908-2e1a64ff49f4</dcsset:userSettingID>
 			</dcsset:filter>
 			<dcsset:dataParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
@@ -1093,7 +1097,7 @@
 				<dcsset:row>
 					<dcsset:groupItems>
 						<dcsset:item xsi:type="dcsset:GroupItemField">
-							<dcsset:field>Контрагент.Регион</dcsset:field>
+							<dcsset:field>Контрагент.Регион.Филиал</dcsset:field>
 							<dcsset:groupType>Items</dcsset:groupType>
 							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
@@ -1109,7 +1113,7 @@
 					<dcsset:item>
 						<dcsset:groupItems>
 							<dcsset:item xsi:type="dcsset:GroupItemField">
-								<dcsset:field>АктВозврата.ПричинаВозврата</dcsset:field>
+								<dcsset:field>Контрагент.Регион</dcsset:field>
 								<dcsset:groupType>Items</dcsset:groupType>
 								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
@@ -1122,15 +1126,26 @@
 						<dcsset:selection>
 							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 						</dcsset:selection>
+						<dcsset:item>
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>АктВозврата.ПричинаВозврата</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+						</dcsset:item>
 					</dcsset:item>
 				</dcsset:row>
 				<dcsset:rowsUserSettingID>9d8008a4-0e6f-4588-990d-51b20ce8364c</dcsset:rowsUserSettingID>
-				<dcsset:rowsUserSettingPresentation xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Группировки колонок</v8:content>
-					</v8:item>
-				</dcsset:rowsUserSettingPresentation>
 			</dcsset:item>
 		</dcsset:settings>
 	</settingsVariant>
@@ -1172,22 +1187,27 @@
 					<dcsset:comparisonType>InList</dcsset:comparisonType>
 					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.СтатусыДокументов.ВозвратТоваровОтПокупателяПринят</dcsset:right>
 					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.СтатусыДокументов.ВозвратТоваровОтПокупателяРазмещен</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>a9677774-45c6-4a6c-ba6c-a2ff266707c1</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">МенеджерПродажиПокупателя</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>b6dd4143-9e0a-43e6-b12f-ac90d7e386f8</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.Контрагент</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>476de629-e6df-4fcd-80e5-5be1919f4472</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.Контрагент.СервисНа5</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:userSettingID>edc776fd-e572-4fde-9fde-9c52eee078a2</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
@@ -1199,11 +1219,13 @@
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.Контрагент.Регион</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>dd9b33e4-1726-43a0-9701-bbf89d067101</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.ПричинаВозврата</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>6b5358d7-b48e-49e7-ab17-8bbaea0ead18</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
@@ -1220,25 +1242,35 @@
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.БезДосмотра</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>92fe63c6-6300-4472-b933-bc985c97fd30</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.ДоставкаДоКлиента</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>3e94293f-d44b-4d3b-b8f3-00956ba3a8e2</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.БезоговорочныйВозвратПоставщика</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>7e37fc03-b3eb-4b83-a62e-fdcb99fe52d3</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.ВозвратПоставщикуНевозможенПоПричинеОшибкиЗаказа</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>59cc06ad-321f-40db-ab02-5c8d73741129</dcsset:userSettingID>
 				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>ee9822d3-e8b0-49b1-9f41-8e96636eed50</dcsset:userSettingID>
 			</dcsset:filter>
 			<dcsset:dataParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
@@ -1301,7 +1333,7 @@
 				<dcsset:row>
 					<dcsset:groupItems>
 						<dcsset:item xsi:type="dcsset:GroupItemField">
-							<dcsset:field>Контрагент.Регион</dcsset:field>
+							<dcsset:field>Контрагент.Регион.Филиал</dcsset:field>
 							<dcsset:groupType>Items</dcsset:groupType>
 							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
@@ -1314,23 +1346,10 @@
 					<dcsset:selection>
 						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 					</dcsset:selection>
-					<dcsset:outputParameters>
-						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-							<dcscor:parameter>КоличествоЗаписей</dcscor:parameter>
-							<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
-							<dcsset:userSettingID>b10c7dea-eac3-4e2d-a5b8-eaa323270f51</dcsset:userSettingID>
-							<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Топ</v8:content>
-								</v8:item>
-							</dcsset:userSettingPresentation>
-						</dcscor:item>
-					</dcsset:outputParameters>
 					<dcsset:item>
 						<dcsset:groupItems>
 							<dcsset:item xsi:type="dcsset:GroupItemField">
-								<dcsset:field>АктВозврата.Контрагент</dcsset:field>
+								<dcsset:field>Контрагент.Регион</dcsset:field>
 								<dcsset:groupType>Items</dcsset:groupType>
 								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
@@ -1343,6 +1362,53 @@
 						<dcsset:selection>
 							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 						</dcsset:selection>
+						<dcsset:outputParameters>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:use>false</dcscor:use>
+								<dcscor:parameter>КоличествоЗаписей</dcscor:parameter>
+								<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
+								<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Топ</v8:content>
+									</v8:item>
+								</dcsset:userSettingPresentation>
+							</dcscor:item>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+								<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+							</dcscor:item>
+						</dcsset:outputParameters>
+						<dcsset:item>
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>АктВозврата.Контрагент</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+							<dcsset:outputParameters>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>КоличествоЗаписей</dcscor:parameter>
+									<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
+									<dcsset:userSettingID>03d06b25-9b0c-4a0c-9247-8324806883f6</dcsset:userSettingID>
+									<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Топ контрагентов</v8:content>
+										</v8:item>
+									</dcsset:userSettingPresentation>
+								</dcscor:item>
+							</dcsset:outputParameters>
+						</dcsset:item>
 					</dcsset:item>
 				</dcsset:row>
 				<dcsset:rowsUserSettingID>f356076c-21b8-4fe4-a50e-5d9d2a2069f8</dcsset:rowsUserSettingID>
@@ -1353,6 +1419,7 @@
 					</v8:item>
 				</dcsset:rowsUserSettingPresentation>
 			</dcsset:item>
+			<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
 		</dcsset:settings>
 	</settingsVariant>
 	<settingsVariant>
@@ -1411,11 +1478,14 @@
 					<dcsset:comparisonType>InList</dcsset:comparisonType>
 					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.СтатусыДокументов.ВозвратТоваровОтПокупателяПринят</dcsset:right>
 					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.СтатусыДокументов.ВозвратТоваровОтПокупателяРазмещен</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>fc4c122c-ecc2-475f-b811-81d4162f25bd</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">МенеджерПродажиПокупателя</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>328f69d5-8130-4144-89fc-13b88a20c055</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
@@ -1428,56 +1498,74 @@
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.Контрагент.СервисНа5</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:userSettingID>075b5691-ade6-4b28-b29e-3d984f60d182</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.Контрагент.Регион.Филиал</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>19778cc4-081f-497b-9c03-be46c4c6fdc7</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.Контрагент.Регион</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>61d28f09-e697-49a3-a7bc-65f8c1f512ba</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.ПричинаВозврата</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>95e827cd-1842-4a7e-9e58-2735d1701917</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.ПодпричинаВозврата</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>0b8ef37a-650a-40b0-8476-12b6684bd710</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.СтатусДокумента</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>89efad81-57da-4d66-b656-d4bb3d3ec344</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.БезДосмотра</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>3f3f0b58-804c-4a38-b9fa-76e8ca1871a0</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.ДоставкаДоКлиента</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>156a8ecf-5700-4617-8947-b3b49993a032</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.БезоговорочныйВозвратПоставщика</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>2d01dc55-23c6-4958-b2e7-6e170ecfc1b3</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.ВозвратПоставщикуНевозможенПоПричинеОшибкиЗаказа</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>44321d01-d828-4c38-9793-07c42787377e</dcsset:userSettingID>
 				</dcsset:item>
+				<dcsset:userSettingID>c819cbf1-29f1-43a5-891b-34b38335c804</dcsset:userSettingID>
 			</dcsset:filter>
 			<dcsset:dataParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
@@ -1614,16 +1702,20 @@
 					<dcsset:comparisonType>InList</dcsset:comparisonType>
 					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.СтатусыДокументов.ВозвратТоваровОтПокупателяПринят</dcsset:right>
 					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.СтатусыДокументов.ВозвратТоваровОтПокупателяРазмещен</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>e9d2170d-4120-4570-8082-55e5966d1c0b</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">Поставщик</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>cf81149f-5a2e-4899-b71c-e0c73426b946</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>a80359d1-6a91-4c42-b070-e2badf2b713d</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
@@ -1635,41 +1727,49 @@
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">Контрагент.Регион.Филиал</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>49ab7015-843b-4924-b472-35e8182768a1</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.ПричинаВозврата</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>dc979adb-89a8-4976-a2ff-65dbe4f983b6</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.КодВозврата</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>19f42899-4e4f-430e-b68b-d3e145eb7fe2</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.БезДосмотра</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:userSettingID>dd1d40d2-b877-4584-83be-d3340e1921bf</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.ДоставкаДоКлиента</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:userSettingID>db0a7915-730f-406e-b218-2740f658fa7a</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.БезоговорочныйВозвратПоставщика</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:userSettingID>40d6802d-046a-41c8-8e72-c1b1ce567ab1</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.ВозвратПоставщикуНевозможенПоПричинеОшибкиЗаказа</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:userSettingID>513c9aa4-f8b0-49f9-9734-bd9c510324d4</dcsset:userSettingID>
 				</dcsset:item>
+				<dcsset:userSettingID>b8339b99-e2e8-4caf-94c9-df651b472b6a</dcsset:userSettingID>
 			</dcsset:filter>
 			<dcsset:dataParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
@@ -1823,73 +1923,93 @@
 					<dcsset:comparisonType>InList</dcsset:comparisonType>
 					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.СтатусыДокументов.ВозвратТоваровОтПокупателяПринят</dcsset:right>
 					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.СтатусыДокументов.ВозвратТоваровОтПокупателяРазмещен</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>a78f8150-6489-4c45-9daa-d0a59262efa2</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">МенеджерПродажиПокупателя</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>243f74cd-b12a-4cec-90c2-d767250daed9</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.Контрагент</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>33c98a82-8afb-4ef2-9ea6-39d5443b36dc</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.Контрагент.СервисНа5</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:userSettingID>5a9f7820-0078-4391-864d-d7776bd3d08e</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.Контрагент.Регион.Филиал</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>134a4d97-0501-42be-ad14-734c458eb12b</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.Контрагент.Регион</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>a4ef2de4-df3c-4ca1-b609-77587810516f</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.ПричинаВозврата</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>3326ac3a-94d4-4526-b35f-fb20ef41c0b0</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.ПодпричинаВозврата</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
 					<dcsset:userSettingID>1b178938-fbec-4328-ae54-3d5d37548d6a</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.СтатусДокумента</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>9121268b-0f09-47ab-929f-1621dab7f673</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.БезДосмотра</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>e3b49cea-97e8-4aad-ba24-17c7752a68ed</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.ДоставкаДоКлиента</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>6b29259b-f3f1-4cc8-a42c-91ccd30b5af3</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.БезоговорочныйВозвратПоставщика</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>3aef7852-f460-494b-897b-1093b416d334</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.ВозвратПоставщикуНевозможенПоПричинеОшибкиЗаказа</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>19a8d249-8f0f-4484-8b28-47336541c026</dcsset:userSettingID>
 				</dcsset:item>
+				<dcsset:userSettingID>e9dc81de-3a54-4aa1-80f8-44074da31090</dcsset:userSettingID>
 			</dcsset:filter>
 			<dcsset:dataParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
@@ -2001,6 +2121,8 @@
 						</dcscor:value>
 					</dcscor:item>
 				</dcsset:outputParameters>
+				<dcsset:rowsViewMode>Normal</dcsset:rowsViewMode>
+				<dcsset:rowsUserSettingID>d9ada951-4092-4206-963b-b94aec92b5a7</dcsset:rowsUserSettingID>
 			</dcsset:item>
 		</dcsset:settings>
 	</settingsVariant>
@@ -2060,27 +2182,33 @@
 					<dcsset:comparisonType>InList</dcsset:comparisonType>
 					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.СтатусыДокументов.ВозвратТоваровОтПокупателяПринят</dcsset:right>
 					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.СтатусыДокументов.ВозвратТоваровОтПокупателяРазмещен</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>349a0ccc-9580-4d68-aa94-aed8854f0308</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">МенеджерПродажиПокупателя</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>e9a95c74-7138-43ae-8db4-2be5a5e40b76</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.Контрагент</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>f63075c0-cea4-4ead-9e3c-2cb9f1b2b5d8</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.Контрагент.СервисНа5</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:userSettingID>e1d43844-085a-4dd8-8b7f-3ea1f8620afd</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.Контрагент.Регион.Филиал</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>45af8312-6b9d-4448-b9c6-2a6d06059c52</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
@@ -2092,41 +2220,55 @@
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.ПричинаВозврата</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>f378dcc1-e0ae-405f-958f-f454f8a13323</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.ПодпричинаВозврата</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>60db3c74-0f1b-49b1-a130-871829cdedf8</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.СтатусДокумента</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>8377be43-e890-4214-902a-801cb99e5020</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.БезДосмотра</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>8fc12f4f-67bb-4489-a1ef-139a5dd769f3</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.ДоставкаДоКлиента</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>fcde982b-8136-4910-9cc1-f072a1c6c0bc</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.БезоговорочныйВозвратПоставщика</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>8abed922-250c-463b-9495-0a1914b2aad1</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.ВозвратПоставщикуНевозможенПоПричинеОшибкиЗаказа</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>9e4102ea-9159-44a8-834b-196a338456f0</dcsset:userSettingID>
 				</dcsset:item>
+				<dcsset:userSettingID>a9ead631-f09e-48a1-bac1-b45d8ffa2f2b</dcsset:userSettingID>
 			</dcsset:filter>
 			<dcsset:dataParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
@@ -2219,6 +2361,7 @@
 					</dcscor:item>
 				</dcsset:outputParameters>
 			</dcsset:item>
+			<dcsset:itemsUserSettingID>28255735-ca16-4665-86cd-6a2b20794163</dcsset:itemsUserSettingID>
 		</dcsset:settings>
 	</settingsVariant>
 	<settingsVariant>
@@ -2277,22 +2420,27 @@
 					<dcsset:comparisonType>InList</dcsset:comparisonType>
 					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.СтатусыДокументов.ВозвратТоваровОтПокупателяПринят</dcsset:right>
 					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.СтатусыДокументов.ВозвратТоваровОтПокупателяРазмещен</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>896484ff-aece-4865-843e-98dcd70514e6</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">МенеджерПродажиПокупателя</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>2bfe4eea-283f-4bb7-bd74-5b151e9f6310</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.Контрагент</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>1224685a-6fdf-4718-a75f-71d891e98a17</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.Контрагент.СервисНа5</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:userSettingID>3960f6e9-54b4-4202-b68b-dd2968523dda</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
@@ -2304,46 +2452,63 @@
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.Контрагент.Регион</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>6d25797e-4c15-4a6e-8757-ae9a6f7896c8</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.ПричинаВозврата</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>bf259112-5d29-4ad9-a1ee-1a03f5909c53</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.ПодпричинаВозврата</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>ef36a9ba-ea1f-4b05-b521-0d2635a8455a</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.СтатусДокумента</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>58e8d996-bcfa-4990-85f3-fe64e5729bc2</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.БезДосмотра</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>6e0745fe-b18d-4807-8976-b2bcaf535833</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.ДоставкаДоКлиента</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>496a9607-8026-40f1-9074-95df98def05e</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.БезоговорочныйВозвратПоставщика</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>de30648c-e4bb-4d6f-ab55-46448289503b</dcsset:userSettingID>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">АктВозврата.ВозвратПоставщикуНевозможенПоПричинеОшибкиЗаказа</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+					<dcsset:userSettingID>7529301d-e8e6-46b9-871a-d2635c8920f6</dcsset:userSettingID>
 				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>d2968374-c1a4-4ba3-af87-b74d327e5626</dcsset:userSettingID>
 			</dcsset:filter>
 			<dcsset:dataParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
@@ -2361,6 +2526,9 @@
 					<dcsset:userSettingID>44d2c707-a97c-4a47-a4fb-ffefa7aa13c4</dcsset:userSettingID>
 				</dcscor:item>
 			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:userSettingID>d18b1426-7364-42e2-a198-9bea1af17341</dcsset:userSettingID>
+			</dcsset:order>
 			<dcsset:item xsi:type="dcsset:StructureItemGroup">
 				<dcsset:groupItems>
 					<dcsset:item xsi:type="dcsset:GroupItemField">
