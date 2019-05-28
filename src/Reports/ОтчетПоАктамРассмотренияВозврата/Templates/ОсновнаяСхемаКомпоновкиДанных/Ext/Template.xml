@@ -488,10 +488,6 @@
 			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>ДоговорКонтрагента</dataPath>
-			<field>ДоговорКонтрагента</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>ЗакупкиКонтрагент</dataPath>
 			<field>ЗакупкиКонтрагент</field>
 			<title xsi:type="v8:LocalStringType">
@@ -514,36 +510,6 @@
 			</attributeUseRestriction>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>ТорговаяТочка</dataPath>
-			<field>ТорговаяТочка</field>
-			<useRestriction>
-				<condition>true</condition>
-			</useRestriction>
-			<attributeUseRestriction>
-				<condition>true</condition>
-			</attributeUseRestriction>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>СтрокаПрихода</dataPath>
-			<field>СтрокаПрихода</field>
-			<useRestriction>
-				<condition>true</condition>
-			</useRestriction>
-			<attributeUseRestriction>
-				<condition>true</condition>
-			</attributeUseRestriction>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Номенклатура</dataPath>
-			<field>Номенклатура</field>
-			<useRestriction>
-				<condition>true</condition>
-			</useRestriction>
-			<attributeUseRestriction>
-				<condition>true</condition>
-			</attributeUseRestriction>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>ЗакупкиПериодМесяц</dataPath>
 			<field>ЗакупкиПериодМесяц</field>
 			<title xsi:type="v8:LocalStringType">
@@ -558,10 +524,6 @@
 				<group>true</group>
 				<order>true</order>
 			</useRestriction>
-			<role>
-				<dcscom:periodNumber>1</dcscom:periodNumber>
-				<dcscom:periodType>Main</dcscom:periodType>
-			</role>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ЗакупкиМенеджерПоставщика</dataPath>
@@ -573,60 +535,55 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗакупкиТипПоставки</dataPath>
+			<field>ЗакупкиТипПоставки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закупки тип поставки</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<attributeUseRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</attributeUseRestriction>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
-	ЗакупкиОбороты.СтрокаПрихода.ТорговаяТочка.Владелец КАК ЗакупкиКонтрагент,
-	ЗакупкиОбороты.Период КАК ЗакупкиПериодМесяц,
-	ЗакупкиОбороты.СуммаРеглОборот КАК ЗакупкиСумма,
+	ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Ссылка.Контрагент КАК ЗакупкиКонтрагент,
+	НАЧАЛОПЕРИОДА(ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Ссылка.Дата, МЕСЯЦ) КАК ЗакупкиПериодМесяц,
+	ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Количество * ВЫБОР
+		КОГДА ЕСТЬNULL(ПоступлениеТоваровУслугТовары.имп_СуммаРуб, 0) = 0
+			ТОГДА ЕСТЬNULL(ПоступлениеТоваровУслугТовары.Цена, 0)
+		КОГДА ЕСТЬNULL(ПоступлениеТоваровУслугТовары.Количество, 0) = 0
+			ТОГДА 0
+		ИНАЧЕ ЕСТЬNULL(ПоступлениеТоваровУслугТовары.имп_СуммаРуб, 0) / ЕСТЬNULL(ПоступлениеТоваровУслугТовары.Количество, 0)
+	КОНЕЦ КАК ЗакупкиСумма,
+	ПоступлениеТоваровУслугРазмещениеСтрокПрихода.СтрокаЗаявки.ТипПоставки КАК ЗакупкиТипПоставки,
 	ЕСТЬNULL(втМенеджерыТорговыхТочек.Менеджер, ЗНАЧЕНИЕ(Справочник.Менеджеры.ПустаяСсылка)) КАК ЗакупкиМенеджерПоставщика
 ИЗ
-	РегистрНакопления.Закупки.Обороты({(&amp;НачалоПериода)}, {(&amp;ОкончаниеПериода)}, Месяц, ) КАК ЗакупкиОбороты
+	Документ.ПоступлениеТоваровУслуг.РазмещениеСтрокПрихода КАК ПоступлениеТоваровУслугРазмещениеСтрокПрихода
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ПоступлениеТоваровУслуг.Товары КАК ПоступлениеТоваровУслугТовары
+		ПО ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Ссылка = ПоступлениеТоваровУслугТовары.Ссылка
+			И ПоступлениеТоваровУслугРазмещениеСтрокПрихода.СтрокаПрихода = ПоступлениеТоваровУслугТовары.СтрокаПрихода
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.МенеджерыТорговыхТочек.СрезПоследних({(&amp;ТекущаяДата)}, ВидМенеджера = ЗНАЧЕНИЕ(Перечисление.ВидыМенеджеров.Снабжения)) КАК втМенеджерыТорговыхТочек
-		ПО ЗакупкиОбороты.ТорговаяТочка.Владелец = втМенеджерыТорговыхТочек.Контрагент
-			И ЗакупкиОбороты.ТорговаяТочка = втМенеджерыТорговыхТочек.ТорговаяТочка</query>
+		ПО ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Ссылка.Контрагент = втМенеджерыТорговыхТочек.Контрагент
+			И ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Ссылка.ТорговаяТочка = втМенеджерыТорговыхТочек.ТорговаяТочка
+ГДЕ
+	ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Ссылка.Проведен
+	И ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Ссылка.Дата МЕЖДУ &amp;НачалоПериода И &amp;ОкончаниеПериода</query>
 	</dataSet>
 	<dataSet xsi:type="DataSetQuery">
 		<name>ЗакупкиЗаПериод</name>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>ДоговорКонтрагента</dataPath>
-			<field>ДоговорКонтрагента</field>
-			<useRestriction>
-				<condition>true</condition>
-			</useRestriction>
-			<attributeUseRestriction>
-				<condition>true</condition>
-			</attributeUseRestriction>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>ТорговаяТочка</dataPath>
-			<field>ТорговаяТочка</field>
-			<useRestriction>
-				<condition>true</condition>
-			</useRestriction>
-			<attributeUseRestriction>
-				<condition>true</condition>
-			</attributeUseRestriction>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>СтрокаПрихода</dataPath>
-			<field>СтрокаПрихода</field>
-			<useRestriction>
-				<condition>true</condition>
-			</useRestriction>
-			<attributeUseRestriction>
-				<condition>true</condition>
-			</attributeUseRestriction>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Номенклатура</dataPath>
-			<field>Номенклатура</field>
-			<useRestriction>
-				<condition>true</condition>
-			</useRestriction>
-			<attributeUseRestriction>
-				<condition>true</condition>
-			</attributeUseRestriction>
-		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ЗакупкиЗаПериодСумма</dataPath>
 			<field>ЗакупкиЗаПериодСумма</field>
@@ -681,16 +638,51 @@
 				<order>true</order>
 			</attributeUseRestriction>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗакупкиЗаПериодТипПоставки</dataPath>
+			<field>ЗакупкиЗаПериодТипПоставки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закупки за период тип поставки</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<attributeUseRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</attributeUseRestriction>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
-	ЗакупкиОбороты.СтрокаПрихода.ТорговаяТочка.Владелец КАК ЗакупкиЗаПериодКонтрагент,
-	ЗакупкиОбороты.СуммаРеглОборот КАК ЗакупкиЗаПериодСумма,
+	ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Ссылка.Контрагент КАК ЗакупкиЗаПериодКонтрагент,
+	ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Количество * ВЫБОР
+		КОГДА ЕСТЬNULL(ПоступлениеТоваровУслугТовары.имп_СуммаРуб, 0) = 0
+			ТОГДА ЕСТЬNULL(ПоступлениеТоваровУслугТовары.Цена, 0)
+		КОГДА ЕСТЬNULL(ПоступлениеТоваровУслугТовары.Количество, 0) = 0
+			ТОГДА 0
+		ИНАЧЕ ЕСТЬNULL(ПоступлениеТоваровУслугТовары.имп_СуммаРуб, 0) / ЕСТЬNULL(ПоступлениеТоваровУслугТовары.Количество, 0)
+	КОНЕЦ КАК ЗакупкиЗаПериодСумма,
+	ПоступлениеТоваровУслугРазмещениеСтрокПрихода.СтрокаЗаявки.ТипПоставки КАК ЗакупкиЗаПериодТипПоставки,
 	ЕСТЬNULL(втМенеджерыТорговыхТочек.Менеджер, ЗНАЧЕНИЕ(Справочник.Менеджеры.ПустаяСсылка)) КАК ЗакупкиЗаПериодМенеджерПоставщика
 ИЗ
-	РегистрНакопления.Закупки.Обороты({(&amp;НачалоПериода)}, {(&amp;ОкончаниеПериода)}, , ) КАК ЗакупкиОбороты
+	Документ.ПоступлениеТоваровУслуг.РазмещениеСтрокПрихода КАК ПоступлениеТоваровУслугРазмещениеСтрокПрихода
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ПоступлениеТоваровУслуг.Товары КАК ПоступлениеТоваровУслугТовары
+		ПО ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Ссылка = ПоступлениеТоваровУслугТовары.Ссылка
+			И ПоступлениеТоваровУслугРазмещениеСтрокПрихода.СтрокаПрихода = ПоступлениеТоваровУслугТовары.СтрокаПрихода
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.МенеджерыТорговыхТочек.СрезПоследних({(&amp;ТекущаяДата)}, ВидМенеджера = ЗНАЧЕНИЕ(Перечисление.ВидыМенеджеров.Снабжения)) КАК втМенеджерыТорговыхТочек
-		ПО ЗакупкиОбороты.ТорговаяТочка.Владелец = втМенеджерыТорговыхТочек.Контрагент
-			И ЗакупкиОбороты.ТорговаяТочка = втМенеджерыТорговыхТочек.ТорговаяТочка</query>
+		ПО ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Ссылка.Контрагент = втМенеджерыТорговыхТочек.Контрагент
+			И ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Ссылка.ТорговаяТочка = втМенеджерыТорговыхТочек.ТорговаяТочка
+ГДЕ
+	ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Ссылка.Проведен
+	И ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Ссылка.Дата МЕЖДУ &amp;НачалоПериода И &amp;ОкончаниеПериода</query>
 	</dataSet>
 	<dataSetLink>
 		<sourceDataSet>АРВТовары</sourceDataSet>
@@ -745,6 +737,20 @@
 		<destinationDataSet>ЗакупкиЗаПериод</destinationDataSet>
 		<sourceExpression>Контрагент</sourceExpression>
 		<destinationExpression>ЗакупкиЗаПериодКонтрагент</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>АРВТовары</sourceDataSet>
+		<destinationDataSet>ЗакупкиПоМесяцам</destinationDataSet>
+		<sourceExpression>СтрокаЗаявки.ТипПоставки</sourceExpression>
+		<destinationExpression>ЗакупкиТипПоставки</destinationExpression>
+		<required>false</required>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>АРВТовары</sourceDataSet>
+		<destinationDataSet>ЗакупкиЗаПериод</destinationDataSet>
+		<sourceExpression>СтрокаЗаявки.ТипПоставки</sourceExpression>
+		<destinationExpression>ЗакупкиЗаПериодТипПоставки</destinationExpression>
+		<required>false</required>
 	</dataSetLink>
 	<calculatedField>
 		<dataPath>ДоляВозвратовОтПродаж</dataPath>
@@ -2716,6 +2722,12 @@
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>СуммаКомпенсацииУтв</dcsset:field>
 				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗакупкиСумма</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДоляВозвратовОтЗакупки</dcsset:field>
+				</dcsset:item>
 			</dcsset:selection>
 			<dcsset:filter>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
@@ -2843,7 +2855,7 @@
 					<dcscor:value xsi:type="v8:LocalStringType">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Клиенты по регионам</v8:content>
+							<v8:content>Типы поставки (по месяцам)</v8:content>
 						</v8:item>
 					</dcscor:value>
 				</dcscor:item>
