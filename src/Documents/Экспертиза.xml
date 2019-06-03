@@ -2,33 +2,33 @@
 <MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
 	<Document uuid="784bbaf0-8558-453b-8bb9-5fc48c134370">
 		<InternalInfo>
-			<xr:GeneratedType name="DocumentObject.ОтказПоставщикаВВозврате" category="Object">
+			<xr:GeneratedType name="DocumentObject.Экспертиза" category="Object">
 				<xr:TypeId>5ee54285-349c-433d-a7d4-66d0f2040c48</xr:TypeId>
 				<xr:ValueId>39bc35b9-5758-46e7-b2d5-7692287466af</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="DocumentRef.ОтказПоставщикаВВозврате" category="Ref">
+			<xr:GeneratedType name="DocumentRef.Экспертиза" category="Ref">
 				<xr:TypeId>f9e72a21-140d-44b6-8144-141a4051212d</xr:TypeId>
 				<xr:ValueId>5f506089-55d0-4cfa-b375-ac9f59d1d71e</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="DocumentSelection.ОтказПоставщикаВВозврате" category="Selection">
+			<xr:GeneratedType name="DocumentSelection.Экспертиза" category="Selection">
 				<xr:TypeId>fc072523-028c-49f6-b105-4ade92b22450</xr:TypeId>
 				<xr:ValueId>16595e10-864d-4e22-bd86-4c31699be7fa</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="DocumentList.ОтказПоставщикаВВозврате" category="List">
+			<xr:GeneratedType name="DocumentList.Экспертиза" category="List">
 				<xr:TypeId>37f2b0c2-7adf-472e-9d51-9501d4b9ddba</xr:TypeId>
 				<xr:ValueId>1b57d16c-efa9-49c9-b7de-8b812a45d23b</xr:ValueId>
 			</xr:GeneratedType>
-			<xr:GeneratedType name="DocumentManager.ОтказПоставщикаВВозврате" category="Manager">
+			<xr:GeneratedType name="DocumentManager.Экспертиза" category="Manager">
 				<xr:TypeId>17ead16a-796e-4728-b681-ecfcf2662b90</xr:TypeId>
 				<xr:ValueId>31ebdcab-c41e-4f82-aa41-26a7d27859da</xr:ValueId>
 			</xr:GeneratedType>
 		</InternalInfo>
 		<Properties>
-			<Name>ОтказПоставщикаВВозврате</Name>
+			<Name>Экспертиза</Name>
 			<Synonym>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Отказ поставщика в возврате</v8:content>
+					<v8:content>Экспертиза</v8:content>
 				</v8:item>
 			</Synonym>
 			<Comment>(Общ)</Comment>
@@ -172,13 +172,13 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Document.ВозвратТоваровПоставщику</xr:Item>
 			</BasedOn>
 			<InputByString>
-				<xr:Field>Document.ОтказПоставщикаВВозврате.StandardAttribute.Number</xr:Field>
+				<xr:Field>Document.Экспертиза.StandardAttribute.Number</xr:Field>
 			</InputByString>
 			<CreateOnInput>Use</CreateOnInput>
 			<SearchStringModeOnInputByString>Begin</SearchStringModeOnInputByString>
 			<FullTextSearchOnInputByString>DontUse</FullTextSearchOnInputByString>
 			<ChoiceDataGetModeOnInputByString>Directly</ChoiceDataGetModeOnInputByString>
-			<DefaultObjectForm>Document.ОтказПоставщикаВВозврате.Form.ФормаДокумента</DefaultObjectForm>
+			<DefaultObjectForm>Document.Экспертиза.Form.ФормаДокумента</DefaultObjectForm>
 			<DefaultListForm/>
 			<DefaultChoiceForm/>
 			<AuxiliaryObjectForm/>
@@ -207,6 +207,82 @@
 			<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
 		</Properties>
 		<ChildObjects>
+			<Attribute uuid="547899c3-261d-47c2-bc39-7abdbdfa7ead">
+				<Properties>
+					<Name>ВидОперации</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид операции</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Type>
+						<v8:Type>cfg:EnumRef.ВидыОперацийЭкспертиза</v8:Type>
+					</Type>
+					<PasswordMode>false</PasswordMode>
+					<Format/>
+					<EditFormat/>
+					<ToolTip/>
+					<MarkNegatives>false</MarkNegatives>
+					<Mask/>
+					<MultiLine>false</MultiLine>
+					<ExtendedEdit>false</ExtendedEdit>
+					<MinValue xsi:nil="true"/>
+					<MaxValue xsi:nil="true"/>
+					<FillFromFillingValue>false</FillFromFillingValue>
+					<FillValue xsi:nil="true"/>
+					<FillChecking>DontCheck</FillChecking>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<ChoiceParameterLinks/>
+					<ChoiceParameters/>
+					<QuickChoice>Auto</QuickChoice>
+					<CreateOnInput>Auto</CreateOnInput>
+					<ChoiceForm/>
+					<LinkByType/>
+					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+					<Indexing>DontIndex</Indexing>
+					<FullTextSearch>Use</FullTextSearch>
+				</Properties>
+			</Attribute>
+			<Attribute uuid="74457557-0e43-40d4-9553-f4475276c648">
+				<Properties>
+					<Name>СтатусДокумента</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статус документа</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Type>
+						<v8:Type>cfg:CatalogRef.СтатусыДокументов</v8:Type>
+					</Type>
+					<PasswordMode>false</PasswordMode>
+					<Format/>
+					<EditFormat/>
+					<ToolTip/>
+					<MarkNegatives>false</MarkNegatives>
+					<Mask/>
+					<MultiLine>false</MultiLine>
+					<ExtendedEdit>false</ExtendedEdit>
+					<MinValue xsi:nil="true"/>
+					<MaxValue xsi:nil="true"/>
+					<FillFromFillingValue>false</FillFromFillingValue>
+					<FillValue xsi:nil="true"/>
+					<FillChecking>DontCheck</FillChecking>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<ChoiceParameterLinks/>
+					<ChoiceParameters/>
+					<QuickChoice>Auto</QuickChoice>
+					<CreateOnInput>Auto</CreateOnInput>
+					<ChoiceForm/>
+					<LinkByType/>
+					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+					<Indexing>DontIndex</Indexing>
+					<FullTextSearch>Use</FullTextSearch>
+				</Properties>
+			</Attribute>
 			<Attribute uuid="39049b21-0b77-4a4d-869d-817088e0119b">
 				<Properties>
 					<Name>Организация</Name>
@@ -758,44 +834,6 @@
 					<FullTextSearch>DontUse</FullTextSearch>
 				</Properties>
 			</Attribute>
-			<Attribute uuid="74457557-0e43-40d4-9553-f4475276c648">
-				<Properties>
-					<Name>СтатусДокумента</Name>
-					<Synonym>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Статус документа</v8:content>
-						</v8:item>
-					</Synonym>
-					<Comment/>
-					<Type>
-						<v8:Type>cfg:CatalogRef.СтатусыДокументов</v8:Type>
-					</Type>
-					<PasswordMode>false</PasswordMode>
-					<Format/>
-					<EditFormat/>
-					<ToolTip/>
-					<MarkNegatives>false</MarkNegatives>
-					<Mask/>
-					<MultiLine>false</MultiLine>
-					<ExtendedEdit>false</ExtendedEdit>
-					<MinValue xsi:nil="true"/>
-					<MaxValue xsi:nil="true"/>
-					<FillFromFillingValue>false</FillFromFillingValue>
-					<FillValue xsi:nil="true"/>
-					<FillChecking>DontCheck</FillChecking>
-					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
-					<ChoiceParameterLinks/>
-					<ChoiceParameters/>
-					<QuickChoice>Auto</QuickChoice>
-					<CreateOnInput>Auto</CreateOnInput>
-					<ChoiceForm/>
-					<LinkByType/>
-					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
-					<Indexing>DontIndex</Indexing>
-					<FullTextSearch>Use</FullTextSearch>
-				</Properties>
-			</Attribute>
 			<Attribute uuid="69aed1f1-2074-4fb9-805d-7978710d0330">
 				<Properties>
 					<Name>АктРассмотренияВозврата</Name>
@@ -992,11 +1030,11 @@
 			<Form>ФормаДокумента</Form>
 			<TabularSection uuid="620a6dd2-4b57-4a7c-ad86-68bc74da7e21">
 				<InternalInfo>
-					<xr:GeneratedType name="DocumentTabularSection.ОтказПоставщикаВВозврате.Товары" category="TabularSection">
+					<xr:GeneratedType name="DocumentTabularSection.Экспертиза.Товары" category="TabularSection">
 						<xr:TypeId>f58dc27c-adeb-4437-9d3b-2b718769ee9c</xr:TypeId>
 						<xr:ValueId>ef1171fd-d912-401b-8c6e-5ac10016aecc</xr:ValueId>
 					</xr:GeneratedType>
-					<xr:GeneratedType name="DocumentTabularSectionRow.ОтказПоставщикаВВозврате.Товары" category="TabularSectionRow">
+					<xr:GeneratedType name="DocumentTabularSectionRow.Экспертиза.Товары" category="TabularSectionRow">
 						<xr:TypeId>84ac97e7-b183-4b7c-95c0-42d4db216caa</xr:TypeId>
 						<xr:ValueId>97cff061-d937-42a6-8470-2dc0dd63b8ca</xr:ValueId>
 					</xr:GeneratedType>
