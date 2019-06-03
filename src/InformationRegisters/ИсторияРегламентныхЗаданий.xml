@@ -266,6 +266,44 @@
 					<FullTextSearch>Use</FullTextSearch>
 				</Properties>
 			</Attribute>
+			<Attribute uuid="a488ab10-d57a-4fd7-af96-2885b7faee0d">
+				<Properties>
+					<Name>Завершено</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Завершено</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+					<PasswordMode>false</PasswordMode>
+					<Format/>
+					<EditFormat/>
+					<ToolTip/>
+					<MarkNegatives>false</MarkNegatives>
+					<Mask/>
+					<MultiLine>false</MultiLine>
+					<ExtendedEdit>false</ExtendedEdit>
+					<MinValue xsi:nil="true"/>
+					<MaxValue xsi:nil="true"/>
+					<FillFromFillingValue>false</FillFromFillingValue>
+					<FillValue xsi:nil="true"/>
+					<FillChecking>DontCheck</FillChecking>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<ChoiceParameterLinks/>
+					<ChoiceParameters/>
+					<QuickChoice>Auto</QuickChoice>
+					<CreateOnInput>Auto</CreateOnInput>
+					<ChoiceForm/>
+					<LinkByType/>
+					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+					<Indexing>Index</Indexing>
+					<FullTextSearch>Use</FullTextSearch>
+				</Properties>
+			</Attribute>
 			<Dimension uuid="fd97bd26-3623-4893-9b80-9ea6ddf263b5">
 				<Properties>
 					<Name>РегламентноеЗадание</Name>
@@ -391,16 +429,21 @@
 			</Dimension>
 			<Dimension uuid="8472a5ca-29f4-48b7-8ec8-381c4ef5be60">
 				<Properties>
-					<Name>Завершено</Name>
+					<Name>НомерСеанса</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Завершено</v8:content>
+							<v8:content>Номер сеанса</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
 					<Type>
-						<v8:Type>xs:boolean</v8:Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
 					</Type>
 					<PasswordMode>false</PasswordMode>
 					<Format/>
