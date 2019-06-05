@@ -1,0 +1,512 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РаботаетСОкномПоставщика</dataPath>
+			<field>РаботаетСОкномПоставщика</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Работает с окном поставщика</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатусДокумента</dataPath>
+			<field>СтатусДокумента</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаУПД</dataPath>
+			<field>ДатаУПД</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата УПД</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидОперации</dataPath>
+			<field>ВидОперации</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоррСФДата</dataPath>
+			<field>КоррСФДата</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументВозвратаПоставщику</dataPath>
+			<field>ДокументВозвратаПоставщику</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ возврата поставщику</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПроверенПартком</dataPath>
+			<field>ПроверенПартком</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверен партком</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НеЗаполненныНомерДатаКоррСФ</dataPath>
+			<field>НеЗаполненныНомерДатаКоррСФ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Не заполненны номер дата корр СФ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументПоступления</dataPath>
+			<field>ДокументПоступления</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ поступления</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Поставщик</dataPath>
+			<field>Поставщик</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поставщик</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоррСФНомер</dataPath>
+			<field>КоррСФНомер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерУПД</dataPath>
+			<field>НомерУПД</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер УПД</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Проведен</dataPath>
+			<field>Проведен</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МенеджерСнабжения</dataPath>
+			<field>МенеджерСнабжения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Менеджер снабжения</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонтрагентРаботатьСОкномПоставщика</dataPath>
+			<field>КонтрагентРаботатьСОкномПоставщика</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНДС</dataPath>
+			<field>СуммаНДС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сумма</dataPath>
+			<field>Сумма</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументОснование</dataPath>
+			<field>ДокументОснование</field>
+			<presentationExpression>"Вх. № "+ДокументОснование.Номер +" от " +Формат(ДокументОснование.Дата,"ДФ=dd.MM.yy")</presentationExpression>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ВозвратТоваровПоставщику.Ссылка КАК ДокументВозвратаПоставщику,
+	ВозвратТоваровПоставщику.Контрагент КАК Поставщик,
+	МенеджерыТорговыхТочекСрезПоследних.Менеджер КАК МенеджерСнабжения,
+	ВозвратТоваровПоставщикуТовары.Номенклатура КАК Номенклатура,
+	ВозвратТоваровПоставщику.ВидОперации КАК ВидОперации,
+	ВозвратТоваровПоставщику.Контрагент.РаботатьСОкномПоставщика КАК РаботаетСОкномПоставщика,
+	ВозвратТоваровПоставщику.Проведен КАК Проведен,
+	ВозвратТоваровПоставщику.Организация КАК Организация,
+	ВЫБОР
+		КОГДА ВозвратТоваровПоставщику.ВидОперации = ЗНАЧЕНИЕ(Перечисление.ВидыОперацийВозвратПоставщику.КорректировочныйСчетФактура)
+			ТОГДА ВозвратТоваровПоставщику.Номер
+		ИНАЧЕ ЕСТЬNULL(СчетФактураВыданный.Номер, "")
+	КОНЕЦ КАК НомерУПД,
+	ВЫБОР
+		КОГДА ВозвратТоваровПоставщику.ВидОперации = ЗНАЧЕНИЕ(Перечисление.ВидыОперацийВозвратПоставщику.КорректировочныйСчетФактура)
+			ТОГДА ВозвратТоваровПоставщику.Дата
+		ИНАЧЕ ЕСТЬNULL(СчетФактураВыданный.Дата, "")
+	КОНЕЦ КАК ДатаУПД,
+	ВозвратТоваровПоставщику.КоррСФНомер КАК КоррСФНомер,
+	ВозвратТоваровПоставщику.КоррСФДата КАК КоррСФДата,
+	ВозвратТоваровПоставщику.СтатусДокумента КАК СтатусДокумента,
+	ЕСТЬNULL(СведенияОПроверкеДокументовСрезПоследних.ПризнакПроверен, ЛОЖЬ) КАК ПроверенПартком,
+	ВозвратТоваровПоставщику.ДокументОснование КАК ДокументОснование,
+	ВЫБОР
+		КОГДА ВозвратТоваровПоставщику.ВидОперации = ЗНАЧЕНИЕ(Перечисление.ВидыОперацийВозвратПоставщику.КорректировочныйСчетФактура)
+				И ВозвратТоваровПоставщику.КоррСФНомер = ""
+				И ВозвратТоваровПоставщику.КоррСФДата = ДАТАВРЕМЯ(1, 1, 1)
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК НеЗаполненныНомерДатаКоррСФ,
+	ВозвратТоваровПоставщикуТовары.Сумма КАК Сумма,
+	ВозвратТоваровПоставщикуТовары.СуммаНДС КАК СуммаНДС
+{ВЫБРАТЬ
+	ДокументВозвратаПоставщику.*,
+	Поставщик.*,
+	МенеджерСнабжения.*,
+	Номенклатура.*,
+	ВидОперации.*,
+	РаботаетСОкномПоставщика,
+	Проведен,
+	Организация.*,
+	НомерУПД,
+	ДатаУПД,
+	КоррСФНомер,
+	КоррСФДата,
+	СтатусДокумента.*,
+	ПроверенПартком,
+	ДокументОснование.*,
+	НеЗаполненныНомерДатаКоррСФ,
+	Сумма,
+	СуммаНДС}
+ИЗ
+	Документ.ВозвратТоваровПоставщику.Товары КАК ВозвратТоваровПоставщикуТовары
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ВозвратТоваровПоставщику КАК ВозвратТоваровПоставщику
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.МенеджерыТорговыхТочек.СрезПоследних(, ВидМенеджера = ЗНАЧЕНИЕ(Перечисление.ВидыМенеджеров.Снабжения)) КАК МенеджерыТорговыхТочекСрезПоследних
+			ПО ВозвратТоваровПоставщику.ТорговаяТочка = МенеджерыТорговыхТочекСрезПоследних.ТорговаяТочка
+				И ВозвратТоваровПоставщику.Контрагент = МенеджерыТорговыхТочекСрезПоследних.Контрагент
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.СчетФактураВыданный КАК СчетФактураВыданный
+			ПО ВозвратТоваровПоставщику.Ссылка = СчетФактураВыданный.ДокументОснование
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СведенияОПроверкеДокументов.СрезПоследних(&amp;ДатаОкончания, ) КАК СведенияОПроверкеДокументовСрезПоследних
+			ПО ВозвратТоваровПоставщику.Ссылка = СведенияОПроверкеДокументовСрезПоследних.Объект
+		ПО ВозвратТоваровПоставщикуТовары.Ссылка = ВозвратТоваровПоставщику.Ссылка
+ГДЕ
+	ВозвратТоваровПоставщику.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+{ГДЕ
+	ВозвратТоваровПоставщику.Ссылка.* КАК ДокументВозвратаПоставщику,
+	ВозвратТоваровПоставщику.Контрагент.* КАК Поставщик,
+	ВозвратТоваровПоставщикуТовары.Номенклатура.*,
+	ВозвратТоваровПоставщику.ВидОперации.*,
+	ВозвратТоваровПоставщику.Контрагент.РаботатьСОкномПоставщика,
+	ВозвратТоваровПоставщику.Проведен,
+	ВозвратТоваровПоставщику.Организация.*,
+	(ВЫБОР
+			КОГДА ВозвратТоваровПоставщику.ВидОперации = ЗНАЧЕНИЕ(Перечисление.ВидыОперацийВозвратПоставщику.КорректировочныйСчетФактура)
+				ТОГДА ВозвратТоваровПоставщику.Номер
+			ИНАЧЕ ЕСТЬNULL(СчетФактураВыданный.Номер, "")
+		КОНЕЦ) КАК НомерУПД,
+	(ВЫБОР
+			КОГДА ВозвратТоваровПоставщику.ВидОперации = ЗНАЧЕНИЕ(Перечисление.ВидыОперацийВозвратПоставщику.КорректировочныйСчетФактура)
+				ТОГДА ВозвратТоваровПоставщику.Дата
+			ИНАЧЕ ЕСТЬNULL(СчетФактураВыданный.Дата, "")
+		КОНЕЦ) КАК ДатаУПД,
+	ВозвратТоваровПоставщику.КоррСФНомер,
+	ВозвратТоваровПоставщику.КоррСФДата,
+	ВозвратТоваровПоставщику.СтатусДокумента.*,
+	(ЕСТЬNULL(СведенияОПроверкеДокументовСрезПоследних.ПризнакПроверен, ЛОЖЬ)) КАК ПроверенПартком,
+	ВозвратТоваровПоставщику.ДокументОснование.* КАК ДокументПоступления,
+	(ВЫБОР
+			КОГДА ВозвратТоваровПоставщику.ВидОперации = ЗНАЧЕНИЕ(Перечисление.ВидыОперацийВозвратПоставщику.КорректировочныйСчетФактура)
+					И ВозвратТоваровПоставщику.КоррСФНомер = ""
+					И ВозвратТоваровПоставщику.КоррСФДата = ДАТАВРЕМЯ(1, 1, 1)
+				ТОГДА ИСТИНА
+			ИНАЧЕ ЛОЖЬ
+		КОНЕЦ) КАК НеЗаполненныНомерДатаКоррСФ,
+	МенеджерыТорговыхТочекСрезПоследних.Менеджер.* КАК МенеджерСнабжения}</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<totalField>
+		<dataPath>Сумма</dataPath>
+		<expression>Сумма(Сумма)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаНДС</dataPath>
+		<expression>Сумма(СуммаНДС)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодОтчета.ДатаНачала</expression>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодОтчета.ДатаОкончания</expression>
+	</parameter>
+	<parameter>
+		<name>ПериодОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период отчета</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Основной</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Поставщик</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МенеджерСнабжения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДокументВозвратаПоставщику</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Организация</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидОперации</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НомерУПД</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаУПД</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоррСФНомер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоррСФДата</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтатусДокумента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДокументВозвратаПоставщику.Комментарий</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Комментарий</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДокументОснование</dcsset:field>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>4ed9175b-f9d3-478e-b7c0-454bbab51ad1</dcsset:userSettingID>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Поставщик</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">МенеджерСнабжения</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ВидОперации</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Проведен</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					<dcsset:presentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Только проведенные</v8:content>
+						</v8:item>
+					</dcsset:presentation>
+					<dcsset:userSettingID>73ad6708-688b-41f6-8a24-69830749f490</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Поставщик.РаботатьСОкномПоставщика</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:presentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Работает с окном поставщика</v8:content>
+						</v8:item>
+					</dcsset:presentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">НеЗаполненныНомерДатаКоррСФ</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					<dcsset:presentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Не заполнены реквизиты "КоррСФНомер" и "КоррСФДата"</v8:content>
+						</v8:item>
+					</dcsset:presentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ПроверенПартком</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>faa405c6-11a8-407d-ad1d-4aa39ee1501d</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ПериодОтчета</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</dcscor:value>
+					<dcsset:userSettingID>315c1f37-fd29-4e06-884b-03b22060d487</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>646de473-2b10-48d2-8166-b71e93c2f826</dcsset:userSettingID>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>fc3f405d-f356-45b0-9062-1ba02d306e69</dcsset:userSettingID>
+			</dcsset:conditionalAppearance>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+			<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+			<dcsset:itemsUserSettingID>d13cd15e-0ee8-446b-ab79-ad04515d8d85</dcsset:itemsUserSettingID>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>ДляРассылки</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Для рассылки</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Организация</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидОперации</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НомерУПД</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаУПД</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоррСФНомер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоррСФДата</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номенклатура</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДокументОснование</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>
