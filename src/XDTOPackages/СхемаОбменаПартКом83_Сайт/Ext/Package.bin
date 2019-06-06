@@ -740,4 +740,36 @@
 		<property name="CenaDetaliPosleUcenki" type="xs:float" lowerBound="1" nillable="false"/>
 		<property name="VernutjNaSkladDo2" type="xs:date" lowerBound="1" nillable="false"/>
 	</objectType>
+	<objectType name="Документы.ВозвратТоваровПоставщику" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="return_uuid" type="d3p1:UUID" nillable="true"/>
+		<property name="date_return" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="number" type="xs:string"/>
+		<property name="buyer" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="buyer_inn" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="supplier_code" type="xs:string" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="supplier_uuid" type="d3p1:UUID" lowerBound="0" nillable="true"/>
+		<property name="operation" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="doc_sum" type="xs:double" lowerBound="0" nillable="true"/>
+		<property name="partkom_checked" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="supplier_confirm" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="adjustment_invoce_date" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="adjustment_invoce_number" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="base_doc" type="xs:string" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="items" type="d3p1:Документы.ВозвратТоваровПоставщику.Товары" lowerBound="1" upperBound="1"/>
+	</objectType>
+	<objectType name="Документы.ВозвратТоваровПоставщику.Товары">
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="item" type="d3p1:Документы.ВозвратТоваровПоставщику.Товары.Строка" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Документы.ВозвратТоваровПоставщику.Товары.Строка" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="product_uuid" type="d3p1:UUID" lowerBound="0" nillable="true"/>
+		<property name="product_code" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="product_name" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="articul" type="xs:string"/>
+		<property name="brand" type="xs:string"/>
+		<property name="amount" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="price" type="xs:double" lowerBound="0" nillable="true"/>
+		<property name="tax_rate" type="xs:double" lowerBound="0" nillable="true"/>
+		<property name="tax" type="xs:double" lowerBound="0" nillable="true"/>
+		<property name="cost" type="xs:double" nillable="true"/>
+	</objectType>
 </package>
