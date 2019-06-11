@@ -9,6 +9,12 @@
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Сумма</dataPath>
 			<field>Сумма</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма возвратов</v8:content>
+				</v8:item>
+			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Себестоимость</dataPath>
@@ -57,6 +63,10 @@
 					<v8:content>Период (месяц)</v8:content>
 				</v8:item>
 			</title>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
 			<appearance>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>Формат</dcscor:parameter>
@@ -107,8 +117,35 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипПоставки</dataPath>
+			<field>ТипПоставки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип поставки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Филиал</dataPath>
+			<field>Филиал</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Качество</dataPath>
+			<field>Качество</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТорговаяТочка</dataPath>
+			<field>ТорговаяТочка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
+	АктРассмотренияВозвратаТовары.СтрокаЗаявки.ТипПоставки КАК ТипПоставки,
 	НАЧАЛОПЕРИОДА(АктРассмотренияВозвратаТовары.Ссылка.Дата, МЕСЯЦ) КАК ПериодМесяц,
 	ВозвратТоваровОтПокупателя.Ссылка КАК ВозвратОтПокупателя,
 	АктРассмотренияВозвратаТовары.Ссылка КАК АктВозврата,
@@ -132,6 +169,7 @@
 	АктРассмотренияВозвратаТовары.Ссылка.Контрагент КАК Контрагент,
 	ЕСТЬNULL(втМенеджерыТорговыхТочек.Менеджер, ЗНАЧЕНИЕ(Справочник.Менеджеры.ПустаяСсылка)) КАК МенеджерПродажиПокупателя,
 	ЕСТЬNULL(втМенеджерыСнабженияТорговыхТочек.Менеджер, ЗНАЧЕНИЕ(Справочник.Менеджеры.ПустаяСсылка)) КАК МенеджерСнабженияПоставщика
+
 ИЗ
 	Документ.АктРассмотренияВозврата.Товары КАК АктРассмотренияВозвратаТовары
 		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ВозвратТоваровОтПокупателя КАК ВозвратТоваровОтПокупателя
@@ -144,7 +182,60 @@
 			И АктРассмотренияВозвратаТовары.Ссылка.Поставщик.ОсновнаяТорговаяТочка = втМенеджерыСнабженияТорговыхТочек.ТорговаяТочка
 ГДЕ
 	АктРассмотренияВозвратаТовары.Ссылка.Проведен
-	И АктРассмотренияВозвратаТовары.Ссылка.Дата МЕЖДУ &amp;НачалоПериода И &amp;ОкончаниеПериода</query>
+	И АктРассмотренияВозвратаТовары.Ссылка.Дата МЕЖДУ &amp;НачалоПериода И &amp;ОкончаниеПериода
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	ПоступлениеТоваровУслугРазмещениеСтрокПрихода.СтрокаЗаявки.ТипПоставки,
+	НАЧАЛОПЕРИОДА(ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Ссылка.Дата, МЕСЯЦ),
+	НЕОПРЕДЕЛЕНО,
+	НЕОПРЕДЕЛЕНО,
+	НЕОПРЕДЕЛЕНО,
+	НЕОПРЕДЕЛЕНО,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	НЕОПРЕДЕЛЕНО,
+	НЕОПРЕДЕЛЕНО,
+	ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Ссылка.Контрагент,
+	НЕОПРЕДЕЛЕНО,
+	НЕОПРЕДЕЛЕНО,
+	ЕСТЬNULL(втМенеджерыТорговыхТочек.Менеджер, ЗНАЧЕНИЕ(Справочник.Менеджеры.ПустаяСсылка))
+ИЗ
+	Документ.ПоступлениеТоваровУслуг.РазмещениеСтрокПрихода КАК ПоступлениеТоваровУслугРазмещениеСтрокПрихода
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.МенеджерыТорговыхТочек.СрезПоследних({(&amp;ТекущаяДата)}, ВидМенеджера = ЗНАЧЕНИЕ(Перечисление.ВидыМенеджеров.Снабжения)) КАК втМенеджерыТорговыхТочек
+		ПО ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Ссылка.Контрагент = втМенеджерыТорговыхТочек.Контрагент
+			И ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Ссылка.ТорговаяТочка = втМенеджерыТорговыхТочек.ТорговаяТочка
+ГДЕ
+	ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Ссылка.Проведен
+	И ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Ссылка.Дата МЕЖДУ &amp;НачалоПериода И &amp;ОкончаниеПериода
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	ПродажиОбороты.СтрокаЗаявки.ТипПоставки,
+	ПродажиОбороты.Период,
+	НЕОПРЕДЕЛЕНО,
+	НЕОПРЕДЕЛЕНО,
+	НЕОПРЕДЕЛЕНО,
+	НЕОПРЕДЕЛЕНО,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	НЕОПРЕДЕЛЕНО,
+	НЕОПРЕДЕЛЕНО,
+	НЕОПРЕДЕЛЕНО,
+	ПродажиОбороты.ТорговаяТочка.Владелец,
+	ЕСТЬNULL(втМенеджерыТорговыхТочек.Менеджер, ЗНАЧЕНИЕ(Справочник.Менеджеры.ПустаяСсылка)),
+	НЕОПРЕДЕЛЕНО
+ИЗ
+	РегистрНакопления.Продажи.Обороты({(&amp;НачалоПериода)}, {(&amp;ОкончаниеПериода)}, Месяц, ) КАК ПродажиОбороты
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.МенеджерыТорговыхТочек.СрезПоследних({(&amp;ТекущаяДата)}, ВидМенеджера = ЗНАЧЕНИЕ(Перечисление.ВидыМенеджеров.Продажи)) КАК втМенеджерыТорговыхТочек
+		ПО ПродажиОбороты.ТорговаяТочка.Владелец = втМенеджерыТорговыхТочек.Контрагент
+			И ПродажиОбороты.ТорговаяТочка = втМенеджерыТорговыхТочек.ТорговаяТочка</query>
 	</dataSet>
 	<dataSet xsi:type="DataSetQuery">
 		<name>ПродажиПоМесяцам</name>
@@ -754,7 +845,7 @@
 	</dataSetLink>
 	<calculatedField>
 		<dataPath>ДоляВозвратовОтПродаж</dataPath>
-		<expression/>
+		<expression>Выбор когда Сумма(ПродажиСумма) =0 Тогда 0 Иначе (Сумма(Сумма)/Сумма(ПродажиСумма))*100 Конец</expression>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
@@ -775,7 +866,7 @@
 	</calculatedField>
 	<calculatedField>
 		<dataPath>ДоляВозвратовОтПродажЗаПериод</dataPath>
-		<expression/>
+		<expression>Выбор когда Сумма(ПродажиЗаПериодСумма) =0 Тогда 0 Иначе (Сумма(Сумма)/Сумма(ПродажиЗаПериодСумма))*100 Конец</expression>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
@@ -796,7 +887,7 @@
 	</calculatedField>
 	<calculatedField>
 		<dataPath>ДоляВозвратовОтЗакупки</dataPath>
-		<expression/>
+		<expression>Выбор когда Сумма(ЗакупкиСумма) =0 Тогда 0 Иначе (Сумма(Сумма)/Сумма(ЗакупкиСумма))*100 Конец</expression>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
@@ -817,7 +908,7 @@
 	</calculatedField>
 	<calculatedField>
 		<dataPath>ДоляВозвратовОтЗакупкиЗаПериод</dataPath>
-		<expression/>
+		<expression>Выбор когда Сумма(ЗакупкиЗаПериодСумма) =0 Тогда 0 Иначе (Сумма(Сумма)/Сумма(ЗакупкиЗаПериодСумма))*100 Конец</expression>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
@@ -1056,13 +1147,21 @@
 			</dcsset:dataParameters>
 			<dcsset:order>
 				<dcsset:item xsi:type="dcsset:OrderItemField">
-					<dcsset:use>false</dcsset:use>
-					<dcsset:field>КоличествоДокументов</dcsset:field>
+					<dcsset:field>ПериодМесяц</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ДоляВозвратовОтПродажЗаПериод</dcsset:field>
 					<dcsset:orderType>Desc</dcsset:orderType>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:OrderItemField">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:field>Сумма</dcsset:field>
+					<dcsset:orderType>Desc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>КоличествоДокументов</dcsset:field>
 					<dcsset:orderType>Desc</dcsset:orderType>
 				</dcsset:item>
 				<dcsset:userSettingID>7e2f6765-296a-4e64-89c1-9c263f0279f0</dcsset:userSettingID>
@@ -1128,12 +1227,24 @@
 								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
 							</dcsset:item>
 						</dcsset:groupItems>
+						<dcsset:filter>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Контрагент.Регион</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+							</dcsset:item>
+						</dcsset:filter>
 						<dcsset:order>
 							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 						</dcsset:order>
 						<dcsset:selection>
 							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 						</dcsset:selection>
+						<dcsset:outputParameters>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+								<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+							</dcscor:item>
+						</dcsset:outputParameters>
 						<dcsset:item>
 							<dcsset:groupItems>
 								<dcsset:item xsi:type="dcsset:GroupItemField">
@@ -1144,12 +1255,25 @@
 									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
 								</dcsset:item>
 							</dcsset:groupItems>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">АктВозврата.ПричинаВозврата</dcsset:left>
+									<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+									<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+								</dcsset:item>
+							</dcsset:filter>
 							<dcsset:order>
 								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 							</dcsset:order>
 							<dcsset:selection>
 								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 							</dcsset:selection>
+							<dcsset:outputParameters>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+									<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+								</dcscor:item>
+							</dcsset:outputParameters>
 						</dcsset:item>
 					</dcsset:item>
 				</dcsset:row>
@@ -1300,13 +1424,21 @@
 			</dcsset:dataParameters>
 			<dcsset:order>
 				<dcsset:item xsi:type="dcsset:OrderItemField">
-					<dcsset:use>false</dcsset:use>
-					<dcsset:field>КоличествоДокументов</dcsset:field>
+					<dcsset:field>ПериодМесяц</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ДоляВозвратовОтПродажЗаПериод</dcsset:field>
 					<dcsset:orderType>Desc</dcsset:orderType>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:OrderItemField">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:field>Сумма</dcsset:field>
+					<dcsset:orderType>Desc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>КоличествоДокументов</dcsset:field>
 					<dcsset:orderType>Desc</dcsset:orderType>
 				</dcsset:item>
 				<dcsset:userSettingID>a931ca2c-0937-4658-bb64-5b721b4fad49</dcsset:userSettingID>
@@ -1366,6 +1498,12 @@
 								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
 							</dcsset:item>
 						</dcsset:groupItems>
+						<dcsset:filter>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Контрагент.Регион</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+							</dcsset:item>
+						</dcsset:filter>
 						<dcsset:order>
 							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 						</dcsset:order>
@@ -1386,20 +1524,31 @@
 							</dcscor:item>
 							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 								<dcscor:use>false</dcscor:use>
+								<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+								<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+							</dcscor:item>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 								<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
-								<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+								<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
 							</dcscor:item>
 						</dcsset:outputParameters>
 						<dcsset:item>
 							<dcsset:groupItems>
 								<dcsset:item xsi:type="dcsset:GroupItemField">
-									<dcsset:field>АктВозврата.Контрагент</dcsset:field>
+									<dcsset:field>Контрагент</dcsset:field>
 									<dcsset:groupType>Items</dcsset:groupType>
 									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
 									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
 								</dcsset:item>
 							</dcsset:groupItems>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
+									<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+									<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+								</dcsset:item>
+							</dcsset:filter>
 							<dcsset:order>
 								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 							</dcsset:order>
@@ -1417,6 +1566,10 @@
 											<v8:content>Топ контрагентов</v8:content>
 										</v8:item>
 									</dcsset:userSettingPresentation>
+								</dcscor:item>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+									<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
 								</dcscor:item>
 							</dcsset:outputParameters>
 						</dcsset:item>
@@ -1502,7 +1655,7 @@
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
-					<dcsset:left xsi:type="dcscor:Field">АктВозврата.Контрагент</dcsset:left>
+					<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:userSettingID>d6d3a081-3bf9-4b43-9acc-05f15185e994</dcsset:userSettingID>
 				</dcsset:item>
@@ -1621,16 +1774,23 @@
 			<dcsset:item xsi:type="dcsset:StructureItemGroup">
 				<dcsset:groupItems>
 					<dcsset:item xsi:type="dcsset:GroupItemField">
-						<dcsset:field>АктВозврата.Контрагент</dcsset:field>
+						<dcsset:field>Контрагент</dcsset:field>
 						<dcsset:groupType>Items</dcsset:groupType>
 						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
 						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
 					</dcsset:item>
 				</dcsset:groupItems>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
+						<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+						<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+					</dcsset:item>
+				</dcsset:filter>
 				<dcsset:selection>
 					<dcsset:item xsi:type="dcsset:SelectedItemField">
-						<dcsset:field>АктВозврата.Контрагент</dcsset:field>
+						<dcsset:field>Контрагент</dcsset:field>
 					</dcsset:item>
 					<dcsset:item xsi:type="dcsset:SelectedItemAuto">
 						<dcsset:use>false</dcsset:use>
@@ -1804,13 +1964,21 @@
 			</dcsset:dataParameters>
 			<dcsset:order>
 				<dcsset:item xsi:type="dcsset:OrderItemField">
-					<dcsset:use>false</dcsset:use>
-					<dcsset:field>КоличествоДокументов</dcsset:field>
+					<dcsset:field>ПериодМесяц</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ДоляВозвратовОтЗакупкиЗаПериод</dcsset:field>
 					<dcsset:orderType>Desc</dcsset:orderType>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:OrderItemField">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:field>Сумма</dcsset:field>
+					<dcsset:orderType>Desc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>КоличествоДокументов</dcsset:field>
 					<dcsset:orderType>Desc</dcsset:orderType>
 				</dcsset:item>
 				<dcsset:userSettingID>47fb9a80-9593-464a-8c06-b20298561b98</dcsset:userSettingID>
@@ -1854,12 +2022,25 @@
 							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
 						</dcsset:item>
 					</dcsset:groupItems>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Поставщик</dcsset:left>
+							<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+							<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+						</dcsset:item>
+					</dcsset:filter>
 					<dcsset:order>
 						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 					</dcsset:order>
 					<dcsset:selection>
 						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 					</dcsset:selection>
+					<dcsset:outputParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+						</dcscor:item>
+					</dcsset:outputParameters>
 					<dcsset:item>
 						<dcsset:groupItems>
 							<dcsset:item xsi:type="dcsset:GroupItemField">
@@ -1870,12 +2051,24 @@
 								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
 							</dcsset:item>
 						</dcsset:groupItems>
+						<dcsset:filter>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">АктВозврата.КодВозврата</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+							</dcsset:item>
+						</dcsset:filter>
 						<dcsset:order>
 							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 						</dcsset:order>
 						<dcsset:selection>
 							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 						</dcsset:selection>
+						<dcsset:outputParameters>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+								<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+							</dcscor:item>
+						</dcsset:outputParameters>
 					</dcsset:item>
 				</dcsset:row>
 				<dcsset:rowsUserSettingID>0324ed20-79e1-419e-9c61-713d8ffb4936</dcsset:rowsUserSettingID>
@@ -2026,6 +2219,11 @@
 					<dcsset:viewMode>Normal</dcsset:viewMode>
 					<dcsset:userSettingID>19a8d249-8f0f-4484-8b28-47336541c026</dcsset:userSettingID>
 				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">МенеджерПродажиПокупателя</dcsset:left>
+					<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
 				<dcsset:userSettingID>e9dc81de-3a54-4aa1-80f8-44074da31090</dcsset:userSettingID>
 			</dcsset:filter>
 			<dcsset:dataParameters>
@@ -2045,6 +2243,14 @@
 				</dcscor:item>
 			</dcsset:dataParameters>
 			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ПериодМесяц</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ДоляВозвратовОтПродажЗаПериод</dcsset:field>
+					<dcsset:orderType>Desc</dcsset:orderType>
+				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:OrderItemField">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:field>КоличествоДокументов</dcsset:field>
@@ -2096,12 +2302,24 @@
 							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
 						</dcsset:item>
 					</dcsset:groupItems>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">МенеджерПродажиПокупателя</dcsset:left>
+							<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+						</dcsset:item>
+					</dcsset:filter>
 					<dcsset:order>
 						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 					</dcsset:order>
 					<dcsset:selection>
 						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 					</dcsset:selection>
+					<dcsset:outputParameters>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+							<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+						</dcscor:item>
+					</dcsset:outputParameters>
 				</dcsset:row>
 				<dcsset:selection>
 					<dcsset:item xsi:type="dcsset:SelectedItemField">
@@ -2287,6 +2505,11 @@
 					<dcsset:viewMode>Normal</dcsset:viewMode>
 					<dcsset:userSettingID>9e4102ea-9159-44a8-834b-196a338456f0</dcsset:userSettingID>
 				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">МенеджерПродажиПокупателя</dcsset:left>
+					<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
 				<dcsset:userSettingID>a9ead631-f09e-48a1-bac1-b45d8ffa2f2b</dcsset:userSettingID>
 			</dcsset:filter>
 			<dcsset:dataParameters>
@@ -2337,6 +2560,12 @@
 						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
 					</dcsset:item>
 				</dcsset:groupItems>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">МенеджерПродажиПокупателя</dcsset:left>
+						<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
 				<dcsset:selection>
 					<dcsset:item xsi:type="dcsset:SelectedItemField">
 						<dcsset:use>false</dcsset:use>
@@ -2548,6 +2777,10 @@
 				</dcscor:item>
 			</dcsset:dataParameters>
 			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Сумма</dcsset:field>
+					<dcsset:orderType>Desc</dcsset:orderType>
+				</dcsset:item>
 				<dcsset:userSettingID>d18b1426-7364-42e2-a198-9bea1af17341</dcsset:userSettingID>
 			</dcsset:order>
 			<dcsset:item xsi:type="dcsset:StructureItemGroup">
@@ -2560,6 +2793,13 @@
 						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
 					</dcsset:item>
 				</dcsset:groupItems>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">АктВозврата.ПричинаВозврата</dcsset:left>
+						<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+						<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+					</dcsset:item>
+				</dcsset:filter>
 				<dcsset:order>
 					<dcsset:item xsi:type="dcsset:OrderItemField">
 						<dcsset:field>КоличествоДокументов</dcsset:field>
@@ -2854,13 +3094,21 @@
 			</dcsset:dataParameters>
 			<dcsset:order>
 				<dcsset:item xsi:type="dcsset:OrderItemField">
-					<dcsset:use>false</dcsset:use>
-					<dcsset:field>КоличествоДокументов</dcsset:field>
+					<dcsset:field>ДоляВозвратовОтПродажЗаПериод</dcsset:field>
 					<dcsset:orderType>Desc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ПериодМесяц</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:OrderItemField">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:field>Сумма</dcsset:field>
+					<dcsset:orderType>Desc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>КоличествоДокументов</dcsset:field>
 					<dcsset:orderType>Desc</dcsset:orderType>
 				</dcsset:item>
 				<dcsset:userSettingID>a931ca2c-0937-4658-bb64-5b721b4fad49</dcsset:userSettingID>
@@ -2897,7 +3145,7 @@
 				<dcsset:row>
 					<dcsset:groupItems>
 						<dcsset:item xsi:type="dcsset:GroupItemField">
-							<dcsset:field>СтрокаЗаявки.ТипПоставки</dcsset:field>
+							<dcsset:field>ТипПоставки</dcsset:field>
 							<dcsset:groupType>Items</dcsset:groupType>
 							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
@@ -2920,6 +3168,13 @@
 								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
 							</dcsset:item>
 						</dcsset:groupItems>
+						<dcsset:filter>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Поставщик</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+								<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+							</dcsset:item>
+						</dcsset:filter>
 						<dcsset:order>
 							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 						</dcsset:order>
@@ -2939,9 +3194,8 @@
 								</dcsset:userSettingPresentation>
 							</dcscor:item>
 							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-								<dcscor:use>false</dcscor:use>
 								<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
-								<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+								<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
 							</dcscor:item>
 						</dcsset:outputParameters>
 					</dcsset:item>
