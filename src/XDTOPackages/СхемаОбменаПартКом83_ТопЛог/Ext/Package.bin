@@ -68,9 +68,10 @@
 		<property name="НомерРозничнойЗаявки" type="xs:string" lowerBound="0"/>
 		<property name="ДокументОснованиеСсылка" type="xs:string" lowerBound="0"/>
 		<property name="ШтрихКод" type="xs:string" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Перестикеровка" type="d3p1:Документы.ЗаказНаОтгрузку.Перестикеровка" lowerBound="0"/>
+		<property name="express_delivery_request_id" type="xs:string" lowerBound="0"/>
 		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Товары" type="d3p1:Документы.ЗаказНаОтгрузку.Товары" lowerBound="0"/>
 		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Услуги" type="d3p1:Документы.ЗаказНаОтгрузку.Услуги" lowerBound="0"/>
-		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="Перестикеровка" type="d3p1:Документы.ЗаказНаОтгрузку.Перестикеровка" lowerBound="0"/>
 	</objectType>
 	<objectType name="Документы.ЗаказНаОтгрузку.Перестикеровка">
 		<property xmlns:d3p1="http://partkom83-TopLogExchangeScheme.ru" name="СтрокаПерестикеровка" type="d3p1:Документы.ЗаказНаОтгрузку.Перестикеровка.Строка" lowerBound="0" upperBound="-1"/>
