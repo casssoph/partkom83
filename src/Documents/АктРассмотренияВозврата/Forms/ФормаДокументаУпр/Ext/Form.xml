@@ -1967,72 +1967,120 @@
 								</InputField>
 							</ChildItems>
 						</UsualGroup>
-						<UsualGroup name="ГруппаПрограммыПоставщика" id="699">
+						<UsualGroup name="ГруппаПоставщик" id="754">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Программы поставщика</v8:content>
+									<v8:content>Группа поставщик</v8:content>
 								</v8:item>
 							</Title>
 							<ToolTip>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа программы поставщика</v8:content>
+									<v8:content>Группа поставщик</v8:content>
 								</v8:item>
 							</ToolTip>
-							<Representation>StrongSeparation</Representation>
-							<ExtendedTooltip name="ГруппаПрограммыПоставщикаРасширеннаяПодсказка" id="700"/>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПоставщикРасширеннаяПодсказка" id="755"/>
 							<ChildItems>
-								<UsualGroup name="ГруппаПрайсПоставщика" id="599">
+								<UsualGroup name="ГруппаВозвратПоставщику" id="756">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Группа прайс поставщика</v8:content>
+											<v8:content>Возврат поставщику</v8:content>
 										</v8:item>
 									</Title>
 									<ToolTip>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Группа прайс поставщика</v8:content>
+											<v8:content>Группа возврат поставщику</v8:content>
 										</v8:item>
 									</ToolTip>
 									<Group>Horizontal</Group>
-									<Representation>None</Representation>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаПрайсПоставщикаРасширеннаяПодсказка" id="600"/>
+									<Representation>StrongSeparation</Representation>
+									<ExtendedTooltip name="ГруппаВозвратПоставщикуРасширеннаяПодсказка" id="757"/>
 									<ChildItems>
-										<InputField name="ДоставкаДоКлиента" id="593">
-											<DataPath>Объект.ДоставкаДоКлиента</DataPath>
-											<Width>5</Width>
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<MaxWidth>5</MaxWidth>
-											<ContextMenu name="ДоставкаДоКлиентаКонтекстноеМеню" id="594"/>
-											<ExtendedTooltip name="ДоставкаДоКлиентаРасширеннаяПодсказка" id="595"/>
+										<CheckBoxField name="ПоставщикСообщилДатуВозврата" id="748">
+											<DataPath>Объект.ПоставщикСообщилДатуВозврата</DataPath>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ПоставщикСообщилДатуВозвратаКонтекстноеМеню" id="749"/>
+											<ExtendedTooltip name="ПоставщикСообщилДатуВозвратаРасширеннаяПодсказка" id="750"/>
+										</CheckBoxField>
+										<InputField name="ВернутьПоставщикуДоДаты" id="751">
+											<DataPath>Объект.ВернутьПоставщикуДоДаты</DataPath>
+											<ContextMenu name="ВернутьПоставщикуДоДатыКонтекстноеМеню" id="752"/>
+											<ExtendedTooltip name="ВернутьПоставщикуДоДатыРасширеннаяПодсказка" id="753"/>
 										</InputField>
-										<InputField name="БезДосмотра" id="596">
-											<DataPath>Объект.БезДосмотра</DataPath>
-											<Width>5</Width>
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<MaxWidth>5</MaxWidth>
-											<ContextMenu name="БезДосмотраКонтекстноеМеню" id="597"/>
-											<ExtendedTooltip name="БезДосмотраРасширеннаяПодсказка" id="598"/>
-										</InputField>
-										<InputField name="БезоговорочныйВозвратПоставщика" id="701">
-											<DataPath>Объект.БезоговорочныйВозвратПоставщика</DataPath>
-											<Width>5</Width>
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<MaxWidth>5</MaxWidth>
-											<ContextMenu name="БезоговорочныйВозвратПоставщикаКонтекстноеМеню" id="702"/>
-											<ExtendedTooltip name="БезоговорочныйВозвратПоставщикаРасширеннаяПодсказка" id="703"/>
-										</InputField>
-										<InputField name="ВозвратПоставщикуНевозможенПоПричинеОшибкиЗаказа" id="704">
-											<DataPath>Объект.ВозвратПоставщикуНевозможенПоПричинеОшибкиЗаказа</DataPath>
-											<Width>5</Width>
-											<AutoMaxWidth>false</AutoMaxWidth>
-											<MaxWidth>5</MaxWidth>
-											<ContextMenu name="ВозвратПоставщикуНевозможенПоПричинеОшибкиЗаказаКонтекстноеМеню" id="705"/>
-											<ExtendedTooltip name="ВозвратПоставщикуНевозможенПоПричинеОшибкиЗаказаРасширеннаяПодсказка" id="706"/>
-										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="ГруппаПрограммыПоставщика" id="699">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Программы поставщика</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа программы поставщика</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Representation>StrongSeparation</Representation>
+									<ExtendedTooltip name="ГруппаПрограммыПоставщикаРасширеннаяПодсказка" id="700"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаПрайсПоставщика" id="599">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа прайс поставщика</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа прайс поставщика</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаПрайсПоставщикаРасширеннаяПодсказка" id="600"/>
+											<ChildItems>
+												<InputField name="ДоставкаДоКлиента" id="593">
+													<DataPath>Объект.ДоставкаДоКлиента</DataPath>
+													<Width>5</Width>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<MaxWidth>5</MaxWidth>
+													<ContextMenu name="ДоставкаДоКлиентаКонтекстноеМеню" id="594"/>
+													<ExtendedTooltip name="ДоставкаДоКлиентаРасширеннаяПодсказка" id="595"/>
+												</InputField>
+												<InputField name="БезДосмотра" id="596">
+													<DataPath>Объект.БезДосмотра</DataPath>
+													<Width>5</Width>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<MaxWidth>5</MaxWidth>
+													<ContextMenu name="БезДосмотраКонтекстноеМеню" id="597"/>
+													<ExtendedTooltip name="БезДосмотраРасширеннаяПодсказка" id="598"/>
+												</InputField>
+												<InputField name="БезоговорочныйВозвратПоставщика" id="701">
+													<DataPath>Объект.БезоговорочныйВозвратПоставщика</DataPath>
+													<Width>5</Width>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<MaxWidth>5</MaxWidth>
+													<ContextMenu name="БезоговорочныйВозвратПоставщикаКонтекстноеМеню" id="702"/>
+													<ExtendedTooltip name="БезоговорочныйВозвратПоставщикаРасширеннаяПодсказка" id="703"/>
+												</InputField>
+												<InputField name="ВозвратПоставщикуНевозможенПоПричинеОшибкиЗаказа" id="704">
+													<DataPath>Объект.ВозвратПоставщикуНевозможенПоПричинеОшибкиЗаказа</DataPath>
+													<Width>5</Width>
+													<AutoMaxWidth>false</AutoMaxWidth>
+													<MaxWidth>5</MaxWidth>
+													<ContextMenu name="ВозвратПоставщикуНевозможенПоПричинеОшибкиЗаказаКонтекстноеМеню" id="705"/>
+													<ExtendedTooltip name="ВозвратПоставщикуНевозможенПоПричинеОшибкиЗаказаРасширеннаяПодсказка" id="706"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
