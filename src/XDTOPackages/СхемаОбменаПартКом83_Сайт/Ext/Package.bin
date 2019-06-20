@@ -772,4 +772,25 @@
 		<property name="tax" type="xs:double" lowerBound="0" nillable="true"/>
 		<property name="cost" type="xs:double" nillable="true"/>
 	</objectType>
+	<objectType name="Справочники.ПараметрыФормированияСлужебныхЗаданий" ordered="false">
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID" nillable="true"/>
+		<property name="Включено" type="xs:boolean" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="МаршрутДоставки" type="d3p1:UUID" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Склад" type="d3p1:UUID" nillable="true"/>
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="Расписание" type="d3p1:Справочники.ПараметрыФормированияСлужебныхЗаданий.Расписание" nillable="true"/>
+	</objectType>
+	<objectType name="Справочники.ПараметрыФормированияСлужебныхЗаданий.Расписание">
+		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="ДеньНедели" type="d3p1:Справочники.ПараметрыФормированияСлужебныхЗаданий.Расписание.ДеньНедели" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Справочники.ПараметрыФормированияСлужебныхЗаданий.Расписание.ДеньНедели" ordered="false">
+		<property name="НомерДняНедели" type="xs:int" nillable="true"/>
+		<property name="Включено" type="xs:boolean" nillable="true"/>
+		<property name="ВремяЗапуска" type="xs:time" nillable="true"/>
+		<property name="ВремяНачалаУпаковки" type="xs:time" nillable="true"/>
+		<property name="ВремОкончанияДовыписки" type="xs:time" nillable="true"/>
+		<property name="ВремОтгрузки" type="xs:time" nillable="true"/>
+		<property name="ВремОтгрузки_Региональное" type="xs:time" nillable="true"/>
+		<property name="ВремДоставки_Региональное" type="xs:time" nillable="true"/>
+		<property name="ДоставкаНаСледДень" type="xs:boolean" nillable="true"/>
+	</objectType>
 </package>
