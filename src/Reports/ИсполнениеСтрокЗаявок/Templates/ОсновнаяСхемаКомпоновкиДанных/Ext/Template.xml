@@ -1,0 +1,790 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПричинаОтказаРТУ</dataPath>
+			<field>ПричинаОтказаРТУ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Причина отказа</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.СостоянияСтрокДокументов</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИтогЗаказ</dataPath>
+			<field>ИтогЗаказ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Итог</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЗаявлено</dataPath>
+			<field>КоличествоЗаявлено</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заявлено</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИтогПТУ</dataPath>
+			<field>ИтогПТУ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Итог</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПричинаОтказаЗаявка</dataPath>
+			<field>ПричинаОтказаЗаявка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Причина отказа</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.СостоянияСтрокДокументов</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоОтгружено</dataPath>
+			<field>КоличествоОтгружено</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отгружено</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоОтказПТУ</dataPath>
+			<field>КоличествоОтказПТУ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отказ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИтогЗаявка</dataPath>
+			<field>ИтогЗаявка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Итог</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоПлан</dataPath>
+			<field>КоличествоПлан</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПричинаОтказаПТУ</dataPath>
+			<field>ПричинаОтказаПТУ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Причина отказа</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.СостоянияСтрокДокументов</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПричинаОтказаЗаказ</dataPath>
+			<field>ПричинаОтказаЗаказ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Причина отказа</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.СостоянияСтрокДокументов</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заявка</dataPath>
+			<field>Заявка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заявка</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЗаказано</dataPath>
+			<field>КоличествоЗаказано</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказано</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоОтказЗаявка</dataPath>
+			<field>КоличествоОтказЗаявка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отказ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регистратор</dataPath>
+			<field>Регистратор</field>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоПоступило</dataPath>
+			<field>КоличествоПоступило</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поступило</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоОтказЗаказ</dataPath>
+			<field>КоличествоОтказЗаказ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отказ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтрокаЗаявки</dataPath>
+			<field>СтрокаЗаявки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ИтогРТУ</dataPath>
+			<field>ИтогРТУ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Итог</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоОтказРТУ</dataPath>
+			<field>КоличествоОтказРТУ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отказ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	СУММА(РеализацияТоваровУслугТовары.КоличествоПлан) КАК КоличествоПлан,
+	РеализацияТоваровУслугТовары.СтрокаЗаявки,
+	РеализацияТоваровУслугТовары.Ссылка,
+	РеализацияТоваровУслугТовары.КлючСвязи,
+	СУММА(РеализацияТоваровУслугТовары.Количество) КАК Количество
+ПОМЕСТИТЬ РТУТовары
+ИЗ
+	Документ.РеализацияТоваровУслуг.Товары КАК РеализацияТоваровУслугТовары
+ГДЕ
+	РеализацияТоваровУслугТовары.Ссылка.Проведен
+	И РеализацияТоваровУслугТовары.СтрокаЗаявки В(&amp;СтрокиЗаявок)
+	И НЕ РеализацияТоваровУслугТовары.Ссылка.ЭтоМФП
+
+СГРУППИРОВАТЬ ПО
+	РеализацияТоваровУслугТовары.СтрокаЗаявки,
+	РеализацияТоваровУслугТовары.Ссылка,
+	РеализацияТоваровУслугТовары.КлючСвязи
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	РеализацияТоваровУслугПричиныОтказов.Ссылка,
+	СУММА(РеализацияТоваровУслугПричиныОтказов.Количество) КАК Количество,
+	РеализацияТоваровУслугПричиныОтказов.ПричинаОтмены,
+	РТУТовары.СтрокаЗаявки
+ПОМЕСТИТЬ РТУОтказы
+ИЗ
+	Документ.РеализацияТоваровУслуг.ПричиныОтказов КАК РеализацияТоваровУслугПричиныОтказов
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РТУТовары КАК РТУТовары
+		ПО РеализацияТоваровУслугПричиныОтказов.КлючСвязи = РТУТовары.КлючСвязи
+			И РеализацияТоваровУслугПричиныОтказов.Ссылка = РТУТовары.Ссылка
+
+СГРУППИРОВАТЬ ПО
+	РеализацияТоваровУслугПричиныОтказов.Ссылка,
+	РеализацияТоваровУслугПричиныОтказов.ПричинаОтмены,
+	РТУТовары.СтрокаЗаявки
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВложенныйЗапрос.Заявка,
+	ВложенныйЗапрос.СтрокаЗаявки,
+	ВложенныйЗапрос.Регистратор,
+	СУММА(ВложенныйЗапрос.КоличествоЗаявлено) КАК КоличествоЗаявлено,
+	СУММА(ВложенныйЗапрос.КоличествоОтказЗаявка) КАК КоличествоОтказЗаявка,
+	ВложенныйЗапрос.ПричинаОтказаЗаявка,
+	СУММА(ВложенныйЗапрос.ИтогЗаявка) КАК ИтогЗаявка,
+	СУММА(ВложенныйЗапрос.КоличествоЗаказано) КАК КоличествоЗаказано,
+	СУММА(ВложенныйЗапрос.КоличествоОтказЗаказ) КАК КоличествоОтказЗаказ,
+	ВложенныйЗапрос.ПричинаОтказаЗаказ,
+	СУММА(ВложенныйЗапрос.ИтогЗаказ) КАК ИтогЗаказ,
+	СУММА(ВложенныйЗапрос.КоличествоПоступило) КАК КоличествоПоступило,
+	СУММА(ВложенныйЗапрос.КоличествоОтказПТУ) КАК КоличествоОтказПТУ,
+	ВложенныйЗапрос.ПричинаОтказаПТУ,
+	СУММА(ВложенныйЗапрос.ИтогПТУ) КАК ИтогПТУ,
+	СУММА(ВложенныйЗапрос.КоличествоПлан) КАК КоличествоПлан,
+	СУММА(ВложенныйЗапрос.КоличествоОтгружено) КАК КоличествоОтгружено,
+	ВложенныйЗапрос.ПричинаОтказаРТУ,
+	СУММА(ВложенныйЗапрос.КоличествоОтказРТУ) КАК КоличествоОтказРТУ,
+	СУММА(ВложенныйЗапрос.ИтогРТУ) КАК ИтогРТУ
+ИЗ
+	(ВЫБРАТЬ
+		ЗаявкиПокупателей.СтрокаЗаявки.Заявка КАК Заявка,
+		ЗаявкиПокупателей.СтрокаЗаявки КАК СтрокаЗаявки,
+		ЗаявкиПокупателей.Регистратор КАК Регистратор,
+		СУММА(ЗаявкиПокупателей.Количество) КАК КоличествоЗаявлено,
+		0 КАК КоличествоОтказЗаявка,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка) КАК ПричинаОтказаЗаявка,
+		0 КАК ИтогЗаявка,
+		0 КАК КоличествоЗаказано,
+		0 КАК КоличествоОтказЗаказ,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка) КАК ПричинаОтказаЗаказ,
+		0 КАК ИтогЗаказ,
+		0 КАК КоличествоПоступило,
+		0 КАК КоличествоОтказПТУ,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка) КАК ПричинаОтказаПТУ,
+		0 КАК ИтогПТУ,
+		0 КАК КоличествоПлан,
+		0 КАК КоличествоОтгружено,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка) КАК ПричинаОтказаРТУ,
+		0 КАК КоличествоОтказРТУ,
+		0 КАК ИтогРТУ
+	ИЗ
+		РегистрНакопления.ЗаявкиПокупателей КАК ЗаявкиПокупателей
+	ГДЕ
+		ЗаявкиПокупателей.СтрокаЗаявки В(&amp;СтрокиЗаявок)
+		И (ЗаявкиПокупателей.Регистратор ССЫЛКА Документ.ЗаявкаПокупателя
+				ИЛИ ЗаявкиПокупателей.Регистратор ССЫЛКА Документ.КорректировкаЗаявкиПокупателя)
+		И ЗаявкиПокупателей.Активность
+		И ЗаявкиПокупателей.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход)
+	
+	СГРУППИРОВАТЬ ПО
+		ЗаявкиПокупателей.Регистратор,
+		ЗаявкиПокупателей.СтрокаЗаявки,
+		ЗаявкиПокупателей.СтрокаЗаявки.Заявка
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ОтказыПоЗаявкам.СтрокаЗаявки.Заявка,
+		ОтказыПоЗаявкам.СтрокаЗаявки,
+		ОтказыПоЗаявкам.Регистратор,
+		0,
+		СУММА(ОтказыПоЗаявкам.Количество),
+		ОтказыПоЗаявкам.ПричинаОтказа,
+		0,
+		0,
+		0,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		0,
+		0,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		0,
+		0,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		0
+	ИЗ
+		РегистрНакопления.ОтказыПоЗаявкам КАК ОтказыПоЗаявкам
+	ГДЕ
+		(ОтказыПоЗаявкам.Регистратор ССЫЛКА Документ.ЗаявкаПокупателя
+				ИЛИ ОтказыПоЗаявкам.Регистратор ССЫЛКА Документ.КорректировкаЗаявкиПокупателя)
+		И ОтказыПоЗаявкам.СтрокаЗаявки В(&amp;СтрокиЗаявок)
+		И ОтказыПоЗаявкам.Активность
+	
+	СГРУППИРОВАТЬ ПО
+		ОтказыПоЗаявкам.Регистратор,
+		ОтказыПоЗаявкам.СтрокаЗаявки,
+		ОтказыПоЗаявкам.ПричинаОтказа,
+		ОтказыПоЗаявкам.СтрокаЗаявки.Заявка
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ЗаказыПоставщикам.СтрокаЗаявки.Заявка,
+		ЗаказыПоставщикам.СтрокаЗаявки,
+		ЗаказыПоставщикам.Регистратор,
+		0,
+		0,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		СУММА(ЗаказыПоставщикам.Количество),
+		0,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		0,
+		0,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		0,
+		0,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		0
+	ИЗ
+		РегистрНакопления.ЗаказыПоставщикам КАК ЗаказыПоставщикам
+	ГДЕ
+		ЗаказыПоставщикам.СтрокаЗаявки В(&amp;СтрокиЗаявок)
+		И ЗаказыПоставщикам.Регистратор ССЫЛКА Документ.ЗаказПоставщику
+		И ЗаказыПоставщикам.Активность
+		И ЗаказыПоставщикам.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход)
+	
+	СГРУППИРОВАТЬ ПО
+		ЗаказыПоставщикам.Регистратор,
+		ЗаказыПоставщикам.СтрокаЗаявки,
+		ЗаказыПоставщикам.СтрокаЗаявки.Заявка
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ОтказыПоЗаявкам.СтрокаЗаявки.Заявка,
+		ОтказыПоЗаявкам.СтрокаЗаявки,
+		ОтказыПоЗаявкам.Регистратор,
+		0,
+		0,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		0,
+		СУММА(ОтказыПоЗаявкам.Количество),
+		ОтказыПоЗаявкам.ПричинаОтказа,
+		0,
+		0,
+		0,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		0,
+		0,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		0
+	ИЗ
+		РегистрНакопления.ОтказыПоЗаявкам КАК ОтказыПоЗаявкам
+	ГДЕ
+		(ОтказыПоЗаявкам.Регистратор ССЫЛКА Документ.ЗаказПоставщику
+				ИЛИ ОтказыПоЗаявкам.Регистратор ССЫЛКА Документ.КорректировкаЗаказаПоставщику)
+		И ОтказыПоЗаявкам.СтрокаЗаявки В(&amp;СтрокиЗаявок)
+		И ОтказыПоЗаявкам.Активность
+	
+	СГРУППИРОВАТЬ ПО
+		ОтказыПоЗаявкам.Регистратор,
+		ОтказыПоЗаявкам.СтрокаЗаявки,
+		ОтказыПоЗаявкам.ПричинаОтказа,
+		ОтказыПоЗаявкам.СтрокаЗаявки.Заявка
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ПоступлениеТоваровУслугРазмещениеСтрокПрихода.СтрокаЗаявки.Заявка,
+		ПоступлениеТоваровУслугРазмещениеСтрокПрихода.СтрокаЗаявки,
+		ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Ссылка,
+		0,
+		0,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		0,
+		0,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		СУММА(ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Количество),
+		0,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		0,
+		0,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		0
+	ИЗ
+		Документ.ПоступлениеТоваровУслуг.РазмещениеСтрокПрихода КАК ПоступлениеТоваровУслугРазмещениеСтрокПрихода
+	ГДЕ
+		ПоступлениеТоваровУслугРазмещениеСтрокПрихода.СтрокаЗаявки В(&amp;СтрокиЗаявок)
+		И ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Ссылка.Проведен
+		И НЕ ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Ссылка.ЭтоМФП
+	
+	СГРУППИРОВАТЬ ПО
+		ПоступлениеТоваровУслугРазмещениеСтрокПрихода.Ссылка,
+		ПоступлениеТоваровУслугРазмещениеСтрокПрихода.СтрокаЗаявки,
+		ПоступлениеТоваровУслугРазмещениеСтрокПрихода.СтрокаЗаявки.Заявка
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ПоступлениеТоваровУслугПричиныОтказов.СтрокаЗаявки.Заявка,
+		ПоступлениеТоваровУслугПричиныОтказов.СтрокаЗаявки,
+		ПоступлениеТоваровУслугПричиныОтказов.Ссылка,
+		0,
+		0,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		0,
+		0,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		0,
+		СУММА(ПоступлениеТоваровУслугПричиныОтказов.Количество),
+		ПоступлениеТоваровУслугПричиныОтказов.ПричинаОтказа,
+		0,
+		0,
+		0,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		0
+	ИЗ
+		Документ.ПоступлениеТоваровУслуг.ПричиныОтказов КАК ПоступлениеТоваровУслугПричиныОтказов
+	ГДЕ
+		ПоступлениеТоваровУслугПричиныОтказов.СтрокаЗаявки В(&amp;СтрокиЗаявок)
+		И ПоступлениеТоваровУслугПричиныОтказов.Ссылка.Проведен
+		И НЕ ПоступлениеТоваровУслугПричиныОтказов.Ссылка.ЭтоМФП
+	
+	СГРУППИРОВАТЬ ПО
+		ПоступлениеТоваровУслугПричиныОтказов.Ссылка,
+		ПоступлениеТоваровУслугПричиныОтказов.СтрокаЗаявки,
+		ПоступлениеТоваровУслугПричиныОтказов.ПричинаОтказа,
+		ПоступлениеТоваровУслугПричиныОтказов.СтрокаЗаявки.Заявка
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		РТУТовары.СтрокаЗаявки.Заявка,
+		РТУТовары.СтрокаЗаявки,
+		РТУТовары.Ссылка,
+		0,
+		0,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		0,
+		0,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		0,
+		0,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		СУММА(РТУТовары.КоличествоПлан),
+		СУММА(РТУТовары.Количество),
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		0
+	ИЗ
+		РТУТовары КАК РТУТовары
+	
+	СГРУППИРОВАТЬ ПО
+		РТУТовары.СтрокаЗаявки.Заявка,
+		РТУТовары.СтрокаЗаявки,
+		РТУТовары.Ссылка
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		РТУОтказы.СтрокаЗаявки.Заявка,
+		РТУОтказы.СтрокаЗаявки,
+		РТУОтказы.Ссылка,
+		0,
+		0,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		0,
+		0,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		0,
+		0,
+		ЗНАЧЕНИЕ(Справочник.СостоянияСтрокДокументов.ПустаяСсылка),
+		0,
+		0,
+		0,
+		РТУОтказы.ПричинаОтмены,
+		РТУОтказы.Количество,
+		0
+	ИЗ
+		РТУОтказы КАК РТУОтказы) КАК ВложенныйЗапрос
+
+СГРУППИРОВАТЬ ПО
+	ВложенныйЗапрос.Заявка,
+	ВложенныйЗапрос.СтрокаЗаявки,
+	ВложенныйЗапрос.Регистратор,
+	ВложенныйЗапрос.ПричинаОтказаЗаявка,
+	ВложенныйЗапрос.ПричинаОтказаЗаказ,
+	ВложенныйЗапрос.ПричинаОтказаПТУ,
+	ВложенныйЗапрос.ПричинаОтказаРТУ</query>
+	</dataSet>
+	<totalField>
+		<dataPath>ИтогЗаказ</dataPath>
+		<expression>Сумма(КоличествоЗаказано)-Сумма(КоличествоОтказЗаказ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ИтогЗаявка</dataPath>
+		<expression>Сумма(КоличествоЗаявлено)-Сумма(КоличествоОтказЗаявка)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ИтогПТУ</dataPath>
+		<expression>Сумма(КоличествоПоступило)-Сумма(КоличествоОтказПТУ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ИтогРТУ</dataPath>
+		<expression>Сумма(КоличествоПлан)-Сумма(КоличествоОтказРТУ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоЗаказано</dataPath>
+		<expression>Сумма(КоличествоЗаказано)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоЗаявлено</dataPath>
+		<expression>Сумма(КоличествоЗаявлено)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоОтгружено</dataPath>
+		<expression>Сумма(КоличествоОтгружено)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоОтказЗаказ</dataPath>
+		<expression>Сумма(КоличествоОтказЗаказ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоОтказЗаявка</dataPath>
+		<expression>Сумма(КоличествоОтказЗаявка)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоОтказПТУ</dataPath>
+		<expression>Сумма(КоличествоОтказПТУ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоОтказРТУ</dataPath>
+		<expression>Сумма(КоличествоОтказРТУ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоПлан</dataPath>
+		<expression>Сумма(КоличествоПлан)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоПоступило</dataPath>
+		<expression>Сумма(КоличествоПоступило)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПричинаОтказаЗаказ</dataPath>
+		<expression>ПричинаОтказаЗаказ</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПричинаОтказаЗаявка</dataPath>
+		<expression>ПричинаОтказаЗаявка</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПричинаОтказаПТУ</dataPath>
+		<expression>ПричинаОтказаПТУ</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПричинаОтказаРТУ</dataPath>
+		<expression>ПричинаОтказаРТУ</expression>
+	</totalField>
+	<parameter>
+		<name>СтрокиЗаявок</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Строки заявок</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ИдентификаторыСтрокЗаявок</v8:Type>
+		</valueType>
+		<useRestriction>false</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Регистратор</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заявки покупателя</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоЗаявлено</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоОтказЗаявка</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПричинаОтказаЗаявка</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ИтогЗаявка</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заказ поставщику</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоЗаказано</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоОтказЗаказ</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПричинаОтказаЗаказ</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ИтогЗаказ</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Поступление товаров услуг</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоПоступило</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоОтказПТУ</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПричинаОтказаПТУ</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ИтогПТУ</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реализация товаров услуг</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоПлан</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоОтказРТУ</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПричинаОтказаРТУ</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоОтгружено</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ИтогРТУ</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>РасположениеПолейГруппировки</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionGroupFieldsPlacement">Separately</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>АвтоПозицияРесурсов</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionResourcesAutoPosition">DontUse</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Заявка</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>СтрокаЗаявки</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>
