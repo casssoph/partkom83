@@ -13,6 +13,17 @@
 			<ContextMenu name="КодКонтекстноеМеню" id="2"/>
 			<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
 		</InputField>
+		<InputField name="ТипЗначения" id="78">
+			<DataPath>Объект.ValueType</DataPath>
+			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+			<ChooseType>false</ChooseType>
+			<TypeDomainEnabled>false</TypeDomainEnabled>
+			<ContextMenu name="ТипЗначенияКонтекстноеМеню" id="79"/>
+			<ExtendedTooltip name="ТипЗначенияРасширеннаяПодсказка" id="80"/>
+			<Events>
+				<Event name="OnChange">ТипЗначенияПриИзменении</Event>
+			</Events>
+		</InputField>
 		<InputField name="Наименование" id="4">
 			<DataPath>Объект.Description</DataPath>
 			<EditMode>EnterOnInput</EditMode>
@@ -311,15 +322,6 @@
 			<Type>
 				<v8:Type>dcsset:SettingsComposer</v8:Type>
 			</Type>
-		</Attribute>
-		<Attribute name="ИмяМетаданных" id="3">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Имя метаданных</v8:content>
-				</v8:item>
-			</Title>
-			<Type/>
 		</Attribute>
 	</Attributes>
 </Form>
