@@ -40,6 +40,11 @@
 						<CommandName>Form.Command.ПометитьНаУдаление</CommandName>
 						<ExtendedTooltip name="ПометитьНаУдалениеРасширеннаяПодсказка" id="43"/>
 					</Button>
+					<Button name="КорректировкиДокументаИсторияИзменений" id="64">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ИсторияИзменений</CommandName>
+						<ExtendedTooltip name="КорректировкиДокументаИсторияИзмененийРасширеннаяПодсказка" id="65"/>
+					</Button>
 				</ChildItems>
 			</AutoCommandBar>
 			<ExtendedTooltip name="КорректировкиДокументаРасширеннаяПодсказка" id="12"/>
@@ -79,6 +84,27 @@
 					<ContextMenu name="Таблица1РегистраторКонтекстноеМеню" id="26"/>
 					<ExtendedTooltip name="Таблица1РегистраторРасширеннаяПодсказка" id="27"/>
 				</LabelField>
+				<ColumnGroup name="КорректировкиДокументаГруппа1" id="69">
+					<Group>InCell</Group>
+					<ExtendedTooltip name="КорректировкиДокументаГруппа1РасширеннаяПодсказка" id="70"/>
+					<ChildItems>
+						<PictureField name="КорректировкиДокументаСостояниеДокумента" id="71">
+							<DataPath>КорректировкиДокумента.СостояниеДокумента</DataPath>
+							<ShowInHeader>false</ShowInHeader>
+							<ValuesPicture>
+								<xr:Ref>CommonPicture.СостоянияДокумента</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</ValuesPicture>
+							<ContextMenu name="КорректировкиДокументаСостояниеДокументаКонтекстноеМеню" id="72"/>
+							<ExtendedTooltip name="КорректировкиДокументаСостояниеДокументаРасширеннаяПодсказка" id="73"/>
+						</PictureField>
+						<LabelField name="Таблица1ДокументКорректировки" id="34">
+							<DataPath>КорректировкиДокумента.ДокументКорректировки</DataPath>
+							<ContextMenu name="Таблица1ДокументКорректировкиКонтекстноеМеню" id="35"/>
+							<ExtendedTooltip name="Таблица1ДокументКорректировкиРасширеннаяПодсказка" id="36"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
 				<LabelField name="Таблица1НомерСтроки" id="28">
 					<DataPath>КорректировкиДокумента.LineNumber</DataPath>
 					<Visible>false</Visible>
@@ -90,11 +116,6 @@
 					<Visible>false</Visible>
 					<ContextMenu name="Таблица1ДокументКонтекстноеМеню" id="32"/>
 					<ExtendedTooltip name="Таблица1ДокументРасширеннаяПодсказка" id="33"/>
-				</LabelField>
-				<LabelField name="Таблица1ДокументКорректировки" id="34">
-					<DataPath>КорректировкиДокумента.ДокументКорректировки</DataPath>
-					<ContextMenu name="Таблица1ДокументКорректировкиКонтекстноеМеню" id="35"/>
-					<ExtendedTooltip name="Таблица1ДокументКорректировкиРасширеннаяПодсказка" id="36"/>
 				</LabelField>
 				<LabelField name="КорректировкиДокументаДокументКорректировкиОрганизация" id="46">
 					<DataPath>КорректировкиДокумента.ДокументКорректировки.Организация</DataPath>
@@ -158,8 +179,26 @@
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
 			<Settings xsi:type="DynamicList">
-				<ManualQuery>false</ManualQuery>
+				<ManualQuery>true</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	РегистрСведенийДокументыКорректировок.Период,
+	РегистрСведенийДокументыКорректировок.Регистратор,
+	РегистрСведенийДокументыКорректировок.НомерСтроки,
+	РегистрСведенийДокументыКорректировок.Активность,
+	РегистрСведенийДокументыКорректировок.Документ,
+	РегистрСведенийДокументыКорректировок.ДокументКорректировки,
+	РегистрСведенийДокументыКорректировок.СтатусДокумента,
+	РегистрСведенийДокументыКорректировок.МоментВремени,
+	ВЫБОР
+		КОГДА РегистрСведенийДокументыКорректировок.ДокументКорректировки.Проведен
+			ТОГДА 0
+		КОГДА РегистрСведенийДокументыКорректировок.ДокументКорректировки.ПометкаУдаления
+			ТОГДА 1
+		ИНАЧЕ 2
+	КОНЕЦ КАК СостояниеДокумента
+ИЗ
+	РегистрСведений.ДокументыКорректировок КАК РегистрСведенийДокументыКорректировок</QueryText>
 				<MainTable>InformationRegister.ДокументыКорректировок</MainTable>
 				<ListSettings>
 					<dcsset:filter>
@@ -242,6 +281,21 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>ДействиеКнопки</Action>
+		</Command>
+		<Command name="ИсторияИзменений" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>История изменений</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>История изменений</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ИсторияИзменений</Action>
 		</Command>
 	</Commands>
 </Form>
