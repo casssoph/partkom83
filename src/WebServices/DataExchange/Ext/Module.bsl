@@ -49,6 +49,12 @@
 	
 КонецФункции
 
+Функция GetDocForBitKod(Data,Number,Answer,Kod) 
+	
+	Возврат DataExchangeModule.GetDocForBitKod(Data,Number,Answer,Kod); 
+	
+КонецФункции
+
 Функция GetDocumentsForExchangeToplog(DataB, DataC)
 	
 	Возврат DataExchangeModule.ПолучитьДокументыДляОбменаТоплог(DataB, DataC);
