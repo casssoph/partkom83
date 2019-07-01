@@ -154,6 +154,21 @@
 			<Metadata name="AccumulationRegister.ПополнениеСклада.Dimension.Номенклатура" id="fa4298d5-ee86-4dad-95d1-566db740febc"/>
 			<Metadata name="AccumulationRegister.ПополнениеСклада.Resource.Количество" id="fe4901b3-f01e-4a8f-ace1-d8839f5ed6f6"/>
 		</Metadata>
+		<Metadata name="AccumulationRegister.ПриемкиТоваров" id="7309a820-e68e-44b3-9ccb-945d300085dd" configVersion="4bb8063bbb072a448f0246ff29cdb39d00000000">
+			<Metadata name="AccumulationRegister.ПриемкиТоваров.Resource.КоличествоВернули" id="1cfbb0f8-aa5f-47a3-9501-07f5c4b57e03"/>
+			<Metadata name="AccumulationRegister.ПриемкиТоваров.Resource.КоличествоБрак" id="29882b03-dc2b-413a-92f8-4a66a3ba9b4c"/>
+			<Metadata name="AccumulationRegister.ПриемкиТоваров.Dimension.Номенклатура" id="358d7e31-d328-4431-94ce-b1e538af4962"/>
+			<Metadata name="AccumulationRegister.ПриемкиТоваров.Resource.КоличествоИзлишек" id="577db7d6-9e57-4860-99af-db199cbf8dd1"/>
+			<Metadata name="AccumulationRegister.ПриемкиТоваров.Resource.Количество" id="7cc58b34-7f8d-4458-b7ae-19e5851a4c89"/>
+			<Metadata name="AccumulationRegister.ПриемкиТоваров.Dimension.ДоговорКонтрагента" id="838c31b3-4181-45ee-887c-d743f00383f8"/>
+			<Metadata name="AccumulationRegister.ПриемкиТоваров.Resource.КоличествоНедостача" id="9aad34ca-cff4-4709-a6a9-f715f63fae18"/>
+			<Metadata name="AccumulationRegister.ПриемкиТоваров.Attribute.ДатаЗавершенияРаботПоАктуПриемки" id="b30275a8-468b-45b1-8db7-ac6a8cd6f625"/>
+			<Metadata name="AccumulationRegister.ПриемкиТоваров.Dimension.ТорговаяТочка" id="c893b794-a3b6-4f7b-b0fc-aab8ff53b6c9"/>
+			<Metadata name="AccumulationRegister.ПриемкиТоваров.Resource.КоличествоПлан" id="c9597da7-70f8-41e4-9ece-d45cd0ae6c1c"/>
+			<Metadata name="AccumulationRegister.ПриемкиТоваров.Attribute.СтатусАктаПриемки" id="db639914-b1f8-4b0b-a710-99cefe25d050"/>
+			<Metadata name="AccumulationRegister.ПриемкиТоваров.Resource.КоличествоВернулиПозже" id="e1ee746c-e0ca-4e92-b7ee-caf006b96bf5"/>
+			<Metadata name="AccumulationRegister.ПриемкиТоваров.Dimension.СтрокаЗаявки" id="ef49bcfc-2fca-45fa-bdc6-40045a13ca1b"/>
+		</Metadata>
 		<Metadata name="AccumulationRegister.Продажи" id="12340493-15c9-42d9-98c2-1c4abe029f83" configVersion="401af07bef82d54ebeb819bd291c75b300000000">
 			<Metadata name="AccumulationRegister.Продажи.Resource.СуммаРегл" id="0ac273b5-f349-43b8-ab08-ade4b394d51c"/>
 			<Metadata name="AccumulationRegister.Продажи.Dimension.Качество" id="2780a5e0-56ce-45bc-9c5b-cbbf644fbb6d"/>
@@ -4571,7 +4586,7 @@
 		<Metadata name="CommonTemplate.Эталон.Template" id="24dadd67-3889-457f-901d-25da7338c184.0" configVersion="346bb57482a0434498e0d9fb9837467600000000"/>
 		<Metadata name="CommonTemplate.внОписаниеИзменений" id="11ef461b-2845-4e96-9c8d-bc565fd3f977" configVersion="ef0fe6f01440ef408b7b68dd93a6191700000000"/>
 		<Metadata name="CommonTemplate.внОписаниеИзменений.Template" id="11ef461b-2845-4e96-9c8d-bc565fd3f977.0" configVersion="4cceb25e0b537542a03ffc7d26e9630100000000"/>
-		<Metadata name="Configuration.ПартКом" id="f1877542-4901-4e19-85a5-7ac952814031" configVersion="fcb7100fb602fb44b07e5f322e5531ee00000000"/>
+		<Metadata name="Configuration.ПартКом" id="f1877542-4901-4e19-85a5-7ac952814031" configVersion="b3de40da8162c54f8154b86d31bb38f300000000"/>
 		<Metadata name="Configuration.ПартКом.ExternalConnectionModule" id="d5c0af9b-55ca-4335-b540-2c6aa49082d6.5" configVersion="3b647ca0e33e14489291d4998c6e228f00000000"/>
 		<Metadata name="Configuration.ПартКом.ManagedApplicationModule" id="d5c0af9b-55ca-4335-b540-2c6aa49082d6.6" configVersion="999d3fe6f47f254ab765e901226dc88000000000"/>
 		<Metadata name="Configuration.ПартКом.OrdinaryApplicationModule" id="d5c0af9b-55ca-4335-b540-2c6aa49082d6.0" configVersion="4ebe4d295168c949bedec22808879d9500000000"/>
@@ -14106,8 +14121,8 @@
 		<Metadata name="Role.ОКРП.Rights" id="a2820654-82aa-4045-b9c5-ed913fb5b321.0" configVersion="ec83d592c3a7d54fa6f89e5f53f23d6e00000000"/>
 		<Metadata name="Role.ПолныеПрава" id="dad96b1a-704f-43f6-a66d-8c2dfd41d8c9" configVersion="cef8599cc7af8a40adc219ead8860b3c00000000"/>
 		<Metadata name="Role.ПолныеПрава.Rights" id="dad96b1a-704f-43f6-a66d-8c2dfd41d8c9.0" configVersion="d940aa5185a7874f8279b3b8a762de0f00000000"/>
-		<Metadata name="Role.Пользователь" id="c5f78a19-8398-4cc5-9127-68b697466cad" configVersion="deca0125b61f11439a4706bd8e45bb2600000000"/>
-		<Metadata name="Role.Пользователь.Rights" id="c5f78a19-8398-4cc5-9127-68b697466cad.0" configVersion="d8cf393f7380ae47986b7745adf191d000000000"/>
+		<Metadata name="Role.Пользователь" id="c5f78a19-8398-4cc5-9127-68b697466cad" configVersion="125f2ad9fdafce45b2b317c00c0fce9800000000"/>
+		<Metadata name="Role.Пользователь.Rights" id="c5f78a19-8398-4cc5-9127-68b697466cad.0" configVersion="5d36ca8361877d44a7e3b8b07af52bce00000000"/>
 		<Metadata name="Role.ПрайсыЧтение" id="76ceca14-5c87-4541-b092-90897e906e6c" configVersion="c72b8450ff48564c82592dd6a2f054ea00000000"/>
 		<Metadata name="Role.ПрайсыЧтение.Rights" id="76ceca14-5c87-4541-b092-90897e906e6c.0" configVersion="34f0ba52556b8e4a83f9dcd38cfe0fe000000000"/>
 		<Metadata name="Role.РасширенныйРежимРасчетаПремии2Процента" id="ab287442-b8f4-4cf9-994e-76cb77fb8b8c" configVersion="3a4a24234cb5bd4884db95e84f44a23e00000000"/>
