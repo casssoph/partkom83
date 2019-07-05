@@ -427,6 +427,16 @@
 				<dcscom:periodType>Main</dcscom:periodType>
 			</role>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтказыПослеГарСрокаРуб</dataPath>
+			<field>ОтказыПослеГарСрокаРуб</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отказы после гар срока руб</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	ЗаказыПоставщикамОбороты.СтрокаЗаявки КАК СтрокаЗаявки,
@@ -499,7 +509,16 @@
 	КОНЕЦ КАК БракРуб,
 	ЗаказыПоставщикамОбороты.ДоговорКонтрагента КАК ДоговорКонтрагента,
 	ЗаказыПоставщикамОбороты.СтрокаЗаявки.ПрайсПоставщика КАК ПрайсПоставщика,
-	ЗаказыПоставщикамОбороты.Регистратор КАК ДокументДвижения
+	ЗаказыПоставщикамОбороты.Регистратор КАК ДокументДвижения,
+	ВЫБОР
+		КОГДА НЕ ОтказыПоЗаявкамОбороты.СтрокаЗаявки ЕСТЬ NULL
+			ТОГДА ВЫБОР
+					КОГДА ОтказыПоЗаявкамОбороты.ПериодДень &gt;= ОтказыПоЗаявкамОбороты.СтрокаЗаявки.СрокГарантированныйЗаказа
+						ТОГДА ОтказыПоЗаявкамОбороты.СуммаРеглОборот
+					ИНАЧЕ 0
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК ОтказыПослеГарСрокаРуб
 ПОМЕСТИТЬ ВТ_Заказы
 {ВЫБРАТЬ
 	СтрокаЗаявки.*,
@@ -657,7 +676,8 @@
 	СУММА(ВложенныйЗапрос.НедостачиРуб) КАК НедостачиРуб,
 	СУММА(ВложенныйЗапрос.НедостачиШт) КАК НедостачиШт,
 	СУММА(ВложенныйЗапрос.БракШт) КАК БракШт,
-	СУММА(ВложенныйЗапрос.БракРуб) КАК БракРуб
+	СУММА(ВложенныйЗапрос.БракРуб) КАК БракРуб,
+	СУММА(ВложенныйЗапрос.ОтказыПослеГарСрокаРуб) КАК ОтказыПослеГарСрокаРуб
 {ВЫБРАТЬ
 	СтрокаЗаявки.*,
 	ТорговаяТочка.*,
@@ -692,7 +712,8 @@
 	НедостачиРуб,
 	НедостачиШт,
 	БракШт,
-	БракРуб}
+	БракРуб,
+	ОтказыПослеГарСрокаРуб}
 ИЗ
 	(ВЫБРАТЬ
 		ВТ_Заказы.СтрокаЗаявки КАК СтрокаЗаявки,
@@ -748,7 +769,8 @@
 		ВТ_Заказы.НедостачиРуб КАК НедостачиРуб,
 		ВТ_Заказы.НедостачиШт КАК НедостачиШт,
 		ВТ_Заказы.БракШт КАК БракШт,
-		ВТ_Заказы.БракРуб КАК БракРуб
+		ВТ_Заказы.БракРуб КАК БракРуб,
+		ВТ_Заказы.ОтказыПослеГарСрокаРуб КАК ОтказыПослеГарСрокаРуб
 	ИЗ
 		ВТ_Заказы КАК ВТ_Заказы
 			ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_датыПриемки КАК ВТ_датыПриемки
@@ -1092,6 +1114,33 @@
 			</v8:item>
 		</title>
 	</calculatedField>
+	<calculatedField>
+		<dataPath>ПроцентОтказовПослеГарСрока</dataPath>
+		<expression>0</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Процент отказов после гар срока</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<group>true</group>
+		</useRestriction>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=2; ЧГ=' '</dcscor:value>
+			</dcscor:item>
+		</appearance>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+	</calculatedField>
 	<totalField>
 		<dataPath>ПроцентОтказовШТ</dataPath>
 		<expression>Выбор когда Сумма(ЗакрытоВсегоШТ)= 0 тогда 0 иначе Сумма(ОтказовПоставщикаШт)/Сумма(ЗакрытоВсегоШТ) конец</expression>
@@ -1200,6 +1249,14 @@
 	<totalField>
 		<dataPath>ЗаказовПоГарСрокуШт</dataPath>
 		<expression>Сумма(ЗаказовПоГарСрокуШт)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтказыПослеГарСрокаРуб</dataPath>
+		<expression>Сумма(ОтказыПослеГарСрокаРуб)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПроцентОтказовПослеГарСрока</dataPath>
+		<expression>Выбор когда Сумма(ЗакрытоВсегоШт) = 0 тогда 0 иначе Сумма(ОтказыПослеГарСрокаРуб)/Сумма(ЗакрытоВсегоШт) конец </expression>
 	</totalField>
 	<parameter>
 		<name>НачалоПериода</name>
@@ -1741,6 +1798,21 @@
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>ПроцентНарушенийПоСроку</dcsset:field>
 				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ОтказыПослеГарСрока</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ОтказыПослеГарСрокаРуб</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПроцентОтказовПослеГарСрока</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Vertically</dcsset:placement>
+				</dcsset:item>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>b5af3636-4a02-4a63-897d-cc5077661e87</dcsset:userSettingID>
 			</dcsset:selection>
@@ -1834,6 +1906,7 @@
 							<dcscor:value xsi:type="v8ui:Color">web:Coral</dcscor:value>
 						</dcscor:item>
 					</dcsset:appearance>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
 					<dcsset:userSettingID>9a399357-12ca-42d4-95f2-5342309b39a6</dcsset:userSettingID>
 					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
 						<v8:item>
@@ -1857,6 +1930,7 @@
 							<dcscor:value xsi:type="v8ui:Color">web:IndianRed</dcscor:value>
 						</dcscor:item>
 					</dcsset:appearance>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
 					<dcsset:userSettingID>2a6fc19c-18e1-4aa5-ad5a-1fa5d2dec38c</dcsset:userSettingID>
 					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
 						<v8:item>
