@@ -7,26 +7,6 @@
 	<dataSet xsi:type="DataSetQuery">
 		<name>НаборДанных1</name>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>РегионГоловного</dataPath>
-			<field>РегионГоловного</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Регион головного</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Регион</dataPath>
-			<field>Регион</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Регион</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>Контрагент</dataPath>
 			<field>Контрагент</field>
 			<title xsi:type="v8:LocalStringType">
@@ -76,13 +56,33 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Филиал</dataPath>
+			<field>Филиал</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Филиал</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФилиалГоловного</dataPath>
+			<field>ФилиалГоловного</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Филиал головного</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	КонтрагентыГоловные.Ссылка КАК ГоловнойКонтрагент,
-	КонтрагентыГоловные.ОсновнаяТорговаяТочка.Регион КАК РегионГоловного,
+	КонтрагентыГоловные.ОсновнаяТорговаяТочка.Регион.Филиал КАК ФилиалГоловного,
 	КонтрагентыГоловные.ОсновнойДоговорКонтрагента.Организация КАК ОрганизацияГоловного,
 	Контрагенты.Ссылка КАК Контрагент,
-	Контрагенты.ОсновнаяТорговаяТочка.Регион КАК Регион,
+	Контрагенты.ОсновнаяТорговаяТочка.Регион.Филиал КАК Филиал,
 	Контрагенты.ОсновнойДоговорКонтрагента.Организация КАК Организация,
 	1 КАК НомерПакета
 ИЗ
@@ -90,17 +90,17 @@
 		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.Контрагенты КАК КонтрагентыГоловные
 		ПО Контрагенты.ГоловнойКонтрагент = КонтрагентыГоловные.Ссылка
 ГДЕ
-	Контрагенты.ОсновнаяТорговаяТочка.Регион = &amp;Регион
-	И КонтрагентыГоловные.ОсновнаяТорговаяТочка.Регион &lt;&gt; &amp;Регион
+	Контрагенты.ОсновнаяТорговаяТочка.Регион.Филиал = &amp;Филиал
+	И КонтрагентыГоловные.ОсновнаяТорговаяТочка.Регион.Филиал &lt;&gt; &amp;Филиал
 
 ОБЪЕДИНИТЬ ВСЕ
 
 ВЫБРАТЬ
 	Контрагенты.Ссылка,
-	Контрагенты.ОсновнаяТорговаяТочка.Регион,
+	Контрагенты.ОсновнаяТорговаяТочка.Регион.Филиал,
 	Контрагенты.ОсновнойДоговорКонтрагента.Организация,
 	КонтрагентыПодч.Ссылка,
-	КонтрагентыПодч.ОсновнаяТорговаяТочка.Регион,
+	КонтрагентыПодч.ОсновнаяТорговаяТочка.Регион.Филиал,
 	КонтрагентыПодч.ОсновнойДоговорКонтрагента.Организация,
 	2
 ИЗ
@@ -108,19 +108,19 @@
 		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.Контрагенты КАК КонтрагентыПодч
 		ПО Контрагенты.Ссылка = КонтрагентыПодч.ГоловнойКонтрагент
 ГДЕ
-	Контрагенты.ОсновнаяТорговаяТочка.Регион = &amp;Регион
-	И КонтрагентыПодч.ОсновнаяТорговаяТочка.Регион &lt;&gt; &amp;Регион</query>
+	Контрагенты.ОсновнаяТорговаяТочка.Регион.Филиал = &amp;Филиал
+	И КонтрагентыПодч.ОсновнаяТорговаяТочка.Регион.Филиал &lt;&gt; &amp;Филиал</query>
 	</dataSet>
 	<parameter>
-		<name>Регион</name>
+		<name>Филиал</name>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
-				<v8:content>Регион</v8:content>
+				<v8:content>Филиал</v8:content>
 			</v8:item>
 		</title>
 		<valueType>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Регионы</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Филиалы</v8:Type>
 		</valueType>
 		<value xsi:nil="true"/>
 		<useRestriction>false</useRestriction>
@@ -137,7 +137,7 @@
 					<dcsset:field>ОрганизацияГоловного</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>РегионГоловного</dcsset:field>
+					<dcsset:field>ФилиалГоловного</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Контрагент</dcsset:field>
@@ -146,22 +146,14 @@
 					<dcsset:field>Организация</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>Регион</dcsset:field>
+					<dcsset:field>Филиал</dcsset:field>
 				</dcsset:item>
 			</dcsset:selection>
-			<dcsset:dataParameters>
-				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:use>false</dcscor:use>
-					<dcscor:parameter>Регион</dcscor:parameter>
-					<dcscor:value xsi:type="dcscor:DesignTimeValue">Справочник.Регионы.ПустаяСсылка</dcscor:value>
-					<dcsset:userSettingID>3383053b-856f-4879-b9a7-64750db7aa7e</dcsset:userSettingID>
-				</dcscor:item>
-			</dcsset:dataParameters>
 			<dcsset:conditionalAppearance>
 				<dcsset:item>
 					<dcsset:selection>
 						<dcsset:item>
-							<dcsset:field>Регион</dcsset:field>
+							<dcsset:field>Филиал</dcsset:field>
 						</dcsset:item>
 					</dcsset:selection>
 					<dcsset:filter>
@@ -181,7 +173,7 @@
 				<dcsset:item>
 					<dcsset:selection>
 						<dcsset:item>
-							<dcsset:field>РегионГоловного</dcsset:field>
+							<dcsset:field>ФилиалГоловного</dcsset:field>
 						</dcsset:item>
 					</dcsset:selection>
 					<dcsset:filter>
