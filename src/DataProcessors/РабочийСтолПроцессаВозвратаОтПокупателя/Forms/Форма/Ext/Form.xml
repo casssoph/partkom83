@@ -2,6 +2,12 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4">
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
+			<Button name="ФормаПоискПоШтрихкоду" id="138">
+				<Type>CommandBarButton</Type>
+				<OnlyInAllActions>false</OnlyInAllActions>
+				<CommandName>Form.Command.ПоискПоШтрихкоду</CommandName>
+				<ExtendedTooltip name="ФормаПоискПоШтрихкодуРасширеннаяПодсказка" id="139"/>
+			</Button>
 			<Button name="ФормаПечатьУКД" id="128">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.ПечатьУКД</CommandName>
@@ -23,6 +29,7 @@
 	<Events>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="ExternalEvent">ВнешнееСобытие</Event>
+		<Event name="ActivationProcessing">ОбработкаАктивизации</Event>
 		<Event name="OnClose">ПриЗакрытии</Event>
 	</Events>
 	<ChildItems>
@@ -181,6 +188,11 @@
 											<xr:LoadTransparent>true</xr:LoadTransparent>
 										</Picture>
 										<ExtendedTooltip name="АктыРассмотренияВозвратаОбновитьРасширеннаяПодсказка" id="106"/>
+									</Button>
+									<Button name="АктыРассмотренияВозвратаПоискПоШтрихкоду" id="140">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ПоискПоШтрихкоду</CommandName>
+										<ExtendedTooltip name="АктыРассмотренияВозвратаПоискПоШтрихкодуРасширеннаяПодсказка" id="141"/>
 									</Button>
 								</ChildItems>
 							</AutoCommandBar>
@@ -680,6 +692,27 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПечатьУКД</Action>
+		</Command>
+		<Command name="ПоискПоШтрихкоду" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поиск по штрихкоду</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поиск по штрихкоду (F7)</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>F7</Shortcut>
+			<Picture>
+				<xr:Ref>CommonPicture.НовыйПоШтрихкоду</xr:Ref>
+				<xr:LoadTransparent>false</xr:LoadTransparent>
+			</Picture>
+			<Action>ПоискПоШтрихкодуВыполнить</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
 		</Command>
 	</Commands>
 </Form>
