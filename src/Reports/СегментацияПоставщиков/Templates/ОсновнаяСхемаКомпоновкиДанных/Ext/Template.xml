@@ -622,7 +622,8 @@
 	(ЗаказыПоставщикамОбороты.СуммаРеглПриход / ЗаказыПоставщикамОбороты.КоличествоПриход * ЕСТЬNULL(ПриемкиТоваровОбороты.КоличествоНедостачаОборот, 0)) КАК СуммаНедостач,
 	(ЕСТЬNULL(ПриемкиТоваровОбороты.КоличествоНедостачаОборот, 0)) КАК КоличествоНедостач,
 	(ЕСТЬNULL(ПриемкиТоваровОбороты.КоличествоБракОборот, 0)) КАК КоличествоБрака,
-	(ЗаказыПоставщикамОбороты.СуммаРеглПриход / ЗаказыПоставщикамОбороты.КоличествоПриход * ЕСТЬNULL(ПриемкиТоваровОбороты.КоличествоБракОборот, 0)) КАК СуммаБрака}
+	(ЗаказыПоставщикамОбороты.СуммаРеглПриход / ЗаказыПоставщикамОбороты.КоличествоПриход * ЕСТЬNULL(ПриемкиТоваровОбороты.КоличествоБракОборот, 0)) КАК СуммаБрака,
+	ЗаказыПоставщикамОбороты.СтрокаЗаявки.ПрайсПоставщика.* КАК ПрайсПоставщика}
 ;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -1817,6 +1818,25 @@
 				<dcsset:userSettingID>b5af3636-4a02-4a63-897d-cc5077661e87</dcsset:userSettingID>
 			</dcsset:selection>
 			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Поставщик</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>3fb25dac-0827-4eef-ae1f-f146142a810a</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Менеджер</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>416d6e09-8963-4720-aa27-03d811a0ddb3</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ПрайсПоставщика.Код</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:string"/>
+					<dcsset:userSettingID>30faf651-b463-48da-9a32-6dc2f8a18e80</dcsset:userSettingID>
+				</dcsset:item>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>72f0dc19-88f5-45fe-a428-a34210b68eaa</dcsset:userSettingID>
 			</dcsset:filter>
