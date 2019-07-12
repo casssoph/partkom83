@@ -4,6 +4,7 @@
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="BeforeWrite">ПередЗаписью</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
@@ -45,6 +46,9 @@
 			<EditMode>EnterOnInput</EditMode>
 			<ContextMenu name="КонтрагентКонтекстноеМеню" id="14"/>
 			<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="15"/>
+			<Events>
+				<Event name="OnChange">КонтрагентПриИзменении</Event>
+			</Events>
 		</InputField>
 		<UsualGroup name="ГруппаВнешниеКлиенты" id="142">
 			<Title>
@@ -198,6 +202,9 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ContextMenu name="СобственныеОрганизацииРазрешенаПокупкаОрганизацияКонтекстноеМеню" id="178"/>
 											<ExtendedTooltip name="СобственныеОрганизацииРазрешенаПокупкаОрганизацияРасширеннаяПодсказка" id="179"/>
+											<Events>
+												<Event name="OnChange">СобственныеОрганизацииРазрешенаПокупкаОрганизацияПриИзменении</Event>
+											</Events>
 										</InputField>
 										<InputField name="СобственныеОрганизацииРазрешенаПокупкаДоговорКонтрагента" id="189">
 											<DataPath>Объект.СобственныеОрганизацииРазрешенаПокупка.ДоговорКонтрагента</DataPath>
@@ -286,6 +293,65 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<SavedData>true</SavedData>
+			<Columns>
+				<AdditionalColumns table="Объект.СобственныеОрганизацииРазрешенаПокупка">
+					<Column name="ДоговорКонтрагентаВладелец" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Договор контрагента владелец</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ДоговорКонтрагентаОрганизация" id="2">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Договор контрагента организация</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ДоговорКонтрагентаВозвратВладелец" id="3">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Договор контрагента возврат владелец</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+						</Type>
+					</Column>
+					<Column name="ДоговорКонтрагентаВозвратОрганизация" id="4">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Договор контрагента возврат организация</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+						</Type>
+					</Column>
+					<Column name="КонтрагентПродавец" id="5">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Контрагент продавец</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+			</Columns>
 		</Attribute>
 		<Attribute name="РазрешитьЗапись" id="2">
 			<Title>
@@ -298,6 +364,64 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СобственныеОрганизацииРазрешенаПокупкаДоговорКонтрагента</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.Контрагент</dcsset:left>
+							<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:Field">Объект.СобственныеОрганизацииРазрешенаПокупка.ДоговорКонтрагентаВладелец</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.СобственныеОрганизацииРазрешенаПокупка.Организация</dcsset:left>
+							<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:Field">Объект.СобственныеОрганизацииРазрешенаПокупка.ДоговорКонтрагентаОрганизация</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Salmon</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СобственныеОрганизацииРазрешенаПокупкаДоговорКонтрагентаВозврат</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.СобственныеОрганизацииРазрешенаПокупка.КонтрагентПродавец</dcsset:left>
+							<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:Field">Объект.СобственныеОрганизацииРазрешенаПокупка.ДоговорКонтрагентаВозвратВладелец</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.СобственныеОрганизацииРазрешенаПокупка.ДоговорКонтрагентаВозвратОрганизация</dcsset:left>
+							<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:Field">Объект.Владелец</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Salmon</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
 		<Command name="ПараметрыПолитики" id="1">
