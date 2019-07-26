@@ -341,6 +341,10 @@
 		<property name="НомерТекущейЗаявкиАукциона" type="xs:int"/>
 		<property name="КоличествоЗаявокВАукционе" type="xs:int"/>
 		<property xmlns:d3p1="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" name="items" type="d3p1:Документы.ЗаявкаПокупателя.Товары" lowerBound="1" upperBound="1"/>
+		<property name="ФлагСамовывоз" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="СамовывозИмя" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="СамовывозТелефон" type="xs:string" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="СамовывозСклад" type="d3p1:UUID" lowerBound="0" nillable="true"/>
 	</objectType>
 	<objectType name="Документы.ЗаявкаПокупателя.Загрузка" ordered="false">
 		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/core" name="Ссылка" type="d3p1:UUID"/>

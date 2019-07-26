@@ -364,6 +364,19 @@
 		</Type>
 		<IsFolder>false</IsFolder>
 	</Item>
+	<Item id="66afb454-9a06-4e65-ac73-e6474c8782db">
+		<Name>СамовывозИмя</Name>
+		<Code>000000050</Code>
+		<Description>Имя клиента для самовывоза</Description>
+		<Type>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>50</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</Type>
+		<IsFolder>false</IsFolder>
+	</Item>
 	<Item id="14a6d31c-d61c-49b9-8316-9905981bfc77">
 		<Name>КлиентскаяПрограмма</Name>
 		<Code>000000032</Code>
@@ -472,6 +485,15 @@
 		</Type>
 		<IsFolder>false</IsFolder>
 	</Item>
+	<Item id="deacfb2f-3d5f-4001-8888-7ac006a68c53">
+		<Name>СамовывозСклад</Name>
+		<Code>000000052</Code>
+		<Description>Склад самовывоза</Description>
+		<Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Склады</v8:Type>
+		</Type>
+		<IsFolder>false</IsFolder>
+	</Item>
 	<Item id="824c930e-1493-4d20-8b76-63556205121d">
 		<Name>СпособОбновленияПрайсЛистаПоставщика</Name>
 		<Code>000000009</Code>
@@ -492,6 +514,19 @@
 				<v8:FractionDigits>0</v8:FractionDigits>
 				<v8:AllowedSign>Nonnegative</v8:AllowedSign>
 			</v8:NumberQualifiers>
+		</Type>
+		<IsFolder>false</IsFolder>
+	</Item>
+	<Item id="2bf715b5-1062-4c09-8284-d35510510fc6">
+		<Name>СамовывозТелефон</Name>
+		<Code>000000051</Code>
+		<Description>Телефон для самовывоза</Description>
+		<Type>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>50</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
 		</Type>
 		<IsFolder>false</IsFolder>
 	</Item>
