@@ -264,7 +264,9 @@
 	ДокументВозвратТоваровОтПокупателя.ДатаВходящегоДокумента,
 	ДокументВозвратТоваровОтПокупателя.ДатаВходящегоДокументаСФ,
 	ДокументВозвратТоваровОтПокупателя.НомерВходящегоДокумента,
-	ДокументВозвратТоваровОтПокупателя.НомерВходящегоДокументаСФ
+	ДокументВозвратТоваровОтПокупателя.НомерВходящегоДокументаСФ,
+	ДокументВозвратТоваровОтПокупателя.Проведен,
+	ДокументВозвратТоваровОтПокупателя.ПометкаУдаления
 ИЗ
 	Документ.ВозвратТоваровОтПокупателя КАК ДокументВозвратТоваровОтПокупателя
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.МенеджерыТорговыхТочек.СрезПоследних(, ВидМенеджера = ЗНАЧЕНИЕ(Перечисление.ВидыМенеджеров.Продажи)) КАК МенеджерыТорговыхТочекСрезПоследних
@@ -273,6 +275,20 @@
 				<MainTable>Document.ВозвратТоваровОтПокупателя</MainTable>
 				<ListSettings>
 					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Проведен</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+							<dcsset:userSettingID>ef8e79f4-a4bf-4d6a-add9-a46e88ccdcc9</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">ПометкаУдаления</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+							<dcsset:userSettingID>6864839c-f392-41d3-b4c8-b37cdb24d7d3</dcsset:userSettingID>
+						</dcsset:item>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
 						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
 					</dcsset:filter>
