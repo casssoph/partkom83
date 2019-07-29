@@ -371,11 +371,13 @@
 		КОГДА ДокументПоступлениеТоваровУслуг.СтатусДокумента = ЗНАЧЕНИЕ(Справочник.СтатусыДокументов.ПоступлениеТоваровРазмещен)
 			ТОГДА 16
 	КОНЕЦ КАК Картинка,
-		ЕСТЬNULL(ВложенныйЗапрос1.ПризнакПроверен, ЛОЖЬ) КАК Проверен,
+	ЕСТЬNULL(ВложенныйЗапрос1.ПризнакПроверен, ЛОЖЬ) КАК Проверен,
 	ДокументПоступлениеТоваровУслуг.ДокументОснование,
 	ДокументПоступлениеТоваровУслуг.Комментарий,
 	ДокументПоступлениеТоваровУслуг.НомерВходящегоДокументаСФ,
-	ДокументПоступлениеТоваровУслуг.ДатаВходящегоДокументаСФ
+	ДокументПоступлениеТоваровУслуг.ДатаВходящегоДокументаСФ,
+	ДокументПоступлениеТоваровУслуг.Проведен,
+	ДокументПоступлениеТоваровУслуг.ПометкаУдаления
 ИЗ
 	Документ.ПоступлениеТоваровУслуг КАК ДокументПоступлениеТоваровУслуг
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.МенеджерыТорговыхТочек.СрезПоследних(, ВидМенеджера = ЗНАЧЕНИЕ(Перечисление.ВидыМенеджеров.Снабжения)) КАК МенеджерыТорговыхТочекСрезПоследних
@@ -408,6 +410,20 @@
 							<dcsset:use>false</dcsset:use>
 							<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
 							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">Проведен</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+							<dcsset:userSettingID>72bda5c1-5cd8-412e-adbb-3aced3f30850</dcsset:userSettingID>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:left xsi:type="dcscor:Field">ПометкаУдаления</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+							<dcsset:userSettingID>1b831d1e-3833-4b6c-86fe-9d007c13bdd6</dcsset:userSettingID>
 						</dcsset:item>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
 						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
