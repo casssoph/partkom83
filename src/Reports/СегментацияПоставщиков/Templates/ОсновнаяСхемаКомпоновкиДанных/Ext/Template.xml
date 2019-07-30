@@ -167,16 +167,6 @@
 			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>ЗакрытоВсегоШт</dataPath>
-			<field>ЗакрытоВсегоШт</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Закрыто всего шт</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>КоличествоБрака</dataPath>
 			<field>КоличествоБрака</field>
 			<title xsi:type="v8:LocalStringType">
@@ -209,16 +199,6 @@
 			</role>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>ЗакрытоВсегоРуб</dataPath>
-			<field>ЗакрытоВсегоРуб</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Закрыто всего руб</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>Поставщик</dataPath>
 			<field>Поставщик</field>
 			<title xsi:type="v8:LocalStringType">
@@ -227,6 +207,9 @@
 					<v8:content>Поставщик</v8:content>
 				</v8:item>
 			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Контрагенты</v8:Type>
+			</valueType>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>СуммаОтказовПоставщика</dataPath>
@@ -437,6 +420,26 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтгруженоВсегоРуб</dataPath>
+			<field>ОтгруженоВсегоРуб</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отгружено всего руб</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтгруженоВсегоШт</dataPath>
+			<field>ОтгруженоВсегоШт</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отгружено всего шт</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	ЗаказыПоставщикамОбороты.СтрокаЗаявки КАК СтрокаЗаявки,
@@ -454,14 +457,16 @@
 	ЗаказыПоставщикамОбороты.СуммаРеглПриход КАК ЗаказаноВсегоРуб,
 	ВЫБОР
 		КОГДА ЗаказыПоставщикамОбороты.СтрокаЗаявки.УдалитьСостояниеЗаказа = ЗНАЧЕНИЕ(Справочник.СтатусыДокументов.ЗаказПоставщикуЗакрыт)
+				И ЗаказыПоставщикамОбороты.Регистратор ССЫЛКА Документ.ПоступлениеТоваровУслуг
 			ТОГДА ЗаказыПоставщикамОбороты.КоличествоРасход
 		ИНАЧЕ 0
-	КОНЕЦ КАК ЗакрытоВсегоШт,
+	КОНЕЦ КАК ОтгруженоВсегоШт,
 	ВЫБОР
 		КОГДА ЗаказыПоставщикамОбороты.СтрокаЗаявки.УдалитьСостояниеЗаказа = ЗНАЧЕНИЕ(Справочник.СтатусыДокументов.ЗаказПоставщикуЗакрыт)
+				И ЗаказыПоставщикамОбороты.Регистратор ССЫЛКА Документ.ПоступлениеТоваровУслуг
 			ТОГДА ЗаказыПоставщикамОбороты.СуммаРеглРасход
 		ИНАЧЕ 0
-	КОНЕЦ КАК ЗакрытоВсегоРуб,
+	КОНЕЦ КАК ОтгруженоВсегоРуб,
 	ВЫБОР
 		КОГДА ЗаказыПоставщикамОбороты.СтрокаЗаявки.УдалитьСостояниеЗаказа = ЗНАЧЕНИЕ(Справочник.СтатусыДокументов.ЗаказПоставщикуЗакрыт)
 				И ЗаказыПоставщикамОбороты.СтрокаЗаявки.ТипПоставки = ЗНАЧЕНИЕ(Перечисление.ТипПоставки.ПополнениеСклада)
@@ -534,8 +539,8 @@
 	ПериодГод,
 	ЗаказаноВсегоШТ,
 	ЗаказаноВсегоРуб,
-	ЗакрытоВсегоШт,
-	ЗакрытоВсегоРуб,
+	ОтгруженоВсегоШт,
+	ОтгруженоВсегоРуб,
 	ЗакупкаНаСтокРуб,
 	ЗакупкаНаСтокШт,
 	ЗакупкаДляКлиентовРуб,
@@ -562,6 +567,7 @@
 		ПО ЗаказыПоставщикамОбороты.СтрокаЗаявки = ПриемкиТоваровОбороты.СтрокаЗаявки
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ОтказыПоЗаявкам.Обороты({(&amp;НачалоПериода)}, {(&amp;ОкончаниеПериода)}, Авто, ПричинаОтказа.ВидОтказа = ЗНАЧЕНИЕ(Справочник.ВидыОтказов.ОтказПоставщика)) КАК ОтказыПоЗаявкамОбороты
 		ПО ЗаказыПоставщикамОбороты.СтрокаЗаявки = ОтказыПоЗаявкамОбороты.СтрокаЗаявки
+			И ЗаказыПоставщикамОбороты.Регистратор = ОтказыПоЗаявкамОбороты.Регистратор
 {ГДЕ
 	ЗаказыПоставщикамОбороты.СтрокаЗаявки.*,
 	ЗаказыПоставщикамОбороты.ТорговаяТочка.*,
@@ -580,12 +586,12 @@
 			КОГДА ЗаказыПоставщикамОбороты.СтрокаЗаявки.УдалитьСостояниеЗаказа = ЗНАЧЕНИЕ(Справочник.СтатусыДокументов.ЗаказПоставщикуЗакрыт)
 				ТОГДА ЗаказыПоставщикамОбороты.КоличествоРасход
 			ИНАЧЕ 0
-		КОНЕЦ) КАК ЗакрытоВсегоШт,
+		КОНЕЦ) КАК ОтгруженоВсегоШт,
 	(ВЫБОР
 			КОГДА ЗаказыПоставщикамОбороты.СтрокаЗаявки.УдалитьСостояниеЗаказа = ЗНАЧЕНИЕ(Справочник.СтатусыДокументов.ЗаказПоставщикуЗакрыт)
 				ТОГДА ЗаказыПоставщикамОбороты.СуммаРеглРасход
 			ИНАЧЕ 0
-		КОНЕЦ) КАК ЗакрытоВсегоРуб,
+		КОНЕЦ) КАК ОтгруженоВсегоРуб,
 	(ВЫБОР
 			КОГДА ЗаказыПоставщикамОбороты.СтрокаЗаявки.УдалитьСостояниеЗаказа = ЗНАЧЕНИЕ(Справочник.СтатусыДокументов.ЗаказПоставщикуЗакрыт)
 					И ЗаказыПоставщикамОбороты.СтрокаЗаявки.ТипПоставки = ЗНАЧЕНИЕ(Перечисление.ТипПоставки.ПополнениеСклада)
@@ -633,10 +639,9 @@
 ПОМЕСТИТЬ ВТ_датыПриемки
 ИЗ
 	ВТ_Заказы КАК ВТ_Заказы
-		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрНакопления.РазмещенияСтрокЗаказов КАК РазмещенияСтрокЗаказов
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.РазмещенияСтрокЗаказов КАК РазмещенияСтрокЗаказов
 		ПО ВТ_Заказы.СтрокаЗаявки = РазмещенияСтрокЗаказов.СтрокаЗаявки
-ГДЕ
-	РазмещенияСтрокЗаказов.Регистратор ССЫЛКА Документ.ПоступлениеТоваровУслуг
+			И (РазмещенияСтрокЗаказов.Регистратор ССЫЛКА Документ.ПоступлениеТоваровУслуг)
 
 СГРУППИРОВАТЬ ПО
 	ВТ_Заказы.СтрокаЗаявки
@@ -657,8 +662,8 @@
 	ВложенныйЗапрос.ПериодГод КАК ПериодГод,
 	СУММА(ВложенныйЗапрос.ЗаказаноВсегоШТ) КАК ЗаказаноВсегоШТ,
 	СУММА(ВложенныйЗапрос.ЗаказаноВсегоРуб) КАК ЗаказаноВсегоРуб,
-	СУММА(ВложенныйЗапрос.ЗакрытоВсегоШт) КАК ЗакрытоВсегоШт,
-	СУММА(ВложенныйЗапрос.ЗакрытоВсегоРуб) КАК ЗакрытоВсегоРуб,
+	СУММА(ВложенныйЗапрос.ОтгруженоВсегоШт) КАК ОтгруженоВсегоШт,
+	СУММА(ВложенныйЗапрос.ОтгруженоВсегоРуб) КАК ОтгруженоВсегоРуб,
 	СУММА(ВложенныйЗапрос.ЗакупкаНаСтокРуб) КАК ЗакупкаНаСтокРуб,
 	СУММА(ВложенныйЗапрос.ЗакупкаНаСтокШт) КАК ЗакупкаНаСтокШт,
 	СУММА(ВложенныйЗапрос.ЗакупкаДляКлиентовРуб) КАК ЗакупкаДляКлиентовРуб,
@@ -693,8 +698,8 @@
 	ПериодГод,
 	ЗаказаноВсегоШТ,
 	ЗаказаноВсегоРуб,
-	ЗакрытоВсегоШт,
-	ЗакрытоВсегоРуб,
+	ОтгруженоВсегоШт,
+	ОтгруженоВсегоРуб,
 	ЗакупкаНаСтокРуб,
 	ЗакупкаНаСтокШт,
 	ЗакупкаДляКлиентовРуб,
@@ -730,8 +735,8 @@
 		ВТ_Заказы.ПериодГод КАК ПериодГод,
 		ВТ_Заказы.ЗаказаноВсегоШТ КАК ЗаказаноВсегоШТ,
 		ВТ_Заказы.ЗаказаноВсегоРуб КАК ЗаказаноВсегоРуб,
-		ВТ_Заказы.ЗакрытоВсегоШт КАК ЗакрытоВсегоШт,
-		ВТ_Заказы.ЗакрытоВсегоРуб КАК ЗакрытоВсегоРуб,
+		ВТ_Заказы.ОтгруженоВсегоШт КАК ОтгруженоВсегоШт,
+		ВТ_Заказы.ОтгруженоВсегоРуб КАК ОтгруженоВсегоРуб,
 		ВТ_Заказы.ЗакупкаНаСтокРуб КАК ЗакупкаНаСтокРуб,
 		ВТ_Заказы.ЗакупкаНаСтокШт КАК ЗакупкаНаСтокШт,
 		ВТ_Заказы.ЗакупкаДляКлиентовРуб КАК ЗакупкаДляКлиентовРуб,
@@ -744,25 +749,25 @@
 		ВЫБОР
 			КОГДА ВТ_Заказы.СтрокаЗаявки.УдалитьСостояниеЗаказа = ЗНАЧЕНИЕ(Справочник.СтатусыДокументов.ЗаказПоставщикуЗакрыт)
 					И ВТ_датыПриемки.ДатаПриемки &lt;= ВТ_датыПриемки.СтрокаЗаявки.СрокГарантированныйЗаказа
-				ТОГДА ВТ_Заказы.ЗакрытоВсегоРуб
+				ТОГДА ВТ_Заказы.ОтгруженоВсегоРуб
 			ИНАЧЕ 0
 		КОНЕЦ КАК ЗаказовПоГарСрокуРуб,
 		ВЫБОР
 			КОГДА ВТ_Заказы.СтрокаЗаявки.УдалитьСостояниеЗаказа = ЗНАЧЕНИЕ(Справочник.СтатусыДокументов.ЗаказПоставщикуЗакрыт)
 					И ВТ_датыПриемки.ДатаПриемки &lt;= ВТ_датыПриемки.СтрокаЗаявки.СрокГарантированныйЗаказа
-				ТОГДА ВТ_Заказы.ЗакрытоВсегоШт
+				ТОГДА ВТ_Заказы.ОтгруженоВсегоШт
 			ИНАЧЕ 0
 		КОНЕЦ КАК ЗаказовПоГарСрокуШт,
 		ВЫБОР
 			КОГДА ВТ_Заказы.СтрокаЗаявки.УдалитьСостояниеЗаказа = ЗНАЧЕНИЕ(Справочник.СтатусыДокументов.ЗаказПоставщикуЗакрыт)
 					И ВТ_датыПриемки.ДатаПриемки &gt; ВТ_датыПриемки.СтрокаЗаявки.СрокГарантированныйЗаказа
-				ТОГДА ВТ_Заказы.ЗакрытоВсегоРуб
+				ТОГДА ВТ_Заказы.ОтгруженоВсегоРуб
 			ИНАЧЕ 0
 		КОНЕЦ КАК НарушенныхЗаказовРуб,
 		ВЫБОР
 			КОГДА ВТ_Заказы.СтрокаЗаявки.УдалитьСостояниеЗаказа = ЗНАЧЕНИЕ(Справочник.СтатусыДокументов.ЗаказПоставщикуЗакрыт)
 					И ВТ_датыПриемки.ДатаПриемки &gt; ВТ_датыПриемки.СтрокаЗаявки.СрокГарантированныйЗаказа
-				ТОГДА ВТ_Заказы.ЗакрытоВсегоШт
+				ТОГДА ВТ_Заказы.ОтгруженоВсегоШт
 			ИНАЧЕ 0
 		КОНЕЦ КАК НарушенныхЗаказовШт,
 		ВТ_Заказы.ОтказыПоставщикаРуб КАК ОтказыПоставщикаРуб,
@@ -797,7 +802,7 @@
 
 ИМЕЮЩИЕ
 	(НЕ СУММА(ВложенныйЗапрос.ЗаказаноВсегоРуб) = 0
-		ИЛИ НЕ СУММА(ВложенныйЗапрос.ЗакрытоВсегоРуб) = 0)</query>
+		или НЕ СУММА(ВложенныйЗапрос.ОтгруженоВсегоРуб) + СУММА(ВложенныйЗапрос.ОтказыПоставщикаРуб)= 0)</query>
 		<autoFillFields>false</autoFillFields>
 	</dataSet>
 	<dataSet xsi:type="DataSetQuery">
@@ -1144,31 +1149,31 @@
 	</calculatedField>
 	<totalField>
 		<dataPath>ПроцентОтказовШТ</dataPath>
-		<expression>Выбор когда Сумма(ЗакрытоВсегоШТ)= 0 тогда 0 иначе Сумма(ОтказовПоставщикаШт)/Сумма(ЗакрытоВсегоШТ) конец</expression>
+		<expression>Выбор когда Сумма(ЗаказаноВсегоШТ)= 0 тогда 0 иначе Сумма(ОтказовПоставщикаШт)/Сумма(ЗаказаноВсегоШТ) конец*100</expression>
 	</totalField>
 	<totalField>
 		<dataPath>ПроцентОтказовРуб</dataPath>
-		<expression>Выбор когда Сумма(ЗакрытоВсегоРуб) = 0 тогда 0 иначе Сумма(ОтказыПоставщикаРуб)/Сумма(ЗакрытоВсегоРуб) конец</expression>
+		<expression>Выбор когда Сумма(ЗаказаноВсегоРуб) = 0 тогда 0 иначе Сумма(ОтказыПоставщикаРуб)/Сумма(ЗаказаноВсегоРуб) конец*100</expression>
 	</totalField>
 	<totalField>
 		<dataPath>ПроцентНедостачШт</dataPath>
-		<expression>Выбор когда Сумма(ЗакрытоВсегоШт) = 0 тогда 0 иначе Сумма(НедостачиШт)/Сумма(ЗакрытоВсегоШт) конец</expression>
+		<expression>Выбор когда Сумма(ЗаказаноВсегоШТ) = 0 тогда 0 иначе Сумма(НедостачиШт)/Сумма(ЗаказаноВсегоШТ) конец*100</expression>
 	</totalField>
 	<totalField>
 		<dataPath>ПроцентНедостачРуб</dataPath>
-		<expression>Выбор когда Сумма(ЗакрытоВсегоРуб) = 0 тогда 0 иначе Сумма(НедостачиРуб)/Сумма(ЗакрытоВсегоРуб) конец</expression>
+		<expression>Выбор когда Сумма(ЗаказаноВсегоРуб) = 0 тогда 0 иначе Сумма(НедостачиРуб)/Сумма(ЗаказаноВсегоРуб) конец*100</expression>
 	</totalField>
 	<totalField>
 		<dataPath>ПроцентБракаРуб</dataPath>
-		<expression>Выбор когда Сумма(ЗаказаноВсегоРуб) = 0 тогда 0 иначе Сумма(БракРуб)/Сумма(ЗаказаноВсегоРуб) конец </expression>
+		<expression>Выбор когда Сумма(ЗаказаноВсегоРуб) = 0 тогда 0 иначе Сумма(БракРуб)/Сумма(ЗаказаноВсегоРуб) конец *100</expression>
 	</totalField>
 	<totalField>
 		<dataPath>ПроцентБракаШт</dataPath>
-		<expression>Выбор когда Сумма(ЗакрытоВсегоШт) = 0 тогда 0 иначе Сумма(БракШт)/Сумма(ЗакрытоВсегоШт) конец </expression>
+		<expression>Выбор когда Сумма(ЗаказаноВсегоШТ) = 0 тогда 0 иначе Сумма(БракШт)/Сумма(ЗаказаноВсегоШТ) конец *100</expression>
 	</totalField>
 	<totalField>
 		<dataPath>ГруппаПоставщика</dataPath>
-		<expression>КлассификацияABC(Выбор когда Сумма(ЗаказаноВсегоРуб)=0 тогда 0 иначе Сумма(ЗакрытоВсегоРуб)/Сумма(ЗаказаноВсегоРуб)  конец ,4,"60,75,90",)</expression>
+		<expression>КлассификацияABC(Выбор когда Сумма(ЗаказаноВсегоРуб)=0 тогда 0 иначе Сумма(ОтгруженоВсегоРуб)/Сумма(ЗаказаноВсегоРуб)  конец ,4,"60,75,90",)</expression>
 		<group>Поставщик</group>
 	</totalField>
 	<totalField>
@@ -1180,14 +1185,6 @@
 		<expression>Сумма(ЗаказаноВсегоШТ)</expression>
 	</totalField>
 	<totalField>
-		<dataPath>ЗакрытоВсегоРуб</dataPath>
-		<expression>Сумма(ЗакрытоВсегоРуб)</expression>
-	</totalField>
-	<totalField>
-		<dataPath>ЗакрытоВсегоШт</dataPath>
-		<expression>Сумма(ЗакрытоВсегоШт)</expression>
-	</totalField>
-	<totalField>
 		<dataPath>ЗакупкаНаСтокРуб</dataPath>
 		<expression>Сумма(ЗакупкаНаСтокРуб)</expression>
 	</totalField>
@@ -1197,11 +1194,11 @@
 	</totalField>
 	<totalField>
 		<dataPath>ПроцентНарушенийПоСроку</dataPath>
-		<expression>Выбор когда Сумма(ЗакрытоВсегоРуб) = 0 тогда 0 иначе Сумма(НарушенныхЗаказовРуб)/Сумма(ЗакрытоВсегоРуб) конец</expression>
+		<expression>Выбор когда Сумма(ЗаказаноВсегоРуб) = 0 тогда 0 иначе Сумма(НарушенныхЗаказовРуб)/Сумма(ЗаказаноВсегоРуб) конец*100</expression>
 	</totalField>
 	<totalField>
 		<dataPath>ПроцентОбщейНедогрузки</dataPath>
-		<expression>Выбор когда Сумма(ЗаказаноВсегоРуб)=0 тогда 0 иначе Сумма(ЗакрытоВсегоРуб)/Сумма(ЗаказаноВсегоРуб)  конец</expression>
+		<expression>Выбор когда Сумма(ЗаказаноВсегоРуб)=0 тогда 0 иначе Сумма(ОтгруженоВсегоРуб)/Сумма(ЗаказаноВсегоРуб)  конец*100</expression>
 	</totalField>
 	<totalField>
 		<dataPath>ЗакупкаДляКлиентовРуб</dataPath>
@@ -1257,7 +1254,15 @@
 	</totalField>
 	<totalField>
 		<dataPath>ПроцентОтказовПослеГарСрока</dataPath>
-		<expression>Выбор когда Сумма(ЗакрытоВсегоШт) = 0 тогда 0 иначе Сумма(ОтказыПослеГарСрокаРуб)/Сумма(ЗакрытоВсегоШт) конец </expression>
+		<expression>Выбор когда Сумма(ОтгруженоВсегоШт) = 0 тогда 0 иначе Сумма(ОтказыПослеГарСрокаРуб)/Сумма(ОтгруженоВсегоШт) конец *100</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтгруженоВсегоРуб</dataPath>
+		<expression>Сумма(ОтгруженоВсегоРуб)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОтгруженоВсегоШт</dataPath>
+		<expression>Сумма(ОтгруженоВсегоШт)</expression>
 	</totalField>
 	<parameter>
 		<name>НачалоПериода</name>
@@ -1388,7 +1393,7 @@
 		</template>
 		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
 			<dcsat:name>ГруппаПоставщика</dcsat:name>
-			<dcsat:expression>Выбор когда ГруппаПоставщика=1 тогда "A"  когда ГруппаПоставщика=2 тогда "B" когда ГруппаПоставщика=1 тогда "C" когда ГруппаПоставщика=4 тогда "D" конец</dcsat:expression>
+			<dcsat:expression>Выбор когда ГруппаПоставщика=1 тогда "A"  когда ГруппаПоставщика=2 тогда "B" когда ГруппаПоставщика=3 тогда "C" когда ГруппаПоставщика=4 тогда "D" конец</dcsat:expression>
 		</parameter>
 	</template>
 	<fieldTemplate>
@@ -1428,7 +1433,7 @@
 					</dcsset:lwsTitle>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>ПрайсПоставщика</dcsset:field>
+					<dcsset:field>ПрайсПоставщика.Наименование</dcsset:field>
 					<dcsset:lwsTitle>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -1470,6 +1475,9 @@
 					</dcsset:lwsTitle>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДокументДвижения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>ГруппаПоставщика</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
@@ -1497,17 +1505,17 @@
 							</v8:item>
 						</dcsset:lwsTitle>
 					</dcsset:item>
-					<dcsset:placement>Vertically</dcsset:placement>
+					<dcsset:placement>Horizontally</dcsset:placement>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
 					<dcsset:lwsTitle>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Закрыто</v8:content>
+							<v8:content>Отгружено</v8:content>
 						</v8:item>
 					</dcsset:lwsTitle>
 					<dcsset:item xsi:type="dcsset:SelectedItemField">
-						<dcsset:field>ЗакрытоВсегоРуб</dcsset:field>
+						<dcsset:field>ОтгруженоВсегоРуб</dcsset:field>
 						<dcsset:lwsTitle>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -1516,7 +1524,7 @@
 						</dcsset:lwsTitle>
 					</dcsset:item>
 					<dcsset:item xsi:type="dcsset:SelectedItemField">
-						<dcsset:field>ЗакрытоВсегоШт</dcsset:field>
+						<dcsset:field>ОтгруженоВсегоШт</dcsset:field>
 						<dcsset:lwsTitle>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -1524,7 +1532,7 @@
 							</v8:item>
 						</dcsset:lwsTitle>
 					</dcsset:item>
-					<dcsset:placement>Vertically</dcsset:placement>
+					<dcsset:placement>Horizontally</dcsset:placement>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
 					<dcsset:lwsTitle>
@@ -1551,7 +1559,7 @@
 							</v8:item>
 						</dcsset:lwsTitle>
 					</dcsset:item>
-					<dcsset:placement>Vertically</dcsset:placement>
+					<dcsset:placement>Horizontally</dcsset:placement>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
 					<dcsset:lwsTitle>
@@ -1578,7 +1586,7 @@
 							</v8:item>
 						</dcsset:lwsTitle>
 					</dcsset:item>
-					<dcsset:placement>Vertically</dcsset:placement>
+					<dcsset:placement>Horizontally</dcsset:placement>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
 					<dcsset:lwsTitle>
@@ -1605,7 +1613,7 @@
 							</v8:item>
 						</dcsset:lwsTitle>
 					</dcsset:item>
-					<dcsset:placement>Vertically</dcsset:placement>
+					<dcsset:placement>Horizontally</dcsset:placement>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
 					<dcsset:lwsTitle>
@@ -1632,7 +1640,7 @@
 							</v8:item>
 						</dcsset:lwsTitle>
 					</dcsset:item>
-					<dcsset:placement>Vertically</dcsset:placement>
+					<dcsset:placement>Horizontally</dcsset:placement>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
 					<dcsset:lwsTitle>
@@ -1659,7 +1667,7 @@
 							</v8:item>
 						</dcsset:lwsTitle>
 					</dcsset:item>
-					<dcsset:placement>Vertically</dcsset:placement>
+					<dcsset:placement>Horizontally</dcsset:placement>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
 					<dcsset:lwsTitle>
@@ -1686,7 +1694,7 @@
 							</v8:item>
 						</dcsset:lwsTitle>
 					</dcsset:item>
-					<dcsset:placement>Vertically</dcsset:placement>
+					<dcsset:placement>Horizontally</dcsset:placement>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
 					<dcsset:lwsTitle>
@@ -1713,7 +1721,7 @@
 							</v8:item>
 						</dcsset:lwsTitle>
 					</dcsset:item>
-					<dcsset:placement>Vertically</dcsset:placement>
+					<dcsset:placement>Horizontally</dcsset:placement>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
 					<dcsset:lwsTitle>
@@ -1740,7 +1748,7 @@
 							</v8:item>
 						</dcsset:lwsTitle>
 					</dcsset:item>
-					<dcsset:placement>Vertically</dcsset:placement>
+					<dcsset:placement>Horizontally</dcsset:placement>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
 					<dcsset:lwsTitle>
@@ -1767,7 +1775,7 @@
 							</v8:item>
 						</dcsset:lwsTitle>
 					</dcsset:item>
-					<dcsset:placement>Vertically</dcsset:placement>
+					<dcsset:placement>Horizontally</dcsset:placement>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
 					<dcsset:lwsTitle>
@@ -1794,7 +1802,7 @@
 							</v8:item>
 						</dcsset:lwsTitle>
 					</dcsset:item>
-					<dcsset:placement>Vertically</dcsset:placement>
+					<dcsset:placement>Horizontally</dcsset:placement>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>ПроцентНарушенийПоСроку</dcsset:field>
@@ -1808,11 +1816,23 @@
 					</dcsset:lwsTitle>
 					<dcsset:item xsi:type="dcsset:SelectedItemField">
 						<dcsset:field>ОтказыПослеГарСрокаРуб</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Руб.</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
 					</dcsset:item>
 					<dcsset:item xsi:type="dcsset:SelectedItemField">
 						<dcsset:field>ПроцентОтказовПослеГарСрока</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Процент</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
 					</dcsset:item>
-					<dcsset:placement>Vertically</dcsset:placement>
+					<dcsset:placement>Horizontally</dcsset:placement>
 				</dcsset:item>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>b5af3636-4a02-4a63-897d-cc5077661e87</dcsset:userSettingID>
@@ -1822,7 +1842,7 @@
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">Поставщик</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
-					<dcsset:userSettingID>3fb25dac-0827-4eef-ae1f-f146142a810a</dcsset:userSettingID>
+					<dcsset:right xsi:type="xs:string">00000000-0000-0000-0000-000000000000</dcsset:right>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
@@ -1988,6 +2008,48 @@
 					<dcsset:groupItems>
 						<dcsset:item xsi:type="dcsset:GroupItemField">
 							<dcsset:field>ПрайсПоставщика</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Менеджер</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ЗамМенеджера</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ТорговаяТочка</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ДоговорКонтрагента</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ДоставкаДоКлиентаДефектногоТовара</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>БезоговорочныеВозвраты</dcsset:field>
 							<dcsset:groupType>Items</dcsset:groupType>
 							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
