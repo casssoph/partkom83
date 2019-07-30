@@ -401,31 +401,27 @@
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">Поставщик.РаботатьСОкномПоставщика</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
-					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
-					<dcsset:presentation xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Работает с окном поставщика</v8:content>
-						</v8:item>
-					</dcsset:presentation>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
-					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">НеЗаполненныНомерДатаКоррСФ</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
-					<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
-					<dcsset:presentation xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Не заполнены реквизиты "КоррСФНомер" и "КоррСФДата"</v8:content>
-						</v8:item>
-					</dcsset:presentation>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">ПроверенПартком</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">ДокументВозвратаПоставщику.ВидОперации</dcsset:left>
+					<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыОперацийВозвратПоставщику.МФП</dcsset:right>
+					<dcsset:presentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>БезМФП</v8:content>
+						</v8:item>
+					</dcsset:presentation>
 				</dcsset:item>
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>faa405c6-11a8-407d-ad1d-4aa39ee1501d</dcsset:userSettingID>
@@ -450,6 +446,12 @@
 				<dcsset:viewMode>Normal</dcsset:viewMode>
 				<dcsset:userSettingID>fc3f405d-f356-45b0-9062-1ba02d306e69</dcsset:userSettingID>
 			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Separately</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
 			<dcsset:item xsi:type="dcsset:StructureItemGroup">
 				<dcsset:order>
 					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
