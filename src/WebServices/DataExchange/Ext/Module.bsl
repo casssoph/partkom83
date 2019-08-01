@@ -108,6 +108,11 @@
 	Возврат DataExchangeModule.ЗарегистрироватьОтправкуОтгрузочныхДокументовКлиентуПоЗапросуССайта(GUID, Date, EMail);
 	
 КонецФункции
+
+//ХудинВВ XX-2951 01082019
+Функция GetTableByQuery(QueryText, QueryParams, GetUID)
+	Возврат DataExchangeModule.GetTableByQuery(QueryText, QueryParams, GetUID);
+КонецФункции
  
 //ДАННЫЙ МОДУЛЬ ИЗМЕНЯТЬ С ОСТОРОЖНОСТЬЮ, Т.К. ТУТ ОТКЛЮЧЕНА ПРОВЕРКА СИНТАКСИСА
 //ЗДЕСЬ ТОЛЬКО ПЕРЕХОДЫ В ОБЩИЙ МОДУЛЬ DataExchangeModule
